@@ -17,10 +17,6 @@ const ProfileInputContent = ({ placeholder, name }) => {
   const [isNextButton, setIsNextButton] = useRecoilState(nextButtonValidate);
   // 비밀번호 재 확인
 
-  const Validation = (name) => {
-    return;
-  };
-
   // 유효성 검사
   const handleChange = (e) => {
     const value = e.currentTarget.value;
