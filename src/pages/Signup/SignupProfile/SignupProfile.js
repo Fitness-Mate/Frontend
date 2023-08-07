@@ -49,7 +49,7 @@ const SignupProfile = () => {
       </S.SignupTitle>
       <form onSubmit={handleSubmit}>
         <ProfileInput
-          placeholder="이름을 입력해주세요 (3자리 이상 10자리 이하)"
+          placeholder="이름을 입력해주세요 (2자리 이상 10자리 이하)"
           name="username"
         >
           이름

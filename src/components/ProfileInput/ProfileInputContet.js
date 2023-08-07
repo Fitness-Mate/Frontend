@@ -69,12 +69,12 @@ const ProfileInputContent = ({ placeholder, name }) => {
       ) {
         setIsValidateChecked((pre) => ({
           ...pre,
-          password2: [value, true, updatedValidationState[name][2]],
+          [name]: [value, true, updatedValidationState[name][2]],
         }));
       } else {
         setIsValidateChecked((pre) => ({
           ...pre,
-          password2: [value, false, updatedValidationState[name][2]],
+          [name]: [value, false, updatedValidationState[name][2]],
         }));
       }
     }

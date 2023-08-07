@@ -47,6 +47,10 @@ const ProfileInput = ({ placeholder, children, name }) => {
       </S.InputName>
       {/* 체크가 되지 않았을때만 Warning 문구 */}
       <ProfileInputContent placeholder={placeholder} name={name} />
+      {/* 비밀번호 입력창에만 재확인 입력창을 하나 더 추가 */}
+      {children === "비밀번호" && (
+        <ProfileInputContent placeholder="비밀번호 재확인" name="password2" />
+      )}
       {name === "email" && (
         <button
           className="duplicateButton"
@@ -82,11 +86,6 @@ const ProfileInput = ({ placeholder, children, name }) => {
         )
       ) : (
         ""
-      )}
-
-      {/* 비밀번호 입력창에만 재확인 입력창을 하나 더 추가 */}
-      {children === "비밀번호" && (
-        <ProfileInputContent placeholder="비밀번호 재확인" name="password2" />
       )}
     </S.ProfileInputContainer>
   );

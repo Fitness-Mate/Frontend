@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const SignupContainer = styled.div`
   display: flex;
-  padding-top: 62px;
   flex-direction: column;
   align-items: center;
   gap: 48px;
