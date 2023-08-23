@@ -16,7 +16,7 @@ jobs:
       - name: Push changes to Test repo
         run: |
           # Clone Test repo
-          git clone https://github.com/Fitness-Mate/fitmate-testing.git ../Test
+          git clone https://github.com/Fitness-Mate/fitnessmate-frontend.git ../Test
           # Copy Frontend repo contents to Test repo
           cp -r ./* ../Test/
           # CD to Test repo and commit & push changes
@@ -25,4 +25,4 @@ jobs:
           git config user.email "${{ github.actor }}@users.noreply.github.com"
           git add .
           git commit -m "Update from Frontend repo by ${{ github.actor }}"
-          git push https://x-access-token:${{ secrets.fitmate }}@github.com/Fitness-Mate/fitmate-testing.git main
+          git push https://x-access-token:${{ secrets.fitmate }}@github.com/Fitness-Mate/fitnessmate-frontend.git main
