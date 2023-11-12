@@ -120,7 +120,7 @@ export const HomeContainer = styled.div`
 			width: 40px;
 			height: 70px;
 			margin-left: -15px;
-			border: 3px solid #FFFFFF80;
+			border: 3px solid #FFFFFF;
 			border-radius: 50px;
 			box-sizing: border-box;
 			animation: mouseBounce 1s infinite; /* 애니메이션 반복 */
@@ -134,7 +134,7 @@ export const HomeContainer = styled.div`
 			width: 8px;
 			height: 8px;
 			margin-left: -4px;
-			background-color: #FFFFFF80;
+			background-color: #FFFFFF;
 			border-radius: 100%;
 			box-sizing: border-box;
 		}
@@ -146,8 +146,8 @@ export const HomeContainer = styled.div`
 			height: 20px;
 			content: '';
 			margin-left: -10px;
-			border-left: 3px solid #FFFFFF80;
-			border-bottom: 3px solid #FFFFFF80;
+			border-left: 3px solid #FFFFFF;
+			border-bottom: 3px solid #FFFFFF;
 			-webkit-transform: rotate(-45deg);
 			transform: rotate(-45deg);
 			box-sizing: border-box;
