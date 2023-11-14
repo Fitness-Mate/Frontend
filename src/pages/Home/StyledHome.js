@@ -117,10 +117,9 @@ export const HomeContainer = styled.div`
 			position: absolute;
 			top: 0;
 			left: 50%;
-			width: 40px;
+			width: 43px;
 			height: 70px;
-			margin-left: -15px;
-			border: 3px solid #FFFFFF;
+			border: 2px solid #FFFFFF;
 			border-radius: 50px;
 			box-sizing: border-box;
 			animation: mouseBounce 1s infinite; /* 애니메이션 반복 */
@@ -128,12 +127,12 @@ export const HomeContainer = styled.div`
 		}
 		.mouse span::before {
 			position: absolute;
-			top: 2vh;
+			top: 1.3vh;
 			left: 50%;
 			content: '';
-			width: 8px;
-			height: 8px;
-			margin-left: -4px;
+			width: 5px;
+			height: 14px;
+			margin-left: -2.5px;
 			background-color: #FFFFFF;
 			border-radius: 100%;
 			box-sizing: border-box;
@@ -142,10 +141,10 @@ export const HomeContainer = styled.div`
 			position: absolute;
 			bottom: -3vh;
 			left: 50%;
-			width: 20px;
-			height: 20px;
+			width: 15px;
+			height: 15px;
 			content: '';
-			margin-left: -10px;
+			margin-left: -7.5px;
 			border-left: 3px solid #FFFFFF;
 			border-bottom: 3px solid #FFFFFF;
 			-webkit-transform: rotate(-45deg);
