@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { userWorkoutAPI } from "../../../apis/API";
+import { userWorkoutAPI } from "../../../../apis/API";
 import * as S from "./StyledSearchWorkoutDetail";
-import beforebtn from "../../../assets/images/SmallBefore.svg";
+import beforebtn from "../../../../assets/images/SmallBefore.svg";
 import AddWorkoutModal from "./AddWorkoutModal";
 
 
