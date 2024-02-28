@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { userSupplementSingleAPI } from "../../../apis/API";
+import { userSupplementSingleAPI } from "../../../../apis/API";
 import * as S from "./StyledSearchSupplementDetail";
-import beforebtn from "../../../assets/images/SmallBefore.svg";
-import TokenApi from "../../../apis/TokenApi";
+import beforebtn from "../../../../assets/images/SmallBefore.svg";
+import TokenApi from "../../../../apis/TokenApi";
 
 
 

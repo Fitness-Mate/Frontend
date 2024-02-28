@@ -1,15 +1,15 @@
-import * as S from "../../../components/Modal/StyledRecommendAddModal";
-import xbutton from "../../../assets/images/black-xbutton.svg";
+import * as S from "../../../../components/Modal/StyledRecommendAddModal";
+import xbutton from "../../../../assets/images/black-xbutton.svg";
 import { useEffect, useState } from "react";
-import SemiMiddleButton from "../../../components/Button/SemiMiddleButton";
-import SmallFontTextCheckbox from "../../../components/TextCheckbox/SmallFontTextCheckbox";
-import rightarrow from "../../../assets/images/rightarrow.svg";
-import TokenApi from "../../../apis/TokenApi";
-import { ModalBox } from "../../../components/Modal/StyledEmailModal";
-import { getLastError } from "../../../apis/TokenApi";
+import SemiMiddleButton from "../../../../components/Button/SemiMiddleButton";
+import SmallFontTextCheckbox from "../../../../components/TextCheckbox/SmallFontTextCheckbox";
+import rightarrow from "../../../../assets/images/rightarrow.svg";
+import TokenApi from "../../../../apis/TokenApi";
+import { ModalBox } from "../../../../components/Modal/StyledEmailModal";
+import { getLastError } from "../../../../apis/TokenApi";
 
 
-const AddWorkoutModal = ({ setRecommendAddModal, workoutId }) => {
+const GuideModal = ({ setRecommendAddModal, workoutId }) => {
 	// my페이지에서는 저장된 값을 가져옴
 	const [myDivision, setMyDivsion] = useState([]);
 	const [isReady, setIsReady] = useState(false);
@@ -130,4 +130,4 @@ const AddWorkoutModal = ({ setRecommendAddModal, workoutId }) => {
 	);
 };
 
-export default AddWorkoutModal;
+export default GuideModal;
