@@ -26,6 +26,6 @@ jobs:
           cd ../test
           git config user.name "${{ github.actor }}"
           git config user.email "${{ github.actor }}@users.noreply.github.com"
-          git add .
-          git commit -m "Update from Frontend repo by ${{ github.actor }}"
-          git push https://x-access-token:${{ secrets.fitmate }}@github.com/Whoknow77/fitnessmate-frontend.git main
+          # git add .
+          # git commit -m "Update from Frontend repo by ${{ github.actor }}"
+          # git push https://x-access-token:${{ secrets.fitmate }}@github.com/Whoknow77/fitnessmate-frontend.git main
