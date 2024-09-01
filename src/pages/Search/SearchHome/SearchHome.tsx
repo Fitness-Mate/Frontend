@@ -65,7 +65,6 @@ const SearchHome = () => {
         `${pageNum}`,
         request,
       )
-      console.log(workoutRespons)
       if (workoutResponse.data.length) {
         setNoSearch(false)
         setMachineList(workoutResponse.data)
@@ -117,7 +116,6 @@ const SearchHome = () => {
           `${pageNum}`,
           request,
         )
-        console.log(workoutResponse)
         setMachineList(workoutResponse.data)
       } else {
         const request = {

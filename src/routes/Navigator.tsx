@@ -49,7 +49,7 @@ const router = createBrowserRouter([
         ],
       },
       {
-        path: "search/:pageNum/*",
+        path: "search",
         element: <Search />,
       },
       {
