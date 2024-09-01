@@ -23,11 +23,11 @@ export const SearchContainer = styled.div<Props>`
 
 export const SearchInputContent = styled.input`
   &::-webkit-input-placeholder {
-    color: ${theme.Gray50};
+    color: ${theme.Netural500};
   }
   border: none;
   width: 100%;
-  color: ${({ theme }) => theme.Gray50};
+  color: ${({ theme }) => theme.Netural500};
   font-size: 18px;
   font-weight: 500;
 `

@@ -4,7 +4,7 @@ import { useState } from "react"
 import { SearchInput } from "@components/SearchBar/SearchInput"
 import { SearchContainer } from "@components/SearchBar/StyledSearchBar"
 
-import Search_Icon from "@assets/images/Search_Icon.svg"
+// import Search_Icon from "@assets/images/Search_Icon.svg"
 
 // 운동명 / 운동 종목 검색
 const SearchBar = ({ handleSearch, name }) => {

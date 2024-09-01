@@ -1,17 +1,12 @@
-// < 홈 페이지 >
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 import LoginModal from "@components/Modal/LoginModal"
 
-import arrow from "@assets/images/arrow.svg"
-import {
-  default as fourthFirstImg,
-  default as fourthThirdImg,
-} from "@assets/images/fourthFirstImg.png"
-import fourthSecondImg from "@assets/images/fourthSecondImg.png"
+// import arrow from "@assets/images/arrow.svg"
+import fourthFirstImg from "@assets/images/fourthFirstImg.png"
+import fourthThirdImg from "@assets/images/fourthThirdImg.png"
 import homebanner from "@assets/images/homebanner.png"
-import thirdFirstImg from "@assets/images/thirdFirstImg.svg"
 import thirdSecondImg from "@assets/images/thirdSecondImg.png"
 import thirdThirdImg from "@assets/images/thirdThirdImg.png"
 
@@ -27,17 +22,17 @@ export const Home = () => {
     navigate("search/1")
   }
 
-  const handleMyPage = () => {
+  const handleRecommend = () => {
     if (loginState) {
-      navigate("mypage")
+      navigate("recommend")
     } else {
       setIsLoginModal(true)
     }
   }
 
-  const handleRecommend = () => {
+  const handleMyPage = () => {
     if (loginState) {
-      navigate("recommend")
+      navigate("mypage")
     } else {
       setIsLoginModal(true)
     }
@@ -88,7 +83,7 @@ export const Home = () => {
                 <span className="myFitnessBtnText">내 운동 바로 가기</span>
                 <img
                   className="myFitnessBtnImg"
-                  src={arrow}
+                  // src={arrow}
                   alt="보조제 추천 바로 받기 버튼"
                 />
               </button>
@@ -104,7 +99,7 @@ export const Home = () => {
               </S.ThirdContentTitle>
               <img
                 className="thirdFirstImg"
-                src={thirdFirstImg}
+                // src={thirdFirstImg}
               />
             </div>
             <div className="thirdSecondContent">
@@ -156,19 +151,6 @@ export const Home = () => {
             </S.FourthBodyItem>
             <S.FourthBodyItem>
               <div className="itemLogo">
-                <img src={fourthSecondImg} />
-              </div>
-              <div className="itemText">
-                <span className="itemTextTitle">보조제 구매 링크</span>
-                <p className="itemTextContent">
-                  추천/ 검색 보조제의
-                  <br />
-                  구매 링크를 제공해요.
-                </p>
-              </div>
-            </S.FourthBodyItem>
-            <S.FourthBodyItem>
-              <div className="itemLogo">
                 <img src={fourthThirdImg} />
               </div>
               <div className="itemText">
@@ -195,7 +177,7 @@ export const Home = () => {
             <span className="searchBtnText">검색 바로 가기</span>
             <img
               className="searchBtnImg"
-              src={arrow}
+              // src={arrow}
               alt="검색 바로 가기 버튼"
             />
           </button>

@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom"
 
 import StatusBar from "@components/StatusBar/StatusBar"
 
-import SignupButton from "@pages/Signup/Button/SignupButton"
 import { SIGNUP_INPUTS } from "@pages/Signup/SIGNUP_INPUTS"
+import SignupButton from "@pages/Signup/SignupButton/SignupButton"
 import { useSignupStore } from "@pages/Signup/stores/store"
 
 import * as S from "../StyledSignup"
@@ -32,11 +32,11 @@ const Profile = () => {
   return (
     <S.SignupForm onSubmit={handleSubmit(handleNextPage)}>
       <S.SignupTitle>
-        <StatusBar status={"1"} />
+        <StatusBar status={1} />
         회원 정보를 입력해주세요
       </S.SignupTitle>
       <ProfileForm methods={methods} />
-      <SignupButton $isValid={formState.isValid}>다음</SignupButton>
+      <SignupButton $isValid={formState.isValid} />
     </S.SignupForm>
   )
 }

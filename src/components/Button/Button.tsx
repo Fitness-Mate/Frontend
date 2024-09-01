@@ -1,16 +1,38 @@
-// @ts-nocheck
-import ButtonLeftIcon from "@components/Button/ButtonLeftIcon"
-import ButtonRightIcon from "@components/Button/ButtonRightIcon"
+import { ButtonHTMLAttributes } from "react"
 
-import * as S from "./StyledButton"
+import { SIZES, StyledButton, VARIANTS } from "@components/Button/StyledButton"
 
-const ButtonMain = ({ children, ...props }) => {
-  return <S.ButtonWrapper {...props}>{children}</S.ButtonWrapper>
+export type Variant = "main" | "weak" | "grey" | "text"
+export type Size = "sm" | "md" | "lg"
+
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  disabled?: boolean
+  size?: Size
+  variant?: Variant
+  children: string
+  onClick?: (e: React.MouseEvent) => void
 }
 
-const Button = Object.assign(ButtonMain, {
-  LeftIcon: ButtonLeftIcon,
-  RightIcon: ButtonRightIcon,
-})
+const Button = ({
+  disabled = false,
+  size = "md",
+  variant = "main",
+  children,
+  onClick,
+  ...props
+}: ButtonProps) => {
+  const sizeStyle = SIZES[size]
+  const variantStyle = VARIANTS[variant]
+  return (
+    <StyledButton
+      disabled={disabled}
+      $sizeStyle={sizeStyle}
+      $variantStyle={variantStyle}
+      onClick={onClick}
+      {...props}>
+      {children}
+    </StyledButton>
+  )
+}
 
 export default Button

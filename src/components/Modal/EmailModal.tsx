@@ -8,8 +8,7 @@ import EmailModalInput from "@components/EmailModalInput/EmailModalInput"
 
 import { verifyMailPost } from "@apis/API"
 
-import xbutton from "@assets/images/xbutton.svg"
-
+// import xbutton from "@assets/images/xbutton.svg"
 import * as S from "./StyledEmailModal"
 
 const EmailModal = ({ setIsEmailModal }) => {

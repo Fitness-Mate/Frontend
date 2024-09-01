@@ -18,6 +18,10 @@ export const LoginContainer = styled.div`
   }
 `
 
+export const LoginForm = styled.form`
+  min-width: 500px;
+`
+
 export const Title = styled.h1`
   color: ${theme.Black};
   font-size: 28px;

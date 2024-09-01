@@ -32,14 +32,6 @@ export const bodyPartState = atom({
   },
 })
 
-// 보조제 목적 객체
-export const purposeState = atom({
-  key: "purposeState",
-  default: {
-    purpose: [],
-  },
-})
-
 export const isModalState = atom({
   key: "isModalState",
   default: false,
@@ -48,11 +40,5 @@ export const isModalState = atom({
 // 운동 추천 history
 export const RecommendState = atom({
   key: "RecommendState",
-  default: {},
-})
-
-// 보조제 추천 history
-export const supplementRecommendState = atom({
-  key: "supplementRecommendState",
   default: {},
 })

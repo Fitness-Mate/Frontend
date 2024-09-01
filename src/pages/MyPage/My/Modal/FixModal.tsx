@@ -2,14 +2,11 @@
 // @ts-nocheck
 import { useEffect, useRef, useState } from "react"
 
-import OutSideClick from "@components/Navbar/OutSideClick"
-
 import TokenApi from "@apis/TokenApi"
 
-import plus from "@assets/images/Plus_Icon.svg"
-import trash from "@assets/images/Trash_Icon.svg"
-import x from "@assets/images/X_Icon.svg"
-
+// import plus from "@assets/images/Plus_Icon.svg"
+// import trash from "@assets/images/Trash_Icon.svg"
+// import x from "@assets/images/X_Icon.svg"
 import { DUMMY_DATA } from "@pages/MyPage/My/MypageHome"
 
 import * as S from "./StyledFixModal"
@@ -149,7 +146,7 @@ function FixModal({ data, onUpdateData, onClose, onDeleteItem }) {
     onClose?.()
   }
   const modalRef = useRef(null)
-  OutSideClick(modalRef, handleClose)
+  // OutSideClick(modalRef, handleClose)
 
   // 수정완료
   const handleSubmit = async () => {

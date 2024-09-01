@@ -40,9 +40,7 @@ export const SignupTitle = styled.span`
 
 export const ButtonContainer = styled.div`
   margin-left: auto;
-  width: 50%;
-  gap: 10px;
+  gap: 6px;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
 `

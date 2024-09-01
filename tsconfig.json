@@ -28,14 +28,19 @@
       "@components/*": ["components/*"],
       "@Layout/*": ["Layout/*"],
       "@pages/*": ["pages/*"],
-      "@types/*": ["types/*"],
+      "@typpes/*": ["types/*"],
       "@routes/*": ["routes/*"],
       "@recoil/*": ["recoil/*"],
       "@store/*": ["store/*"],
       "@styles/*": ["styles/*"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@stories/*": ["stories/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/components/TyphoGraphy/typhography.mdx"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

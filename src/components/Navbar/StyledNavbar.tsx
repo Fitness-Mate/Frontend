@@ -1,9 +1,10 @@
-// < layout 스타일 >
 import styled from "styled-components"
+
+import Button from "@components/Button/Button"
 
 import theme from "@styles/theme"
 
-export const NavbarContainer = styled.div<Props>`
+export const NavbarContainer = styled.div`
   position: sticky;
   top: 0;
   max-width: 1920px;
@@ -15,79 +16,49 @@ export const NavbarContainer = styled.div<Props>`
   padding: 0 15px;
   justify-content: space-between;
   align-items: center;
-  background-color: ${theme.White};
-  backdrop-filter: ${({ $isLoginModal, $isCancleModal, $isRecommend }) =>
-    $isLoginModal || $isCancleModal || $isRecommend ? "none" : "blur(4px)"};
-  .nav-logo {
-    width: 93px;
-  }
+  background-color: ${theme.Netural0};
+`
+
+export const LogoButton = styled.button``
+export const Logo = styled.img`
+  width: 88px;
 `
 
 export const NavLink = styled.div`
   display: flex;
-  gap: 24px;
+  align-items: center;
 `
 
 export const NavTextContainer = styled.div`
   display: flex;
   gap: 8px;
-  .fa-bars {
-    display: none;
-    align-items: center;
-    font-size: 25px;
-    cursor: pointer;
-    @media (max-width: 1000px) {
-      display: flex;
-    }
-  }
+  align-items: center;
 `
 
-export const NavButton = styled.button`
-  color: ${theme.Black};
-  display: flex;
+export const NavButton = styled(Button).attrs({
+  variant: "text",
+})`
+  color: ${theme.Netural990};
   padding: 10px 14px;
-  justify-content: center;
-  align-items: center;
-  font-size: 16px;
-  line-height: 150%; /* 22.5px */
-  letter-spacing: -0.3px;
   @media (max-width: 1000px) {
     display: none;
   }
   border-radius: 12px;
   &:hover {
-    background-color: ${theme.Gray10};
+    background-color: ${theme.Netural200};
   }
 `
 
-export const NavLoginButton = styled(NavButton)`
-  background: ${theme.BrandLight};
-  color: ${theme.Brand};
-  padding: 10px 24px;
-  display: block;
-  border-radius: 5px;
+export const LoginButton = styled(Button)`
+  color: ${({ color }) => color || theme.Netural800};
 `
-export const navbar = styled.div`
-  .likes__wrapper {
-    display: flex;
-    align-content: center;
-    justify-content: center;
-  }
 
-  .likes__relavance {
-    position: relative;
-    padding: 0 80px;
-  }
-
-  .likes__list {
-    position: absolute;
-    box-sizing: border-box;
-    overflow-y: scroll;
-    max-height: 150px;
-    left: 0%;
-    background: white;
-    padding: 10px;
-    border: 1px solid grey;
-    box-shadow: 0 0 2px 2px grey;
-  }
+export const NavbarUnderLine = styled.div`
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 100vw;
+  height: 1px;
+  background-color: ${theme.Netural200};
+  transform: translateX(-50%);
 `

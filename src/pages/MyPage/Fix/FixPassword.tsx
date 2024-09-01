@@ -5,9 +5,6 @@ import { useNavigate } from "react-router-dom"
 import { validationState } from "@recoil/atom"
 import { useRecoilState } from "recoil"
 
-import BeforeButton from "@components/Button/BeforeButton"
-import MiddleButton from "@components/Button/MiddleButton"
-
 import TokenApi from "@apis/TokenApi"
 
 import ProfileInput from "@pages/MyPage/Fix/ProfileInput/ProfileInput"
@@ -89,10 +86,21 @@ const FixPassword = () => {
         </ProfileInput>
       </S.ProfileInputcontainer>
       <S.ButtonContainer>
-        <BeforeButton handleSubmit={handleBackPage} />
-        <MiddleButton handleSubmit={handleSubmit}>
+        <Button
+          onClick={handleBackPage}
+          variant="main"
+          disabled={!$isValid}
+          size="lg">
+          이전
+        </Button>
+        <Button
+          type="submit"
+          onClick={handleSubmit}
+          variant="main"
+          disabled={!$isValid}
+          size="lg">
           비밀번호 변경하기
-        </MiddleButton>
+        </Button>
       </S.ButtonContainer>
     </S.SignupForm>
   )

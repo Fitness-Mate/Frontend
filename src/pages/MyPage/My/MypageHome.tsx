@@ -6,12 +6,10 @@ import RecommendWorkrateModal from "@components/Modal/RecommendWorkrateModal"
 
 import TokenApi from "@apis/TokenApi"
 
-import add from "@assets/images/Add_Icon.svg"
-import fix from "@assets/images/Fix_Icon.svg"
-import noWorkrate from "@assets/images/noWorkrate.svg"
-
+// import add from "@assets/images/Add_Icon.svg"
+// import fix from "@assets/images/Fix_Icon.svg"
+// import noWorkrate from "@assets/images/noWorkrate.svg"
 import FixModal from "@pages/MyPage/My/Modal/FixModal"
-import SupplementAddModal from "@pages/MyPage/My/Modal/supplementAddModal"
 import ToggleSwitch from "@pages/MyPage/My/toggle"
 
 import * as S from "./StyledMypageHome"
@@ -44,42 +42,6 @@ const Mypagehome = () => {
   const [btnActive, setBtnActive] = useState("")
   const [routineWorkout, setRoutineWorkout] = useState([])
 
-  const [mySupplements, setMySupplements] = useState([])
-
-  // 내 보조제
-
-  // 함량
-
-  const [protein, setProtein] = useState("")
-  const [fat, setFat] = useState("")
-  const [carbohydrate, setCarbohydrate] = useState("")
-  const [leucine, setLeucine] = useState("")
-  const [isoLeucine, setIsoLeucine] = useState("")
-  const [valine, setValine] = useState("")
-  const [methionine, setMethionine] = useState("")
-  const [phenylalanine, setPhenylalanine] = useState("")
-  const [threonine, setThreonine] = useState("")
-  const [lCarnitine, setLCarnitine] = useState("")
-  const [lGlutamine, setLGlutamine] = useState("")
-  const [lAlanine, setLAlanine] = useState("")
-  const [lLysine, setLLysine] = useState("")
-
-  const nutrientData = [
-    { label: "프로틴 함량", value: "proteinPerServing" },
-    { label: "지방 함량", value: "fatPerServing" },
-    { label: "탄수화물 함량", value: "carbohydratePerServing" },
-    { label: "류신 함량", value: "leucine" },
-    { label: "이소류신 함량", value: "isoLeucine" },
-    { label: "발린 함량", value: "valine" },
-    { label: "메티오닌 함량", value: "methionine" },
-    { label: "페닐알라닌 함량", value: "phenylalanine" },
-    { label: "트레오닌 함량", value: "threonine" },
-    { label: "L-케라틴 함량", value: "l_Carnitine" },
-    { label: "L-글루타민 함량", value: "l_Glutamine" },
-    { label: "L-알라닌 함량", value: "l_Alanine" },
-    { label: "L-라이신 함량", value: "l_Lysine" },
-  ]
-
   useEffect(() => {
     const fetchDataAndWorkoutData = async () => {
       try {
@@ -98,10 +60,6 @@ const Mypagehome = () => {
           `/myfit/routines/workout/${routinesResponse.data[0].routineId}`,
         )
         setRoutineWorkout(routinesWorkout)
-
-        // 내 보조제 리스트 조회
-        const mySupplement = await TokenApi.get("/myfit/routines/supplement")
-        setMySupplements(mySupplement)
       } catch (error) {
         console.error(error)
       }
@@ -127,12 +85,6 @@ const Mypagehome = () => {
   const [isAddOpen, setIsAddOpen] = useState(false)
   const onClickAddButton = () => {
     setIsAddOpen(true)
-  }
-
-  // 보조제 add 모달
-  const [isAddModalOpen, setIsAddModalOpen] = useState(false)
-  const onClickAddModalButton = () => {
-    setIsAddModalOpen(true)
   }
 
   // 루틴 목록
@@ -187,49 +139,12 @@ const Mypagehome = () => {
     setRecommendWorkrateModal(true)
   }
 
-  // 보조제 가격
-  const formatPriceAndSetToElement = (price) => {
-    if (price) {
-      return price.toLocaleString("en-US")
-    }
-    return ""
-  }
-
-  // 내 보조제 삭제
-  const deleteSupplementClickButton = async (e) => {
-    const { id } = e.target
-    const mySupplementId = parseInt(id)
-    try {
-      const deleteSupplement = await TokenApi.get(
-        `/myfit/routines/supplement/delete/${mySupplementId}`,
-      )
-      console.log(deleteSupplement.status)
-      alert("삭제되었습니다!")
-      // 페이지 새로고침
-      window.location.reload()
-    } catch (error) {
-      console.error(error)
-    }
-  }
-
   // Toggle
 
   const [visible, setVisible] = useState(false)
 
-  const labels = {
-    left: {
-      title: "내 운동",
-      value: "workout",
-    },
-    right: {
-      title: "내 보조제",
-      value: "supplement",
-    },
-  }
-
   const onChange = () => {
     setVisible(!visible)
-    console.log(mySupplements)
   }
 
   return (
@@ -255,79 +170,7 @@ const Mypagehome = () => {
         </S.FirstContent>
       </S.HomeContent>
       <S.HomeContent>
-        {visible ? (
-          <S.SecondContent onChange={onChange}>
-            <div className="supplementContents">
-              {mySupplements.data.supplements.length > 0 &&
-                mySupplements.data.supplements.map((item, index) => (
-                  <S.SupplementContent key={item.mySupplementId}>
-                    <img
-                      src={item.imageURL}
-                      alt="보조제 사진"
-                    />
-                    <div className="contentItem">
-                      <div className="contentMainItem">
-                        <div className="topItems">
-                          <p className="item_flavor-source">{item.flavor}</p>
-                          <p className="item_flavor-source">{item.source}</p>
-                        </div>
-                        <span className="item_workoutName">
-                          {item.supplementName}
-                        </span>
-                        <div className="contentMiddleItem">
-                          {nutrientData
-                            .filter(
-                              (nutrient) =>
-                                item[nutrient.value] !== null &&
-                                item[nutrient.value] !== undefined &&
-                                item[nutrient.value] !== "",
-                            )
-                            .map((nutrient) => (
-                              <div className="PerServing">
-                                <span className="TitleSpan">
-                                  {item[nutrient.value] && nutrient.label}
-                                </span>
-                                <span className="ContentSpan">
-                                  {item[nutrient.value] && (
-                                    <>{item[nutrient.value]}g</>
-                                  )}
-                                </span>
-                              </div>
-                            ))}
-                        </div>
-                        <div className="contentBottomItem">
-                          <span className="bottomTitle">가격</span>
-                          <div className="price">
-                            <p className="bottomPrice">
-                              {formatPriceAndSetToElement(item.price)}
-                            </p>
-                            &nbsp;원
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="deleteContent"
-                      id={item.mySupplementId}
-                      onClick={deleteSupplementClickButton}>
-                      삭제
-                    </div>
-                  </S.SupplementContent>
-                ))}
-            </div>
-            <div className="modalbutton">
-              <S.AddModalButton
-                onClick={onClickAddModalButton}
-                className="supplementModal">
-                <img
-                  src={add}
-                  alt="추가하기 버튼"
-                />
-                <p>이 목록에 보조제 추가하기</p>
-              </S.AddModalButton>
-            </div>
-          </S.SecondContent>
-        ) : (
+        {visible(
           <S.SecondContent onChange={onChange}>
             <S.ContentsTitle>
               <div className="contents-title">내 운동 루틴</div>
@@ -438,7 +281,7 @@ const Mypagehome = () => {
                 <p>이 목록에 운동 추가하기</p>
               </S.AddModalButton>
             </div>
-          </S.SecondContent>
+          </S.SecondContent>,
         )}
       </S.HomeContent>
 
@@ -475,17 +318,6 @@ const Mypagehome = () => {
         <RecommendWorkrateModal
           setRecommendWorkrateModal={setRecommendWorkrateModal}
           myWorkout={selectedMyWorkout}
-        />
-      )}
-
-      {/* 이 목록에 보조제 추가하기 버튼 */}
-      {isAddModalOpen && (
-        <SupplementAddModal
-          open={isAddOpen}
-          routineId={routinesId}
-          onClose={() => {
-            setIsAddModalOpen(false)
-          }}
         />
       )}
     </S.HomeContainer>

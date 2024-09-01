@@ -1,13 +1,14 @@
-// @ts-nocheck
 import { StatusBarBox, StatusBarItem } from "./StyledStatusBar"
 
-const StatusBar = ({ status }) => {
+export interface StatusbarProps {
+  status: number
+}
+
+const StatusBar = ({ status }: StatusbarProps) => {
   return (
-    <>
-      <StatusBarBox $status={status}>
-        <StatusBarItem $status={status} />
-      </StatusBarBox>
-    </>
+    <StatusBarBox>
+      <StatusBarItem $status={status} />
+    </StatusBarBox>
   )
 }
 

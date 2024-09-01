@@ -4,8 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom"
 
 import { userWorkoutAPI } from "@apis/API"
 
-import beforebtn from "@assets/images/SmallBefore.svg"
-
+// import beforebtn from "@assets/images/SmallBefore.svg"
 import AddWorkoutModal from "@pages/Search/SearchWorkoutDetail/AddWorkoutModal"
 
 import * as S from "./StyledSearchWorkoutDetail"

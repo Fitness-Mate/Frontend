@@ -1,15 +1,14 @@
 // @ts-nocheck
 import { useEffect, useState } from "react"
 
-import MiddleButton from "@components/Button/MiddleButton"
+import Button from "@components/Button/Button"
 import { ModalBox } from "@components/Modal/StyeldLeaveModal"
 import TextCheckbox from "@components/TextCheckbox/TextCheckbox"
 
 import TokenApi from "@apis/TokenApi"
 
-import rightarrow from "@assets/images/rightarrow.svg"
-import xbutton2 from "@assets/images/xbutton2.svg"
-
+// import rightarrow from "@assets/images/rightarrow.svg"
+// import xbutton2 from "@assets/images/xbutton2.svg"
 import * as S from "./StyledRecommendAddModal"
 
 const RecommendAddModal = ({ setRecommendAddModal, machine }) => {
@@ -105,21 +104,6 @@ const RecommendAddModal = ({ setRecommendAddModal, machine }) => {
     })
   }
 
-  // 루틴이 잘 등록되었는지 확인
-  // const handleRoutine = () => {
-  //   myDivision.forEach((division) => {
-  //     if (division.isSelected) {
-  //       TokenApi.get(`myfit/routines/workout/${division.routineId}`)
-  //         .then((response) => {
-  //           console.log(response);
-  //         })
-  //         .catch((err) => {
-  //           console.log(err);
-  //         });
-  //     }
-  //   });
-  // };
-
   useEffect(() => {
     fetchData()
   }, [])
@@ -186,22 +170,12 @@ const RecommendAddModal = ({ setRecommendAddModal, machine }) => {
           </div>
         )}
         {modifyMachineOption ? (
-          <MiddleButton
-            isReady={true}
-            handleSubmit={handleModifyComplete}>
+          <Button handleSubmit={handleModifyComplete}>
             수정 완료하고 돌아가기
-          </MiddleButton>
+          </Button>
         ) : (
           <>
-            <MiddleButton
-              isReady={isReady}
-              handleSubmit={handleAdd}>
-              추가하기
-            </MiddleButton>
-
-            {/* <MiddleButton isReady={isReady} handleSubmit={handleRoutine}>
-              추가하기2
-            </MiddleButton> */}
+            <Button handleSubmit={handleAdd}>추가하기</Button>
           </>
         )}
       </S.RecommendAddModalWrapper>

@@ -1,4 +1,3 @@
-// @ts-nocheck
 import axios, { AxiosRequestConfig } from "axios"
 
 import { getAccessAPI } from "@apis/API"
@@ -51,7 +50,6 @@ instance.interceptors.response.use(
               Authorization: "Bearer " + localStorage.getItem("refreshToken"),
             },
           })
-          console.log(response)
           const newAccessToken = response.data.accessToken
           // 토큰 재 저장
           localStorage.setItem("accessToken", newAccessToken)
@@ -61,7 +59,6 @@ instance.interceptors.response.use(
           // 새로운 accessToken으로 재 요청
           return await axios(originalRequest)
         } catch (err) {
-          console.log(err)
           // refresh token 만료
           if (err.response.data.status === "EXPIRED_REFRESH_TOKEN_EXCEPTION") {
             console.log("Refresh Token 만료 재 로그인 해주세요")

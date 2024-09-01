@@ -1,13 +1,11 @@
 // @ts-nocheck
 import { useEffect, useState } from "react"
 
-import MiddleButton from "@components/Button/MiddleButton"
 import { ModalBox } from "@components/Modal/StyeldLeaveModal"
 
 import TokenApi from "@apis/TokenApi"
 
-import xbutton2 from "@assets/images/xbutton2.svg"
-
+// import xbutton2 from "@assets/images/xbutton2.svg"
 import * as S from "./StyledRecommendAddModal"
 
 const RecommendWorkrateModal = ({ setRecommendWorkrateModal, myWorkout }) => {
@@ -139,11 +137,9 @@ const RecommendWorkrateModal = ({ setRecommendWorkrateModal, myWorkout }) => {
             <span className="modifyInputUnit">{option[currentIdx].unit}</span>
           </S.ModifyOptionContent>
         </>
-        <MiddleButton
-          isReady={true}
-          handleSubmit={handleModifyComplete}>
+        <Button handleSubmit={handleModifyComplete}>
           수정 완료하고 돌아가기
-        </MiddleButton>
+        </Button>
       </S.RecommendAddModalWrapper>
     </ModalBox>
   )

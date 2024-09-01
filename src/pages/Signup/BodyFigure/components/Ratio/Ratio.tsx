@@ -1,7 +1,6 @@
 // @ts-nocheck
-import minus from "@assets/images/minus.png"
-import plus from "@assets/images/plus.png"
-
+// import minus from "@assets/images/minus.png"
+// import plus from "@assets/images/plus.png"
 import * as S from "./StyledRatio"
 
 const Ratio = ({ ratioValue, ratioText, handleRatio }) => {

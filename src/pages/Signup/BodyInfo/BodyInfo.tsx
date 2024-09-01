@@ -6,8 +6,8 @@ import Input from "@components/Input/Input"
 import StatusBar from "@components/StatusBar/StatusBar"
 
 import { SEX_GROUP } from "@pages/Signup/BodyInfo/constants/SEX_GROUP"
-import SignupButton from "@pages/Signup/Button/SignupButton"
 import { SIGNUP_INPUTS } from "@pages/Signup/SIGNUP_INPUTS"
+import SignupButton from "@pages/Signup/SignupButton/SignupButton"
 import { useSignupStore } from "@pages/Signup/stores/store"
 
 import { formAdapter } from "@utils/formAdapter"
@@ -37,7 +37,7 @@ const BodyInfo = () => {
   return (
     <GS.SignupForm onSubmit={handleSubmit(handleNextPage)}>
       <GS.SignupTitle>
-        <StatusBar status={"2"} />
+        <StatusBar status={2} />
         신체 정보를 입력해주세요
       </GS.SignupTitle>
       <S.BodyInfoContainer>
@@ -95,7 +95,7 @@ const BodyInfo = () => {
           <Input.Error>{formState.errors?.weight?.message}</Input.Error>
         </Input>
       </S.BodyInfoContainer>
-      <SignupButton $isValid={formState.isValid}>다음</SignupButton>
+      <SignupButton $isValid={formState.isValid} />
     </GS.SignupForm>
   )
 }

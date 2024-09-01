@@ -2,15 +2,13 @@
 // 편집 모달
 import { useEffect, useRef, useState } from "react"
 
-import OutSideClick from "@components/Navbar/OutSideClick"
 import NoSearch from "@components/NoSearch/NoSearch"
 import SearchBar from "@components/SearchBar/SearchBar"
 import TextCheckbox from "@components/TextCheckbox/TextCheckbox"
 
 import TokenApi from "@apis/TokenApi"
 
-import x from "@assets/images/X_Icon.svg"
-
+// import x from "@assets/images/X_Icon.svg"
 import * as S from "./StyledAddModal"
 
 function AddModal({ onClose, routineId }) {
@@ -118,7 +116,7 @@ function AddModal({ onClose, routineId }) {
     onClose?.()
   }
   const modalRef = useRef(null)
-  OutSideClick(modalRef, handleClose)
+  // OutSideClick(modalRef, handleClose)
 
   return (
     <S.AppWrap>

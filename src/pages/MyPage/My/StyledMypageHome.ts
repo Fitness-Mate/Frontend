@@ -15,10 +15,6 @@ export const HomeContainer = styled.ul`
   .modalbutton {
     position: fixed;
     bottom: 70px;
-
-    .supplementModal {
-      width: 252px;
-    }
   }
 `
 
@@ -95,14 +91,6 @@ export const SecondContent = styled.div`
   flex-direction: column;
 
   .contents {
-    padding: 10px 0;
-    display: flex;
-    gap: 42px;
-    flex-direction: column;
-  }
-
-  .supplementContents {
-    margin-top: 39px;
     padding: 10px 0;
     display: flex;
     gap: 42px;
@@ -313,139 +301,6 @@ export const WorkoutContent = styled.div`
   }
 `
 
-export const SupplementContent = styled.div`
-  width: 820px;
-  padding: 24px;
-  display: flex;
-  gap: 42px;
-  border-radius: 16px;
-  align-items: center;
-
-  &:hover {
-    box-shadow: 0px 2px 12px #0000001a;
-  }
-
-  &:hover .item_workoutName {
-    color: ${theme.Brand};
-  }
-
-  &:hover .deleteContent {
-    display: flex;
-  }
-
-  img {
-    align-self: start;
-    border-radius: 12px;
-    height: 187px;
-    width: 146px;
-  }
-
-  .contentItem {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-  }
-
-  .contentMainItem {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .topItems {
-    display: flex;
-    gap: 13px;
-    margin-bottom: 8px;
-  }
-
-  .item_flavor-source {
-    font-size: 16px;
-    font-weight: 500;
-    letter-spacing: -0.32px;
-    line-height: 24px;
-    margin-top: -1px;
-    color: ${theme.Gray80};
-  }
-
-  .item_workoutName {
-    font-size: 30px;
-    font-weight: 600;
-    color: ${theme.Black};
-    letter-spacing: -0.6px;
-    line-height: 45px;
-  }
-
-  .contentMiddleItem {
-    padding: 15px 24px 15px 0;
-    margin: 24px 0;
-    display: flex;
-    gap: 12px;
-  }
-
-  .PerServing {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-  }
-
-  .TitleSpan {
-    font-size: 16px;
-    font-weight: 500;
-    color: ${theme.Gray50};
-    letter-spacing: -0.32px;
-  }
-
-  .ContentSpan {
-    font-size: 18px;
-    font-weight: 600;
-    letter-spacing: -0.32px;
-    color: ${theme.Gray80};
-  }
-
-  .contentBottomItem {
-    display: flex;
-    justify-content: space-between;
-    width: 466px;
-  }
-
-  .bottomTitle {
-    font-size: 16px;
-    font-weight: 500;
-    color: ${theme.Gray30};
-    letter-spacing: -0.32px;
-  }
-
-  .price {
-    font-size: 24px;
-    font-weight: 400;
-    color: ${theme.Black};
-    letter-spacing: -0.48px;
-    align-items: center;
-    display: flex;
-  }
-
-  .bottomPrice {
-    font-size: 24px;
-    font-weight: 600;
-    color: ${theme.Black};
-    letter-spacing: -0.48px;
-  }
-
-  .deleteContent {
-    border-radius: 36px;
-    padding: 14px 24px;
-    background: ${theme.ErrorLight};
-    cursor: pointer;
-    color: ${theme.Error};
-    font-size: 16px;
-    font-weight: 500;
-    letter-spacing: -0.32px;
-    margin-top: -1px;
-    height: fit-content;
-    display: none;
-  }
-`
-
 // modal button
 
 export const FixModalButton = styled.button`
@@ -483,10 +338,6 @@ export const AddModalButton = styled.button`
   align-items: center;
   justify-content: center;
   gap: 12px;
-
-  .supplementModal {
-    width: 252px;
-  }
 
   &:hover {
     background-color: ${theme.BrandDark};

@@ -5,9 +5,12 @@ import MainLayout from "@Layout/Mainlayout"
 import Home from "@pages/Home/Home"
 import Login from "@pages/Login/Login"
 import Mypage from "@pages/MyPage/Mypage"
-import Recommend from "@pages/Recommend/Recommend"
-import SearchHome from "@pages/Search/SearchHome/SearchHome"
-// import Search from "@pages/Search/Search"
+import BodyPart from "@pages/Recommend/BodyPart/BodyPart"
+import Loading from "@pages/Recommend/Loading/Loading"
+import Machine from "@pages/Recommend/Machine/Machine"
+import Prolog from "@pages/Recommend/Prolog/Prolog"
+import Result from "@pages/Recommend/Result/Result"
+import Search from "@pages/Search/Search"
 import BodyFigure from "@pages/Signup/BodyFigure/BodyFigure"
 import BodyInfo from "@pages/Signup/BodyInfo/BodyInfo"
 import Complete from "@pages/Signup/Complete/Complete"
@@ -37,11 +40,17 @@ const router = createBrowserRouter([
       },
       {
         path: "recommend",
-        element: <Recommend />,
+        children: [
+          { path: "prolog", element: <Prolog /> },
+          { path: "bodypart", element: <BodyPart /> },
+          { path: "machine", element: <Machine /> },
+          { path: "loading", element: <Loading /> },
+          { path: "result", element: <Result /> },
+        ],
       },
       {
         path: "search/:pageNum/*",
-        element: <SearchHome />,
+        element: <Search />,
       },
       {
         path: "mypage",

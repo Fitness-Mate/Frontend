@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom"
 import { validationState } from "@recoil/atom"
 import { useRecoilState } from "recoil"
 
-import TokenApi from "@apis/TokenApi"
+import authAPI from "@apis/domain/auth"
 
 import ProfileInput from "@pages/MyPage/Fix/ProfileInput/ProfileInput"
 
@@ -60,7 +60,7 @@ const FixProfile = (props) => {
 
     try {
       // API 호출 및 form 데이터 전송
-      const res = await TokenApi.post("user/private", formData)
+      const res = await authAPI.post("user/private", formData)
       console.log("수정:", res.status)
       window.location.replace("fixprofile")
     } catch (error) {
@@ -71,7 +71,7 @@ const FixProfile = (props) => {
 
   const fetchData = async () => {
     try {
-      const response = await TokenApi.get("user/private")
+      const response = await authAPI.get("user/private")
       setuserName(response.data.userName)
       setbirthDate(response.data.birthDate)
       setloginEmail(response.data.loginEmail)

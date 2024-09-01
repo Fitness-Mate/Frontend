@@ -32,7 +32,7 @@ export const Input = styled.input<Props>`
   &::-webkit-input-placeholder {
     color: ${theme.Gray50};
   }
-  background: ${theme.Gray10};
+  background: ${theme.Netural100};
   border-radius: 10px;
   padding: 14px;
   width: 100%;

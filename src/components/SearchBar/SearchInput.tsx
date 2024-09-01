@@ -37,22 +37,6 @@ export const SearchInput = ({
           }}
         />
       )}
-      {name === "supplement" && (
-        <SearchInputContent
-          name={name}
-          value={searchvalue}
-          isClicked={isClicked}
-          onChange={handleChange}
-          onKeyDown={handleEnter}
-          placeholder={isClicked === true ? "" : "보조제 이름을 검색해보세요"}
-          onFocus={() => {
-            setIsClicked(true)
-          }}
-          onBlur={() => {
-            setIsClicked(false)
-          }}
-        />
-      )}
     </>
   )
 }

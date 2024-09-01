@@ -1,10 +1,9 @@
 // @ts-nocheck
 import { useNavigate } from "react-router-dom"
 
-import BigButton from "@components/Button/BigButton"
+import Button from "@components/Button/Button"
 
-import rightarrow2 from "@assets/images/rightarrow2.svg"
-
+// import rightarrow2 from "@assets/images/rightarrow2.svg"
 import { COMPLETE_Nav } from "@pages/Signup/Complete/constants/COMPLETE_NAV"
 
 import * as GS from "../StyledSignup"
@@ -15,7 +14,6 @@ const Complete = () => {
   const handleNavigate = (url) => {
     navigate(url)
   }
-
   return (
     <GS.SignupWrapper>
       <GS.SignupContainer>
@@ -45,15 +43,14 @@ const Complete = () => {
           })}
         </S.CompleteNavList>
       </GS.SignupContainer>
-      <GS.ButtonContainer>
-        <BigButton
-          type="button"
-          onClick={() => {
-            handleNavigate("/")
-          }}>
-          홈으로
-        </BigButton>
-      </GS.ButtonContainer>
+      <Button
+        onClick={() => {
+          handleNavigate("/")
+        }}
+        variant="main"
+        size="lg">
+        홈으로
+      </Button>
     </GS.SignupWrapper>
   )
 }

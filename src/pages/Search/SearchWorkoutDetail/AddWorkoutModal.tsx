@@ -1,13 +1,13 @@
 // @ts-nocheck
 import { useEffect, useState } from "react"
 
-import MiddleButton from "@components/Button/MiddleButton"
+import Button from "@components/Button/Button"
 import * as S from "@components/Modal/StyledRecommendAddModal"
 import TextCheckbox from "@components/TextCheckbox/TextCheckbox"
 
-import TokenApi from "@apis/TokenApi"
+import authAPI from "@apis/domain/auth"
 
-import xbutton2 from "@assets/images/xbutton2.svg"
+// import xbutton2 from "@assets/images/xbutton2.svg"
 
 const AddWorkoutModal = ({ setRecommendAddModal, workoutId }) => {
   // my페이지에서는 저장된 값을 가져옴
@@ -31,7 +31,7 @@ const AddWorkoutModal = ({ setRecommendAddModal, workoutId }) => {
   // 기존 루틴 받아오기(분할1 ~ 분할4)
   const fetchData = async () => {
     try {
-      const response = await TokenApi.get("myfit/routines/workout")
+      const response = await authAPI.get("myfit/routines/workout")
       const newArr = [...response.data].map((obj, index) => ({
         ...obj,
         isSelected: false,
@@ -46,9 +46,10 @@ const AddWorkoutModal = ({ setRecommendAddModal, workoutId }) => {
     console.log(submission)
     myDivision.forEach((division) => {
       if (division.isSelected) {
-        TokenApi.post(`/myfit/routines/workout/${division.routineId}`, {
-          workoutIds: submission,
-        })
+        authAPIauthAPI
+          .post(`/myfit/routines/workout/${division.routineId}`, {
+            workoutIds: submission,
+          })
           .then((response) => {
             console.log(response)
             alert("추가되었습니다!")
@@ -104,11 +105,16 @@ const AddWorkoutModal = ({ setRecommendAddModal, workoutId }) => {
           )
         })}
       </div>
-      <MiddleButton
+      <Button
         isReady={isReady}
-        handleSubmit={handleAdd}>
+        onClick={handleAdd}>
         추가하기
-      </MiddleButton>
+      </Button>
+      <Button
+        onClick={handleAdd}
+        variant={isReady ? "main" : "weak"}>
+        추가하기
+      </Button>
     </S.RecommendAddModalWrapper>
   )
 }

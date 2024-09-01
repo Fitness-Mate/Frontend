@@ -1,7 +1,6 @@
 // @ts-nocheck
-import checkedIcon from "@assets/images/checkedIcon.png"
-import notCheckedIcon from "@assets/images/notCheckedIcon.png"
-
+// import checkedIcon from "@assets/images/checkedIcon.png"
+// import notCheckedIcon from "@assets/images/notCheckedIcon.png"
 import * as S from "./StyledCheckBox"
 
 const CheckBox = ({ children, $isChecked, handleCheckItem, index }) => {

@@ -12,40 +12,6 @@ export const loginAdminPostAPI = axios.create({
 })
 
 /**
- * Manage_Supplement API
- */
-export const supplementCategoryAPI = axios.create({
-  baseURL: "/api/admin/supplement",
-  withCredentials: true,
-})
-
-export const supplementAPI = axios.create({
-  baseURL: "/api/admin/supplements",
-  withCredentials: true,
-})
-
-export const supplementImageAPI = axios.create({
-  baseURL: "/api/admin/supplements",
-  withCredentials: true,
-  responseType: "arraybuffer",
-})
-
-export const supplementPostAPI = axios.create({
-  method: "post",
-  baseURL: "/api/admin/supplements",
-  headers: {
-    "Content-Type": "multipart/form-data",
-  },
-  withCredentials: true,
-})
-
-export const supplementPutAPI = axios.create({
-  method: "put",
-  baseURL: "/api/admin/supplements",
-  withCredentials: true,
-})
-
-/**
  * Manage_Workout API
  */
 
@@ -230,30 +196,9 @@ export const recommendAPI = axios.create({
   withCredentials: true,
 })
 
-// 보조제 추천 요청 or 보조제 추천 요청
-export const recommendPostAPI = axios.create({
-  method: "post",
-  baseURL: "/api/recommendation",
-  withCredentials: true,
-})
-
 // 운동 추천 history batch 요청 or 운동 추천 history 단건 요청
 export const recommendWorkoutHistoryAPI = axios.create({
   baseURL: "/api/recommendation/workout/history",
-  withCredentials: true,
-})
-
-// (토큰 필요)
-// 보조제 추천 history 단건 요청 or 보조제 추천 history batch 요청
-export const recommendSupplementHistoryAPI = axios.create({
-  baseURL: "/api/recommendation/supplement/history",
-  withCredentials: true,
-})
-
-// (토큰 필요)
-// 보조제 추천 요청 or 운동 목적 전체 리스트 요청
-export const userSupplementAPI = axios.create({
-  baseURL: "/api/recommendation/supplement",
   withCredentials: true,
 })
 
@@ -275,25 +220,6 @@ export const userWorkoutAPI = axios.create({
 // 운동 부위 전체조회
 export const userBodyPartAPI = axios.create({
   baseURL: "/api/bodyParts/all",
-  withCredentials: true,
-})
-
-// 보조제 검색
-export const userSupplementSearchAPI = axios.create({
-  method: "get",
-  baseURL: "/api/supplements/search/list",
-  withCredentials: true,
-})
-
-// 보조제 단일 조회
-export const userSupplementSingleAPI = axios.create({
-  baseURL: "/api/supplements",
-  withCredentials: true,
-})
-
-// 보조제 batch 조회
-export const userSupplementBatchAPI = axios.create({
-  baseURL: "/api/supplements/list",
   withCredentials: true,
 })
 
