@@ -6,7 +6,8 @@ import Home from "@pages/Home/Home"
 import Login from "@pages/Login/Login"
 import Mypage from "@pages/MyPage/Mypage"
 import Recommend from "@pages/Recommend/Recommend"
-import Search from "@pages/Search/Search"
+import SearchHome from "@pages/Search/SearchHome/SearchHome"
+// import Search from "@pages/Search/Search"
 import BodyFigure from "@pages/Signup/BodyFigure/BodyFigure"
 import BodyInfo from "@pages/Signup/BodyInfo/BodyInfo"
 import Complete from "@pages/Signup/Complete/Complete"
@@ -39,8 +40,8 @@ const router = createBrowserRouter([
         element: <Recommend />,
       },
       {
-        path: "search",
-        element: <Search />,
+        path: "search/:pageNum/*",
+        element: <SearchHome />,
       },
       {
         path: "mypage",
