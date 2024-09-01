@@ -9,7 +9,7 @@ const Search = () => {
   return (
     <Routes>
       <Route
-        path="/"
+        path="/:pageNum/*"
         element={<SearchHome />}
       />
       <Route
