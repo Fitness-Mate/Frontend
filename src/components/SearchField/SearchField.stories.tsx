@@ -1,7 +1,6 @@
 import { FormProvider, useForm } from "react-hook-form"
 
 import { Meta, StoryObj } from "@storybook/react"
-import { useArgs } from "storybook/internal/preview-api"
 
 import SearchField from "@components/SearchField/SearchField"
 
