@@ -1,4 +1,4 @@
-import { useFormContext } from "react-hook-form"
+import { Controller, useFormContext } from "react-hook-form"
 
 import IconButton from "@components/IconButton/IconButton"
 
@@ -25,9 +25,16 @@ const SearchField = ({
 
   return (
     <S.InputWrapper $width={width}>
-      <S.Input
-        placeholder={placeholder}
-        {...methods.register(name)}
+      <Controller
+        name={name}
+        control={methods.control}
+        render={({ field }) => (
+          <S.Input
+            placeholder={placeholder}
+            {...field}
+            value={field.value || ""}
+          />
+        )}
       />
       <S.IconButtonWrapper>
         <IconButton

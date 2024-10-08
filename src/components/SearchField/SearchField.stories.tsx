@@ -12,9 +12,6 @@ const meta: Meta<typeof SearchField> = {
   tags: ["autodocs"],
   parameters: {
     layout: "centered",
-    controls: {
-      disable: true,
-    },
   },
 }
 
@@ -24,14 +21,17 @@ type Story = StoryObj<typeof SearchField>
 export const Primary: Story = {
   args: {
     placeholder: "어떤 운동이 좋을까요?",
-    width: "600px",
+    width: "500px",
     name: "search",
     triggerSubmit: () => {},
   },
 
   render: (args) => {
-    const methods = useForm<SearchTypes>()
-    console.log(methods)
+    const methods = useForm<SearchTypes>({
+      defaultValues: {
+        search: "",
+      },
+    })
     return (
       <FormProvider {...methods}>
         <SearchField {...args} />

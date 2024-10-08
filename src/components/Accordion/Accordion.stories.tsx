@@ -5,9 +5,7 @@ import Accordion from "@components/Accordion/Accordion"
 const DUMMY_DATA = (
   <Accordion>
     <Accordion.Header
-      onClick={() => {
-        console.log("2")
-      }}
+      onClick={() => {}}
       bodyParts={"가슴, 등"}
       count={1}>
       푸쉬업
