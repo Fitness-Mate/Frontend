@@ -13,7 +13,7 @@ jobs:
     steps:
       # 1. Checkout the Frontend repo
       - name: Checkout Frontend repo
-        uses: actions/checkout@v2 # checkout 버전을 v1에서 v2로 변경
+        uses: actions/checkout@v1
         with:
           fetch-depth: 0
 
