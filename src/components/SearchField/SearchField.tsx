@@ -32,7 +32,7 @@ const SearchField = ({
           <S.Input
             placeholder={placeholder}
             {...field}
-            value={methods.getValues(name) || ""}
+            value={field.value || ""}
           />
         )}
       />

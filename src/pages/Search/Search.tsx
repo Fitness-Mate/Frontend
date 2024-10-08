@@ -25,7 +25,11 @@ const totalPageLength = 4
 
 const Search = () => {
   const navigate = useNavigate()
-  const methods = useForm<SearchTypes>()
+  const methods = useForm<SearchTypes>({
+    defaultValues: {
+      search: "",
+    },
+  })
 
   const [isSearchMode, setIsSearchMode] = useState(false)
   const [activeTab, setActiveTab] = useState(0)
