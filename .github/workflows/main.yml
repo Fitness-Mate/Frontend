@@ -1,36 +1,44 @@
-name: "Main Repository Deploy"
+# ---------- staccato20 repository deploy ----------
+
+name: Push to forked Repo
 
 on:
-  push:
-    branches: [main]
+  pull_request:
+    branches: [main] # main 브랜치에서 Pull Request 발생 시 실행
 
 jobs:
-  deploy:
+  push-to-personal-repo:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout code with full history to ensure latest state
-      - name: Checkout code
-        uses: actions/checkout@v4
+      # 1. Checkout the Frontend repo
+      - name: Checkout Frontend repo
+        uses: actions/checkout@v2 # checkout 버전을 v1에서 v2로 변경
         with:
           fetch-depth: 0
 
-      # Clear cache and build artifacts
-      - name: Clear cache and build artifacts
+      # 2. Clone the main repository
+      - name: Clone main Repo
         run: |
-          rm -rf node_modules .cache storybook-static main/node_modules
+          git clone https://github.com/staccato20/FitnessMate-FE-Deploy main
 
-      # Install dependencies in the main repo
+      # 3. Install dependencies in the cloned main repository
       - name: Install Dependencies
         run: |
-          npm ci
+          cd main
+          npm install
 
-      # Optional: Build Storybook if needed for local purposes
-      - name: Build Storybook (Optional)
-        run: npm run build-storybook
-
-      # Optional: Deploy or copy changes to another repo if necessary
-      - name: Copy changes to another repository
+      # 4. Optional: Copy changes to the main Repo (if necessary)
+      - name: Copy changes to main Repo
         run: |
-          # Add commands to copy or deploy changes if needed
-          echo "Copying files..."
+          rsync -av --exclude='.git' --exclude='main/' . main/
+
+      # 5. Commit and push changes to the main repository's main branch
+      - name: Commit and Push changes to main repo main branch
+        run: |
+          cd main
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+          git add .
+          git commit -m "Update from Frontend repo by ${{ github.actor }}" || echo "No changes to commit"
+          git push https://x-access-token:${{ secrets.FITMATE_STACCATO20 }}@github.com/staccato20/FitnessMate-FE-Deploy.git main
