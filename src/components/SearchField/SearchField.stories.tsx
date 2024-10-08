@@ -1,6 +1,7 @@
 import { FormProvider, useForm } from "react-hook-form"
 
 import { Meta, StoryObj } from "@storybook/react"
+import { useArgs } from "storybook/internal/preview-api"
 
 import SearchField from "@components/SearchField/SearchField"
 
@@ -27,7 +28,12 @@ export const Primary: Story = {
   },
 
   render: (args) => {
-    const methods = useForm<SearchTypes>()
+    const methods = useForm<SearchTypes>({
+      defaultValues: {
+        search: "",
+      },
+    })
+
     return (
       <FormProvider {...methods}>
         <SearchField {...args} />
