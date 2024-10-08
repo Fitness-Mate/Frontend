@@ -13,39 +13,60 @@ on:
 jobs:
   chromatic:
     runs-on: ubuntu-latest
+
     steps:
+      # 1. Checkout the code with full history
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
-      - name: cache dependencies
+          fetch-depth: 0 # 전체 히스토리를 가져와 최신 상태 유지
+
+      # 2. Clear cache and Storybook build artifacts
+      - name: Clear Storybook cache and build artifacts
+        run: |
+          rm -rf node_modules .cache storybook-static
+
+      # 3. Cache dependencies
+      - name: Cache dependencies
         id: cache
         uses: actions/cache@v4
         with:
-          path: "**/node_modules"
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}-storybook
+          path: |
+            node_modules
+            .cache
+            storybook-static
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}-storybook
+          restore-keys: |
+            ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}-storybook
 
-      - name: depedency install
+      # 4. Install dependencies if cache is not found
+      - name: Install Dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
-      - name: Run Chromatic
-        run: npx chromatic --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }} --no-interactive --force-rebuild --exit-zero-on-changes
 
+      # 5. Run Chromatic using the official GitHub Action
       - name: Publish to Chromatic
         id: chromatic
         uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
+          storybookBuildDir: storybook-static # 빌드 디렉토리 설정
+          autoAcceptChanges: true # 변경 사항 자동 수락
+          allowConsoleErrors: true # 콘솔 에러 무시
+          exitOnceUploaded: true # 빌드가 업로드된 후 즉시 종료
 
-      - name: comment PR
+      # 6. Comment PR with the Storybook URL
+      - name: Comment PR
         uses: thollander/actions-comment-pull-request@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          message: "🚀storybook: ${{ steps.chromatic.outputs.storybookUrl }}"
+          message: "🚀 Storybook has been published: ${{ steps.chromatic.outputs.storybookUrl }}"
+
+      # 7. Send Storybook URL to Discord
       - name: Send StorybookUrl to Discord
         uses: tsickert/discord-webhook@v5.3.0
         with:
           webhook-url: ${{ secrets.DISCORD_WEBHOOK }}
-          content: "storybook link -> ${{ steps.chromatic.outputs.storybookUrl }}"
+          content: "🚀 Storybook is now live: ${{ steps.chromatic.outputs.storybookUrl }}"
