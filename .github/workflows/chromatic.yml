@@ -28,6 +28,8 @@ jobs:
       - name: depedency install
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
+      - name: Run Chromatic
+        run: npx chromatic --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }} --no-interactive --force-rebuild --exit-zero-on-changes
 
       - name: Publish to Chromatic
         id: chromatic
