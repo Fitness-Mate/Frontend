@@ -32,7 +32,6 @@ export const Primary: Story = {
         search: "",
       },
     })
-
     return (
       <FormProvider {...methods}>
         <SearchField {...args} />
