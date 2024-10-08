@@ -9,7 +9,11 @@ interface ChipProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const Chip = ({ children, ...props }: ChipProps) => (
-  <ChipWrapper {...props}># {children}</ChipWrapper>
+  <ChipWrapper
+    {...props}
+    type="button">
+    # {children}
+  </ChipWrapper>
 )
 
 export default Chip
