@@ -3,9 +3,8 @@
 name: Push to forked Repo
 
 on:
-  push:
-    branches:
-      - main
+  pull_request:
+    branches: [main]
 
 jobs:
   push-to-personal-repo:
