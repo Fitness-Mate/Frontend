@@ -14,4 +14,10 @@ export default defineConfig({
       },
     },
   },
+  build: {
+    outDir: "storybook-static", // 스토리북 빌드 경로 설정
+    rollupOptions: {
+      input: "storybook/index.html", // 올바른 엔트리 파일 경로 설정
+    },
+  },
 })
