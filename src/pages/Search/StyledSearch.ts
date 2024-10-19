@@ -59,7 +59,6 @@ export const TabsWrapper = styled.div<{ $isTabFixed: boolean }>`
 
 export const TabsBox = styled.div`
   max-width: 1042px;
-  padding: 0 calc(100vh - 1100px);
   margin: 0 auto;
   width: 100%;
   display: flex;
@@ -129,7 +128,6 @@ export const CardWrapper = styled.div<{ $isShow: boolean }>`
   flex-direction: column;
   display: flex;
   z-index: ${({ $isShow }) => ($isShow ? 105 : 0)};
-  padding: 0 calc(100vh - 1100px);
 `
 
 export const CardList = styled.ul`
