@@ -12,20 +12,18 @@ const Navbar = () => {
   const navigate = useNavigate()
   const { userInfo } = useUserInfo()
   const userName = userInfo ? userInfo.userName : undefined
-  // const [isLoginModal, setIsLoginModal] = useState(false)
-  // const [isCancleModal, setIsCancleModal] = useState(false)
 
   const handleSearch = () => {
     navigate("searchworkout")
   }
 
-  // const handleMyPage = () => {
-  //   userName ? alert("수정 중인 페이지입니다!") : setIsLoginModal(true)
-  // }
+  const handleMyPage = () => {
+    alert("수정 중인 페이지입니다!")
+  }
 
-  // const handleRecommend = () => {
-  //   userName ? navigate("recommend/bodypart") : setIsLoginModal(true)
-  // }
+  const handleRecommend = () => {
+    userName && navigate("recommend/bodypart")
+  }
 
   const handleHome = () => {
     navigate("/")
@@ -46,8 +44,8 @@ const Navbar = () => {
       <S.NavLink>
         <S.NavTextContainer>
           <S.NavButton onClick={handleSearch}>검색하기</S.NavButton>
-          {/* <S.NavButton onClick={handleRecommend}>추천받기</S.NavButton>
-          <S.NavButton onClick={handleMyPage}>내 운동</S.NavButton> */}
+          <S.NavButton onClick={handleRecommend}>추천받기</S.NavButton>
+          <S.NavButton onClick={handleMyPage}>내 운동</S.NavButton>
         </S.NavTextContainer>
 
         {userName ? (
@@ -64,8 +62,6 @@ const Navbar = () => {
       <S.NavbarUnderLine $isHome={useLocation().pathname === "/"}>
         {}
       </S.NavbarUnderLine>
-      {/* {isLoginModal && <LoginModal setIsLoginModal={setIsLoginModal} />}
-      {isCancleModal && <CancleModal setIsCancleModal={setIsCancleModal} />} */}
     </S.NavbarContainer>
   )
 }
