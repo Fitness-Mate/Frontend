@@ -18,7 +18,7 @@ const Navbar = () => {
   }
 
   const handleMyPage = () => {
-    alert("수정 중인 페이지입니다!")
+    userName && navigate("mypage")
   }
 
   const handleRecommend = () => {

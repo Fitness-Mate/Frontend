@@ -5,6 +5,7 @@ import MainLayout from "@Layout/Mainlayout"
 import Detail from "@pages/Detail/Detail"
 import Home from "@pages/Home/Home"
 import Login from "@pages/Login/Login"
+import Mypage from "@pages/MyPage/My/MypageHome"
 import BodyPart from "@pages/Recommend/BodyPart/BodyPart"
 import Machine from "@pages/Recommend/Machine/Machine"
 import Result from "@pages/Recommend/Result/Result"
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: "workoutdetail/:workoutId",
         element: <Detail />,
+      },
+      {
+        path: "mypage",
+        element: <Mypage />,
       },
     ],
   },
