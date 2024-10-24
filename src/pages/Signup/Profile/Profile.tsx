@@ -2,11 +2,12 @@
 import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
 
+import { useSignupStore } from "@store/useSignupStore"
+
 import ProgressBar from "@components/Progressbar/ProgressBar"
 
 import SignupButton from "@pages/Signup/SignupButton/SignupButton"
 import { SIGNUP_INPUTS } from "@pages/Signup/constants/Constants"
-import { useSignupStore } from "@pages/Signup/stores/store"
 
 import * as S from "../StyledSignup"
 import ProfileForm from "./components/ProfileForm"

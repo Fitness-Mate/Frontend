@@ -27,15 +27,20 @@ export const StyledButton = styled.button<{
 export const SIZES = {
   sm: css`
     padding: 10px 12px;
-    ${fonts.b7}
+    ${fonts.b7};
   `,
   md: css`
     padding: 14px 24px;
-    ${fonts.b5}
+    ${fonts.b5};
   `,
   lg: css`
     padding: 17px 24px;
-    ${fonts.b2}
+    ${fonts.b2};
+  `,
+  full: css`
+    padding: 17px 24px;
+    ${fonts.b2};
+    width: 100%;
   `,
 }
 

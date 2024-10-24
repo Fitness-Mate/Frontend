@@ -3,7 +3,7 @@ import { ButtonHTMLAttributes } from "react"
 import { SIZES, StyledButton, VARIANTS } from "@components/Button/StyledButton"
 
 export type Variant = "main" | "weak" | "grey" | "text"
-export type Size = "sm" | "md" | "lg"
+export type Size = "sm" | "md" | "lg" | "full"
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean

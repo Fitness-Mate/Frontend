@@ -2,13 +2,13 @@ import { PropsWithChildren } from "react"
 
 import { styled } from "styled-components"
 
-const ModalButtons = ({ children }: PropsWithChildren) => {
-  return <ButtonWrapper>{children}</ButtonWrapper>
+const ModalFooter = ({ children }: PropsWithChildren) => {
+  return <FooterWrapper>{children}</FooterWrapper>
 }
 
-export default ModalButtons
+export default ModalFooter
 
-const ButtonWrapper = styled.div`
+const FooterWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   width: 100%;

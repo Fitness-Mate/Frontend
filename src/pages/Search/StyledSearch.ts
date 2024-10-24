@@ -175,6 +175,6 @@ export const BackOverlay = styled.div`
   width: 100%;
   height: 100%;
   background: ${theme.Netural0};
-  opacity: 0.5;
-  z-index: 103;
+  opacity: 0.2;
+  z-index: 40;
 `

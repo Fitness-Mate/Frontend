@@ -2,6 +2,8 @@
 import { FormProvider, useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
 
+import { useSignupStore } from "@store/useSignupStore"
+
 import ProgressBar from "@components/Progressbar/ProgressBar"
 
 import authAPI from "@apis/domain/auth"
@@ -10,7 +12,6 @@ import Figure from "@pages/Signup/BodyFigure/components/Figure/Figure"
 import Ratio from "@pages/Signup/BodyFigure/components/Ratio/Ratio"
 import SignupButton from "@pages/Signup/SignupButton/SignupButton"
 import { CATEGORY_LIST } from "@pages/Signup/constants/Constants"
-import { useSignupStore } from "@pages/Signup/stores/store"
 
 import { useSelectFigure } from "@hooks/useSelectFigure"
 import { useSelectMenu } from "@hooks/useSelectMenu"

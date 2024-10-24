@@ -6,6 +6,7 @@ import Button from "@components/Button/Button"
 import Chip from "@components/Chip/Chip"
 import Icon from "@components/Icon/Icon"
 import IconButton from "@components/IconButton/IconButton"
+import HomeAlertModalButton from "@components/Modal/components/Alert/HomeAlertModalButton"
 
 import homebanner from "@assets/images/homebanner.png"
 import slide2 from "@assets/images/slide2.png"
@@ -20,21 +21,6 @@ import { useUserInfo } from "@hooks/query/useUserInfo"
 import Input from "../../components/Input/Input"
 import { formAdapter } from "../../utils/formAdapter"
 import * as S from "./StyledHome"
-
-// const TABS = [
-//   {
-//     title: "추천 받고",
-//     id: 0,
-//   },
-//   // {
-//   //   title: "결과 보고",
-//   //   id: 1,
-//   // },
-//   {
-//     title: "루틴 까지",
-//     id: 2,
-//   },
-// ]
 
 export const Home = () => {
   const navigate = useNavigate()
@@ -55,14 +41,6 @@ export const Home = () => {
   const handleRecommend = () => {
     if (loginState) {
       navigate("recommend/bodypart")
-    } else {
-    }
-  }
-
-  const handleMyPage = () => {
-    if (loginState) {
-      alert("수정 중인 페이지입니다!")
-      // navigate("mypage")
     } else {
     }
   }
@@ -126,11 +104,7 @@ export const Home = () => {
               루틴도
               <br />한 번에 관리하세요
             </S.Title>
-            <Button
-              size="lg"
-              onClick={handleMyPage}>
-              루틴 관리
-            </Button>
+            <HomeAlertModalButton />
 
             <S.SlideImg
               src={slide}
@@ -138,24 +112,6 @@ export const Home = () => {
             />
           </S.Slide>
         </S.SlideList>
-
-        {/* <S.TabListWrapper>
-          <S.TabBackground
-            initial={false}
-            animate={{ x: selectedSlideNum * 45 + "%" }}
-            transition={{ type: "tween", duration: 0.2 }}></S.TabBackground>
-          <S.TabList>
-            {TABS.map(({ title, id }) => (
-              <S.TabButton
-                key={id}
-                onClick={() => handleSlideNum(id)}
-                className={selectedSlideNum === id ? "active" : ""}>
-                {selectedSlideNum === id && <Icon icon="CircleEmptyBlue" />}
-                {title}
-              </S.TabButton>
-            ))}
-          </S.TabList>
-        </S.TabListWrapper>  */}
       </S.Third>
       <S.Fourth>
         <S.SearchWrapper>

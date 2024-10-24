@@ -57,6 +57,8 @@ ${reset}
         &:focus{
             outline:none;
         }
+        padding:0;
+        margin:0;
     }
     input[type='number']::-webkit-outer-spin-button,
     input[type='number']::-webkit-inner-spin-button {

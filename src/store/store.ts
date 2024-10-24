@@ -1,6 +1,6 @@
 import { create } from "zustand"
 
-import { PostRecommendResponse } from "../../types/type"
+import { PostRecommendResponse } from "../types/type"
 
 interface BodyPartProps {
   bodyPart: string[]

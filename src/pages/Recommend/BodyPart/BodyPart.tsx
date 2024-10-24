@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
+import { useRecommendStore } from "@store/store"
+
 import Avatar from "@components/Avatar/Avatar"
 import Bottom from "@components/Bottom/Bottom"
 import RoundButton from "@components/Button/RoundButton"
@@ -8,8 +10,6 @@ import ImgCheckBox from "@components/CheckBox/ImgCheckBox"
 import IconButton from "@components/IconButton/IconButton"
 import ProgressBar from "@components/Progressbar/ProgressBar"
 import SpeechBubble from "@components/SpeechBubble/SpeechBubble"
-
-import { useRecommendStore } from "@pages/Recommend/store"
 
 import { useGetBodyPart } from "@hooks/query/useGetBodyPart"
 

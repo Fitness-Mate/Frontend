@@ -1,5 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom"
 
+import RoutineModal from "@components/Modal/components/Alert/AlertModal"
+import RoutineModalButton from "@components/Modal/components/Alert/AlertModalButton"
 import NavDropDown from "@components/Navbar/NavDropDown"
 
 import logo from "@assets/images/logo.png"
@@ -15,10 +17,6 @@ const Navbar = () => {
 
   const handleSearch = () => {
     navigate("searchworkout")
-  }
-
-  const handleMyPage = () => {
-    alert("수정 중인 페이지입니다!")
   }
 
   const handleRecommend = () => {
@@ -45,7 +43,7 @@ const Navbar = () => {
         <S.NavTextContainer>
           <S.NavButton onClick={handleSearch}>검색하기</S.NavButton>
           <S.NavButton onClick={handleRecommend}>추천받기</S.NavButton>
-          <S.NavButton onClick={handleMyPage}>내 운동</S.NavButton>
+          <RoutineModalButton />
         </S.NavTextContainer>
 
         {userName ? (
@@ -62,6 +60,7 @@ const Navbar = () => {
       <S.NavbarUnderLine $isHome={useLocation().pathname === "/"}>
         {}
       </S.NavbarUnderLine>
+      <RoutineModal />
     </S.NavbarContainer>
   )
 }
