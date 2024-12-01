@@ -198,7 +198,6 @@ export interface MyWorkoutList {
   weight: string
   rep: string
   setCount: string
-  caution: string
   workoutId: number
   workoutName: string
   imgPath: string
@@ -214,7 +213,6 @@ export interface MyWorkoutIndex {
   weight: string
   rep: string
   setCount: string
-  caution: string
 }
 
 export interface RoutineInfo {

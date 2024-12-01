@@ -9,7 +9,7 @@ import theme, { fonts } from "@styles/theme"
 
 export type Variant = "black" | "blue" | "grey"
 
-export type Size = "big" | "middle" | "small"
+export type Size = "big" | "small"
 
 const VARIANTS = {
   black: css`
@@ -44,15 +44,6 @@ const SIZE = {
     padding: 14px 20px 14px 24px;
     ${fonts.b2};
     gap: 8px;
-    svg {
-      width: 24px;
-      height: 24px;
-    }
-  `,
-  middle: css`
-    padding: 14px 20px 14px 14px;
-    ${fonts.b4};
-    gap: 4px;
     svg {
       width: 24px;
       height: 24px;

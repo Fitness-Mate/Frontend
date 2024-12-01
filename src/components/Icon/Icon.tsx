@@ -12,7 +12,6 @@ import CircleChecked from "@assets/icon/circle_checked.svg?react"
 import CircleCheckedGreen from "@assets/icon/circle_checked_green.svg?react"
 import CircleEmpty from "@assets/icon/circle_empty.svg?react"
 import CircleFill from "@assets/icon/circle_fill.svg?react"
-import CircleSeparation from "@assets/icon/circle_separation.svg?react"
 import Close from "@assets/icon/close.svg?react"
 import CloseBold from "@assets/icon/close_bold.svg?react"
 import CloseRound from "@assets/icon/close_round.svg?react"
@@ -22,7 +21,6 @@ import DownArrow from "@assets/icon/down_arrow.svg?react"
 import DownArrowGray from "@assets/icon/down_arrow_gray.svg?react"
 import Ellipsis from "@assets/icon/ellipsis.svg?react"
 import ExclamationMark from "@assets/icon/exclamation_mark.svg?react"
-import handle from "@assets/icon/handle.svg?react"
 import LeftArrow from "@assets/icon/left_arrow.svg?react"
 import LeftArrowBig from "@assets/icon/left_arrow_big.svg?react"
 import LeftArrowBlack from "@assets/icon/left_arrow_black.svg?react"
@@ -31,11 +29,9 @@ import LeftArrowGrey from "@assets/icon/left_arrow_grey.svg?react"
 import LeftArrowWhite from "@assets/icon/left_arrow_white.svg?react"
 import MinusRound from "@assets/icon/minus_round.svg?react"
 import Pencil from "@assets/icon/pencil.svg?react"
-import PencilGrey from "@assets/icon/pencil_grey.svg?react"
 import PencilRound from "@assets/icon/pencil_round.svg?react"
 import PlayRound from "@assets/icon/play_round.svg?react"
 import RightArrowBig from "@assets/icon/right_arrow_big.svg?react"
-import RightArrowGrey from "@assets/icon/right_arrow_grey.svg?react"
 import RightArrowRound from "@assets/icon/right_arrow_round.svg?react"
 import RightArrowWhite from "@assets/icon/right_arrow_white.svg?react"
 import Search from "@assets/icon/search.svg?react"
@@ -54,7 +50,6 @@ export const ICON_MAP = {
   Check,
   Close,
   CircleCheckedGreen,
-  CircleSeparation,
   CircleChecked,
   CircleEmpty,
   CircleFill,
@@ -66,7 +61,6 @@ export const ICON_MAP = {
   LeftArrowBig,
   LeftArrow,
   MinusRound,
-  PencilGrey,
   PencilRound,
   Pencil,
   PlayRound,
@@ -82,7 +76,6 @@ export const ICON_MAP = {
   LeftArrowWhite,
   LeftArrowGrey,
   RightArrowWhite,
-  RightArrowGrey,
   Avatar,
   CloseRoundSmall,
   SearchWhite,

@@ -34,6 +34,5 @@
   "trailingComma": "all",
   "bracketSameLine": true,
   "jsxBracketSameLine": false,
-  "arrowParens": "always",
-  "preserve-newlines": true
+  "arrowParens": "always"
 }

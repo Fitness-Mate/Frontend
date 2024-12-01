@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query"
 
 import MyFitAPI from "../../apis/domain/myfit"
 
+// enabled 옵션을 내부에서 처리
 export const useGetMyWorkouts = (routineId: number) => {
   return useQuery({
     queryKey: ["getMyWorkouts", routineId],
