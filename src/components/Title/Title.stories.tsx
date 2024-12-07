@@ -10,7 +10,7 @@ const meta: Meta<typeof Title> = {
   tags: ["autodocs"],
   parameters: {
     layout: "centered",
-    componentSubtitle: `Title 가이드를 제공해주는 컴포넌트입니다.`,
+    componentSubtitle: "Title 가이드를 제공해주는 컴포넌트입니다.",
     docs: {
       description: {
         component: `

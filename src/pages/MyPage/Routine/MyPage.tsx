@@ -9,6 +9,7 @@ import Title from "@components/Title/Title"
 
 import { useGetFetchRecentData } from "@hooks/query/useGetFetchRecentBodyData"
 import { useGetMyRoutines } from "@hooks/query/useGetMyRoutines"
+import useGetMyWorkout from "@hooks/query/useGetMyWorkout"
 import { useUserInfo } from "@hooks/query/useUserInfo"
 
 import DragAndDrop from "./DragAndDrop"
@@ -24,10 +25,10 @@ const MyPage = () => {
   const { data: myRoutines = [] } = useGetMyRoutines()
   const isRoutine = Array.isArray(myRoutines) && myRoutines.length > 0
   const [myRoutineLength, setMyRoutineLength] = useState<number>(0)
-
   const [selectedRoutineId, setSelectedRoutineId] = useState<number | null>(
     null,
   )
+  const { isWorkout } = useGetMyWorkout(selectedRoutineId)
 
   useEffect(() => {
     try {
@@ -122,14 +123,29 @@ const MyPage = () => {
               <EmptyRoutine />
             )}
           </S.MypageTopContainer>
-          <S.AddWorkoutWraper>
-            <IconButton
-              icon="AddRoundGray"
-              size={32}
-            />
-            운동 추가하기
-          </S.AddWorkoutWraper>
-          <DragAndDrop selectedRoutineId={selectedRoutineId} />
+          {isWorkout ? (
+            <>
+              <S.AddWorkoutWrapper>
+                <IconButton
+                  icon="AddRoundGray"
+                  size={32}
+                />
+                운동 추가하기
+              </S.AddWorkoutWrapper>
+              <DragAndDrop selectedRoutineId={selectedRoutineId} />
+            </>
+          ) : (
+            <S.EmptyWorkoutWrapper>
+              아직 추가된 운동이 없어요
+              <S.AddWorkoutWrapper>
+                <IconButton
+                  icon="AddRoundGray"
+                  size={32}
+                />
+                새로운 운동 추가하기
+              </S.AddWorkoutWrapper>
+            </S.EmptyWorkoutWrapper>
+          )}
         </S.MypageHomeArea>
       </S.MypageContainer>
     </>

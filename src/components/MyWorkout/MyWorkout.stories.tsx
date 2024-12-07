@@ -5,17 +5,20 @@ import MyWorkout from "@components/MyWorkout/MyWorkout"
 
 const DUMMY_DATA = (
   <MyWorkout
+    myWorkoutId={249959}
+    workoutId={249959}
     onClick={() => {}}
-    bodyParts={"가슴, 등"}
+    bodyParts={"가슴, 등, 삼두"}
     weight="20"
-    setCount="5"
+    setCount="4"
     rep="12"
-    caution="허리가 굽어지지 않도록 주의가 필요해요!"
+    caution="머신 풀오버를 할 때는 등을 곧게 펴고 균형을 잘 유지해야 합니다."
     draggableProps={{} as DraggableProvided["draggableProps"]}
     dragHandleProps={{} as DraggableProvided["dragHandleProps"]}
     innerRef={() => {}}
-    isDragging={false}>
-    "벤치 프레스"
+    isDragging={false}
+    isRemoveSuccess={() => {}}>
+    "머신 풀 오버"
   </MyWorkout>
 )
 

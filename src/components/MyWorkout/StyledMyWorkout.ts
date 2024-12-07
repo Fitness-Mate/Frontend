@@ -105,4 +105,5 @@ export const FixIconButtonWrapper = styled.div`
 
 export const HandleIconButtonWrapper = styled.div`
   padding-top: 54.5px;
+  cursor: grab;
 `

@@ -84,13 +84,25 @@ export const AddIconButtonWrapper = styled.div`
   border-radius: 6px;
 `
 
-export const AddWorkoutWraper = styled.div`
+export const AddWorkoutWrapper = styled.div`
   display: flex;
   padding: 16px 8px;
   align-items: center;
   gap: 12px;
   color: ${theme.Netural800};
   ${fonts.b2}
+`
+
+export const EmptyWorkoutWrapper = styled.div`
+  width: 100%;
+  margin-top: 37px;
+  padding: 98px 0;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-direction: column;
+  color: ${theme.Netural900};
+  ${fonts.h4}
 `
 
 export const DragAndDropWrapper = styled.div`

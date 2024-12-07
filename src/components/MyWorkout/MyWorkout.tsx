@@ -1,14 +1,21 @@
+import { useNavigate } from "react-router-dom"
+
 import { DraggableProvided } from "@hello-pangea/dnd"
 
+import DropDown from "@components/DropDown/DropDown"
 import Icon from "@components/Icon/Icon"
 import IconButton from "@components/IconButton/IconButton"
 import Title from "@components/Title/Title"
 
 import { StrictPropsWithChildren } from "@typpes/type"
 
+import { useDropDown } from "@hooks/useDropDown"
+
 import * as S from "./StyledMyWorkout"
 
 interface MyWorkoutProps {
+  workoutId: number
+  myWorkoutId: number
   children: string
   bodyParts: string
   caution: string
@@ -20,9 +27,12 @@ interface MyWorkoutProps {
   dragHandleProps: DraggableProvided["dragHandleProps"]
   innerRef: (element: HTMLElement | null) => void
   isDragging: boolean
+  isRemoveSuccess: () => void
 }
 
 const MyWorkout = ({
+  workoutId,
+  myWorkoutId,
   children,
   bodyParts,
   setCount,
@@ -33,8 +43,15 @@ const MyWorkout = ({
   dragHandleProps,
   innerRef,
   isDragging,
+  isRemoveSuccess,
 }: StrictPropsWithChildren<MyWorkoutProps>) => {
-  const handleFixWorkout = () => {}
+  const navigate = useNavigate()
+  const handleDetailWorkout = (workoutId: number) => {
+    navigate(`/workoutdetail/${workoutId}`)
+    console.log(workoutId)
+  }
+
+  const { isOpen, dropDownRef, toggleDropDown } = useDropDown()
 
   return (
     <S.MyWorkoutWrapper
@@ -51,7 +68,9 @@ const MyWorkout = ({
                   <IconButton
                     icon="RightArrowGrey"
                     size={24}
-                    onClick={handleFixWorkout}
+                    onClick={() => {
+                      handleDetailWorkout(workoutId)
+                    }}
                   />
                 </S.DetailIconButtonWrapper>
               </Title.SubTopIconTitle>
@@ -86,13 +105,19 @@ const MyWorkout = ({
           <S.BottomTitle>주의사항</S.BottomTitle>
           {caution}
         </S.BottomWrapper>
-        <S.FixIconButtonWrapper>
+        <S.FixIconButtonWrapper ref={dropDownRef}>
           <IconButton
             icon="PencilGrey"
             size={18}
-            onClick={handleFixWorkout}
+            onClick={toggleDropDown}
           />
         </S.FixIconButtonWrapper>
+        {isOpen && (
+          <DropDown
+            myWorkoutId={myWorkoutId}
+            isRemoveSuccess={isRemoveSuccess}
+          />
+        )}
       </S.MyWorkoutContent>
       <S.HandleIconButtonWrapper>
         <Icon

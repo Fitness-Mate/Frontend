@@ -28,6 +28,7 @@ module.exports = {
   },
   rules: {
     "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
     "react/function-component-definition": [
       2,
       { namedComponents: "arrow-function" },
@@ -43,6 +44,6 @@ module.exports = {
     "@tanstack/query/exhaustive-deps": "error",
     "@tanstack/query/no-deprecated-options": "error",
     "@tanstack/query/prefer-query-object-syntax": "error",
-    "@tanstack/query/stable-query-client": "error"
+    "@tanstack/query/stable-query-client": "error",
   },
 }
