@@ -13,6 +13,8 @@ import { useGetMyRoutines } from "@hooks/query/useGetMyRoutines"
 import { useGetRoutineQueries } from "@hooks/query/useGetRoutineQueries"
 import { useModal } from "@hooks/useModal"
 
+import { checkKorean } from "@utils/checkKorean"
+
 import * as S from "./StyledRoutineModal"
 
 const RoutineAddModal = () => {
@@ -23,10 +25,13 @@ const RoutineAddModal = () => {
       setSelectedRoutines(new Set())
     },
   })
+
   const { onOpen } = useModal("루틴정보")
+
   const { setRoutineState, workoutState = { koreanName: "" } } = useModalStore()
+
   const { data: routines = [] } = useGetMyRoutines()
-  const { data: workouts, refetchAll } = useGetRoutineQueries(routines)
+  const { data: workouts } = useGetRoutineQueries(routines)
 
   const isFullRoutine = routines.length >= 5
 
@@ -57,10 +62,6 @@ const RoutineAddModal = () => {
     setSelectedRoutines(new Set())
   }
 
-  useEffect(() => {
-    refetchAll()
-  }, [routines, refetchAll])
-
   return (
     <Modal
       isOpen={isOpen}
@@ -69,7 +70,7 @@ const RoutineAddModal = () => {
       disableInteraction>
       <Modal.Title>
         <Title variant="midA">
-          {workoutState?.koreanName}를 추가할
+          {checkKorean(workoutState?.koreanName)} 추가할
           <br />
           루틴을 선택해주세요
           <Title.SubBottomTitle>여러 개 선택할 수 있어요</Title.SubBottomTitle>
@@ -88,11 +89,10 @@ const RoutineAddModal = () => {
                 onClick={() => {
                   handleToggleRoutine(routineId)
                 }}
-                $isSelected={selectedRoutines.has(routineId)}
                 disabled={isAdded}>
                 <S.RoutineName
                   $isSelected={selectedRoutines.has(routineId)}
-                  $isAdded={!!isAdded}>
+                  $isAdded={isAdded}>
                   {routineName}
                 </S.RoutineName>
                 <S.RoutineState>

@@ -27,7 +27,6 @@ export const CoverWrapper = styled(motion.div)`
   top: 50%;
   left: 50%;
 `
-
 export const RecommendWrapper = styled.div`
   max-width: 752px;
   margin: 0 auto;
@@ -37,16 +36,37 @@ export const RecommendWrapper = styled.div`
   align-items: center;
 `
 
-export const ResultWrapper = styled(RecommendWrapper)`
-  padding-top: 57px;
-`
-
 export const LoadingText = styled(motion.span)`
   position: absolute;
   top: 50%;
   left: 50%;
   ${fonts.h2};
   text-align: center;
+`
+
+export const Status = styled.div<{ $isScrollTop: boolean }>`
+  position: relative;
+  width: 100%;
+  display: flex;
+  gap: 17px;
+  align-items: center;
+  &::after {
+    ${({ $isScrollTop }) =>
+      !$isScrollTop &&
+      css`
+        position: absolute;
+        bottom: -35px;
+        content: "";
+        width: 100%;
+        height: 36px;
+        z-index: 5;
+        background: linear-gradient(
+          180deg,
+          #fbfcfc 30.5%,
+          rgba(251, 252, 252, 0) 100%
+        );
+      `}
+  }
 `
 
 export const RecommendInner = styled.div`
@@ -60,40 +80,14 @@ export const RecommendInner = styled.div`
     display: none; /* Chrome, Safari, Opera*/
   }
   position: relative;
-  height: calc(-210px + 100vh);
+  height: calc(-205px + 100vh);
 `
 
-export const Status = styled.div<{ $isScrollTop: boolean }>`
-  position: relative;
-  width: 100%;
-  display: flex;
-  gap: 17px;
-  align-items: center;
-  &::after {
-    ${({ $isScrollTop }) =>
-      $isScrollTop
-        ? css``
-        : css`
-            position: absolute;
-            bottom: -35px;
-            content: "";
-            width: 100%;
-            height: 36px;
-            z-index: 5;
-            background: linear-gradient(
-              180deg,
-              #fbfcfc 30.5%,
-              rgba(251, 252, 252, 0) 100%
-            );
-          `}
-  }
-`
-
-export const RecommendGuideWrapper = styled.div`
+export const RecommendGuideWrapper = styled(motion.div)`
   position: relative;
   height: 100%;
   width: 100%;
-  min-height: 366px;
+  height: 400px;
 `
 
 export const RecommendGuide = styled(motion.div)`
@@ -101,11 +95,11 @@ export const RecommendGuide = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  align-items: center;
 `
 
 export const RecommendSwitchGuide = styled.div`
@@ -118,8 +112,8 @@ export const RecommendSwitchGuide = styled.div`
 `
 
 export const RecommendMachineWrapper = styled(motion.ul)`
+  position: absolute;
   max-width: 752px;
-  max-height: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
@@ -169,6 +163,22 @@ export const TitleWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 14px;
+`
+
+export const ResultWrapper = styled(RecommendWrapper)`
+  padding-top: 57px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+`
+
+export const TitleEmphasize = styled.span`
+  ${fonts.h1};
+  font-weight: 700;
+  &::after {
+    content: "을 추천했어요.";
+    font-weight: 600;
+  }
 `
 
 export const TitleContainer = styled.div`

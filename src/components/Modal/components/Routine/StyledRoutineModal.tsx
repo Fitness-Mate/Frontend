@@ -150,15 +150,14 @@ export const RoutineList = styled.div`
   overflow: auto;
 `
 
-export const RoutineItem = styled.button<{ $isSelected: boolean }>`
+export const RoutineItem = styled.button`
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 16px 0;
   border-radius: 12px;
-  background: ${({ $isSelected }) =>
-    $isSelected ? theme.Netural150 : theme.Netural0};
+  background: ${theme.Netural0};
   &:disabled {
     cursor: default;
   }
@@ -168,9 +167,12 @@ export const RoutineName = styled.span<{
   $isSelected: boolean
   $isAdded: boolean
 }>`
-  color: ${({ $isAdded }) => ($isAdded ? theme.Netural500 : theme.Netural800)};
-  color: ${({ $isSelected }) =>
-    $isSelected ? theme.Brand600 : theme.Netural800};
+  color: ${({ $isAdded, $isSelected }) =>
+    $isAdded
+      ? theme.Netural500
+      : $isSelected
+        ? theme.Brand600
+        : theme.Netural800};
   ${fonts.b2};
 `
 
@@ -186,6 +188,8 @@ export const ButtonNavBox = styled.div<{ $isFullRoutine: boolean }>`
   color: ${theme.Netural800};
   ${fonts.b2};
   opacity: ${({ $isFullRoutine }) => ($isFullRoutine ? "0.5" : "1")};
+  cursor: ${({ $isFullRoutine }) =>
+    $isFullRoutine ? "not-allowed" : "pointer"};
 `
 
 export const FullRoutineWarning = styled.span`

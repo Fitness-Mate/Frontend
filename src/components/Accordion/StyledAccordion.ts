@@ -4,7 +4,7 @@ import styled from "styled-components"
 
 import theme, { fonts } from "@styles/theme"
 
-export const AccordianWrapper = styled.div<{ $visible: boolean }>`
+export const AccordionWrapper = styled.div<{ $visible: boolean }>`
   width: 100%;
   position: relative;
   display: flex;
