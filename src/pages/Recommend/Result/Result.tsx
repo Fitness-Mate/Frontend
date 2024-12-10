@@ -1,7 +1,6 @@
 import { FormProvider, useForm } from "react-hook-form"
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 
-import { useRecommendStore } from "@store/store"
 import { useUserStore } from "@store/useUserStore"
 
 import Accordion from "@components/Accordion/Accordion"
@@ -14,17 +13,25 @@ import RoutineMakeModal from "@components/Modal/components/Routine/RoutineMakeMo
 import RoutineModal from "@components/Modal/components/Routine/RoutineModal"
 import Title from "@components/Title/Title"
 
-import { RoutineInfoTypes, RoutineNameTypes } from "@typpes/type"
+import {
+  PostRecommendResponse,
+  RoutineInfoTypes,
+  RoutineNameTypes,
+} from "@typpes/type"
 
 import { useGetMyRoutines } from "@hooks/query/useGetMyRoutines"
 import { useModal } from "@hooks/useModal"
 
-import * as S from "../StyledRecommend"
+import * as S from "./StyledResult"
+
+interface RouteState {
+  state: PostRecommendResponse
+}
 
 const Result = () => {
   const navigate = useNavigate()
 
-  const { result } = useRecommendStore()
+  const { state: result } = useLocation() as RouteState
 
   const { isLogin, user } = useUserStore()
   const { data: routines = [] } = useGetMyRoutines()
@@ -53,7 +60,9 @@ const Result = () => {
           <Title variant="big">
             {isLogin && user?.userName}님에게 맞는
             <br />
-            {result.recommends.length}가지 운동을 추천했어요.
+            <S.TitleEmphasize>
+              {result.recommends.length}가지 운동
+            </S.TitleEmphasize>
             <Title.SubBottomTitle>
               내 운동 루틴에 추가해보세요.
             </Title.SubBottomTitle>
@@ -68,7 +77,7 @@ const Result = () => {
       </S.TitleWrapper>
 
       <S.ResultList>
-        {result.recommends.map((workout) => {
+        {result.recommends.map((workout, idx) => {
           const {
             workoutId,
             koreanName,
@@ -83,6 +92,7 @@ const Result = () => {
           return (
             <Accordion
               key={workoutId}
+              idx={idx}
               bodyParts={bodyPartKoreanName.toString()}
               onOpen={onOpen}
               workout={workout}>

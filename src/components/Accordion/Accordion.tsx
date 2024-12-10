@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from "react"
 
 import Header from "@components/Accordion/Header"
-import { AccordianWrapper } from "@components/Accordion/StyledAccordion"
+import { AccordionWrapper } from "@components/Accordion/StyledAccordion"
 import Trigger from "@components/Accordion/Trigger"
 
 import { Recommend, StrictPropsWithChildren, Workout } from "@typpes/type"
@@ -14,6 +14,7 @@ interface AccordionContextProps {
   bodyParts: string
   onOpen: () => void
   workout: Workout | Recommend
+  idx?: number
 }
 
 const AccordionContext = createContext<AccordionContextProps>({
@@ -50,8 +51,9 @@ const Accordion = ({
   bodyParts,
   onOpen,
   workout,
+  idx,
 }: StrictPropsWithChildren<AccordionContextProps>) => {
-  const [visible, setVisible] = useState<boolean>(false)
+  const [visible, setVisible] = useState<boolean>(idx === 0 ? true : false)
 
   const toggle = () => {
     setVisible((prev) => !prev)
@@ -66,7 +68,7 @@ const Accordion = ({
         onOpen,
         workout,
       }}>
-      <AccordianWrapper $visible={visible}>{children}</AccordianWrapper>
+      <AccordionWrapper $visible={visible}>{children}</AccordionWrapper>
     </AccordionContext.Provider>
   )
 }
