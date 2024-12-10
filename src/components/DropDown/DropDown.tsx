@@ -1,6 +1,6 @@
 import Icon from "@components/Icon/Icon"
 
-import MyFitAPI from "@apis/domain/myfit"
+import useDeleteMyWorkout from "@hooks/mutation/useDeleteMyWorkout"
 
 import * as S from "./StyledDropDown"
 
@@ -11,14 +11,10 @@ const DropDown = ({
   myWorkoutId: number
   isRemoveSuccess: () => void
 }) => {
-  const isRemoveWorkout = async (myWorkoutId: number) => {
-    try {
-      await MyFitAPI.deleteMyWorkout(myWorkoutId)
-      isRemoveSuccess()
-    } catch (error) {
-      console.error(error)
-    }
-  }
+  const { mutate: removeWorkout } = useDeleteMyWorkout({
+    onSuccess: isRemoveSuccess,
+  })
+
   return (
     <S.DropDownWrapper>
       <S.DropDownButton>
@@ -30,7 +26,7 @@ const DropDown = ({
       </S.DropDownButton>
       <S.DropDownButton
         onClick={() => {
-          isRemoveWorkout(myWorkoutId)
+          removeWorkout(myWorkoutId)
         }}>
         <div className="removeWorkout">운동 삭제하기</div>
         <Icon
