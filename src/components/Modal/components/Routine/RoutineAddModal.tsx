@@ -81,15 +81,17 @@ const RoutineAddModal = () => {
             onClick={() => {
               openAddRoutine()
               onClose()
-            }}
-            disabled={isFullRoutine}>
-            <S.ButtonNavBox $isFullRoutine={isFullRoutine}>
+            }}>
+            <S.AddRoutineButton
+            // $isFullRoutine={isFullRoutine}
+            // disabled={isFullRoutine}
+            >
               <Icon
                 icon="AddRoundGray"
                 size={32}
               />
               추가하기
-            </S.ButtonNavBox>
+            </S.AddRoutineButton>
 
             {isFullRoutine && (
               <S.FullRoutineWarning>

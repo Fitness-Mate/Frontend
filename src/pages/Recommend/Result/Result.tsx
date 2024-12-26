@@ -1,4 +1,3 @@
-import { FormProvider, useForm } from "react-hook-form"
 import { useLocation, useNavigate } from "react-router-dom"
 
 import { useUserStore } from "@store/useUserStore"
@@ -13,11 +12,7 @@ import RoutineMakeModal from "@components/Modal/components/Routine/RoutineMakeMo
 import RoutineModal from "@components/Modal/components/Routine/RoutineModal"
 import Title from "@components/Title/Title"
 
-import {
-  PostRecommendResponse,
-  RoutineInfoTypes,
-  RoutineNameTypes,
-} from "@typpes/type"
+import { PostRecommendResponse } from "@typpes/type"
 
 import { useGetMyRoutines } from "@hooks/query/useGetMyRoutines"
 import { useModal } from "@hooks/useModal"
@@ -35,9 +30,6 @@ const Result = () => {
 
   const { isLogin, user } = useUserStore()
   const { data: routines = [] } = useGetMyRoutines()
-
-  const methods = useForm<RoutineInfoTypes>()
-  const methods2 = useForm<RoutineNameTypes>()
 
   const addRoutineModal = useModal("루틴추가")
   const startRoutineModal = useModal("루틴시작")
@@ -111,12 +103,8 @@ const Result = () => {
 
       <RoutineAddModal />
       <RoutineModal />
-      <FormProvider {...methods}>
-        <RoutineInfoModal />
-      </FormProvider>
-      <FormProvider {...methods2}>
-        <RoutineMakeModal />
-      </FormProvider>
+      <RoutineInfoModal />
+      <RoutineMakeModal />
       <RoutineDuplicateModal />
     </S.ResultWrapper>
   )
