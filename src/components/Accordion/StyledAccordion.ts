@@ -124,7 +124,7 @@ export const HeaderTrigger = styled.button`
 export const TopLine = styled.div`
   position: absolute;
   top: 0;
-  width: 100vw;
+  width: 106%;
   height: 0.1rem;
   transform: translateX(-50%);
   background-color: ${theme.Netural200};
