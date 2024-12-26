@@ -130,7 +130,7 @@ export const ContentBigWrapper = styled.div`
   gap: 0.4rem;
 `
 
-export const AddRoutineButton = styled.button`
+export const AddRoutine = styled.button`
   display: flex;
   align-items: center;
   justify-content: space-between;

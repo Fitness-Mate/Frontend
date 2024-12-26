@@ -2,10 +2,9 @@ import { useState } from "react"
 
 import { useModalStore } from "@store/useModalStore"
 
+import Button from "@components/Button/Button"
 import Icon from "@components/Icon/Icon"
 import Modal from "@components/Modal/Modal"
-import RoutineAddModalButton from "@components/Modal/components/Routine/RoutineAddModalButton"
-import RoutineInfoModalButton from "@components/Modal/components/Routine/RoutineInfoModalButton"
 import "@components/Modal/components/Routine/StyledRoutineModal"
 import Title from "@components/Title/Title"
 
@@ -25,8 +24,8 @@ const RoutineAddModal = () => {
       setSelectedRoutines(new Set())
     },
   })
-
   const { onOpen } = useModal("루틴정보")
+  const { onOpen: openAddRoutine } = useModal("루틴생성")
 
   const { setRoutineState, workoutState = { koreanName: "" } } = useModalStore()
 
@@ -78,10 +77,26 @@ const RoutineAddModal = () => {
       </Modal.Title>
       <Modal.Content isFull>
         <S.ContentBigWrapper>
-          <RoutineAddModalButton
-            onClose={onClose}
-            isFullRoutine={isFullRoutine}
-          />
+          <S.AddRoutine
+            onClick={() => {
+              openAddRoutine()
+              onClose()
+            }}
+            disabled={isFullRoutine}>
+            <S.ButtonNavBox $isFullRoutine={isFullRoutine}>
+              <Icon
+                icon="AddRoundGray"
+                size={32}
+              />
+              추가하기
+            </S.ButtonNavBox>
+
+            {isFullRoutine && (
+              <S.FullRoutineWarning>
+                루틴은 최대 5개까지만 만들 수 있어요
+              </S.FullRoutineWarning>
+            )}
+          </S.AddRoutine>
           <S.RoutineList>
             {filteredRoutines?.map(({ routineId, routineName, isAdded }) => (
               <S.RoutineItem
@@ -115,12 +130,17 @@ const RoutineAddModal = () => {
         </S.ContentBigWrapper>
       </Modal.Content>
       <Modal.Footer>
-        <RoutineInfoModalButton
-          isDisabled={!selectedRoutines.size}
-          onOpen={onOpen}
-          onClose={onClose}
-          saveRoutineState={saveRoutineState}
-        />
+        <Button
+          variant="main"
+          size="full"
+          disabled={!selectedRoutines.size}
+          onClick={() => {
+            onOpen()
+            onClose()
+            saveRoutineState()
+          }}>
+          다음
+        </Button>
       </Modal.Footer>
     </Modal>
   )
