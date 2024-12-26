@@ -83,9 +83,8 @@ const RoutineAddModal = () => {
               onClose()
             }}>
             <S.AddRoutineButton
-            // $isFullRoutine={isFullRoutine}
-            // disabled={isFullRoutine}
-            >
+              $isFullRoutine={isFullRoutine}
+              disabled={isFullRoutine}>
               <Icon
                 icon="AddRoundGray"
                 size={32}

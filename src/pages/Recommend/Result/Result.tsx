@@ -17,6 +17,7 @@ import { PostRecommendResponse } from "@typpes/type"
 import { useGetMyRoutines } from "@hooks/query/useGetMyRoutines"
 import { useModal } from "@hooks/useModal"
 
+import * as GS from "../StyledRecommend"
 import * as S from "./StyledResult"
 
 interface RouteState {
@@ -42,71 +43,74 @@ const Result = () => {
   }
 
   return (
-    <S.ResultWrapper>
-      <S.TitleWrapper>
-        <S.TitleContainer>
-          <Icon
-            icon="Star"
-            size={30}
-          />
-          <Title variant="big">
-            {isLogin && user?.userName}님에게 맞는
-            <br />
-            <S.TitleEmphasize>
-              {result.recommends.length}가지 운동
-            </S.TitleEmphasize>
-            <Title.SubBottomTitle>
-              내 운동 루틴에 추가해보세요.
-            </Title.SubBottomTitle>
-          </Title>
-        </S.TitleContainer>
-        <Button
-          size="lg"
-          variant="text"
-          onClick={handleHomePage}>
-          홈으로
-        </Button>
-      </S.TitleWrapper>
+    <>
+      <GS.RecommendBackground />
+      <S.ResultWrapper>
+        <S.TitleWrapper>
+          <S.TitleContainer>
+            <Icon
+              icon="Star"
+              size={30}
+            />
+            <Title variant="big">
+              {isLogin && user?.userName}님에게 맞는
+              <br />
+              <S.TitleEmphasize>
+                {result.recommends.length}가지 운동
+              </S.TitleEmphasize>
+              <Title.SubBottomTitle>
+                내 운동 루틴에 추가해보세요.
+              </Title.SubBottomTitle>
+            </Title>
+          </S.TitleContainer>
+          <Button
+            size="lg"
+            variant="text"
+            onClick={handleHomePage}>
+            홈으로
+          </Button>
+        </S.TitleWrapper>
 
-      <S.ResultList>
-        {result.recommends.map((workout, idx) => {
-          const {
-            workoutId,
-            koreanName,
-            description,
-            weight,
-            set,
-            repeat,
-            bodyPartKoreanName,
-            videoLink,
-            caution,
-          } = workout
-          return (
-            <Accordion
-              key={workoutId}
-              idx={idx}
-              bodyParts={bodyPartKoreanName.toString()}
-              onOpen={onOpen}
-              workout={workout}>
-              <Accordion.Header>{koreanName}</Accordion.Header>
-              <Accordion.Content
-                videoId={videoLink.split("=")[1]}
-                recommend={[`${weight}kg`, `${set}세트`, `${repeat}회`]}
-                description={description}
-                caution={caution}
-              />
-              <Accordion.Trigger />
-            </Accordion>
-          )
-        })}
-      </S.ResultList>
+        <S.ResultList>
+          {result.recommends.map((workout, idx) => {
+            const {
+              workoutId,
+              koreanName,
+              description,
+              weight,
+              set,
+              repeat,
+              bodyPartKoreanName,
+              videoLink,
+              caution,
+            } = workout
+            return (
+              <Accordion
+                key={workoutId}
+                idx={idx}
+                bodyParts={bodyPartKoreanName.toString()}
+                onOpen={onOpen}
+                workout={workout}>
+                <Accordion.Header>{koreanName}</Accordion.Header>
+                <Accordion.Content
+                  videoId={videoLink.split("=")[1]}
+                  recommend={[`${weight}kg`, `${set}세트`, `${repeat}회`]}
+                  description={description}
+                  caution={caution}
+                />
+                <Accordion.Trigger />
+              </Accordion>
+            )
+          })}
+        </S.ResultList>
 
-      <RoutineAddModal />
-      <RoutineModal />
-      <RoutineInfoModal />
-      <RoutineMakeModal />
-      <RoutineDuplicateModal />
-    </S.ResultWrapper>
+        <RoutineAddModal />
+        <RoutineModal />
+        <RoutineInfoModal />
+        <RoutineMakeModal />
+        <RoutineDuplicateModal />
+      </S.ResultWrapper>
+    </>
   )
 }
 export default Result

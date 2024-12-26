@@ -50,6 +50,7 @@ const Machine = () => {
 
   return (
     <>
+      <GS.RecommendBackground />
       {postRecommend.isPending && (
         <>
           <BackOverlay />
