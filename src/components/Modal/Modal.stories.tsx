@@ -18,7 +18,7 @@ import { RoutineInfoTypes, RoutineNameTypes } from "@typpes/type"
 
 import { useModal } from "@hooks/useModal"
 
-import RoutineDuplicateModal from "./components/Alert/RoutineDuplicateModal"
+import RoutineDuplicateModal from "./components/Routine/RoutineDuplicateModal"
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { staleTime: Infinity, refetchOnMount: true } },

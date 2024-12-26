@@ -6,11 +6,6 @@ import { useUserStore } from "@store/useUserStore"
 import Accordion from "@components/Accordion/Accordion"
 import Button from "@components/Button/Button"
 import Icon from "@components/Icon/Icon"
-import RoutineDuplicateModal from "@components/Modal/components/Alert/RoutineDuplicateModal"
-import RoutineAddModal from "@components/Modal/components/Routine/RoutineAddModal"
-import RoutineInfoModal from "@components/Modal/components/Routine/RoutineInfoModal"
-import RoutineMakeModal from "@components/Modal/components/Routine/RoutineMakeModal"
-import RoutineModal from "@components/Modal/components/Routine/RoutineModal"
 import Title from "@components/Title/Title"
 
 import {
@@ -111,12 +106,6 @@ const Result = () => {
             )
           })}
         </S.ResultList>
-
-        <RoutineAddModal />
-        <RoutineModal />
-        <RoutineInfoModal />
-        <RoutineMakeModal />
-        <RoutineDuplicateModal />
       </S.ResultWrapper>
     </>
   )
