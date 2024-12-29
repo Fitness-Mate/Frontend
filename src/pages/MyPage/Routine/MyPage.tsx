@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 import Icon from "@components/Icon/Icon"
@@ -37,9 +37,15 @@ const MyPage = () => {
   const [selectedRoutineId, setSelectedRoutineId] = useState<number>(
     myRoutines.length > 0 ? myRoutines[0].routineId : -1,
   )
+  useEffect(() => {
+    if (myRoutines.length > 0 && selectedRoutineId === -1) {
+      setSelectedRoutineId(myRoutines[0].routineId)
+    }
+  }, [myRoutines])
 
-  const { isWorkout } = useGetMyWorkouts(selectedRoutineId)
-
+  const { isWorkout } = useGetMyWorkouts(selectedRoutineId, {
+    enabled: selectedRoutineId > 0, // 유효한 selectedRoutineId만 요청
+  })
   const handleTabChange = (routineId: number) => {
     setSelectedRoutineId(routineId)
   }
