@@ -35,7 +35,7 @@ const RoutineTabs = ({ myRoutines, onTabChange }: RoutineTabsProps) => {
   return (
     <S.RoutinesContainer>
       <S.RoutineList>
-        <Tabs>
+        <Tabs useLocalStorage>
           <Tabs.TabList>
             {myRoutines.map(({ routineId, routineName }, index) => (
               <Tabs.Tab

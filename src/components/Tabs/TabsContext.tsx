@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from "react"
+import { createContext, useContext, useEffect, useState } from "react"
 
 const DEFAULT_INDEX = 0
 
@@ -9,17 +9,30 @@ const TabsContext = createContext({
 
 const useTabs = () => useContext(TabsContext)
 
-const TabsProvider = ({ children }: { children: React.ReactNode }) => {
+interface TabsProviderProps {
+  children: React.ReactNode
+  useLocalStorage?: boolean
+}
+
+const TabsProvider = ({
+  children,
+  useLocalStorage = false,
+}: TabsProviderProps) => {
   const getInitialTabIndex = () => {
-    const storedTabIndex = localStorage.getItem("selectedTabIndex")
-    return storedTabIndex ? parseInt(storedTabIndex, 10) : DEFAULT_INDEX
+    if (useLocalStorage) {
+      const storedTabIndex = localStorage.getItem("selectedTabIndex")
+      return storedTabIndex ? parseInt(storedTabIndex, 10) : DEFAULT_INDEX
+    }
+    return DEFAULT_INDEX
   }
 
   const [activeTab, setActiveTab] = useState(getInitialTabIndex)
 
   useEffect(() => {
-    localStorage.setItem("selectedTabIndex", String(activeTab))
-  }, [activeTab])
+    if (useLocalStorage) {
+      localStorage.setItem("selectedTabIndex", String(activeTab))
+    }
+  }, [activeTab, useLocalStorage])
 
   const switchTab = (tabIndex: number) => {
     setActiveTab(tabIndex)
