@@ -19,24 +19,21 @@ import * as S from "./StyledMyPage"
 const MyPage = () => {
   const navigate = useNavigate()
 
-  const handleFixProfile = async () => {
-    navigate("/mypage/profile")
-  }
-
   const { userInfo } = useGetUserInfo()
   const userName = userInfo?.userName || "사용자명"
 
   const { bodyDatas } = useGetFetchRecentData()
-
   const bodyFigure = bodyDatas?.bodyFigure || null
 
   const { data: myRoutines = [], isFetched: isRoutineFetched } =
     useGetMyRoutines()
   const isRoutine = isRoutineFetched && myRoutines.length > 0
-  const myRoutineLength = isRoutine ? myRoutines.length : 0
-  const [selectedRoutineId, setSelectedRoutineId] = useState<number>(
-    myRoutines.length > 0 ? myRoutines[0].routineId : -1,
-  )
+
+  const [selectedRoutineId, setSelectedRoutineId] = useState<number>(() => {
+    const storedRoutineId = localStorage.getItem("selectedRoutineId")
+    return storedRoutineId ? parseInt(storedRoutineId, 10) : -1
+  })
+
   useEffect(() => {
     if (myRoutines.length > 0 && selectedRoutineId === -1) {
       setSelectedRoutineId(myRoutines[0].routineId)
@@ -44,10 +41,12 @@ const MyPage = () => {
   }, [myRoutines])
 
   const { isWorkout } = useGetMyWorkouts(selectedRoutineId, {
-    enabled: selectedRoutineId > 0, // 유효한 selectedRoutineId만 요청
+    enabled: selectedRoutineId > 0,
   })
+
   const handleTabChange = (routineId: number) => {
     setSelectedRoutineId(routineId)
+    localStorage.setItem("selectedRoutineId", String(routineId))
   }
 
   return (
@@ -63,7 +62,8 @@ const MyPage = () => {
               <Title variant="midE">
                 <Title.SubTopIconTitle>
                   {userName}
-                  <S.FixIconButtonWrapper onClick={handleFixProfile}>
+                  <S.FixIconButtonWrapper
+                    onClick={() => navigate("/mypage/profile")}>
                     <IconButton
                       icon="PencilDarkGrey"
                       size={14}
@@ -82,7 +82,7 @@ const MyPage = () => {
                   <Title.SubBottomTitleContent>
                     분할
                     <Title.SubBottomTitle>
-                      {myRoutineLength}분할
+                      {myRoutines.length}분할
                     </Title.SubBottomTitle>
                   </Title.SubBottomTitleContent>
                 </S.MyBodyInfotmation>
@@ -95,16 +95,7 @@ const MyPage = () => {
                   onTabChange={handleTabChange}
                 />
                 {isWorkout ? (
-                  <>
-                    <S.AddWorkoutWrapper>
-                      <IconButton
-                        icon="AddRoundGray"
-                        size={32}
-                      />
-                      운동 추가하기
-                    </S.AddWorkoutWrapper>
-                    <DragAndDrop selectedRoutineId={selectedRoutineId} />
-                  </>
+                  <DragAndDrop selectedRoutineId={selectedRoutineId} />
                 ) : (
                   <S.EmptyWorkoutWrapper>
                     아직 추가된 운동이 없어요
