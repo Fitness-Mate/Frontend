@@ -6,7 +6,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 
 import Button from "@components/Button/Button"
 import Modal from "@components/Modal/Modal"
-import AlertModal from "@components/Modal/components/Alert/AlertModal"
 import DeleteModal from "@components/Modal/components/Delete/DeleteModal"
 import LoadingModal from "@components/Modal/components/Loading/LoadingModal"
 import QuitModal from "@components/Modal/components/Quit/QuitModal"
@@ -86,15 +85,6 @@ const Trigger = ({ name }: TriggerProps) => {
       {name}
     </Button>
   )
-}
-
-export const Alert: Story = {
-  render: () => (
-    <>
-      <Trigger name={"알림"} />
-      <AlertModal />
-    </>
-  ),
 }
 
 export const Loading: Story = {

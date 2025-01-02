@@ -3,11 +3,13 @@ import { Fragment } from "react/jsx-runtime"
 
 import styled from "styled-components"
 
+import 남성 from "@assets/images/남성.png"
+import 여성 from "@assets/images/여성.png"
+
 import theme from "@styles/theme"
 
 interface SelectGroup<T extends FieldValues, K extends Path<T>> {
   groupName: PathValue<T, K>
-  imgSrc: string
   id: number
 }
 
@@ -30,7 +32,7 @@ const InputSelect = <T extends FieldValues, K extends Path<T>>({
 
   return (
     <SelectList>
-      {list.map(({ groupName, imgSrc, id }) => (
+      {list.map(({ groupName, id }) => (
         <Fragment key={id}>
           <input
             type="radio"
@@ -46,7 +48,7 @@ const InputSelect = <T extends FieldValues, K extends Path<T>>({
             type="button"
             $isChecked={getValues(name) === groupName}>
             <SelectImg
-              src={imgSrc}
+              src={"남성" === groupName ? 남성 : 여성}
               alt={groupName}
             />
             <SelectText $isChecked={getValues(name) === groupName}>

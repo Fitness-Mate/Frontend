@@ -5,6 +5,8 @@ import { useUserStore } from "@store/useUserStore"
 
 import { useMutation } from "@tanstack/react-query"
 
+import { Toast } from "@components/Toast/Toast"
+
 import authAPI from "@apis/domain/auth"
 
 import { PostLoginPayload } from "@typpes/type"
@@ -27,12 +29,12 @@ export const useLogin = (
         await authAPI.fetchUser().then((res) => {
           saveUser(res)
         })
+        Toast.success("로그인에 성공했습니다.")
         navigate("/")
       } else {
         if (setError) {
           setError("root", {
             type: "server",
-            message: "이메일 또는 비밀번호를 잘못 입력했습니다",
           })
         }
       }
@@ -47,7 +49,3 @@ export const useLogin = (
     },
   })
 }
-
-// 로그인 => 로그인 요청 api 호출
-// 성공 -> 유저패칭훅(accesstoken으로 api 호출하고 전역에 유저정보랑 로그인 상태 담음)
-// 실패 -> form 에러

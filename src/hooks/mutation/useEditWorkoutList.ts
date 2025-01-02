@@ -27,10 +27,6 @@ const useEditWorkoutList = (routineId: number) => {
         },
       )
     },
-
-    onError: (error) => {
-      console.error("Workout update failed:", error)
-    },
   })
 }
 

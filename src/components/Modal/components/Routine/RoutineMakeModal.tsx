@@ -26,7 +26,7 @@ const RoutineMakeModal = () => {
   const { mutate } = usePostMakeRoutine()
 
   const inputValue = watch("routineName", "") || ""
-  const isFullRoutine = routines.length >= 5
+  const isFullRoutine = routines.length >= 6
 
   const handleRoutineName: SubmitHandler<RoutineNameTypes> = ({
     routineName,
