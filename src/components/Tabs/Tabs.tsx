@@ -3,12 +3,15 @@ import { TabsProvider, useTabs } from "@components/Tabs/TabsContext"
 
 import { StrictPropsWithChildren } from "@typpes/type"
 
-const Tabs = ({ children }: StrictPropsWithChildren) => (
-  <TabsProvider>
+interface TabsProps extends StrictPropsWithChildren {
+  useLocalStorage?: boolean
+}
+
+const Tabs = ({ children, useLocalStorage = false }: TabsProps) => (
+  <TabsProvider useLocalStorage={useLocalStorage}>
     <>{children}</>
   </TabsProvider>
 )
-
 const TabList = ({ children }: StrictPropsWithChildren) => children
 
 interface TabPanelProps {
