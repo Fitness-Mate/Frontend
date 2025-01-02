@@ -1,7 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 
-import { Toast } from "@components/Toast/Toast"
-
 import MyFitAPI from "@apis/domain/myfit"
 
 import { MyWorkoutIndex, MyWorkoutList } from "@typpes/type"
@@ -28,11 +26,6 @@ const useEditWorkoutList = (routineId: number) => {
           )
         },
       )
-      Toast.success("운동 리스트를 변경하는데 성공했습니다.")
-    },
-
-    onError: () => {
-      Toast.error("운동 리스트를 변경하는데 실패했습니다.")
     },
   })
 }
