@@ -13,10 +13,8 @@ export const usePostMakeRoutine = () => {
     mutationFn: async (params: { routines: MyRoutines[] }) =>
       await MyFitAPI.editMyRoutine(params),
     onSuccess: () => {
+      Toast.success("루틴 생성을 성공했습니다.")
       queryClient.invalidateQueries({ queryKey: ["myRoutines"] })
-    },
-    onError: () => {
-      Toast.error("추천요청에 실패했습니다.")
     },
   })
 }

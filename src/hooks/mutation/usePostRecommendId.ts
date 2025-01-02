@@ -10,6 +10,5 @@ export const usePostRecommendId = () => {
     mutationFn: async (payload: PostRecommendIdPayload) => {
       return await recommendAPI.workoutId(payload)
     },
-    onError: () => {},
   })
 }
