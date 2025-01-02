@@ -16,9 +16,6 @@ export const usePostAddRoutine = () => {
     mutationKey: ["usePostAddRoutine"],
     mutationFn: async ({ routineId, routineInfo }: usePostAddRoutineProps) =>
       await MyFitAPI.addRoutine(routineInfo, routineId),
-    onError: () => {
-      console.error("에러")
-    },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["myRoutines"] })
     },

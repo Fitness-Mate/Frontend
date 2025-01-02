@@ -1,5 +1,7 @@
 import axios, { AxiosRequestConfig } from "axios"
 
+import { Toast } from "@components/Toast/Toast"
+
 import authAPI from "@apis/domain/auth"
 
 const axiosConfig: AxiosRequestConfig = {
@@ -28,17 +30,6 @@ instance.interceptors.response.use(
     return response
   },
   async (error) => {
-    if (error.response.data.status === "ROUTINE_NOT_FOUND_EXCEPTION") {
-      console.error("routineId와 일치하는 routine이 없습니다")
-    }
-    if (error.response.data.status === "ALREADY_EXIST_MY_WORKOUT_EXCEPTION") {
-      console.error("이미 존재하는 운동입니다")
-    }
-
-    if (error.response.data.status === "ALREADY_LOGOUT_EXCEPTION") {
-      console.error("이미 로그인 되었음")
-    }
-
     if (error.response.data.status === "EXPIRED_ACCESS_TOKEN_EXCEPTION") {
       const refreshToken = localStorage.getItem("refreshToken")
       if (!refreshToken) {
@@ -57,13 +48,21 @@ instance.interceptors.response.use(
       } catch (err) {
         console.error(err)
       }
-    }
-
-    if (error.response.data.status === "EXPIRED_REFRESH_TOKEN_EXCEPTION") {
+    } else if (
+      error.response.data.status === "EXPIRED_REFRESH_TOKEN_EXCEPTION" ||
+      error.response.data.status === "MALFORMED_JWT_EXCEPTION"
+    ) {
+      Toast.error("로그인 세션이 만료되었습니다. 재 로그인 해주세요.")
       localStorage.removeItem("accessToken")
       localStorage.removeItem("refreshToken")
       localStorage.removeItem("rememberMe")
       window.location.href = "/"
+    } else {
+      if (error.response.data.statusMessage) {
+        Toast.error(error.response.data.statusMessage)
+      } else {
+        Toast.error(error.response.data)
+      }
     }
   },
 )
