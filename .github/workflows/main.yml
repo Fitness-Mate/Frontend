@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    paths-ignore:
-      - '.github/workflows/**'
 
 jobs:
   push-to-deploy-repo:
@@ -27,10 +25,10 @@ jobs:
 
       - name: Copy files to Deploy Repo
         run: |
-          rsync -av --delete --exclude='.git' --exclude='node_modules/' --exclude='deploy/' . deploy/
+          rsync -av --delete --exclude='.git' --exclude='node_modules/' --exclude='deploy/' --progress . deploy/
           ls -al deploy/
 
-      - name: Commit and Push changes to Deploy Repo
+      - name: Commit and Push changes to Deploy Repo deploy branch
         run: |
           cd deploy
           git config user.name "${{ github.actor }}"
