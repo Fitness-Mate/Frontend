@@ -28,7 +28,7 @@ jobs:
       - name: Copy files to Deploy Repo
         run: |
           rsync -av --delete --exclude='.git' --exclude='node_modules/' --exclude='deploy/' . deploy/
-          ls -al deploy/ 
+          ls -al deploy/
 
       - name: Commit and Push changes to Deploy Repo
         run: |
@@ -37,4 +37,4 @@ jobs:
           git config user.email "${{ github.actor }}@users.noreply.github.com"
           git add -A
           git commit -m "Update from Frontend repo by ${{ github.actor }}" || echo "No changes to commit"
-          git push https://x-access-token:${{ secrets.FITMATE_STACCATO20 }}@github.com/staccato20/FitnessMate-FE-Deploy.git main
+          git push https://x-access-token:${{ secrets.FITMATE_STACCATO20 }}@github.com/staccato20/FitnessMate-FE-Deploy.git deploy
