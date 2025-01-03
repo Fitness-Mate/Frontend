@@ -2,6 +2,8 @@ import { motion } from "framer-motion"
 
 import styled, { css } from "styled-components"
 
+import theme from "@styles/theme"
+
 export const RecommendWrapper = styled.div`
   max-width: 83.6rem;
   margin: 0 auto;
@@ -52,4 +54,14 @@ export const RecommendGuide = styled(motion.div)`
   left: 50%;
   transform: translate(-50%, -50%);
   align-items: center;
+`
+export const RecommendBackground = styled.div`
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  background: ${theme.Netural50};
+  z-index: -999;
 `

@@ -1,4 +1,4 @@
-import { SubmitHandler, useFormContext } from "react-hook-form"
+import { SubmitHandler, useForm } from "react-hook-form"
 
 import { useModalStore } from "@store/useModalStore"
 
@@ -19,10 +19,13 @@ import * as S from "./StyledRoutineModal"
 
 const RoutineInfoModal = () => {
   const { isOpen, onClose } = useModal("루틴정보")
-  const { onClose: closeAddModal } = useModal("루틴추가")
+  const { onOpen: openAddModal, onClose: closeAddModal } = useModal("루틴추가")
+  const { register, handleSubmit, reset } = useForm<RoutineInfoTypes>({
+    mode: "onChange",
+  })
 
-  const { register, handleSubmit, reset } = useFormContext<RoutineInfoTypes>()
   const { mutate, reset: resetMutation } = usePostAddRoutine()
+
   const {
     routineState,
     resetRoutineState,
@@ -75,6 +78,11 @@ const RoutineInfoModal = () => {
     handleSubmit(handleRoutine)()
   }
 
+  const handlePrevButton = () => {
+    openAddModal()
+    onClose()
+  }
+
   return (
     <Modal
       isOpen={isOpen}
@@ -113,6 +121,12 @@ const RoutineInfoModal = () => {
         </ContentWrapper>
       </Modal.Content>
       <Modal.Footer>
+        <Button
+          variant="text"
+          size="full"
+          onClick={handlePrevButton}>
+          이전
+        </Button>
         <Button
           variant="main"
           size="full"

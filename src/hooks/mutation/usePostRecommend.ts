@@ -15,7 +15,7 @@ export const usePostRecommend = () => {
     mutationFn: async (workoutRecommendId: number) =>
       recommendAPI.workoutHistory(workoutRecommendId),
     retry: 1,
-    retryDelay: 1000 * 1,
+    retryDelay: 1000 * 10,
 
     onError: () => {
       onOpen()
