@@ -37,7 +37,7 @@ export const fonts = {
   d2: FONT({ weight: 500, size: 1.2, letterSpacing: 0 }),
   d3: FONT({ weight: 500, size: 1.1, letterSpacing: 0 }),
 
-  l1: FONT({ weight: 500, size: 1.5, lineHeight: 1.5 }),
+  l1: FONT({ weight: 500, size: 1.5, lineHeight: 150 }),
 }
 
 export const theme = {

@@ -13,7 +13,7 @@ export const DropDownWrapper = styled.div<{
   background: ${theme.Netural0};
   box-shadow: 0rem 0.1rem 2rem 0rem rgba(0, 0, 0, 0.12);
 
-  ${({ $positionStyle }) => $positionStyle};s
+  ${({ $positionStyle }) => $positionStyle};
 `
 
 export const DropDownButton = styled.button<{

@@ -134,7 +134,7 @@ export const CardWrapper = styled.div<{ $isShow: boolean }>`
 export const CardList = styled.ul`
   display: grid;
   gap: 2.4rem 4.8rem;
-  grid-template-columns: repeat(auto-fill, minmax(29%, auto));
+  grid-template-columns: repeat(auto-fill, minmax(29%, 1fr));
 `
 
 export const PaginationWrapper = styled.div<{ $isShow: boolean }>`

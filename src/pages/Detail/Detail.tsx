@@ -44,10 +44,12 @@ const Detail = () => {
         </S.TitleWrapper>
         <S.ContentWrapper>
           <S.ContentBox>
-            <S.ContentImg
-              src={workout?.imgPath}
-              alt="운동 이미지"
-            />
+            <S.ContentImgBox>
+              <S.ContentImg
+                src={workout?.imgPath}
+                alt="운동 이미지"
+              />
+            </S.ContentImgBox>
             <S.ContentInfoWrapper>
               <S.ContentInfoTopWrapper>
                 <S.ContentInfoTopTitle>운동 설명</S.ContentInfoTopTitle>

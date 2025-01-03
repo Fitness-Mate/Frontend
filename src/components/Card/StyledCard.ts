@@ -2,10 +2,9 @@ import styled from "styled-components"
 
 import theme, { fonts } from "@styles/theme"
 
-export const CardWrapper = styled.button`
+export const CardBox = styled.button`
   display: flex;
   flex-direction: column;
-  width: fit-content;
   &:hover {
     transform: scale(1.05);
     transition: all 0.2s linear;
@@ -15,12 +14,23 @@ export const CardWrapper = styled.button`
   }
 `
 
-export const CardImg = styled.img`
-  object-fit: cover;
-  max-width: 31rem;
+export const CardItem = styled.div`
+  position: relative;
   width: 100%;
+  height: 0;
+  overflow: hidden;
   border-radius: 1.2rem;
   border: 0.1rem solid #f2f4f6;
+  padding-bottom: 70%;
+`
+
+export const CardImg = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 `
 export const CardContents = styled.div`
   display: flex;

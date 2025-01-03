@@ -12,12 +12,14 @@ interface CardProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Card = ({ src, title, badges, ...props }: CardProps) => {
   return (
-    <S.CardWrapper {...props}>
-      <S.CardImg
-        src={src}
-        alt="운동 이미지"
-        loading="lazy"
-      />
+    <S.CardBox {...props}>
+      <S.CardItem>
+        <S.CardImg
+          src={src}
+          alt="운동 이미지"
+          loading="lazy"
+        />
+      </S.CardItem>
       <S.CardContents>
         <S.CardText>{title}</S.CardText>
         <S.BadgeList>
@@ -26,7 +28,7 @@ const Card = ({ src, title, badges, ...props }: CardProps) => {
           ))}
         </S.BadgeList>
       </S.CardContents>
-    </S.CardWrapper>
+    </S.CardBox>
   )
 }
 
