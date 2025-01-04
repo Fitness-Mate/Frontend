@@ -55,6 +55,7 @@ const DynamicInput = ({
         placeholder={placeholder}
         ref={inputRef}
         style={{ width: `${width}px` }}
+        autoComplete="off"
       />
       <S.InputWidthItem ref={spanRef}>
         {watchValue || placeholder}
