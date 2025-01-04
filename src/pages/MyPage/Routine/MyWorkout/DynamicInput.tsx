@@ -1,65 +1,63 @@
-import React, { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
+import { UseFormRegister, UseFormSetValue } from "react-hook-form"
+
+import { RoutineInfoType } from "@typpes/type"
 
 import * as S from "./StyledMyWorkout"
 
 interface DynamicInputProps {
-  value: string
+  name: keyof RoutineInfoType
   placeholder: string
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  register: UseFormRegister<RoutineInfoType>
+  setValue: UseFormSetValue<RoutineInfoType>
+  watchValue: string
+  maxLength?: number
 }
-const DynamicInput = ({ value, placeholder, onChange }: DynamicInputProps) => {
+
+const DynamicInput = ({
+  name,
+  placeholder,
+  register,
+  setValue,
+  watchValue,
+  maxLength = 2,
+}: DynamicInputProps) => {
   const spanRef = useRef<HTMLSpanElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const [width, setWidth] = useState(30)
-  const localValueRef = useRef(value)
 
   useEffect(() => {
-    localValueRef.current = value
-  }, [value])
-
-  useEffect(() => {
-    const updateWidth = () => {
-      if (spanRef.current && inputRef.current) {
-        setWidth(spanRef.current.offsetWidth + 18)
-        inputRef.current.focus()
-      }
+    if (spanRef.current && inputRef.current) {
+      setWidth(spanRef.current.offsetWidth + 18)
+      inputRef.current.focus()
     }
+  }, [watchValue])
 
-    requestAnimationFrame(updateWidth)
-  }, [localValueRef.current])
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = e.target.value.replace(/[^0-9]/g, "")
-    localValueRef.current = newValue
-    setTimeout(() => {
-      onChange({
-        ...e,
-        target: { ...e.target, value: newValue },
-      })
-    }, 0)
-  }
-
-  const handleBlur = () => {
-    if (localValueRef.current.trim() === "") {
-      const defaultValue = placeholder
-      localValueRef.current = defaultValue
-      onChange({
-        target: { value: defaultValue },
-      } as unknown as React.ChangeEvent<HTMLInputElement>)
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    if (!e.target.value.trim()) {
+      setValue(name, placeholder)
     }
   }
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const sanitizedValue = e.target.value.replace(/[^0-9]/g, "")
+    setValue(name, sanitizedValue)
+  }
+
   return (
     <S.HeaderRightInfoArea width={`${width}px`}>
       <S.HeaderRightInfoInput
-        ref={inputRef}
-        value={localValueRef.current}
-        placeholder={placeholder}
-        onChange={handleInputChange}
+        {...register(name)}
+        value={watchValue}
+        onChange={handleChange}
         onBlur={handleBlur}
-        maxLength={2}
+        maxLength={maxLength}
+        placeholder={placeholder}
+        ref={inputRef}
+        style={{ width: `${width}px` }}
       />
       <S.InputWidthItem ref={spanRef}>
-        {localValueRef.current || placeholder}
+        {watchValue || placeholder}
       </S.InputWidthItem>
       <S.CustomCursor />
     </S.HeaderRightInfoArea>

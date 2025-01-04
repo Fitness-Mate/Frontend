@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { SubmitHandler, useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
 
 import { DraggableProvided } from "@hello-pangea/dnd"
@@ -8,7 +9,7 @@ import Icon from "@components/Icon/Icon"
 import IconButton from "@components/IconButton/IconButton"
 import Title from "@components/Title/Title"
 
-import { StrictPropsWithChildren } from "@typpes/type"
+import { RoutineInfoType, StrictPropsWithChildren } from "@typpes/type"
 
 import useEditWorkoutList from "@hooks/mutation/useEditWorkoutList"
 
@@ -52,12 +53,6 @@ const MyWorkout = ({
   const navigate = useNavigate()
   const [isEditMode, setIsEditMode] = useState(false)
 
-  const [weightValue, setWeightValue] = useState(weight)
-  const [repValue, setRepValue] = useState(rep)
-  const [setCountValue, setSetCountValue] = useState(setCount)
-
-  const { mutate: editWorkout } = useEditWorkoutList(routineId)
-
   const handleDetailWorkout = (workoutId: number) => {
     navigate(`/workoutdetail/${workoutId}`)
   }
@@ -66,14 +61,22 @@ const MyWorkout = ({
     setIsEditMode((prev) => !prev)
   }
 
-  const handleSave = () => {
+  const { register, handleSubmit, watch, setValue } = useForm<RoutineInfoType>({
+    defaultValues: {
+      weight,
+      rep,
+      setCount,
+    },
+  })
+
+  const { mutate: editWorkout } = useEditWorkoutList(routineId)
+
+  const handleSave: SubmitHandler<RoutineInfoType> = (data) => {
     editWorkout({
       myWorkoutId,
       workout: {
         myWorkoutIndex: index + 1,
-        weight: weightValue,
-        rep: repValue,
-        setCount: setCountValue,
+        ...data,
         caution,
       },
     })
@@ -85,7 +88,9 @@ const MyWorkout = ({
     <S.MyWorkoutWrapper
       ref={innerRef}
       {...draggableProps}>
-      <S.MyWorkoutContent isDragging={isDragging}>
+      <S.MyWorkoutContent
+        onSubmit={handleSubmit(handleSave)}
+        isDragging={isDragging}>
         <S.HeaderWrapper>
           <S.HeaderLeft>
             <Title variant="midC">
@@ -111,9 +116,11 @@ const MyWorkout = ({
                   중량
                   <S.HeaderRightInfoContent>
                     <DynamicInput
-                      value={weightValue}
+                      name="weight"
                       placeholder={weight}
-                      onChange={(e) => setWeightValue(e.target.value)}
+                      register={register}
+                      setValue={setValue}
+                      watchValue={watch("weight") || ""}
                     />
                     <S.HeaderRightInfoUnit>kg</S.HeaderRightInfoUnit>
                   </S.HeaderRightInfoContent>
@@ -122,9 +129,11 @@ const MyWorkout = ({
                   횟수
                   <S.HeaderRightInfoContent>
                     <DynamicInput
-                      value={repValue}
+                      name="rep"
                       placeholder={rep}
-                      onChange={(e) => setRepValue(e.target.value)}
+                      register={register}
+                      setValue={setValue}
+                      watchValue={watch("rep") || ""}
                     />
                     <S.HeaderRightInfoUnit>회</S.HeaderRightInfoUnit>
                   </S.HeaderRightInfoContent>
@@ -133,9 +142,11 @@ const MyWorkout = ({
                   세트 수
                   <S.HeaderRightInfoContent>
                     <DynamicInput
-                      value={setCountValue}
+                      name="setCount"
                       placeholder={setCount}
-                      onChange={(e) => setSetCountValue(e.target.value)}
+                      register={register}
+                      setValue={setValue}
+                      watchValue={watch("setCount") || ""}
                     />
                     <S.HeaderRightInfoUnit>세트</S.HeaderRightInfoUnit>
                   </S.HeaderRightInfoContent>
@@ -146,21 +157,21 @@ const MyWorkout = ({
                 <S.HeaderRightInfo>
                   중량
                   <S.HeaderRightInfoContent>
-                    {weightValue}
+                    {weight}
                     <S.HeaderRightInfoUnit>kg</S.HeaderRightInfoUnit>
                   </S.HeaderRightInfoContent>
                 </S.HeaderRightInfo>
                 <S.HeaderRightInfo>
                   횟수
                   <S.HeaderRightInfoContent>
-                    {repValue}
+                    {rep}
                     <S.HeaderRightInfoUnit>회</S.HeaderRightInfoUnit>
                   </S.HeaderRightInfoContent>
                 </S.HeaderRightInfo>
                 <S.HeaderRightInfo>
                   세트 수
                   <S.HeaderRightInfoContent>
-                    {setCountValue}
+                    {setCount}
                     <S.HeaderRightInfoUnit>세트</S.HeaderRightInfoUnit>
                   </S.HeaderRightInfoContent>
                 </S.HeaderRightInfo>
@@ -173,11 +184,10 @@ const MyWorkout = ({
           {caution}
         </S.BottomWrapper>
         {isEditMode ? (
-          <S.CompleteIconButtonWrapper>
+          <S.CompleteIconButtonWrapper type="submit">
             <IconButton
               icon="CheckBlue"
               size={18}
-              onClick={handleSave}
             />
           </S.CompleteIconButtonWrapper>
         ) : (

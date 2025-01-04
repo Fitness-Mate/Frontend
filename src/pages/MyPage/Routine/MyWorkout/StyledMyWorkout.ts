@@ -7,7 +7,7 @@ export const MyWorkoutWrapper = styled.div`
   gap: 18px;
 `
 
-export const MyWorkoutContent = styled.div<{ isDragging: boolean }>`
+export const MyWorkoutContent = styled.form<{ isDragging: boolean }>`
   width: 770px;
   z-index: 2;
   height: 157px;
@@ -43,7 +43,7 @@ export const DetailIconButtonWrapper = styled.div`
   justify-content: center;
 `
 
-export const HeaderRight = styled.div`
+export const HeaderRight = styled.form`
   display: flex;
   gap: 10px;
   padding-right: 32px;
