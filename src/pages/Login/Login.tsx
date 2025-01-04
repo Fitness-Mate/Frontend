@@ -54,7 +54,6 @@ const Login = () => {
           <S.FindPass type="button">비밀번호 찾기</S.FindPass>
           <S.Warning>{formState.errors.root?.message}</S.Warning>
         </S.InputFrame>
-
         <S.ButtonContainer>
           <Button
             variant="main"

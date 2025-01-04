@@ -42,7 +42,8 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/components/TyphoGraphy/typhography.mdx",
-    "src/pages/Home/Home.ㅓsx"
+    "src/pages/Home/Home.ㅓsx",
+    "src/components/Toast/Toast.tsx"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
