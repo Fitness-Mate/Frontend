@@ -19,10 +19,6 @@ jobs:
         run: |
           git clone https://github.com/staccato20/FitnessMate-FE-Deploy.git deploy
 
-      - name: Remove all files in Deploy Repo
-        run: |
-          rm -rf deploy/*
-
       - name: Copy files to Deploy Repo
         run: |
           rsync -av --delete --exclude='.git' --exclude='node_modules/' --exclude='deploy/' --progress . deploy/
