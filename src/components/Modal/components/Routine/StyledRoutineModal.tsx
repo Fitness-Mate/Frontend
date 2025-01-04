@@ -3,13 +3,13 @@ import styled from "styled-components"
 import theme, { fonts } from "@styles/theme"
 
 export const ContentWrapper = styled.div`
-  height: 217px;
+  height: 21.7rem;
   width: 100%;
 `
 
 export const ContentForm = styled.form`
   display: flex;
-  gap: 12px;
+  gap: 1.2rem;
   height: 100%;
   width: 100%;
   margin: 0 auto;
@@ -25,7 +25,7 @@ export const ContentInput = styled.input<{ $isError: boolean }>`
   }
   text-align: center;
   width: 100%;
-  min-height: 36px;
+  min-height: 3.6rem;
   ${fonts.h1};
   color: ${({ $isError }) => ($isError ? theme.Error : theme.Netural900)};
 
@@ -44,26 +44,27 @@ export const ContentInput = styled.input<{ $isError: boolean }>`
     color: transparent;
   }
 `
+
 export const ContentInputLabel = styled.span<{ $isError: boolean }>`
   ${fonts.b7};
   color: ${({ $isError }) => ($isError ? theme.Error : theme.Netural450)};
 `
 
 export const ContentMachineForm = styled(ContentForm)`
-  gap: 31px;
+  gap: 3.1rem;
 `
 
 export const MachineInput = styled.input`
   color: ${theme.Netural800};
   ${fonts.h1};
   font-weight: 500;
-  font-size: 28px;
+  font-size: 2.8rem;
   display: flex;
-  padding: 14px;
+  padding: 1.4rem;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  border-radius: 12px;
+  gap: 1rem;
+  border-radius: 1.2rem;
   background: ${theme.Netural200};
   text-align: center;
 
@@ -73,8 +74,8 @@ export const MachineInput = styled.input`
     font-weight: 500;
   }
 
-  min-height: 61px;
-  width: 61px;
+  min-height: 6.1rem;
+  width: 6.1rem;
 
   &:focus::-webkit-input-placeholder,
   textarea:focus::-webkit-input-placeholder {
@@ -96,16 +97,16 @@ export const MachineInputList = styled.ul`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 2rem;
 `
 
 export const MachineInputItem = styled.li`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 6px;
+  gap: 0.6rem;
   &:first-child input {
-    width: 80px;
+    width: 8rem;
   }
 `
 
@@ -124,28 +125,25 @@ export const MachineButton = styled.button`
 export const ContentBigWrapper = styled.div`
   height: 100%;
   width: 100%;
-  padding-bottom: 24px;
+  padding-bottom: 2.4rem;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 0.4rem;
 `
 
-export const AddRoutineButton = styled.button`
+export const AddRoutine = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 0;
+  padding: 1.6rem 0;
   width: 100%;
-  &:disabled {
-    cursor: default;
-  }
 `
 
 export const RoutineList = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 4px;
+  gap: 0.4rem;
   width: 100%;
   overflow: auto;
 `
@@ -155,8 +153,8 @@ export const RoutineItem = styled.button`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 0;
-  border-radius: 12px;
+  padding: 1.6rem 0;
+  border-radius: 1.2rem;
   background: ${theme.Netural0};
   &:disabled {
     cursor: default;
@@ -181,9 +179,9 @@ export const RoutineState = styled.span`
   ${fonts.b6};
 `
 
-export const ButtonNavBox = styled.div<{ $isFullRoutine: boolean }>`
+export const AddRoutineButton = styled.button<{ $isFullRoutine: boolean }>`
   display: flex;
-  gap: 12px;
+  gap: 1.2rem;
   align-items: center;
   color: ${theme.Netural800};
   ${fonts.b2};
@@ -193,9 +191,9 @@ export const ButtonNavBox = styled.div<{ $isFullRoutine: boolean }>`
 `
 
 export const FullRoutineWarning = styled.span`
-  padding: 8px 10px;
+  padding: 0.8rem 1rem;
   color: ${theme.Error};
   ${fonts.d1};
-  border-radius: 6px;
+  border-radius: 0.6rem;
   background: ${theme.ErrorWeak};
 `

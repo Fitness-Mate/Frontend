@@ -2,10 +2,9 @@ import styled from "styled-components"
 
 import theme, { fonts } from "@styles/theme"
 
-export const CardWrapper = styled.button`
+export const CardBox = styled.button`
   display: flex;
   flex-direction: column;
-  width: fit-content;
   &:hover {
     transform: scale(1.05);
     transition: all 0.2s linear;
@@ -15,20 +14,31 @@ export const CardWrapper = styled.button`
   }
 `
 
-export const CardImg = styled.img`
-  object-fit: cover;
-  max-width: 310px;
+export const CardItem = styled.div`
+  position: relative;
   width: 100%;
-  border-radius: 12px;
-  border: 1px solid #f2f4f6;
+  height: 0;
+  overflow: hidden;
+  border-radius: 1.2rem;
+  border: 0.1rem solid #f2f4f6;
+  padding-bottom: 70%;
+`
+
+export const CardImg = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 `
 export const CardContents = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 18px;
+  gap: 1.8rem;
   width: 100%;
-  padding: 24px 8px;
+  padding: 2.4rem 0.8rem;
 `
 
 export const CardText = styled.span`
@@ -41,5 +51,5 @@ export const BadgeList = styled.div`
   align-items: center;
   justify-content: flex-start;
   flex-wrap: wrap;
-  gap: 4px;
+  gap: 0.4rem;
 `

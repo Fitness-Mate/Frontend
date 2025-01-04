@@ -14,94 +14,94 @@ export const MypageBackground = styled.div`
 `
 
 export const MypageContainer = styled.ul`
-  margin-top: 48px;
+  margin-top: 4.8rem;
   display: flex;
   justify-content: center;
 `
 
 export const MypageHomeArea = styled.ul`
-  width: 870px;
+  width: 87rem;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-bottom: 100px;
+  gap: 1.2rem;
+  margin-bottom: 10rem;
 `
 
 export const MypageTopContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 3.2rem;
 `
 
 export const MyInformation = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  margin-bottom: 10px;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
 `
 
 export const MyBodyInfotmation = styled.div`
   display: flex;
-  gap: 8px;
+  gap: 0.8rem;
   align-items: center;
 `
 
 export const FixIconButtonWrapper = styled.div`
   display: flex;
-  width: 24px;
-  height: 24px;
-  padding: 5px;
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0.5rem;
   justify-content: center;
   align-items: center;
   background-color: ${theme.Netural300};
-  border-radius: 6px;
+  border-radius: 0.6rem;
 `
 
 export const RoutineListWrapper = styled.div`
   display: flex;
-  gap: 12px;
+  gap: 1.2rem;
   flex-direction: column;
 `
 
 export const RoutinesContainer = styled.div`
   display: flex;
-  gap: 12px;
+  gap: 1.2rem;
   align-items: center;
 `
 
 export const RoutineList = styled.div`
   display: flex;
-  gap: 2px;
+  gap: 0.2rem;
   align-items: center;
   width: 100%;
-  border-bottom: 1px solid ${theme.Netural300};
+  border-bottom: 0.1rem solid ${theme.Netural300};
 `
 
 export const AddIconButtonWrapper = styled.div`
   display: flex;
-  width: 24px;
-  height: 24px;
+  width: 2.4rem;
+  height: 2.4rem;
   justify-content: center;
   align-items: center;
   background-color: ${theme.Netural300};
-  border-radius: 6px;
+  border-radius: 0.6rem;
 `
 
 export const AddWorkoutWrapper = styled.div`
   display: flex;
-  padding: 16px 8px;
+  padding: 1.6rem 0.8rem;
   align-items: center;
-  gap: 12px;
+  gap: 1.2rem;
   color: ${theme.Netural800};
   ${fonts.b2}
 `
 
 export const EmptyWorkoutWrapper = styled.div`
   width: 100%;
-  margin-top: 37px;
-  padding: 98px 0;
+  margin-top: 3.7rem;
+  padding: 9.8rem 0;
   display: flex;
-  gap: 8px;
+  gap: 0.8rem;
   align-items: center;
   flex-direction: column;
   color: ${theme.Netural900};
@@ -110,27 +110,27 @@ export const EmptyWorkoutWrapper = styled.div`
 
 export const DragAndDropWrapper = styled.div`
   display: flex;
-  gap: 18px;
+  gap: 1.8rem;
 `
 
 export const WorkoutNumList = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 13px;
+  gap: 1.3rem;
 `
 
 export const WorkoutNum = styled.div`
-  padding: 20px 2px 0 2px;
+  padding: 2rem 0.2rem 0 0.2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 1.2rem;
 
   .line {
-    width: 3px;
-    height: 100px;
+    width: 0.3rem;
+    height: 10rem;
     align-items: stretch;
-    border-radius: 10px;
+    border-radius: 1rem;
     background: ${theme.Netural300};
   }
 
@@ -141,11 +141,11 @@ export const WorkoutNum = styled.div`
 
 export const NumCircle = styled.div`
   display: flex;
-  width: 24px;
-  height: 24px;
+  width: 2.4rem;
+  height: 2.4rem;
   align-items: center;
   justify-content: center;
-  border-radius: 38.571px;
+  border-radius: 3.86rem;
   background: ${theme.Netural700};
   color: ${theme.Netural0};
   ${fonts.d2}
@@ -156,9 +156,9 @@ export const PlaceholderWrapper = styled.div<{
   top: string
 }>`
   position: absolute;
-  height: 150px;
-  width: 770px;
-  border-radius: 20px;
+  height: 15rem;
+  width: 77rem;
+  border-radius: 2rem;
   z-index: 1;
   pointer-events: none;
   top: ${({ top }) => top};

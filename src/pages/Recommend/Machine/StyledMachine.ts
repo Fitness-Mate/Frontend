@@ -5,8 +5,8 @@ import styled from "styled-components"
 import { fonts } from "@styles/theme"
 
 export const LayerWrapper = styled(motion.div)`
-  width: 452px;
-  height: 438px;
+  width: 45.2rem;
+  height: 43.8rem;
   background-image: url("/blurlayer.svg");
   background-size: contain;
   background-repeat: no-repeat;
@@ -18,8 +18,8 @@ export const LayerWrapper = styled(motion.div)`
 `
 
 export const CoverWrapper = styled(motion.div)`
-  width: 452px;
-  height: 438px;
+  width: 45.2rem;
+  height: 43.8rem;
   background-image: url("/loadinglayer.png");
   background-size: contain;
   background-repeat: no-repeat;
@@ -47,13 +47,13 @@ export const RecommendInner = styled.div`
     display: none; /* Chrome, Safari, Opera*/
   }
   position: relative;
-  height: calc(-205px + 100vh);
+  height: calc(-20.5rem + 100vh);
 `
 
 export const RecommendMachineWrapper = styled(motion.ul)`
   position: absolute;
-  max-width: 752px;
+  max-width: 75.2rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 1.6rem;
 `

@@ -6,8 +6,6 @@ import { omit } from "lodash"
 
 import Button from "@components/Button/Button"
 import Input from "@components/Input/Input"
-import AlertModal from "@components/Modal/components/Alert/AlertModal"
-import SuccessModal from "@components/Modal/components/Success/SuccessModal"
 
 import { EditUserPasswordPayload } from "@typpes/type"
 
@@ -60,7 +58,8 @@ const EditPassword = () => {
             <Input
               key={id}
               style={{
-                marginTop: id === EDIT_LIST.PASSWORD.length - 1 ? "-29px" : "0",
+                marginTop:
+                  id === EDIT_LIST.PASSWORD.length - 1 ? "-2.9rem" : "0",
               }}>
               {label && (
                 <Input.Label
@@ -119,8 +118,6 @@ const EditPassword = () => {
           비밀번호 변경 완료
         </Button>
       </S.EditButtonContainer>
-      <SuccessModal />
-      <AlertModal />
     </S.EditProfileForm>
   )
 }

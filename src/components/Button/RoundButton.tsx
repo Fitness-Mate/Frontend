@@ -41,30 +41,30 @@ const VARIANTS = {
 
 const SIZE = {
   big: css`
-    padding: 14px 20px 14px 24px;
+    padding: 1.4rem 2rem 1.4rem 2.4rem;
     ${fonts.b2};
-    gap: 8px;
+    gap: 0.8rem;
     svg {
-      width: 24px;
-      height: 24px;
+      width: 2.4rem;
+      height: 2.4rem;
     }
   `,
   middle: css`
-    padding: 14px 20px 14px 14px;
+    padding: 1.4rem 2rem 1.4rem 1.4rem;
     ${fonts.b4};
-    gap: 4px;
+    gap: 0.4rem;
     svg {
-      width: 24px;
-      height: 24px;
+      width: 2.4rem;
+      height: 2.4rem;
     }
   `,
   small: css`
-    padding: 10px 16px 10px 12px;
+    padding: 1rem 1.6rem 1rem 1.2rem;
     ${fonts.b7};
-    gap: 4px;
+    gap: 0.4rem;
     svg {
-      width: 20px;
-      height: 20px;
+      width: 2rem;
+      height: 2rem;
     }
   `,
 }
@@ -81,7 +81,7 @@ export const StyledRoundButton = styled.button<{
   align-items: center;
   position: relative;
   border: none;
-  border-radius: 56px;
+  border-radius: 5.6rem;
   user-select: none;
   white-space: nowrap;
   overflow: hidden;

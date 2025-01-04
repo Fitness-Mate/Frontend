@@ -33,6 +33,7 @@
     "react-router-dom": "^6.15.0",
     "react-scroll": "^1.9.0",
     "react-spinners": "^0.14.1",
+    "react-toastify": "^11.0.2",
     "s": "^1.0.0",
     "stream-browserify": "^3.0.0",
     "stream-http": "^3.2.0",

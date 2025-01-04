@@ -6,7 +6,7 @@ export const BottomWrapper = styled.div`
   position: fixed;
   bottom: 0;
   width: 100vw;
-  height: 90px;
+  height: 9rem;
   z-index: 500;
   margin: 0 auto;
   display: flex;
@@ -16,7 +16,7 @@ export const BottomWrapper = styled.div`
 export const BottomInner = styled.div<{ $flex: Interpolation<object> }>`
   display: flex;
   align-items: center;
-  max-width: 720px;
+  max-width: 72rem;
   width: 100%;
   margin: 0 auto;
   justify-content: ${({ $flex }) => $flex};
@@ -27,7 +27,7 @@ export const BottomTopLine = styled.div`
   left: 50%;
   top: 0;
   width: 100vw;
-  height: 1px;
+  height: 0.1rem;
   background-color: ${theme.Netural300};
   transform: translateX(-50%);
 `

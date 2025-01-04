@@ -13,5 +13,5 @@ const FooterWrapper = styled.div`
   justify-content: flex-end;
   width: 100%;
   align-items: center;
-  gap: 8px;
+  gap: 0.8rem;
 `

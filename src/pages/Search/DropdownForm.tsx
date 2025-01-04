@@ -33,7 +33,7 @@ const DropdownForm = ({
   return (
     <S.DropdownFormWrapper
       initial={{ opacity: 0, height: 0 }}
-      animate={{ opacity: 1, height: "428px" }}
+      animate={{ opacity: 1, height: "42.8rem" }}
       exit={{ opacity: 0, height: 0 }}
       transition={animation.basic}
       onSubmit={methods.handleSubmit(handleSearch)}>

@@ -2,30 +2,32 @@ import { motion } from "framer-motion"
 
 import styled, { css } from "styled-components"
 
+import theme from "@styles/theme"
+
 export const RecommendWrapper = styled.div`
-  max-width: 836px;
+  max-width: 83.6rem;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 18px 2% 18px 2%;
+  padding: 1.8rem 2% 1.8rem 2%;
 `
 
 export const Status = styled.div<{ $isScrollTop: boolean }>`
   position: relative;
   width: 100%;
   display: flex;
-  gap: 17px;
+  gap: 1.7rem;
   align-items: center;
   &::after {
     ${({ $isScrollTop }) =>
       !$isScrollTop &&
       css`
         position: absolute;
-        bottom: -35px;
+        bottom: -3.5rem;
         content: "";
         width: 100%;
-        height: 36px;
+        height: 3.6rem;
         z-index: 5;
         background: linear-gradient(
           180deg,
@@ -39,11 +41,11 @@ export const Status = styled.div<{ $isScrollTop: boolean }>`
 export const RecommendGuideWrapper = styled(motion.div)`
   position: relative;
   width: 100%;
-  height: 400px;
+  height: 40rem;
 `
 
 export const RecommendGuide = styled(motion.div)`
-  gap: 4px;
+  gap: 0.4rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -52,4 +54,14 @@ export const RecommendGuide = styled(motion.div)`
   left: 50%;
   transform: translate(-50%, -50%);
   align-items: center;
+`
+export const RecommendBackground = styled.div`
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  background: ${theme.Netural50};
+  z-index: -999;
 `

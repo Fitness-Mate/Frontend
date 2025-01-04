@@ -20,13 +20,13 @@ export default Chip
 
 const ChipWrapper = styled.button`
   display: flex;
-  padding: 8px 12px;
+  padding: 0.8rem 1.2rem;
   justify-content: center;
   align-items: center;
-  border-radius: 8px;
-  border: 1px solid ${theme.Netural200};
+  border-radius: 0.8rem;
+  border: 0.1rem solid ${theme.Netural200};
   background: ${theme.Netural200};
   color: ${theme.Netural700};
   ${fonts.l1};
-  font-size: 16px;
+  font-size: 1.6rem;
 `

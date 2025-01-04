@@ -135,8 +135,8 @@ export const SIGNUP_INPUTS = {
 }
 
 export const SEX_GROUP = [
-  { groupName: "남성", imgSrc: "@assets/images/남성.png", id: 0 },
-  { groupName: "여성", imgSrc: "@assets/images/여성.png", id: 1 },
+  { groupName: "남성", id: 0 },
+  { groupName: "여성", id: 1 },
 ]
 
 export const BODYINFO_LIST = [

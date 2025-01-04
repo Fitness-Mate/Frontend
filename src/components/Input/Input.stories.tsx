@@ -27,7 +27,7 @@ const meta: Meta<typeof Input> = {
             - register: react hook form에서 제공하는 속성입니다.
             - validator: 따로 상수한 정의한 placeholder, validation값이 객체 형태로 담겨있습니다.
             - $isDirty, $isError: 시각적으로 Input의 validation 상태를 보여줍니다.
-            - 이외에도 다양한 속성들이 있으며 페이지마다 다르게 사용되고 있습니다.     
+            - 이외에도 다양한 속성들이 있으며 페이지마다 다르게 사용되고 있습니다.
         - <h4><Input.Error> validation 에러를 나타냅니다.</h4>
           `,
       },
@@ -46,10 +46,10 @@ export const Primary: Story = {
     return (
       <div
         style={{
-          width: "400px",
+          width: "40rem",
           display: "flex",
           flexDirection: "column",
-          gap: "30px",
+          gap: "3rem",
         }}>
         {DUMMY_LIST.map(
           ({

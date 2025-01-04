@@ -29,5 +29,5 @@ const InputWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.8rem;
 `

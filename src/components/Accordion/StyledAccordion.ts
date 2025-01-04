@@ -9,11 +9,11 @@ export const AccordionWrapper = styled.div<{ $visible: boolean }>`
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 24px 22px 0px 22px;
+  padding: 2.4rem 2.2rem 0rem 2.2rem;
 
   align-items: center;
-  border-radius: 20px 20px 16px 16px;
-  box-shadow: 0px 4px 8.1px 0px rgba(0, 0, 0, 0.03);
+  border-radius: 2rem 2rem 1.6rem 1.6rem;
+  box-shadow: 0rem 0.4rem 0.81rem 0rem rgba(0, 0, 0, 0.03);
   background: var(--Grayscale-Neutral0, #fff);
 `
 
@@ -27,14 +27,14 @@ export const HeaderTop = styled.div<{ $visible: boolean }>`
   justify-content: space-between;
   align-items: center;
 
-  padding-bottom: 18px;
+  padding-bottom: 1.8rem;
   background: var(--Grayscale-Neutral0, #fff);
 `
 export const HeaderLeft = styled.div``
 export const HeaderRight = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 1rem;
 `
 export const HeaderRightInfo = styled.span`
   color: ${theme.Netural900};
@@ -42,17 +42,17 @@ export const HeaderRightInfo = styled.span`
 `
 
 export const VideoWrapper = styled(motion.div)`
-  padding-top: 8px;
+  padding-top: 0.8rem;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.8rem;
 `
 
 export const Video = styled(motion.div)`
-  border-radius: 12px;
+  border-radius: 1.2rem;
   overflow: hidden;
   width: 100%;
-  height: 378px;
+  height: 37.8rem;
 `
 
 export const VideoTitle = styled.span`
@@ -63,24 +63,24 @@ export const VideoTitle = styled.span`
 export const ContentWrapper = styled(motion.div)`
   display: flex;
   flex-direction: column;
-  padding-bottom: 24px;
+  padding-bottom: 2.4rem;
   width: 100%;
-  gap: 24px;
+  gap: 2.4rem;
 `
 
 export const ContentText = styled(motion.span)`
   color: ${theme.Netural800};
   ${fonts.b4};
   line-height: 165%;
-  letter-spacing: -0.16px;
+  letter-spacing: -0.02rem;
 `
 export const ContentAI = styled(motion.span)`
   display: flex;
-  padding: 14px 16px;
+  padding: 1.4rem 1.6rem;
   align-items: center;
   justify-content: space-between;
-  border-radius: 10px;
-  border: 1px solid #5083ff;
+  border-radius: 1rem;
+  border: 0.1rem solid #5083ff;
   background: linear-gradient(91deg, #eef7ff 8.33%, #f6f3ff 97.03%);
 `
 
@@ -89,18 +89,18 @@ export const ContentAIleft = styled(motion.span)`
   ${fonts.b5};
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.8rem;
   svg {
-    width: 24px;
-    height: 24px;
+    width: 2.4rem;
+    height: 2.4rem;
   }
 `
 
 export const ContentAIright = styled.div`
   display: flex;
-  height: 24px;
+  height: 2.4rem;
   align-items: center;
-  gap: 14px;
+  gap: 1.4rem;
 `
 
 export const ContentAIrightItem = styled.div`
@@ -111,11 +111,11 @@ export const ContentAIrightItem = styled.div`
 export const HeaderTrigger = styled.button`
   position: relative;
   display: flex;
-  padding: 14px 0px;
+  padding: 1.4rem 0rem;
   width: 100%;
   justify-content: center;
   align-items: center;
-  gap: 4px;
+  gap: 0.4rem;
   background: ${theme.Netural0};
   color: ${theme.Netural700};
 
@@ -124,8 +124,8 @@ export const HeaderTrigger = styled.button`
 export const TopLine = styled.div`
   position: absolute;
   top: 0;
-  width: 100vw;
-  height: 1px;
+  width: 106%;
+  height: 0.1rem;
   transform: translateX(-50%);
   background-color: ${theme.Netural200};
   left: 50%;
@@ -134,13 +134,13 @@ export const TopLine = styled.div`
 export const AnimationWrapper = styled(motion.div)`
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 2.4rem;
 `
 
 export const ContentCaution = styled.div`
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 1.2rem;
 `
 
 export const ContentCautionTitle = styled.span`

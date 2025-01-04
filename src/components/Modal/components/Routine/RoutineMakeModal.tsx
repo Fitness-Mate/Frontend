@@ -1,4 +1,4 @@
-import { SubmitHandler, useFormContext } from "react-hook-form"
+import { SubmitHandler, useForm } from "react-hook-form"
 
 import Button from "@components/Button/Button"
 import Modal from "@components/Modal/Modal"
@@ -20,13 +20,13 @@ const RoutineMakeModal = () => {
   const { isOpen, onClose } = useModal("루틴생성")
   const { onOpen: openAddRoutine } = useModal("루틴추가")
   const { onOpen: openAlert } = useModal("루틴중복")
-  const { register, watch, handleSubmit, formState } =
-    useFormContext<RoutineNameTypes>()
   const { data: routines = [] } = useGetMyRoutines()
   const { mutate } = usePostMakeRoutine()
+  const { register, watch, handleSubmit, formState, reset } =
+    useForm<RoutineNameTypes>({ mode: "onChange" })
 
   const inputValue = watch("routineName", "") || ""
-  const isFullRoutine = routines.length >= 5
+  const isFullRoutine = routines.length >= 6
 
   const handleRoutineName: SubmitHandler<RoutineNameTypes> = ({
     routineName,
@@ -44,9 +44,18 @@ const RoutineMakeModal = () => {
   }
 
   const handleFormAdapter = () => {
-    handleSubmit(handleRoutineName)()
-    onClose()
+    if (formState.isValid) {
+      handleSubmit(handleRoutineName)()
+      reset()
+      onClose()
+      openAddRoutine()
+    }
+  }
+
+  const handlePrevButton = () => {
     openAddRoutine()
+    reset()
+    onClose()
   }
 
   return (
@@ -82,8 +91,15 @@ const RoutineMakeModal = () => {
       </Modal.Content>
       <Modal.Footer>
         <Button
+          variant="text"
+          size="full"
+          onClick={handlePrevButton}>
+          이전
+        </Button>
+        <Button
           variant="main"
           size="full"
+          type="submit"
           onClick={handleFormAdapter}>
           이 이름으로 할래요
         </Button>

@@ -8,6 +8,6 @@ export const EmptyRoutineWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   background: ${theme.Netural0};
-  padding: 20px 18px;
-  border-radius: 16px;
+  padding: 2rem 1.8rem;
+  border-radius: 1.6rem;
 `

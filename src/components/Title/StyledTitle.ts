@@ -6,7 +6,7 @@ export const TitleWrapper = styled.div<{
   $variantStyle: Interpolation<object>
 }>`
   display: flex;
-  gap: 4px;
+  gap: 0.4rem;
   flex-direction: column;
   ${({ $variantStyle }) => $variantStyle};
   &.bold {
@@ -26,7 +26,7 @@ export const SubBottomTitleText = styled.span`
 
 export const SubBottomTitleWrapper = styled.div`
   display: flex;
-  gap: 4px;
+  gap: 0.4rem;
   align-items: center;
   color: ${theme.Netural800};
 `
@@ -43,7 +43,7 @@ export const VARIANTS = {
     .bottomTitleText {
       color: ${theme.Netural800};
       ${fonts.b4};
-      padding-top: 8px;
+      padding-top: 0.8rem;
     }
   `,
   midA: css`
@@ -56,7 +56,7 @@ export const VARIANTS = {
     .bottomTitleText {
       color: ${theme.Netural800};
       ${fonts.b4};
-      padding-top: 4px;
+      padding-top: 0.4rem;
     }
   `,
   midB: css`
@@ -84,7 +84,7 @@ export const VARIANTS = {
     }
   `,
   midD: css`
-    gap: 2px;
+    gap: 0.2rem;
     .topTitleText {
       color: ${theme.Netural950};
       ${fonts.b1};
@@ -100,7 +100,7 @@ export const VARIANTS = {
       ${fonts.h4};
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 0.8rem;
     }
     .bottomTitleContentText {
       color: ${theme.Netural550};
@@ -114,7 +114,7 @@ export const VARIANTS = {
   small: css`
     color: ${theme.Netural990};
     ${fonts.h3};
-    gap: 2px;
+    gap: 0.2rem;
 
     .topTitleText {
       color: ${theme.Brand750};
@@ -123,7 +123,7 @@ export const VARIANTS = {
     .bottomTitleText {
       color: ${theme.Netural800};
       ${fonts.b6};
-      padding-top: 6px;
+      padding-top: 0.6rem;
     }
   `,
 }

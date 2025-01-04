@@ -5,19 +5,19 @@ import theme, { fonts } from "@styles/theme"
 export const BodyPartWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 205px);
+  height: calc(100vh - 20.5rem);
 `
 
 export const TabWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  gap: 4.8rem;
 `
 
 export const TabBox = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 1.2rem;
   align-items: flex-start;
 `
 
@@ -30,5 +30,5 @@ export const TabList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  gap: 10px;
+  gap: 1rem;
 `

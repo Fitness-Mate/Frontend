@@ -4,7 +4,7 @@ import theme, { fonts } from "@styles/theme"
 
 export const LoginContainer = styled.div`
   display: flex;
-  gap: 48px;
+  gap: 4.8rem;
   flex-direction: column;
   align-items: center;
   position: absolute;
@@ -14,23 +14,23 @@ export const LoginContainer = styled.div`
 `
 
 export const LoginForm = styled.form`
-  min-width: 433px;
+  min-width: 43.3rem;
   display: flex;
   flex-direction: column;
-  gap: 37.5px;
+  gap: 3.75rem;
 `
 
 export const Title = styled.h1`
   color: ${theme.Netural990};
   ${fonts.h1};
-  font-size: 28px;
+  font-size: 2.8rem;
 `
 
 export const InputFrame = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 1.4rem;
 `
 
 export const FindPass = styled.button`
@@ -38,17 +38,17 @@ export const FindPass = styled.button`
   ${fonts.h4};
   font-weight: 500;
   width: fit-content;
-  padding-left: 2px;
+  padding-left: 0.2rem;
 `
 
 export const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 1.2rem;
 `
 
 export const Warning = styled.span`
   color: ${theme.Error};
   ${fonts.b4};
-  padding-top: 23.5px;
+  padding-top: 2.35rem;
 `

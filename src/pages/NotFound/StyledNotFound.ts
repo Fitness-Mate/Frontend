@@ -11,20 +11,20 @@ export const NotFoundWrapper = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  gap: 30px;
+  gap: 3rem;
   transform: translate(-50%, -50%);
 `
 
 export const NotFoundImg = styled.img`
-  width: 500px;
-  height: 300px;
-  border-radius: 20px;
+  width: 50rem;
+  height: 30rem;
+  border-radius: 2rem;
 `
 
 export const NotFoundButtonWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 2rem;
 `
 
 export const NotFoundTitle = styled.span`

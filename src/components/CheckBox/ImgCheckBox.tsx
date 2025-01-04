@@ -17,25 +17,25 @@ const getVariant = (variant: Variant, isSelected: boolean) => {
     case "big":
       return {
         sizeStyle: css`
-          gap: 12px;
-          width: 169px;
+          gap: 1.2rem;
+          width: 16.9rem;
         `,
         borderStyle: css`
           border: ${isSelected
-            ? `3.5px solid ${theme.Brand600}`
-            : `1px solid ${theme.Netural300}`};
+            ? `0.35rem solid ${theme.Brand600}`
+            : `0.1rem solid ${theme.Netural300}`};
         `,
       }
     case "small":
       return {
         sizeStyle: css`
-          gap: 8px;
-          width: 114px;
+          gap: 0.8rem;
+          width: 11.4rem;
         `,
         borderStyle: css`
           border: ${isSelected
-            ? `3px solid ${theme.Brand600}`
-            : `1px solid ${theme.Netural300}`};
+            ? `0.3rem solid ${theme.Brand600}`
+            : `0.1rem solid ${theme.Netural300}`};
         `,
       }
     default:

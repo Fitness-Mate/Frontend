@@ -2,9 +2,11 @@ name: "Chromatic"
 
 on:
   pull_request:
-    branches: [main]
+    branches: main
     paths:
+      - "**.stories.ts"
       - "**.stories.tsx"
+      - "**.mdx"
 
 jobs:
   chromatic:
@@ -14,30 +16,34 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: cache dependencies
+
+      - name: Cache dependencies
         id: cache
         uses: actions/cache@v4
         with:
           path: "**/node_modules"
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}-storybook
 
-      - name: depedency install
+      - name: Install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
 
       - name: Publish to Chromatic
         id: chromatic
         uses: chromaui/action@latest
+        env:
+          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: comment PR
+      - name: Comment PR
         uses: thollander/actions-comment-pull-request@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          message: "🚀storybook: ${{ steps.chromatic.outputs.storybookUrl }}"
+          message: "🚀 Storybook: ${{ steps.chromatic.outputs.storybookUrl }}"
+
       - name: Send StorybookUrl to Discord
         uses: tsickert/discord-webhook@v5.3.0
         with:

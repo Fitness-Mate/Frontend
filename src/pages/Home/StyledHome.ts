@@ -10,22 +10,22 @@ import theme, { fonts } from "@styles/theme"
 export const FirstSubTitle = styled.span`
   color: ${theme.Netural900};
   ${fonts.h1};
-  font-size: 32px;
-  @media only screen and (max-width: 720px) {
-    font-size: 22px;
+  font-size: 3.2rem;
+  @media only screen and (max-width: 72rem) {
+    font-size: 2.2rem;
   }
 `
 export const FirstTitle = styled(FirstSubTitle)`
-  font-size: 82px;
-  @media only screen and (max-width: 720px) {
-    font-size: 42px;
+  font-size: 8.2rem;
+  @media only screen and (max-width: 72rem) {
+    font-size: 4.2rem;
   }
 `
 
 export const HomeBanner = styled.img`
-  max-width: 766px;
+  max-width: 76.6rem;
   width: 40%;
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 102.4rem) {
     display: none;
   }
 `
@@ -35,8 +35,8 @@ export const First = styled.li`
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  min-height: 800px;
-  padding: 0px 50px;
+  min-height: 80rem;
+  padding: 0rem 5rem;
   &::after {
     z-index: -1;
     position: absolute;
@@ -44,7 +44,7 @@ export const First = styled.li`
     left: 0;
     content: "";
     width: 100vw;
-    height: 888px;
+    height: 88.8rem;
     background: linear-gradient(185deg, #dce9f2 13.28%, #bbcbe4 77.52%);
   }
 `
@@ -52,8 +52,8 @@ export const FirstContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 12px;
-  @media only screen and (max-width: 1024px) {
+  gap: 1.2rem;
+  @media only screen and (max-width: 102.4rem) {
     align-items: center;
     width: 100%;
   }
@@ -61,10 +61,10 @@ export const FirstContainer = styled.div`
 
 export const SecondTextWrapper = styled.div``
 export const Second = styled.li`
-  min-height: 950px;
+  min-height: 95rem;
   display: flex;
   flex-direction: column;
-  gap: 200px;
+  gap: 20rem;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -74,42 +74,42 @@ export const SecondButtonWrapper = styled.button`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 18px 18px 8px 18px;
+  padding: 1.8rem 1.8rem 0.8rem 1.8rem;
   color: ${theme.Brand600};
   ${fonts.h3};
-  border-radius: 18px;
+  border-radius: 1.8rem;
   background: ${theme.Netural200};
   svg {
-    height: 40px;
+    height: 4rem;
   }
 `
 export const SecondText = styled.p`
   color: ${theme.Netural900};
   ${fonts.h2};
   font-weight: 500;
-  @media only screen and (max-width: 720px) {
-    font-size: 17px;
+  @media only screen and (max-width: 72rem) {
+    font-size: 1.7rem;
   }
-  padding-bottom: 15px;
+  padding-bottom: 1.5rem;
 `
 export const SecondText2 = styled(SecondText)`
-  font-size: 34px;
+  font-size: 3.4rem;
   position: relative;
   font-weight: 600;
-  padding-left: 145px;
+  padding-left: 14.5rem;
   &::before {
     content: "";
     background-image: url(${logo});
-    background-size: 136px 32px;
+    background-size: 13.6rem 3.2rem;
     background-repeat: no-repeat;
     position: absolute;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
+    top: 0rem;
+    left: 0rem;
+    right: 0rem;
+    bottom: 0rem;
   }
-  @media only screen and (max-width: 720px) {
-    font-size: 22px;
+  @media only screen and (max-width: 72rem) {
+    font-size: 2.2rem;
   }
 `
 
@@ -118,16 +118,16 @@ export const Third = styled.li`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 50px;
+  gap: 5rem;
   justify-content: center;
   width: 100vw;
   background: ${theme.Netural200};
-  min-height: 950px;
-  padding: 50px;
+  min-height: 95rem;
+  padding: 5rem;
 `
 export const SlideList = styled.ul`
   display: flex;
-  gap: 24px;
+  gap: 2.4rem;
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
@@ -138,27 +138,27 @@ export const SlideTextWrapper = styled.div``
 
 export const Title = styled.span`
   ${fonts.h1};
-  font-size: 47px;
-  @media only screen and (max-width: 1100px) {
-    font-size: 22px;
+  font-size: 4.7rem;
+  @media only screen and (max-width: 110rem) {
+    font-size: 2.2rem;
   }
 `
 
 export const Slide = styled.li`
-  padding: 50px;
-  max-width: 1118px;
+  padding: 5rem;
+  max-width: 111.8rem;
   width: 100%;
-  height: 602px;
+  height: 60.2rem;
   display: flex;
   justify-content: space-between;
-  border-radius: 32px;
-  border: 1px solid var(--Gray-40, #b0b8c1);
+  border-radius: 3.2rem;
+  border: 0.1rem solid var(--Gray-40, #b0b8c1);
   background: #f9fafc;
-  @media only screen and (max-width: 1100px) {
+  @media only screen and (max-width: 110rem) {
     width: 80%;
   }
-  @media only screen and (max-width: 720px) {
-    height: 300px;
+  @media only screen and (max-width: 72rem) {
+    height: 30rem;
   }
 `
 
@@ -173,14 +173,14 @@ export const SlideLeft = styled.div`
 
 export const SlideImg = styled.img`
   object-fit: contain;
-  top: 57px;
-  right: 0px;
-  max-width: 600px;
-  height: 537px;
-  @media only screen and (max-width: 1100px) {
+  top: 5.7rem;
+  right: 0rem;
+  max-width: 60rem;
+  height: 53.7rem;
+  @media only screen and (max-width: 110rem) {
     width: 80%;
   }
-  @media only screen and (max-width: 720px) {
+  @media only screen and (max-width: 72rem) {
     display: none;
   }
 `
@@ -188,9 +188,9 @@ export const SlideImg = styled.img`
 export const TabListWrapper = styled.div`
   position: relative;
   background-color: #e2e3eb;
-  border-radius: 48px;
+  border-radius: 4.8rem;
   overflow: hidden;
-  padding: 5px;
+  padding: 0.5rem;
 `
 
 export const TabList = styled.ul`
@@ -202,11 +202,11 @@ export const TabList = styled.ul`
 
 export const TabButton = styled.button`
   z-index: 1;
-  padding: 10px 16px;
+  padding: 1rem 1.6rem;
   display: flex;
   align-items: center;
 
-  gap: 8px;
+  gap: 0.8rem;
   ${fonts.b1};
   &.active {
     color: ${theme.Netural0};
@@ -215,25 +215,25 @@ export const TabButton = styled.button`
 
 export const TabBackground = styled(motion.div)`
   position: absolute;
-  top: 5px;
-  left: 10px;
-  width: calc((100% / 2) - 5px);
-  height: calc(100% - 10px);
+  top: 0.5rem;
+  left: 1rem;
+  width: calc((100% / 2) - 0.5rem);
+  height: calc(100% - 1rem);
   background-color: #191f28;
-  border-radius: 42px;
+  border-radius: 4.2rem;
   display: flex;
   align-items: center;
 `
 
 export const Fourth = styled.li`
   width: 100%;
-  height: 656px;
+  height: 65.6rem;
 `
 
 export const HomeContainer = styled.div`
   width: 100%;
   margin: 0 auto;
-  max-width: 1920px;
+  max-width: 192rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -244,10 +244,10 @@ export const SearchWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 79.5px;
+  gap: 7.95rem;
   width: 100%;
   height: 100%;
-  max-width: 627px;
+  max-width: 62.7rem;
   width: 100%;
   margin: 0 auto;
   padding: 0 4%;
@@ -256,7 +256,7 @@ export const SearchWrapper = styled.div`
 export const SearchTop = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 1.2rem;
   justify-content: center;
   align-items: center;
 `
@@ -267,7 +267,7 @@ export const SearchTitle = styled.span`
 `
 export const SearchSubTitle = styled.span`
   color: ${theme.Netural990};
-  font-size: 48px;
+  font-size: 4.8rem;
   font-weight: 600;
   text-align: center;
 `
@@ -276,7 +276,7 @@ export const SearchKeywordForm = styled.form`
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 4rem;
   align-items: flex-start;
 `
 
@@ -285,8 +285,8 @@ export const SearchInputWrapper = styled.div`
   width: 100%;
   button {
     position: absolute;
-    top: 15px;
-    right: 15px;
+    top: 1.5rem;
+    right: 1.5rem;
   }
 `
 
@@ -294,7 +294,7 @@ export const SearchKeywordWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 12px;
+  gap: 1.2rem;
   justify-content: space-between;
 `
 
@@ -307,6 +307,6 @@ export const SearchKeywordList = styled.ul`
   display: flex;
   width: 100%;
   justify-content: flex-start;
-  gap: 8px;
+  gap: 0.8rem;
   flex-wrap: wrap;
 `

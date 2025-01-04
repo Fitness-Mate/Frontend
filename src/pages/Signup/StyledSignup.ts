@@ -3,25 +3,25 @@ import styled from "styled-components"
 import theme, { fonts } from "@styles/theme"
 
 export const SignupWrapper = styled.div`
-  padding-top: 100px;
-  width: 474px;
+  padding-top: 10rem;
+  width: 47.4rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin: 0 auto;
-  gap: 52px;
-  padding-bottom: 30px;
+  gap: 5.2rem;
+  padding-bottom: 3rem;
 `
 export const SignupForm = styled.form`
   position: relative;
-  padding-top: 100px;
-  width: 474px;
+  padding-top: 10rem;
+  width: 47.4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
-  gap: 52px;
-  padding-bottom: 30px;
+  gap: 5.2rem;
+  padding-bottom: 3rem;
 `
 
 export const SignupContainer = styled.div`
@@ -32,13 +32,13 @@ export const SignupContainer = styled.div`
 export const SignupTitleWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 0.4rem;
 `
 
 export const SignupTitle = styled.span`
   color: ${theme.Netural990};
   ${fonts.h1};
-  font-size: 30px;
+  font-size: 3rem;
 `
 
 export const StatusText = styled.span`
@@ -48,16 +48,16 @@ export const StatusText = styled.span`
 
 export const ButtonContainer = styled.div`
   margin-left: auto;
-  gap: 6px;
+  gap: 0.6rem;
   display: flex;
   align-items: center;
-  padding-top: 64px;
+  padding-top: 6.4rem;
 `
 
 export const FormWrapper = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 2.4rem;
   width: 100%;
   align-items: flex-start;
 `

@@ -7,19 +7,20 @@ export const SpeechBubbleWrapper = styled.div<{
   $isIcon: boolean
 }>`
   position: relative;
-  padding: ${({ $isMultiline }) => ($isMultiline ? "20px 38px" : "16px 28px")};
+  padding: ${({ $isMultiline }) =>
+    $isMultiline ? "2rem 3.8rem" : "1.6rem 2.8rem"};
   display: flex;
   flex-direction: column;
-  gap: ${({ $isIcon }) => ($isIcon ? "8px" : "3px")};
+  gap: ${({ $isIcon }) => ($isIcon ? "0.8rem" : "0.3rem")};
   justify-content: center;
   align-items: center;
-  border-radius: 66px;
-  border: 1px solid ${theme.Netural400};
+  border-radius: 6.6rem;
+  border: 0.1rem solid ${theme.Netural400};
   background: ${theme.Netural0};
   border-collapse: collapse;
   svg {
     position: absolute;
-    top: -14px;
+    top: -1.4rem;
   }
 `
 

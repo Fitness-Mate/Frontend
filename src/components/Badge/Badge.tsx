@@ -32,14 +32,14 @@ const Badge = ({
 }
 
 const StyledBadge = styled.div<{ $variantStyle: Interpolation<object> }>`
-  border-radius: 4px;
+  border-radius: 0.4rem;
   display: flex;
-  padding: 6px 13px;
+  padding: 0.6rem 1.3rem;
   justify-content: center;
   align-items: center;
   ${({ $variantStyle }) => $variantStyle};
   ${fonts.b6};
-  font-size: 14px;
+  font-size: 1.4rem;
 `
 
 export default Badge

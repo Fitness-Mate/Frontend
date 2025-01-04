@@ -14,9 +14,9 @@ export const getVariant = (
       return css`
         color: ${isSelected ? theme.Netural0 : theme.Netural800};
         background: ${isSelected ? theme.Brand600 : theme.Netural0};
-        padding: 10px 14px;
+        padding: 1rem 1.4rem;
         ${fonts.b4};
-        border-radius: 34px;
+        border-radius: 3.4rem;
         &:hover {
           background-color: ${!isSelected && theme.Netural200};
         }
@@ -25,9 +25,9 @@ export const getVariant = (
       return css`
         color: ${isSelected ? theme.Netural950 : theme.Netural700};
         position: relative;
-        padding: ${isFirstChild ? "10px 10px 10px 0" : "10px 10px 10px 10px"};
+        padding: ${isFirstChild ? "1rem 1rem 1rem 0" : "1rem 1rem 1rem 1rem"};
         ${fonts.b2};
-        border-radius: ${isFirstChild ? 0 : "8px"};
+        border-radius: ${isFirstChild ? 0 : "0.8rem"};
         &:hover {
           background: ${theme.Netural200};
         }
@@ -38,9 +38,9 @@ export const getVariant = (
             content: "";
             position: absolute;
             bottom: 0;
-            width: ${isFirstChild ? "calc(100% - 10px)" : "calc(100% - 20px)"};
-            border-radius: 2px;
-            border-bottom: 3px solid ${theme.Netural900};
+            width: ${isFirstChild ? "calc(100% - 1rem)" : "calc(100% - 2rem)"};
+            border-radius: 0.2rem;
+            border-bottom: 0.3rem solid ${theme.Netural900};
           }
         `}
       `

@@ -5,36 +5,36 @@ import theme from "@styles/theme"
 export const CompleteNav = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 1.8rem;
   width: 100%;
 `
 
 export const CompleteNavList = styled.span`
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  margin-top: 50px;
+  gap: 1.8rem;
+  margin-top: 5rem;
 `
 
 export const CompleteNavItem = styled.button`
   display: flex;
   width: 100%;
-  padding: 24px;
+  padding: 2.4rem;
   justify-content: space-between;
   align-items: center;
-  border-radius: 10px;
+  border-radius: 1rem;
   background: ${theme.Netural100};
   text-align: left;
 `
 export const CompleteNavItemTitle = styled.div`
   color: ${theme.Netural990};
-  font-size: 20px;
+  font-size: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 1rem;
   font-weight: 600;
 `
 export const CompleteNavItemText = styled.span`
   color: ${theme.Netural990};
-  font-size: 16px;
+  font-size: 1.6rem;
 `

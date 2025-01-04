@@ -7,29 +7,29 @@ export const DropDownWrapper = styled.div<{
 }>`
   display: flex;
   flex-direction: column;
-  padding: 6px;
-  gap: 4px;
-  border-radius: 12px;
+  padding: 0.6rem;
+  gap: 0.4rem;
+  border-radius: 1.2rem;
   background: ${theme.Netural0};
-  box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0rem 0.1rem 2rem 0rem rgba(0, 0, 0, 0.12);
 
-  ${({ $positionStyle }) => $positionStyle};s
+  ${({ $positionStyle }) => $positionStyle};
 `
 
 export const DropDownButton = styled.button<{
   $variantStyle: Interpolation<object>
 }>`
   display: flex;
-  width: 149px;
-  padding: 10px 12px;
+  width: 14.9rem;
+  padding: 1rem 1.2rem;
   justify-content: space-between;
   align-items: center;
-  border-radius: 8px;
+  border-radius: 0.8rem;
   ${({ $variantStyle }) => $variantStyle};
 `
 
 export const Line = styled.div`
-  height: 1px;
+  height: 0.1rem;
   background: ${theme.Netural200};
 `
 
@@ -56,12 +56,12 @@ export const VARIANTS = {
 export const POSITION = {
   my: css`
     position: absolute;
-    right: 19px;
-    bottom: 14px;
+    right: 1.9rem;
+    bottom: 1.4rem;
   `,
   nav: css`
     position: absolute;
-    top: 56px;
+    top: 5.6rem;
     right: 0;
   `,
 }
@@ -71,12 +71,12 @@ export const FixIconButtonWrapper = styled.button`
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 14px;
-  right: 14px;
+  top: 1.4rem;
+  right: 1.4rem;
   background-color: ${theme.Netural150};
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 0.8rem;
 `
 
 export const DropDownContainer = styled.div`
@@ -84,9 +84,9 @@ export const DropDownContainer = styled.div`
 `
 
 export const NavNameButton = styled.button`
-  font-size: 18px;
-  padding: 10px 24px;
-  border-radius: 12px;
+  font-size: 1.8rem;
+  padding: 1rem 2.4rem;
+  border-radius: 1.2rem;
   font-weight: 700;
   color: ${theme.Brand600};
   &:hover {

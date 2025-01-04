@@ -18,5 +18,5 @@ export const ModalContentWrapper = styled.div<{ $isFull: boolean }>`
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: ${({ $isFull }) => ($isFull ? "404px" : "auto")};
+  min-height: ${({ $isFull }) => ($isFull ? "40.4rem" : "auto")};
 `

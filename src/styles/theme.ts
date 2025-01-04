@@ -8,36 +8,36 @@ interface Font {
 const FONT = ({
   weight,
   size,
-  letterSpacing = -0.02,
+  letterSpacing = -0.0002,
   lineHeight = 138,
 }: Font): string => {
   return `
   font-weight:${weight};
-  font-size:${size}px;
+  font-size:${size}rem;
   letter-spacing:${letterSpacing}rem;
   line-height:${lineHeight}%
   `
 }
 
 export const fonts = {
-  h1: FONT({ weight: 600, size: 26 }),
-  h2: FONT({ weight: 600, size: 24 }),
-  h3: FONT({ weight: 600, size: 20 }),
-  h4: FONT({ weight: 600, size: 18 }),
+  h1: FONT({ weight: 600, size: 2.6 }),
+  h2: FONT({ weight: 600, size: 2.4 }),
+  h3: FONT({ weight: 600, size: 2.0 }),
+  h4: FONT({ weight: 600, size: 1.8 }),
 
-  b1: FONT({ weight: 500, size: 18 }),
-  b2: FONT({ weight: 600, size: 17 }),
-  b3: FONT({ weight: 600, size: 16 }),
-  b4: FONT({ weight: 500, size: 16 }),
-  b5: FONT({ weight: 600, size: 15 }),
-  b6: FONT({ weight: 500, size: 15 }),
-  b7: FONT({ weight: 600, size: 15 }),
+  b1: FONT({ weight: 500, size: 1.8 }),
+  b2: FONT({ weight: 600, size: 1.7 }),
+  b3: FONT({ weight: 600, size: 1.6 }),
+  b4: FONT({ weight: 500, size: 1.6 }),
+  b5: FONT({ weight: 600, size: 1.5 }),
+  b6: FONT({ weight: 500, size: 1.5 }),
+  b7: FONT({ weight: 600, size: 1.5 }),
 
-  d1: FONT({ weight: 500, size: 13, letterSpacing: 0 }),
-  d2: FONT({ weight: 500, size: 12, letterSpacing: 0 }),
-  d3: FONT({ weight: 500, size: 11, letterSpacing: 0 }),
+  d1: FONT({ weight: 500, size: 1.3, letterSpacing: 0 }),
+  d2: FONT({ weight: 500, size: 1.2, letterSpacing: 0 }),
+  d3: FONT({ weight: 500, size: 1.1, letterSpacing: 0 }),
 
-  l1: FONT({ weight: 500, size: 15, lineHeight: 150 }),
+  l1: FONT({ weight: 500, size: 1.5, lineHeight: 150 }),
 }
 
 export const theme = {

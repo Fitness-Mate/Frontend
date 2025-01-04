@@ -4,24 +4,24 @@ import theme, { fonts } from "@styles/theme"
 
 export const MyWorkoutWrapper = styled.div`
   display: flex;
-  gap: 18px;
+  gap: 1.8rem;
 `
 
 export const MyWorkoutContent = styled.form<{ isDragging: boolean }>`
   width: 77rem;
   z-index: 2;
-  height: 157px;
+  height: 15.7rem;
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  padding: 22px 22px 18px 22px;
-  margin-bottom: 13px;
+  gap: 2.4rem;
+  padding: 2.2rem 2.2rem 1.8rem 2.2rem;
+  margin-bottom: 1.3rem;
 
   align-items: center;
-  border-radius: 20px 20px 16px 16px;
+  border-radius: 2rem 2rem 1.6rem 1.6rem;
   box-shadow: ${({ isDragging }) =>
-    isDragging ? "0px 1px 18px 0px rgba(0, 0, 0, 0.12)" : "none"};
+    isDragging ? "0rem 0.1rem 1.8rem 0rem rgba(0, 0, 0, 0.12)" : "none"};
   background: ${theme.Netural0};
 `
 
@@ -34,7 +34,7 @@ export const HeaderWrapper = styled.div`
 
 export const HeaderLeft = styled.div`
   display: flex;
-  gap: 4px;
+  gap: 0.4rem;
 `
 
 export const DetailIconButtonWrapper = styled.div`
@@ -45,12 +45,12 @@ export const DetailIconButtonWrapper = styled.div`
 
 export const HeaderRight = styled.form`
   display: flex;
-  gap: 10px;
-  padding-right: 32px;
+  gap: 1rem;
+  padding-right: 3.2rem;
 `
 export const HeaderRightInfo = styled.span`
   display: flex;
-  padding: 4px 10px;
+  padding: 0.4rem 1rem;
   flex-direction: column;
   color: ${theme.Netural550};
   ${fonts.d2}
@@ -65,11 +65,11 @@ export const HeaderRightInfoContent = styled.span`
 export const CustomCursor = styled.span`
   position: absolute;
   top: 50%;
-  left: calc(100% + 1px);
+  left: calc(100% + 0.1rem);
   transform: translateY(-50%);
-  width: 2px;
-  height: 24px;
-  border-radius: 2px;
+  width: 0.2rem;
+  height: 2.4rem;
+  border-radius: 0.2rem;
   background-color: ${theme.Brand500};
   visibility: hidden;
 
@@ -86,12 +86,12 @@ export const CustomCursor = styled.span`
 
 export const HeaderRightInfoArea = styled.div<{ width: string }>`
   display: flex;
-  height: 33px;
+  height: 3.3rem;
   align-items: center;
   justify-content: right;
   position: relative;
   width: ${(props) => props.width};
-  margin-right: 2px;
+  margin-right: 0.2rem;
 
   &:focus-within ${CustomCursor} {
     visibility: visible;
@@ -125,7 +125,7 @@ export const InputWidthItem = styled.span`
 `
 
 export const HeaderRightInfoUnit = styled.span`
-  padding: 0 0 2px 2px;
+  padding: 0 0 0.2rem 0.2rem;
   color: ${theme.Netural550};
   ${fonts.d1}
 `
@@ -133,8 +133,8 @@ export const HeaderRightInfoUnit = styled.span`
 export const BottomWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 4px 0px;
+  gap: 1.2rem;
+  padding: 0.4rem 0rem;
   width: 100%;
   color: ${theme.Netural600};
   ${fonts.b7}
@@ -142,14 +142,14 @@ export const BottomWrapper = styled.div`
 
 export const BottomTitle = styled.div`
   display: flex;
-  width: 60px;
-  height: 27px;
+  width: 6rem;
+  height: 2.7rem;
   justify-content: center;
   align-items: center;
   color: #ff9500;
   ${fonts.b7};
   background-color: #fff6e3;
-  border-radius: 6px;
+  border-radius: 0.6rem;
 `
 export const CompleteIconButtonWrapper = styled.button<{
   isDisabled?: boolean
@@ -158,16 +158,16 @@ export const CompleteIconButtonWrapper = styled.button<{
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 14px;
-  right: 14px;
+  top: 1.4rem;
+  right: 1.4rem;
   background-color: ${(props) =>
     props.isDisabled ? theme.Netural200 : theme.Brand50};
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 0.8rem;
 `
 
 export const HandleIconButtonWrapper = styled.div`
-  padding-top: 60.5px;
+  padding-top: 6.05rem;
   cursor: grab;
 `

@@ -7,8 +7,8 @@ const ModalCloseButton = () => {
       size={14}
       style={{
         position: "absolute",
-        top: "24px",
-        right: "24px",
+        top: "2.4rem",
+        right: "2.4rem",
       }}
     />
   )

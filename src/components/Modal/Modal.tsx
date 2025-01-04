@@ -40,7 +40,7 @@ const ModalMain = ({
         {isCloseButton && (
           <IconButton
             icon="CloseBold"
-            style={{ position: "absolute", top: "24px", right: "24px" }}
+            style={{ position: "absolute", top: "2.4rem", right: "2.4rem" }}
             onClick={onClose}
           />
         )}
@@ -73,17 +73,18 @@ const BackOverlay = styled.div`
 
 const ModalWrapper = styled.div<{ $isCloseButton: boolean }>`
   display: flex;
-  min-width: 480px;
-  padding: 24px;
-  padding-top: ${({ $isCloseButton }) => ($isCloseButton ? "48px" : "24px")};
+  min-width: 48rem;
+  padding: 2.4rem;
+  padding-top: ${({ $isCloseButton }) =>
+    $isCloseButton ? "4.8rem" : "2.4rem"};
   flex-direction: column;
   align-items: flex-start;
-  gap: 24px;
-  border-radius: 20px;
+  gap: 2.4rem;
+  border-radius: 2rem;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: ${theme.Netural0};
-  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0rem 0.4rem 1.5rem 0rem rgba(0, 0, 0, 0.12);
 `

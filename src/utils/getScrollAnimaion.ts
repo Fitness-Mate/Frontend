@@ -10,8 +10,8 @@ export const getScrollAnimation = (isScrollTop: boolean) => {
   }
 
   const machineAnimation = {
-    initial: { y: "366px" },
-    animate: isScrollTop ? { y: "366px" } : { y: "80px" },
+    initial: { y: "36.6rem" },
+    animate: isScrollTop ? { y: "36.6rem" } : { y: "8rem" },
     transition: { ...animation.small },
   }
 

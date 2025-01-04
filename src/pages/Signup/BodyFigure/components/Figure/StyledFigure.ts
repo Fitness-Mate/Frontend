@@ -5,45 +5,45 @@ import theme from "@styles/theme"
 export const FigureWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 1.4rem;
   width: 100%;
 `
 
 export const FigureTitle = styled.span`
-  padding-bottom: 10px;
+  padding-bottom: 1rem;
   color: ${theme.Netural900};
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 600;
 `
 
 export const FigureOptionList = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  margin-left: 10px;
+  gap: 1.4rem;
+  margin-left: 1rem;
   width: 100%;
-  padding: 10px;
+  padding: 1rem;
 `
 
 export const FigureOptionItem = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 1rem;
 `
 
 export const DirectFigureOptionWrapper = styled.div`
-  padding-top: 64px;
+  padding-top: 6.4rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 64px;
+  gap: 6.4rem;
   align-items: center;
 `
 
 export const DirectFigureOptionList = styled.div`
   display: flex;
   justify-content: center;
-  gap: 52px;
+  gap: 5.2rem;
   width: 50%;
   align-items: center;
 `
@@ -51,7 +51,7 @@ export const DirectFigureOptionList = styled.div`
 export const DirectFigureOptionItem = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 0.5rem;
 `
 
 export const DirectFigureOptionMessage = styled.div`
@@ -59,37 +59,37 @@ export const DirectFigureOptionMessage = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  border-radius: 12px;
+  gap: 1rem;
+  border-radius: 1.2rem;
   background: var(--Neutral-200, #f2f4f6);
-  padding: 25px;
+  padding: 2.5rem;
 `
 
 export const DirectFigureOptionInnerMessage = styled.span`
   ${theme.Netural950};
-  font-size: 16px;
+  font-size: 1.6rem;
 `
 
 export const DirectFigureOptionInnerMessage2 = styled.span`
   ${theme.Netural800};
-  font-size: 15px;
+  font-size: 1.5rem;
 `
 
 export const FigureOptionInputWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 0.5rem;
 `
 
 export const FigureCheckBoxButton = styled.button<{ $isChecked: boolean }>`
   display: flex;
   width: 100%;
-  gap: 10px;
-  padding: 6px 18px;
+  gap: 1rem;
+  padding: 0.6rem 1.8rem;
   align-items: center;
-  border-radius: 12px;
+  border-radius: 1.2rem;
   background: ${({ $isChecked }) => ($isChecked ? "#f2f4f6" : "#fff")};
-  height: 50px;
+  height: 5rem;
   &:hover {
     background: ${({ $isChecked }) =>
       $isChecked ? "#f2f4f6" : `${theme.Netural200}`};

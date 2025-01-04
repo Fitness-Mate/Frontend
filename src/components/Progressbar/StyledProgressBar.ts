@@ -5,9 +5,9 @@ import theme from "@styles/theme"
 export const ProgressBarBox = styled.div`
   position: relative;
   width: 100%;
-  height: 10px;
+  height: 1rem;
   background: ${theme.Netural300};
-  border-radius: 24px;
+  border-radius: 2.4rem;
 `
 
 export const ProgressBarItem = styled.div<{
@@ -20,7 +20,7 @@ export const ProgressBarItem = styled.div<{
 
   ${({ $progress }) =>
     css`
-    border-radius: 24px;
+    border-radius: 2.4rem;
       width: {(100 / 3) * ${$progress}%;
     `}
 `

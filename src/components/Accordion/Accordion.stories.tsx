@@ -51,7 +51,7 @@ const meta: Meta<typeof Accordion> = {
           justifyContent: "center",
           alignItems: "center",
         }}>
-        <div style={{ width: "716px" }}>
+        <div style={{ width: "71.6rem" }}>
           <Story />
         </div>
       </div>

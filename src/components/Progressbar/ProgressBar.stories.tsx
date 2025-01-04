@@ -11,7 +11,7 @@ const meta: Meta<typeof ProgressBar> = {
   },
   decorators: [
     (Story) => (
-      <div style={{ width: "474px" }}>
+      <div style={{ width: "47.4rem" }}>
         <Story />
       </div>
     ),

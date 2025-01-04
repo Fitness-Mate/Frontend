@@ -9,22 +9,22 @@ export const TitleWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 14px;
+  gap: 1.4rem;
 `
 
 export const ResultList = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: 12px;
-  padding-bottom: 50px;
+  gap: 1.2rem;
+  padding-bottom: 5rem;
 `
 
 export const ResultWrapper = styled(RecommendWrapper)`
-  padding-top: 57px;
+  padding-top: 5.7rem;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 3.2rem;
 `
 
 export const TitleEmphasize = styled.span`
@@ -40,5 +40,5 @@ export const TitleContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 5px;
+  gap: 0.5rem;
 `

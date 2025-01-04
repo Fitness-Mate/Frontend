@@ -4,7 +4,7 @@ import theme, { fonts } from "@styles/theme"
 
 export const FooterInfoContentWrapper = styled.div`
   display: flex;
-  gap: 32px;
+  gap: 3.2rem;
 `
 export const FooterInfoContentTitle = styled.p`
   color: ${theme.Netural990};
@@ -12,23 +12,23 @@ export const FooterInfoContentTitle = styled.p`
 `
 export const FooterInfoContent = styled.p`
   color: ${theme.Netural800};
-  font-size: 14px;
+  font-size: 1.4rem;
   font-weight: 400;
 `
 
 export const FooterInfoContentList = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 1.8rem;
 `
 
 export const FooterInfoSubContentWrapper = styled.div`
   display: flex;
-  gap: 18px;
+  gap: 1.8rem;
 `
 export const FooterInfoSubContentTitle = styled.p`
   color: ${theme.Netural500};
-  font-size: 14px;
+  font-size: 1.4rem;
   font-weight: 400;
 `
 
@@ -38,16 +38,16 @@ export const Footer = styled.div`
 `
 export const FooterWrapper = styled.div`
   display: flex;
-  top: 112px;
+  top: 11.2rem;
   padding: 5%;
   flex-direction: column;
-  gap: 35px;
+  gap: 3.5rem;
   img {
-    width: 60px;
+    width: 6rem;
   }
 `
 export const FooterInfoList = styled.div`
   display: flex;
-  gap: 133px;
+  gap: 13.3rem;
   flex-wrap: wrap;
 `

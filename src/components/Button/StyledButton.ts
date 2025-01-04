@@ -9,12 +9,12 @@ export const StyledButton = styled.button<{
   ${({ $sizeStyle }) => $sizeStyle};
   ${({ $variantStyle }) => $variantStyle};
   display: inline-flex;
-  gap: 10px;
+  gap: 1rem;
   height: fit-content;
   justify-content: center;
   align-items: center;
   border: none;
-  border-radius: 10px;
+  border-radius: 1rem;
   user-select: none;
   white-space: nowrap;
   overflow: hidden;
@@ -26,23 +26,23 @@ export const StyledButton = styled.button<{
 
 export const SIZES = {
   sm: css`
-    padding: 10px 12px;
+    padding: 1rem 1.2rem;
     ${fonts.b7};
   `,
   md: css`
-    padding: 14px 24px;
+    padding: 1.4rem 2.4rem;
     ${fonts.b5};
   `,
   tmd: css`
-    padding: 10px 12px;
+    padding: 1rem 1.2rem;
     ${fonts.b6};
   `,
   lg: css`
-    padding: 17px 24px;
+    padding: 1.7rem 2.4rem;
     ${fonts.b2};
   `,
   full: css`
-    padding: 17px 24px;
+    padding: 1.7rem 2.4rem;
     ${fonts.b2};
     width: 100%;
   `,

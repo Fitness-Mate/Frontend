@@ -12,6 +12,6 @@ export default InputText
 
 const Text = styled.span`
   ${theme.Netural900};
-  font-size: 15px;
+  font-size: 1.5rem;
   font-weight: 400;
 `
