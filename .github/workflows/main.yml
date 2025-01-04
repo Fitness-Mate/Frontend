@@ -1,4 +1,4 @@
-name: Push to Deploy Repo
+name: push to Deploy Repo
 
 on:
   pull_request:
