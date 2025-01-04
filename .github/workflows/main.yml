@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Frontend repo
+      - name: Checkout Dev repo
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
