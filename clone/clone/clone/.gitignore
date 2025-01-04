@@ -1,8 +1,0 @@
-node_modules
-dist
-.eslintcache
-
-npm-debug.log*
-.env
-*storybook.log
-storybook-static/
