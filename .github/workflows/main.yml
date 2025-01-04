@@ -1,8 +1,9 @@
 name: push to Deploy Repo
 
 on:
-  push:
-    branches: [main]
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: ["main"]
 
 jobs:
   push-to-deploy-repo:
@@ -26,4 +27,4 @@ jobs:
           git config user.email "${{ github.actor }}@users.noreply.github.com"
           git add -A
           git commit -m "Update from Frontend repo by ${{ github.actor }}" || echo "No changes to commit"
-          git push --force https://x-access-token:${{ secrets.FITMATE_STACCATO20 }}@github.com/staccato20/FitnessMate-FE-Deploy.git deploy
+          git push -u --force https://x-access-token:${{ secrets.FITMATE_STACCATO20 }}@github.com/staccato20/FitnessMate-FE-Deploy.git deploy
