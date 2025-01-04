@@ -1,32 +1,38 @@
-name: Push to deploy Repo
+name: Push to Deploy Repo
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
-  push-to-personal-repo:
+  push-to-deploy-repo:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout current repo
+      - name: Checkout Frontend repo
         uses: actions/checkout@v2
         with:
-          fetch-depth: 1
+          fetch-depth: 0
 
-      - name: Copy changes to deploy Repo
+      - name: Clone Deploy Repo
         run: |
-          rsync -av --delete --exclude='.git' --exclude='node_modules/' --progress . clone/
-          ls -al clone/
+          git clone https://github.com/staccato20/FitnessMate-FE-Deploy.git deploy
 
-      - name: Commit and Push changes to deploy repo main branch
+      - name: Remove all files in Deploy Repo
         run: |
-          cd clone
+          rm -rf deploy/*
+
+      - name: Copy files to Deploy Repo
+        run: |
+          rsync -av --delete --exclude='.git' --exclude='node_modules/' --exclude='deploy/' --progress . deploy/
+          ls -al deploy/
+
+      - name: Commit and Push changes to Deploy Repo deploy branch
+        run: |
+          cd deploy
           git config user.name "${{ github.actor }}"
           git config user.email "${{ github.actor }}@users.noreply.github.com"
-          git status 
-          git add -A  
+          git add -A
           git commit -m "Update from Frontend repo by ${{ github.actor }}" || echo "No changes to commit"
-          git push origin main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          git push https://x-access-token:${{ secrets.FITMATE_STACCATO20 }}@github.com/staccato20/FitnessMate-FE-Deploy.git deploy
