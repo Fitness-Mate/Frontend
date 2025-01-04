@@ -2,8 +2,8 @@ name: push to Deploy Repo
 
 on:
   pull_request:
+    branches: main
     types: [opened, reopened, synchronize]
-    branches: ["main"]
 
 jobs:
   push-to-deploy-repo:
