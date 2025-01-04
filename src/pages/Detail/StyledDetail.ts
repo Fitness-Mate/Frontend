@@ -52,12 +52,27 @@ export const ContentBox = styled.div`
   width: 100%;
   align-items: flex-start;
 `
-export const ContentImg = styled.img`
-  border-radius: 1.2rem;
+
+export const ContentImgBox = styled.div`
+  position: relative;
+  width: 100%;
+  height: 27rem;
+  overflow: hidden;
   border: 0.1rem solid #d1d6db;
+  border-radius: 1.2rem;
+  flex: 4;
   @media only screen and (max-width: 70rem) {
     display: none;
   }
+`
+
+export const ContentImg = styled.img`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
 `
 export const ContentInfoWrapper = styled.div`
   display: flex;
@@ -67,6 +82,7 @@ export const ContentInfoWrapper = styled.div`
   width: 100%;
   background: ${theme.Netural100};
   border-radius: 1.2rem;
+  flex: 6;
 `
 
 export const ContentInfoTopWrapper = styled.div`

@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+sh "$(dirname -- "$0")/console-log-check.sh"
+
+npx lint-staged

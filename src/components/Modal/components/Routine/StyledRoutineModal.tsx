@@ -44,6 +44,7 @@ export const ContentInput = styled.input<{ $isError: boolean }>`
     color: transparent;
   }
 `
+
 export const ContentInputLabel = styled.span<{ $isError: boolean }>`
   ${fonts.b7};
   color: ${({ $isError }) => ($isError ? theme.Error : theme.Netural450)};
@@ -130,15 +131,12 @@ export const ContentBigWrapper = styled.div`
   gap: 0.4rem;
 `
 
-export const AddRoutineButton = styled.button`
+export const AddRoutine = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1.6rem 0;
   width: 100%;
-  &:disabled {
-    cursor: default;
-  }
 `
 
 export const RoutineList = styled.div`
@@ -181,7 +179,7 @@ export const RoutineState = styled.span`
   ${fonts.b6};
 `
 
-export const ButtonNavBox = styled.div<{ $isFullRoutine: boolean }>`
+export const AddRoutineButton = styled.button<{ $isFullRoutine: boolean }>`
   display: flex;
   gap: 1.2rem;
   align-items: center;
