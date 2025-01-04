@@ -40,25 +40,28 @@ const BodyPart = () => {
   }
 
   return (
-    <GS.RecommendWrapper>
-      <GS.Status $isScrollTop={true}>
-        <IconButton
-          icon="LeftArrowBold"
-          size={30}
-          onClick={handleBackPage}
+    <>
+      <GS.RecommendBackground />
+      <GS.RecommendWrapper>
+        <GS.Status $isScrollTop={true}>
+          <IconButton
+            icon="LeftArrowBold"
+            size={30}
+            onClick={handleBackPage}
+          />
+          <ProgressBar progress={1} />
+        </GS.Status>
+        <List
+          bodyParts={bodyParts}
+          selectedBodyParts={selectedBodyParts}
+          handleBodyPart={handleBodyPart}
         />
-        <ProgressBar progress={1} />
-      </GS.Status>
-      <List
-        bodyParts={bodyParts}
-        selectedBodyParts={selectedBodyParts}
-        handleBodyPart={handleBodyPart}
-      />
-      <Footer
-        selectedBodyPartLength={selectedBodyParts.length}
-        handleNextPage={handleNextPage}
-      />
-    </GS.RecommendWrapper>
+        <Footer
+          selectedBodyPartLength={selectedBodyParts.length}
+          handleNextPage={handleNextPage}
+        />
+      </GS.RecommendWrapper>
+    </>
   )
 }
 export default BodyPart
