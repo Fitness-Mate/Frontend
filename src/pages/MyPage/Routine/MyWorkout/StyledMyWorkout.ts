@@ -8,7 +8,7 @@ export const MyWorkoutWrapper = styled.div`
 `
 
 export const MyWorkoutContent = styled.form<{ isDragging: boolean }>`
-  width: 770px;
+  width: 77rem;
   z-index: 2;
   height: 157px;
   position: relative;
