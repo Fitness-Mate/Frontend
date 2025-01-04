@@ -1,0 +1,40 @@
+name: Push to deploy Repo
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  push-to-personal-repo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout current repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Ensure clean clone directory
+        run: |
+          if [ -d "clone" ]; then
+            rm -rf clone
+          fi
+
+      - name: Clone deploy Repo
+        run: |
+          git clone https://x-access-token:${{ secrets.FITMATE_STACCATO20 }}@github.com/staccato20/FitnessMate-FE-Deploy.git clone
+
+      - name: Copy changes to deploy Repo
+        run: |
+          rsync -av --delete --exclude='.git' --exclude='node_modules/' --progress . clone/
+          ls -al clone/
+
+      - name: Commit and Push changes to deploy repo main branch
+        run: |
+          cd clone
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+          git status
+          git add -A
+          git commit -m "Update from Frontend repo by ${{ github.actor }}" || echo "No changes to commit"
+          git push https://x-access-token:${{ secrets.FITMATE_STACCATO20 }}@github.com/staccato20/FitnessMate-FE-Deploy.git main --force
