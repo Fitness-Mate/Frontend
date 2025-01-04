@@ -1,16 +1,15 @@
-name: Push to Deploy Repo
+name: push to Deploy Repo
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   push-to-deploy-repo:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Frontend repo
+      - name: Checkout Dev repo
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
