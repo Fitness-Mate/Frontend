@@ -28,4 +28,4 @@ jobs:
           git checkout -b deploy
           git add -A
           git commit -m "Update from Frontend repo by ${{ github.actor }}" || echo "No changes to commit"
-          git push -u --force https://x-access-token:${{ secrets.FITMATE_STACCATO20 }}@github.com/staccato20/FitnessMate-FE-Deploy.git deploy
+          git push -u https://x-access-token:${{ secrets.FITMATE_STACCATO20 }}@github.com/staccato20/FitnessMate-FE-Deploy.git deploy

@@ -3,6 +3,10 @@ name: "Chromatic"
 on:
   pull_request:
     branches: main
+    paths:
+      - "**.stories.ts"
+      - "**.stories.tsx"
+      - "**.mdx"
 
 jobs:
   chromatic:
