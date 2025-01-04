@@ -1,9 +1,9 @@
 name: Push to Deploy Repo
 
 on:
-  push:
-    branches:
-      - main
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: ["main"]
 
 jobs:
   push-to-deploy-repo:
