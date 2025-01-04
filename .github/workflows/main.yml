@@ -14,10 +14,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Clone Deploy Repo
-        run: |
-          git clone https://github.com/staccato20/FitnessMate-FE-Deploy.git deploy
-
       - name: Copy files to Deploy Repo
         run: |
           rsync -av --delete --exclude='.git' --exclude='node_modules/' --exclude='deploy/' --progress . deploy/
