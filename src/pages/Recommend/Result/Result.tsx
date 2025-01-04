@@ -1,4 +1,3 @@
-import { FormProvider, useForm } from "react-hook-form"
 import { useLocation, useNavigate } from "react-router-dom"
 
 import { useUserStore } from "@store/useUserStore"
@@ -8,11 +7,7 @@ import Button from "@components/Button/Button"
 import Icon from "@components/Icon/Icon"
 import Title from "@components/Title/Title"
 
-import {
-  PostRecommendResponse,
-  RoutineInfoTypes,
-  RoutineNameTypes,
-} from "@typpes/type"
+import { PostRecommendResponse } from "@typpes/type"
 
 import { useGetMyRoutines } from "@hooks/query/useGetMyRoutines"
 import { useModal } from "@hooks/useModal"
@@ -31,9 +26,6 @@ const Result = () => {
 
   const { isLogin, user } = useUserStore()
   const { data: routines = [] } = useGetMyRoutines()
-
-  const methods = useForm<RoutineInfoTypes>()
-  const methods2 = useForm<RoutineNameTypes>()
 
   const addRoutineModal = useModal("루틴추가")
   const startRoutineModal = useModal("루틴시작")
