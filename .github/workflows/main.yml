@@ -2,7 +2,7 @@ name: push to Deploy Repo
 
 on:
   push:
-    branches: [main]
+    branches: main
 
 jobs:
   push-to-deploy-repo:
@@ -13,6 +13,10 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
+
+      - name: Clone Deploy Repo
+        run: |
+          git clone https://github.com/staccato20/FitnessMate-FE-Deploy.git deploy
 
       - name: Copy files to Deploy Repo
         run: |
@@ -27,3 +31,7 @@ jobs:
           git add -A
           git commit -m "Update from Frontend repo by ${{ github.actor }}" || echo "No changes to commit"
           git push --force https://x-access-token:${{ secrets.FITMATE_STACCATO20 }}@github.com/staccato20/FitnessMate-FE-Deploy.git deploy
+
+      - name: Cleanup Clone Folder
+        run: |
+          rm -rf deploy
