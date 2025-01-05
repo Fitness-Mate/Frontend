@@ -6,9 +6,9 @@ import { useSignupStore } from "@store/useSignupStore"
 import { SIGNUP_INPUTS } from "constants/validation"
 import { omit } from "lodash"
 
+import Button from "@components/Button/Button"
 import Input from "@components/Input/Input"
 
-import SignupButton from "@pages/Signup/SignupButton/SignupButton"
 import { createSignupList } from "@pages/Signup/utils/createSignupList"
 import { getBirthFormat } from "@pages/Signup/utils/getBirthFormat"
 
@@ -32,6 +32,10 @@ const Profile = () => {
   ) => {
     const editedProfoile = omit(formValue, ["passwordCheck"])
     setProfile(editedProfoile)
+    navigate("/signup/bodyinfo")
+  }
+
+  const handleNextPage = () => {
     navigate("/signup/bodyinfo")
   }
 
@@ -99,7 +103,13 @@ const Profile = () => {
             }}
           />
         </Input>
-        <SignupButton $isValid={formState.isValid}>다음으로</SignupButton>
+        <Button
+          variant="main"
+          size="lg"
+          disabled={!!formState.isValid}
+          onClick={handleNextPage}>
+          다음
+        </Button>
       </S.FormWrapper>
     </S.SignupWrapper>
   )

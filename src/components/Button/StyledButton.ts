@@ -9,7 +9,6 @@ export const StyledButton = styled.button<{
   ${({ $sizeStyle }) => $sizeStyle};
   ${({ $variantStyle }) => $variantStyle};
   display: inline-flex;
-  gap: 1rem;
   height: fit-content;
   justify-content: center;
   align-items: center;
@@ -30,15 +29,11 @@ export const SIZES = {
     ${fonts.b7};
   `,
   md: css`
-    padding: 1.4rem 2.4rem;
+    padding: 1.4rem 3.6rem;
     ${fonts.b5};
   `,
-  tmd: css`
-    padding: 1rem 1.2rem;
-    ${fonts.b6};
-  `,
   lg: css`
-    padding: 1.7rem 2.4rem;
+    padding: 1.7rem 4.5rem;
     ${fonts.b2};
   `,
   full: css`

@@ -59,5 +59,5 @@ export const FormWrapper = styled.form`
   flex-direction: column;
   gap: 4.2rem;
   width: 100%;
-  align-items: flex-start;
+  align-items: flex-end;
 `

@@ -5,7 +5,7 @@ import { SIZES, StyledButton, VARIANTS } from "@components/Button/StyledButton"
 import { StrictPropsWithChildren } from "@typpes/type"
 
 export type Variant = "main" | "weak" | "grey" | "text"
-export type Size = "sm" | "md" | "tmd" | "lg" | "full"
+export type Size = "sm" | "md" | "lg" | "full"
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean
