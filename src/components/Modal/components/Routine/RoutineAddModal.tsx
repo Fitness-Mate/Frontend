@@ -17,6 +17,8 @@ import { checkKorean } from "@utils/checkKorean"
 import * as S from "./StyledRoutineModal"
 
 const RoutineAddModal = () => {
+  const { onOpen } = useModal("루틴정보")
+
   const [selectedRoutines, setSelectedRoutines] = useState(new Set<number>())
 
   const { isOpen, onClose } = useModal("루틴추가", {
@@ -24,7 +26,6 @@ const RoutineAddModal = () => {
       setSelectedRoutines(new Set())
     },
   })
-  const { onOpen } = useModal("루틴정보")
   const { onOpen: openAddRoutine } = useModal("루틴생성")
 
   const { setRoutineState, workoutState = { koreanName: "" } } = useModalStore()

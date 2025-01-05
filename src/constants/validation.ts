@@ -191,25 +191,25 @@ export const SIGNUP_LIST: Array<{
     id: 0,
     name: "userName",
     label: "이름",
-    isRequired: true,
+    isRequired: false,
   },
   {
     id: 1,
     name: "birthDate",
     label: "생년월일",
-    isRequired: true,
+    isRequired: false,
   },
   {
     id: 2,
     name: "loginEmail",
     label: "이메일",
-    isRequired: true,
+    isRequired: false,
   },
   {
     id: 3,
     name: "password",
     label: "비밀번호",
-    isRequired: true,
+    isRequired: false,
   },
 ] as const
 

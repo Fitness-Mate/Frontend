@@ -57,7 +57,7 @@ export const ButtonContainer = styled.div`
 export const FormWrapper = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 2.4rem;
+  gap: 4.2rem;
   width: 100%;
   align-items: flex-start;
 `

@@ -26,6 +26,7 @@ const Profile = () => {
       mode: "onChange",
       defaultValues: SIGNUP_INPUTS.DEFAULT_VALUES["PROFILE"],
     })
+
   const onSubmit: SubmitHandler<typeof SIGNUP_INPUTS.DEFAULT_VALUES.PROFILE> = (
     formValue,
   ) => {
@@ -56,7 +57,7 @@ const Profile = () => {
     <S.SignupWrapper>
       <S.SignupTitleWrapper>
         <S.StatusText>1/3단계</S.StatusText>
-        <S.SignupTitle>회원 정보를 입력해주세요</S.SignupTitle>
+        <S.SignupTitle>회원정보를 입력해주세요</S.SignupTitle>
       </S.SignupTitleWrapper>
       <S.FormWrapper onSubmit={handleSubmit(onSubmit)}>
         {SIGNUP_LIST.map(({ id, name, label, isRequired, onChange }) => (
@@ -82,11 +83,7 @@ const Profile = () => {
           </Input>
         ))}
         <Input>
-          <Input.Label
-            htmlFor="passwordCheck"
-            isRequired>
-            비밀번호 확인
-          </Input.Label>
+          <Input.Label htmlFor="passwordCheck">비밀번호 확인</Input.Label>
           <Input.Input
             props={{
               ...formAdapter({
