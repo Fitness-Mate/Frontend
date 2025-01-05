@@ -13,6 +13,7 @@ export const RatioBoxWrapper = styled.div`
   justify-content: center;
   align-items: center;
   gap: 4.8rem;
+  position: relative;
 `
 export const RatioTitle = styled.span`
   color: ${theme.Netural990};
@@ -54,4 +55,12 @@ export const RatioMessage = styled.span`
   color: ${theme.Netural900};
   font-size: 1.5rem;
   text-align: center;
+`
+
+export const RatioSeparator = styled.span`
+  position: absolute;
+  top: 2.5rem;
+  left: 23.5rem;
+  color: ${theme.Netural600};
+  ${fonts.h3};
 `

@@ -59,6 +59,7 @@ const Ratio = ({ ratioValue, ratioText, handleRatio }: RatioProps) => {
             </S.RatioPercentBox>
           </S.RatioBox>
         ))}
+        {<S.RatioSeparator>:</S.RatioSeparator>}
       </S.RatioBoxWrapper>
       <S.RatioMessage>{ratioText}</S.RatioMessage>
     </S.RatioWrapper>
