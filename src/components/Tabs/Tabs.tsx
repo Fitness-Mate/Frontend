@@ -1,3 +1,5 @@
+import styled from "styled-components"
+
 import Tab from "@components/Tab/Tab"
 import { TabsProvider, useTabs } from "@components/Tabs/TabsContext"
 
@@ -9,7 +11,9 @@ const Tabs = ({ children }: StrictPropsWithChildren) => (
   </TabsProvider>
 )
 
-const TabList = ({ children }: StrictPropsWithChildren) => children
+const TabList = ({ children }: StrictPropsWithChildren) => (
+  <TabListWrapper>{children}</TabListWrapper>
+)
 
 interface TabPanelProps {
   index: number
@@ -32,3 +36,9 @@ Tabs.TabPanels = TabPanels
 Tabs.Tab = Tab
 
 export default Tabs
+
+const TabListWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
+`

@@ -5,7 +5,6 @@ import { useSignupStore } from "@store/useSignupStore"
 import Title from "@components/Title/Title"
 
 import Figure from "@pages/Signup/BodyFigure/components/Figure/Figure"
-import { FigureProvider } from "@pages/Signup/BodyFigure/components/Figure/FigureContext"
 import Ratio from "@pages/Signup/BodyFigure/components/Ratio/Ratio"
 import SignupButton from "@pages/Signup/SignupButton/SignupButton"
 
@@ -56,11 +55,9 @@ const BodyFigure = () => {
           ratioText={ratioText}
           handleRatio={handleRatio}
         />
-        <FigureProvider>
-          <FormProvider {...methods}>
-            <Figure />
-          </FormProvider>
-        </FigureProvider>
+        <FormProvider {...methods}>
+          <Figure />
+        </FormProvider>
       </S.BodyFigureWrapper>
       <SignupButton $isValid={formState.isValid}>완료</SignupButton>
     </S.SignupForm>

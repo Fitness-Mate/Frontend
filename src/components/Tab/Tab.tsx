@@ -38,6 +38,7 @@ const Tab = ({
     <StyledTab
       onClick={handleTab}
       $variantStyle={variantStyle}
+      type="button"
       {...props}>
       {children}
       {variant === "line" && <StyledTabCount>{count}</StyledTabCount>}
