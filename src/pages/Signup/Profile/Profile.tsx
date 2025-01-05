@@ -49,10 +49,6 @@ const Profile = () => {
     navigate("/signup/bodyinfo")
   }
 
-  const handleNextPage = () => {
-    navigate("/signup/bodyinfo")
-  }
-
   useEffect(() => {
     if (formState.dirtyFields.birthDate) {
       setValue("birthDate", getBirthFormat(birthDateValue))
@@ -123,7 +119,7 @@ const Profile = () => {
             variant="main"
             size="lg"
             disabled={!formState.isValid}
-            onClick={handleNextPage}>
+            type="submit">
             다음
           </Button>
         </S.ButtonContainer>
