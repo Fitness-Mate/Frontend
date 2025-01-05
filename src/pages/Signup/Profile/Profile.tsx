@@ -74,21 +74,23 @@ const Profile = () => {
                   name,
                   validator: {
                     ...SIGNUP_INPUTS[name],
-                    validate: {
-                      ...SIGNUP_INPUTS[name].validate,
-                      validate: (value) => {
-                        if (name === "passwordCheck") {
-                          const newPassword = watch("password")
-                          return (
-                            value === newPassword ||
-                            "비밀번호가 일치하지 않습니다."
-                          )
-                        } else {
-                          trigger("passwordCheck")
-                          return true
+                    validate: name.includes("password")
+                      ? {
+                          ...SIGNUP_INPUTS[name].validate,
+                          validate: (value) => {
+                            if (name === "passwordCheck") {
+                              const newPassword = watch("password")
+                              return (
+                                value === newPassword ||
+                                "비밀번호가 일치하지 않습니다."
+                              )
+                            } else {
+                              trigger("passwordCheck")
+                              return true
+                            }
+                          },
                         }
-                      },
-                    },
+                      : SIGNUP_INPUTS[name].validate,
                   },
                   $isDirty: !!formState.dirtyFields[name],
                   $isError: !!formState.errors[name],
