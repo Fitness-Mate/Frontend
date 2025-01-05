@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import { SubmitHandler, useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
 
@@ -8,6 +9,8 @@ import { omit } from "lodash"
 import Button from "@components/Button/Button"
 import Input from "@components/Input/Input"
 
+import { getBirthFormat } from "@pages/Signup/utils/getBirthFormat"
+
 import { formAdapter } from "@utils/formAdapter"
 
 import * as S from "../StyledSignup"
@@ -17,12 +20,13 @@ const Profile = () => {
 
   const navigate = useNavigate()
 
-  const { handleSubmit, formState, register, watch, trigger } = useForm<
-    typeof SIGNUP_INPUTS.DEFAULT_VALUES.PROFILE
-  >({
-    mode: "onChange",
-    defaultValues: SIGNUP_INPUTS.DEFAULT_VALUES["PROFILE"],
-  })
+  const { handleSubmit, formState, register, watch, trigger, setValue } =
+    useForm<typeof SIGNUP_INPUTS.DEFAULT_VALUES.PROFILE>({
+      mode: "onChange",
+      defaultValues: SIGNUP_INPUTS.DEFAULT_VALUES["PROFILE"],
+    })
+
+  const birthDateValue = watch("birthDate")
 
   const onSubmit: SubmitHandler<typeof SIGNUP_INPUTS.DEFAULT_VALUES.PROFILE> = (
     formValue,
@@ -35,6 +39,13 @@ const Profile = () => {
   const handleNextPage = () => {
     navigate("/signup/bodyinfo")
   }
+
+  useEffect(() => {
+    if (formState.dirtyFields.birthDate) {
+      setValue("birthDate", getBirthFormat(birthDateValue))
+      trigger("birthDate")
+    }
+  }, [birthDateValue, setValue, trigger, formState.dirtyFields.birthDate])
 
   return (
     <S.SignupWrapper>
