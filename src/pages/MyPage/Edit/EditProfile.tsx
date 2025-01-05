@@ -38,7 +38,7 @@ const EditProfile = () => {
 
   const { mutate: editUser } = useEditProfile()
 
-  const handleEditPaswordPage = () => {
+  const handleEditPasswordPage = () => {
     navigate("/mypage/password")
   }
 
@@ -84,7 +84,7 @@ const EditProfile = () => {
         </S.EditProfileList>
         <S.EditPasswordButton
           type="button"
-          onClick={handleEditPaswordPage}>
+          onClick={handleEditPasswordPage}>
           비밀번호 변경하기
         </S.EditPasswordButton>
       </S.EditFormWrapper>
