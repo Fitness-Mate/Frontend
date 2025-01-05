@@ -6,10 +6,8 @@ export const StyledButton = styled.button<{
   $sizeStyle: Interpolation<object>
   $variantStyle: Interpolation<object>
 }>`
-  ${({ $sizeStyle }) => $sizeStyle};
-  ${({ $variantStyle }) => $variantStyle};
+  width: fit-content;
   display: inline-flex;
-  gap: 1rem;
   height: fit-content;
   justify-content: center;
   align-items: center;
@@ -19,9 +17,12 @@ export const StyledButton = styled.button<{
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin: 0 auto;
   &:disabled {
     cursor: default;
   }
+  ${({ $sizeStyle }) => $sizeStyle};
+  ${({ $variantStyle }) => $variantStyle};
 `
 
 export const SIZES = {
@@ -32,10 +33,6 @@ export const SIZES = {
   md: css`
     padding: 1.4rem 2.4rem;
     ${fonts.b5};
-  `,
-  tmd: css`
-    padding: 1rem 1.2rem;
-    ${fonts.b6};
   `,
   lg: css`
     padding: 1.7rem 2.4rem;

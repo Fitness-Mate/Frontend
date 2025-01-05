@@ -45,7 +45,7 @@ const RoutineTabs = ({ myRoutines, onTabChange }: RoutineTabsProps) => {
       </S.RoutineList>
       <Button
         variant="text"
-        size="tmd">
+        size="sm">
         편집
       </Button>
     </S.RoutinesContainer>

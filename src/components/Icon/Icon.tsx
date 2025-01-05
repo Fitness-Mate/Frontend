@@ -2,7 +2,6 @@ import { SVGProps } from "react"
 
 import Add from "@assets/icon/add.svg?react"
 import AddGrey from "@assets/icon/add_grey.svg?react"
-import AddRound from "@assets/icon/add_round.svg?react"
 import AddRoundGray from "@assets/icon/add_round_gray.svg?react"
 import Avatar from "@assets/icon/avatar.svg?react"
 import ChangeCircle from "@assets/icon/change_circle.svg?react"
@@ -30,12 +29,13 @@ import LeftArrowBlack from "@assets/icon/left_arrow_black.svg?react"
 import LeftArrowBold from "@assets/icon/left_arrow_bold.svg?react"
 import LeftArrowGrey from "@assets/icon/left_arrow_grey.svg?react"
 import LeftArrowWhite from "@assets/icon/left_arrow_white.svg?react"
-import MinusRound from "@assets/icon/minus_round.svg?react"
+import Minus from "@assets/icon/minus.svg?react"
 import Pencil from "@assets/icon/pencil.svg?react"
 import PencilDarkGrey from "@assets/icon/pencil_darkgrey.svg?react"
 import PencilGrey from "@assets/icon/pencil_grey.svg?react"
 import PencilRound from "@assets/icon/pencil_round.svg?react"
 import PlayRound from "@assets/icon/play_round.svg?react"
+import Plus from "@assets/icon/plus.svg?react"
 import RedTrash from "@assets/icon/red_trash.svg?react"
 import RightArrowBig from "@assets/icon/right_arrow_big.svg?react"
 import RightArrowGrey from "@assets/icon/right_arrow_grey.svg?react"
@@ -51,7 +51,8 @@ import UpArrow from "@assets/icon/up_arrow.svg?react"
 
 export const ICON_MAP = {
   Add,
-  AddRound,
+  Minus,
+  Plus,
   AddGrey,
   ChangeCircle,
   CloseBold,
@@ -69,7 +70,6 @@ export const ICON_MAP = {
   ExclamationMark,
   LeftArrowBig,
   LeftArrow,
-  MinusRound,
   PencilGrey,
   PencilDarkGrey,
   PencilRound,

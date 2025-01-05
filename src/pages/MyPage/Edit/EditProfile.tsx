@@ -71,10 +71,11 @@ const EditProfile = () => {
                   ...formAdapter({
                     register,
                     name,
-                    validator: EDIT_INPUTS.PROFILE[name],
+                    validate: EDIT_INPUTS.PROFILE[name].validate,
                     $isDirty: !!formState.dirtyFields[name],
                     $isError: !!formState.errors[name],
                   }),
+                  ...EDIT_INPUTS.PROFILE[name].attributes,
                   disabled: isDisabled,
                 }}
               />

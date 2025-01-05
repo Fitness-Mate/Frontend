@@ -57,7 +57,6 @@ const InputInput = ({
     <Input
       $isDirty={$isDirty}
       $isError={$isError}
-      id={rest.name}
       $variantStyle={variantStyle}
       $borderStyle={borderStyle}
       {...rest}

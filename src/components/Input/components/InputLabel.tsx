@@ -25,7 +25,7 @@ const InputLabel = ({
 export default InputLabel
 
 const InputName = styled.label<{ $isRequired: boolean }>`
-  color: ${theme.Netural800};
+  color: ${theme.Netural900};
   ${fonts.b4};
   ${({ $isRequired }) =>
     $isRequired &&

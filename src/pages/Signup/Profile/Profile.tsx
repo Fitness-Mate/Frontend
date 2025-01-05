@@ -1,31 +1,46 @@
-import { ChangeEvent } from "react"
+import { useEffect } from "react"
 import { SubmitHandler, useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
 
 import { useSignupStore } from "@store/useSignupStore"
-import { SIGNUP_INPUTS } from "constants/validation"
+import { SIGNUP_INPUTS, SIGNUP_LIST } from "constants/validation"
 import { omit } from "lodash"
 
+import Button from "@components/Button/Button"
 import Input from "@components/Input/Input"
+import Title from "@components/Title/Title"
 
-import SignupButton from "@pages/Signup/SignupButton/SignupButton"
-import { createSignupList } from "@pages/Signup/utils/createSignupList"
 import { getBirthFormat } from "@pages/Signup/utils/getBirthFormat"
 
 import { formAdapter } from "@utils/formAdapter"
 
-import * as S from "../StyledSignup"
+import * as GS from "../StyledSignup"
+import * as S from "./StyledProfile"
 
 const Profile = () => {
   const { setProfile } = useSignupStore()
 
   const navigate = useNavigate()
 
-  const { handleSubmit, formState, register, getValues, trigger, setValue } =
-    useForm<typeof SIGNUP_INPUTS.DEFAULT_VALUES.PROFILE>({
-      mode: "onChange",
-      defaultValues: SIGNUP_INPUTS.DEFAULT_VALUES["PROFILE"],
-    })
+  const {
+    handleSubmit,
+    formState,
+    register,
+    watch,
+    trigger,
+    setValue,
+    setError,
+    clearErrors,
+    getValues,
+  } = useForm<typeof SIGNUP_INPUTS.DEFAULT_VALUES.PROFILE>({
+    mode: "onChange",
+    defaultValues: SIGNUP_INPUTS.DEFAULT_VALUES["PROFILE"],
+  })
+
+  const birthDateValue = watch("birthDate")
+  const passwordValue = watch("password")
+  const passwordCheckValue = watch("passwordCheck")
+
   const onSubmit: SubmitHandler<typeof SIGNUP_INPUTS.DEFAULT_VALUES.PROFILE> = (
     formValue,
   ) => {
@@ -34,77 +49,82 @@ const Profile = () => {
     navigate("/signup/bodyinfo")
   }
 
-  const triggerPasswordCheck = (e: ChangeEvent<HTMLInputElement>) => {
-    register("password").onChange(e)
-    if (formState.dirtyFields.passwordCheck) {
-      trigger("passwordCheck")
+  useEffect(() => {
+    if (formState.dirtyFields.birthDate) {
+      setValue("birthDate", getBirthFormat(birthDateValue))
+      trigger("birthDate")
     }
-  }
+  }, [birthDateValue, setValue, trigger, formState.dirtyFields.birthDate])
 
-  const handleBirthDate = (e: ChangeEvent<HTMLInputElement>) => {
-    register("birthDate").onChange(e)
-    setValue("birthDate", getBirthFormat(e.target.value))
-    trigger("birthDate")
-  }
-
-  const SIGNUP_LIST = createSignupList(handleBirthDate, triggerPasswordCheck)
-
-  const checkPassWord = (value: string) =>
-    value === getValues("password") || "비밀번호가 일치하지 않습니다."
+  useEffect(() => {
+    if (passwordValue === passwordCheckValue) {
+      clearErrors("passwordCheck")
+    } else {
+      setError("passwordCheck", {
+        type: "password-mismatch",
+        message: "비밀번호가 일치하지 않습니다",
+      })
+    }
+  }, [clearErrors, setError, passwordValue, passwordCheckValue, watch])
 
   return (
-    <S.SignupWrapper>
-      <S.SignupTitleWrapper>
-        <S.StatusText>1/3단계</S.StatusText>
-        <S.SignupTitle>회원 정보를 입력해주세요</S.SignupTitle>
-      </S.SignupTitleWrapper>
-      <S.FormWrapper onSubmit={handleSubmit(onSubmit)}>
-        {SIGNUP_LIST.map(({ id, name, label, isRequired, onChange }) => (
-          <Input key={id}>
-            <Input.Label
-              isRequired={isRequired}
-              htmlFor={name}>
-              {label}
-            </Input.Label>
+    <GS.SignupWrapper>
+      <Title variant="big">
+        <Title.SubTopTitle>1/3단계</Title.SubTopTitle>
+        회원정보를 입력해주세요
+        <Title.SubBottomTitle>운동 추천에 필요해요</Title.SubBottomTitle>
+      </Title>
+      <GS.FormWrapper onSubmit={handleSubmit(onSubmit)}>
+        {SIGNUP_LIST.map(({ id, name, label, isRequired }) => (
+          <Input
+            key={id}
+            style={{
+              marginTop: id === SIGNUP_LIST.length - 1 ? "-3.2rem" : "0",
+            }}>
+            {label && (
+              <Input.Label
+                isRequired={isRequired}
+                htmlFor={name}>
+                {label}
+              </Input.Label>
+            )}
             <Input.Input
               props={{
                 ...formAdapter({
                   register,
                   name,
-                  validator: SIGNUP_INPUTS[name],
-                  $isDirty: !!formState.dirtyFields[name],
-                  $isError: !!formState.errors[name],
-                  ...(onChange ? { onChange } : {}),
+                  validate:
+                    name === "passwordCheck"
+                      ? {
+                          validate: (value) => {
+                            const { password } = getValues()
+                            return (
+                              password === value ||
+                              "비밀번호가 일치하지 않습니다"
+                            )
+                          },
+                        }
+                      : SIGNUP_INPUTS[name].validate,
                 }),
+                $isDirty: !!formState.dirtyFields[name],
+                $isError: !!formState.errors[name],
+                ...SIGNUP_INPUTS[name].attributes,
               }}
             />
             <Input.Error>{formState?.errors[name]?.message}</Input.Error>
           </Input>
         ))}
-        <Input>
-          <Input.Label
-            htmlFor="passwordCheck"
-            isRequired>
-            비밀번호 확인
-          </Input.Label>
-          <Input.Input
-            props={{
-              ...formAdapter({
-                register,
-                validator: {
-                  ...SIGNUP_INPUTS["passwordCheck"],
-                  validate: { validate: checkPassWord },
-                },
-                name: "passwordCheck",
-                $isDirty: !!formState.dirtyFields.passwordCheck,
-                $isError: !!formState.errors.passwordCheck,
-              }),
-            }}
-          />
-        </Input>
-        <SignupButton $isValid={formState.isValid}>다음으로</SignupButton>
-      </S.FormWrapper>
-    </S.SignupWrapper>
+        <S.ButtonContainer>
+          <Button
+            variant="main"
+            size="lg"
+            disabled={!formState.isValid}
+            type="submit">
+            다음
+          </Button>
+        </S.ButtonContainer>
+      </GS.FormWrapper>
+    </GS.SignupWrapper>
   )
 }
 

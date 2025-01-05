@@ -25,13 +25,13 @@ const SignupButton = ({
     <S.ButtonContainer>
       <Button
         onClick={handleBackPage}
-        variant="weak"
-        size="lg">
+        variant="text"
+        size="md">
         이전
       </Button>
       <Button
         disabled={!$isValid}
-        size="lg"
+        size="md"
         variant="main"
         type="submit">
         {children}

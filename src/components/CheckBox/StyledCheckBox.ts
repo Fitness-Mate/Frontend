@@ -4,34 +4,6 @@ import theme from "@styles/theme"
 
 import { fonts } from "../../styles/theme"
 
-interface isCheckedProps {
-  $isChecked: boolean
-}
-
-export const CheckBoxWrapper = styled.button<isCheckedProps>`
-  display: flex;
-  width: 100%;
-  gap: 1rem;
-  padding: 0.6rem 1.8rem;
-  align-items: center;
-  border-radius: 1.2rem;
-  border: ${({ $isChecked }) =>
-    $isChecked ? "0.1rem solid #0b98ff" : "0.1rem solid #A2B2C2"};
-  background: ${({ $isChecked }) => ($isChecked ? "#ecf7ff" : "#fff")};
-  height: 5rem;
-`
-
-export const CheckBoxImg = styled.img<isCheckedProps>`
-  width: ${({ $isChecked }) => ($isChecked ? "2.4rem" : "2rem")};
-  height: ${({ $isChecked }) => ($isChecked ? "2.4rem" : "2rem")};
-  margin: ${({ $isChecked }) => ($isChecked ? "0rem" : "0.2rem")};
-`
-export const CheckBoxText = styled.span`
-  ${theme.Netural950};
-  text-align: center;
-  font-size: 1.6rem;
-`
-
 export const ImgCheckBoxWrapper = styled.button<{
   $sizeStyle: Interpolation<object>
 }>`

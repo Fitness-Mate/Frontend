@@ -72,10 +72,11 @@ export const Primary: Story = {
                   ...formAdapter({
                     register,
                     name,
-                    validator: DUMMY_INPUTS[name],
+                    validate: DUMMY_INPUTS[name].validate,
                     $isDirty,
                     $isError,
                   }),
+                  ...DUMMY_INPUTS[name].attributes,
                   disabled,
                 }}
               />

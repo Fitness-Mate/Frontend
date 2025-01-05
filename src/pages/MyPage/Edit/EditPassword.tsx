@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
 
@@ -29,11 +30,22 @@ const EditPassword = () => {
   const navigate = useNavigate()
   const { mutate: editPassword, isSuccess, data } = usePostEditPassword()
 
-  const { register, formState, handleSubmit, reset, watch, trigger } =
-    useForm<PasswordPayload>({
-      mode: "onChange",
-      defaultValues: DEFAULT_VALUES,
-    })
+  const {
+    register,
+    formState,
+    handleSubmit,
+    reset,
+    watch,
+    setError,
+    clearErrors,
+    getValues,
+  } = useForm<PasswordPayload>({
+    mode: "onChange",
+    defaultValues: DEFAULT_VALUES,
+  })
+
+  const passwordValue = watch("newPassword")
+  const passwordCheckValue = watch("newPasswordCheck")
 
   const onSubmit = (formValue: PasswordPayload) => {
     const editedPasswordPayload = omit(formValue, ["newPasswordCheck"])
@@ -42,6 +54,17 @@ const EditPassword = () => {
       reset(DEFAULT_VALUES, { keepDefaultValues: false })
     }
   }
+
+  useEffect(() => {
+    if (passwordValue === passwordCheckValue) {
+      clearErrors("newPasswordCheck")
+    } else {
+      setError("newPasswordCheck", {
+        type: "password-mismatch",
+        message: "비밀번호가 일치하지 않습니다",
+      })
+    }
+  }, [clearErrors, setError, passwordValue, passwordCheckValue, watch])
 
   const handleBack = () => {
     navigate(-1)
@@ -74,27 +97,22 @@ const EditPassword = () => {
                   ...formAdapter({
                     register,
                     name,
-                    validator: {
-                      ...EDIT_INPUTS.PASSWORD[name],
-                      validate: {
-                        ...EDIT_INPUTS.PASSWORD[name].validate,
-                        validate: (value) => {
-                          if (name === "newPasswordCheck") {
-                            const newPassword = watch("newPassword")
-                            return (
-                              value === newPassword ||
-                              "비밀번호가 일치하지 않습니다."
-                            )
-                          } else {
-                            trigger("newPasswordCheck")
-                            return true
+                    validate:
+                      name === "newPasswordCheck"
+                        ? {
+                            validate: (value) => {
+                              const { newPassword } = getValues()
+                              return (
+                                newPassword === value ||
+                                "비밀번호가 일치하지 않습니다"
+                              )
+                            },
                           }
-                        },
-                      },
-                    },
-                    $isDirty: !!formState.dirtyFields[name],
-                    $isError: !!formState.errors[name],
+                        : EDIT_INPUTS.PASSWORD[name].validate,
                   }),
+                  $isDirty: !!formState.dirtyFields[name],
+                  $isError: !!formState.errors[name],
+                  ...EDIT_INPUTS.PASSWORD[name].attributes,
                 }}
               />
               <Input.Error>{formState?.errors[name]?.message}</Input.Error>

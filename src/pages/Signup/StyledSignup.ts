@@ -1,7 +1,5 @@
 import styled from "styled-components"
 
-import theme, { fonts } from "@styles/theme"
-
 export const SignupWrapper = styled.div`
   padding-top: 10rem;
   width: 47.4rem;
@@ -20,30 +18,14 @@ export const SignupForm = styled.form`
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
-  gap: 5.2rem;
   padding-bottom: 3rem;
 `
 
-export const SignupContainer = styled.div`
+export const BodyFigureWrapper = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
-`
-
-export const SignupTitleWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-`
-
-export const SignupTitle = styled.span`
-  color: ${theme.Netural990};
-  ${fonts.h1};
-  font-size: 3rem;
-`
-
-export const StatusText = styled.span`
-  color: ${theme.Brand750};
-  ${fonts.b6};
+  gap: 10.5rem;
 `
 
 export const ButtonContainer = styled.div`
@@ -57,7 +39,7 @@ export const ButtonContainer = styled.div`
 export const FormWrapper = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 2.4rem;
+  gap: 4.2rem;
   width: 100%;
-  align-items: flex-start;
+  align-items: flex-end;
 `

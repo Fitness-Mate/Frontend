@@ -2,10 +2,9 @@ import { FormProvider, useForm } from "react-hook-form"
 
 import { useSignupStore } from "@store/useSignupStore"
 
-import styled from "styled-components"
+import Title from "@components/Title/Title"
 
 import Figure from "@pages/Signup/BodyFigure/components/Figure/Figure"
-import { FigureProvider } from "@pages/Signup/BodyFigure/components/Figure/FigureContext"
 import Ratio from "@pages/Signup/BodyFigure/components/Ratio/Ratio"
 import SignupButton from "@pages/Signup/SignupButton/SignupButton"
 
@@ -43,32 +42,24 @@ const BodyFigure = () => {
 
   return (
     <S.SignupForm onSubmit={handleSubmit(onSubmit)}>
-      <S.SignupTitleWrapper>
-        <S.StatusText>3/3단계</S.StatusText>
-        <S.SignupTitle>체형 정보를 입력해주세요</S.SignupTitle>
-      </S.SignupTitleWrapper>
-      <BodyFigureWrapper>
+      <Title variant="big">
+        <Title.SubTopTitle>마지막 단계에요</Title.SubTopTitle>
+        체형 정보를 입력해주세요
+        <Title.SubBottomTitle>운동 추천에 필요해요</Title.SubBottomTitle>
+      </Title>
+      <S.BodyFigureWrapper>
         <Ratio
           ratioValue={ratioValue}
           ratioText={ratioText}
           handleRatio={handleRatio}
         />
-        <FigureProvider>
-          <FormProvider {...methods}>
-            <Figure />
-          </FormProvider>
-        </FigureProvider>
-      </BodyFigureWrapper>
-      <SignupButton $isValid={formState.isValid}>회원가입 완료</SignupButton>
+        <FormProvider {...methods}>
+          <Figure />
+        </FormProvider>
+      </S.BodyFigureWrapper>
+      <SignupButton $isValid={formState.isValid}>완료</SignupButton>
     </S.SignupForm>
   )
 }
 
 export default BodyFigure
-
-const BodyFigureWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 4.8rem;
-`

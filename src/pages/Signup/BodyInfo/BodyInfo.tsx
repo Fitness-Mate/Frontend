@@ -1,10 +1,12 @@
 import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
+import { Fragment } from "react/jsx-runtime"
 
 import { useSignupStore } from "@store/useSignupStore"
 import { BODYINFO_LIST, SEX_GROUP, SIGNUP_INPUTS } from "constants/validation"
 
 import Input from "@components/Input/Input"
+import Title from "@components/Title/Title"
 
 import SignupButton from "@pages/Signup/SignupButton/SignupButton"
 
@@ -12,14 +14,15 @@ import { BodyInfoPayload } from "@typpes/type"
 
 import { formAdapter } from "@utils/formAdapter"
 
-import * as S from "../StyledSignup"
+import * as GS from "../StyledSignup"
+import * as S from "./StyledBodyInfo"
 
 const BodyInfo = () => {
   const methods = useForm<BodyInfoPayload>({
     mode: "onChange",
   })
 
-  const { formState, handleSubmit, register } = methods
+  const { formState, handleSubmit, register, setValue, watch } = methods
   const { setBodyInfo } = useSignupStore()
   const navigate = useNavigate()
 
@@ -35,49 +38,63 @@ const BodyInfo = () => {
     }
   }
 
+  const handleSex = (sex: string) => {
+    setValue("sex", sex)
+  }
+
+  const sexValue = watch("sex")
+
   return (
-    <S.SignupWrapper>
-      <S.SignupTitleWrapper>
-        <S.StatusText>2/3단계</S.StatusText>
-        <S.SignupTitle>신체 정보를 입력해주세요</S.SignupTitle>
-      </S.SignupTitleWrapper>
-      <S.FormWrapper onSubmit={handleSubmit(onSubmit)}>
+    <GS.SignupWrapper>
+      <Title variant="big">
+        <Title.SubTopTitle>2/3단계</Title.SubTopTitle>
+        회원정보를 입력해주세요
+        <Title.SubBottomTitle>신체 정보를 입력해주세요</Title.SubBottomTitle>
+      </Title>
+
+      <GS.FormWrapper onSubmit={handleSubmit(onSubmit)}>
         <Input>
-          <Input.Label
-            isRequired
-            htmlFor="sex">
-            성별
-          </Input.Label>
-          <Input.Select
-            name="sex"
-            list={SEX_GROUP}
-            methods={methods}
-          />
+          <Input.Label htmlFor="성별">성별</Input.Label>
+          <S.SexList>
+            {SEX_GROUP.map(({ name, id }) => (
+              <Fragment key={id}>
+                <S.SexLabel
+                  htmlFor={name}
+                  $isSelected={sexValue === name}>
+                  {name}
+                </S.SexLabel>
+                <input
+                  type="radio"
+                  id={name}
+                  name="sex"
+                  onChange={() => handleSex(name)}
+                  style={{ display: "none " }}
+                />
+              </Fragment>
+            ))}
+          </S.SexList>
         </Input>
         {BODYINFO_LIST.map(({ id, label, name }) => (
           <Input key={id}>
-            <Input.Label
-              isRequired
-              htmlFor={name}>
-              {label}
-            </Input.Label>
+            <Input.Label htmlFor={name}>{label}</Input.Label>
             <Input.Input
               props={{
                 ...formAdapter({
                   register,
-                  validator: SIGNUP_INPUTS[name],
+                  validate: SIGNUP_INPUTS[name].validate,
                   name,
                   $isDirty: !!formState.dirtyFields[name],
                   $isError: !!formState.errors[name],
                 }),
+                ...SIGNUP_INPUTS[name].attributes,
               }}
             />
             <Input.Error>{formState?.errors[name]?.message}</Input.Error>
           </Input>
         ))}
-        <SignupButton $isValid={formState.isValid}>다음으로</SignupButton>
-      </S.FormWrapper>
-    </S.SignupWrapper>
+        <SignupButton $isValid={formState.isValid}>다음</SignupButton>
+      </GS.FormWrapper>
+    </GS.SignupWrapper>
   )
 }
 

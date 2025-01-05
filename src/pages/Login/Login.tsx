@@ -44,9 +44,10 @@ const Login = () => {
                 props={{
                   ...formAdapter({
                     register,
-                    validator: LOGIN_INPUTS[name],
+                    validate: LOGIN_INPUTS[name].validate,
                     name,
                   }),
+                  ...LOGIN_INPUTS[name].attributes,
                 }}
               />
             </Input>
@@ -58,13 +59,13 @@ const Login = () => {
           <Button
             variant="main"
             type="submit"
-            size="lg">
+            size="full">
             로그인
           </Button>
           <Button
             onClick={handleSignup}
             variant="weak"
-            size="lg">
+            size="full">
             회원가입
           </Button>
         </S.ButtonContainer>

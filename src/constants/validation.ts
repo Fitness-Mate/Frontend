@@ -1,5 +1,3 @@
-import { ChangeEvent } from "react"
-
 export const SIGNUP_INPUTS = {
   DEFAULT_VALUES: {
     PROFILE: {
@@ -22,7 +20,7 @@ export const SIGNUP_INPUTS = {
   },
   userName: {
     attributes: {
-      placeholder: "2자리 이상",
+      placeholder: "2글자 이상",
     },
     validate: {
       required: { value: true, message: "이름은 필수 입력입니다." },
@@ -63,7 +61,7 @@ export const SIGNUP_INPUTS = {
   },
   password: {
     attributes: {
-      placeholder: "8자리 이상 영문, 숫자 조합",
+      placeholder: "비밀번호를 입력해주세요",
       type: "password",
     },
     validate: {
@@ -79,10 +77,11 @@ export const SIGNUP_INPUTS = {
       placeholder: "비밀번호 확인",
       type: "password",
     },
+    validate: {},
   },
   height: {
     attributes: {
-      placeholder: "숫자만 입력",
+      placeholder: "키",
       type: "number",
     },
     validate: {
@@ -95,7 +94,7 @@ export const SIGNUP_INPUTS = {
   },
   weight: {
     attributes: {
-      placeholder: "숫자만 입력",
+      placeholder: "몸무게",
       type: "number",
     },
     validate: {
@@ -135,8 +134,8 @@ export const SIGNUP_INPUTS = {
 }
 
 export const SEX_GROUP = [
-  { groupName: "남성", id: 0 },
-  { groupName: "여성", id: 1 },
+  { name: "남성", id: 0 },
+  { name: "여성", id: 1 },
 ]
 
 export const BODYINFO_LIST = [
@@ -179,37 +178,39 @@ export const CATEGORY_LIST = [
 
 export const SIGNUP_LIST: Array<{
   id: number
-  name: Exclude<
-    keyof typeof SIGNUP_INPUTS.DEFAULT_VALUES.PROFILE,
-    "passwordCheck"
-  >
+  name: keyof typeof SIGNUP_INPUTS.DEFAULT_VALUES.PROFILE
   label: string
   isRequired: boolean
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
 }> = [
   {
     id: 0,
     name: "userName",
     label: "이름",
-    isRequired: true,
+    isRequired: false,
   },
   {
     id: 1,
     name: "birthDate",
     label: "생년월일",
-    isRequired: true,
+    isRequired: false,
   },
   {
     id: 2,
     name: "loginEmail",
     label: "이메일",
-    isRequired: true,
+    isRequired: false,
   },
   {
     id: 3,
     name: "password",
     label: "비밀번호",
-    isRequired: true,
+    isRequired: false,
+  },
+  {
+    id: 4,
+    name: "passwordCheck",
+    label: "",
+    isRequired: false,
   },
 ] as const
 
@@ -279,7 +280,7 @@ export const EDIT_INPUTS = {
   PROFILE: {
     userName: {
       attributes: {
-        placeholder: "2자리 이상",
+        placeholder: "2글자 이상",
       },
       validate: {
         disabled: false,
@@ -304,6 +305,7 @@ export const EDIT_INPUTS = {
       },
     },
     loginEmail: {
+      attributes: {},
       validate: {
         disabled: true,
       },

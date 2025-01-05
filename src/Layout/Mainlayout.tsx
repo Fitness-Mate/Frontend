@@ -3,13 +3,13 @@ import { Outlet, useLocation } from "react-router-dom"
 import { ToastOptions } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 
+import { useModalStore } from "@store/useModalStore"
 import { useUserStore } from "@store/useUserStore"
 
 import Footer from "@components/Footer/Footer"
 import AlertLoadingModal from "@components/Modal/components/Alert/AlertLoadingModal"
 import LoadingModal from "@components/Modal/components/Loading/LoadingModal"
 import RoutineAddModal from "@components/Modal/components/Routine/RoutineAddModal"
-import RoutineDuplicateModal from "@components/Modal/components/Routine/RoutineDuplicateModal"
 import RoutineInfoModal from "@components/Modal/components/Routine/RoutineInfoModal"
 import RoutineMakeModal from "@components/Modal/components/Routine/RoutineMakeModal"
 import RoutineModal from "@components/Modal/components/Routine/RoutineModal"
@@ -27,6 +27,7 @@ const MainLayout = () => {
     path.includes("recommend")
 
   const { checkLogin } = useUserStore()
+  const { modalState } = useModalStore()
 
   useEffect(() => {
     checkLogin()
@@ -43,13 +44,12 @@ const MainLayout = () => {
       />
 
       {!hasNotFooter && <Footer />}
-      <RoutineAddModal />
-      <RoutineModal />
-      <RoutineInfoModal />
-      <RoutineMakeModal />
-      <RoutineDuplicateModal />
-      <AlertLoadingModal />
-      <LoadingModal />
+      {modalState["루틴추가"] && <RoutineAddModal />}
+      {modalState["루틴시작"] && <RoutineModal />}
+      {modalState["루틴정보"] && <RoutineInfoModal />}
+      {modalState["루틴생성"] && <RoutineMakeModal />}
+      {modalState["알림"] && <AlertLoadingModal />}
+      {modalState["로딩"] && <LoadingModal />}
     </>
   )
 }
