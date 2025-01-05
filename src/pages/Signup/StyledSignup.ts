@@ -20,7 +20,6 @@ export const SignupForm = styled.form`
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
-  gap: 5.2rem;
   padding-bottom: 3rem;
 `
 
@@ -33,6 +32,13 @@ export const SignupTitleWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+`
+
+export const BodyFigureWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10.5rem;
 `
 
 export const SignupTitle = styled.span`
