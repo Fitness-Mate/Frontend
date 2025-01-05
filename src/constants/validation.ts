@@ -81,7 +81,7 @@ export const SIGNUP_INPUTS = {
   },
   height: {
     attributes: {
-      placeholder: "숫자만 입력",
+      placeholder: "키",
       type: "number",
     },
     validate: {
@@ -94,7 +94,7 @@ export const SIGNUP_INPUTS = {
   },
   weight: {
     attributes: {
-      placeholder: "숫자만 입력",
+      placeholder: "몸무게",
       type: "number",
     },
     validate: {
@@ -134,8 +134,8 @@ export const SIGNUP_INPUTS = {
 }
 
 export const SEX_GROUP = [
-  { groupName: "남성", id: 0 },
-  { groupName: "여성", id: 1 },
+  { name: "남성", id: 0 },
+  { name: "여성", id: 1 },
 ]
 
 export const BODYINFO_LIST = [

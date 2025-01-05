@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
+import { Fragment } from "react/jsx-runtime"
 
 import { useSignupStore } from "@store/useSignupStore"
 import { BODYINFO_LIST, SEX_GROUP, SIGNUP_INPUTS } from "constants/validation"
@@ -19,7 +20,7 @@ const BodyInfo = () => {
     mode: "onChange",
   })
 
-  const { formState, handleSubmit, register } = methods
+  const { formState, handleSubmit, register, setValue, watch } = methods
   const { setBodyInfo } = useSignupStore()
   const navigate = useNavigate()
 
@@ -35,6 +36,12 @@ const BodyInfo = () => {
     }
   }
 
+  const handleSex = (sex: string) => {
+    setValue("sex", sex)
+  }
+
+  const sexValue = watch("sex")
+
   return (
     <S.SignupWrapper>
       <S.SignupTitleWrapper>
@@ -43,24 +50,29 @@ const BodyInfo = () => {
       </S.SignupTitleWrapper>
       <S.FormWrapper onSubmit={handleSubmit(onSubmit)}>
         <Input>
-          <Input.Label
-            isRequired
-            htmlFor="sex">
-            성별
-          </Input.Label>
-          <Input.Select
-            name="sex"
-            list={SEX_GROUP}
-            methods={methods}
-          />
+          <Input.Label htmlFor="성별">성별</Input.Label>
+          <S.SexList>
+            {SEX_GROUP.map(({ name, id }) => (
+              <Fragment key={id}>
+                <S.SexLabel
+                  htmlFor={name}
+                  $isSelected={sexValue === name}>
+                  {name}
+                </S.SexLabel>
+                <input
+                  type="radio"
+                  id={name}
+                  name="sex"
+                  onChange={() => handleSex(name)}
+                  style={{ display: "none " }}
+                />
+              </Fragment>
+            ))}
+          </S.SexList>
         </Input>
         {BODYINFO_LIST.map(({ id, label, name }) => (
           <Input key={id}>
-            <Input.Label
-              isRequired
-              htmlFor={name}>
-              {label}
-            </Input.Label>
+            <Input.Label htmlFor={name}>{label}</Input.Label>
             <Input.Input
               props={{
                 ...formAdapter({
@@ -75,7 +87,7 @@ const BodyInfo = () => {
             <Input.Error>{formState?.errors[name]?.message}</Input.Error>
           </Input>
         ))}
-        <SignupButton $isValid={formState.isValid}>다음으로</SignupButton>
+        <SignupButton $isValid={formState.isValid}>다음</SignupButton>
       </S.FormWrapper>
     </S.SignupWrapper>
   )
