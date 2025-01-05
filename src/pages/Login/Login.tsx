@@ -44,9 +44,10 @@ const Login = () => {
                 props={{
                   ...formAdapter({
                     register,
-                    validator: LOGIN_INPUTS[name],
+                    validate: LOGIN_INPUTS[name].validate,
                     name,
                   }),
+                  ...LOGIN_INPUTS[name].attributes,
                 }}
               />
             </Input>

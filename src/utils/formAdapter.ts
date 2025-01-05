@@ -1,4 +1,4 @@
-import { ChangeEvent, InputHTMLAttributes } from "react"
+import { ChangeEvent } from "react"
 import {
   FieldValue,
   FieldValues,
@@ -6,13 +6,9 @@ import {
   UseFormRegister,
 } from "react-hook-form"
 
-type ValidatorType = {
-  attributes?: InputHTMLAttributes<HTMLInputElement>
-  validate: RegisterOptions
-}
 interface formAdapterProps {
   register: UseFormRegister<FieldValue<FieldValues>>
-  validator: ValidatorType
+  validate: RegisterOptions
   name: string
   $isDirty?: boolean
   $isError?: boolean
@@ -22,10 +18,9 @@ interface formAdapterProps {
 
 export const formAdapter = ({
   register,
-  validator,
+  validate,
   name,
   ...props
 }: formAdapterProps) => {
-  const { validate, attributes } = validator
-  return { ...register(name, validate), ...{ ...attributes, ...props } }
+  return { ...register(name, validate), ...props }
 }

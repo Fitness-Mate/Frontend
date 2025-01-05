@@ -20,13 +20,24 @@ const Profile = () => {
 
   const navigate = useNavigate()
 
-  const { handleSubmit, formState, register, watch, trigger, setValue } =
-    useForm<typeof SIGNUP_INPUTS.DEFAULT_VALUES.PROFILE>({
-      mode: "onChange",
-      defaultValues: SIGNUP_INPUTS.DEFAULT_VALUES["PROFILE"],
-    })
+  const {
+    handleSubmit,
+    formState,
+    register,
+    watch,
+    trigger,
+    setValue,
+    setError,
+    clearErrors,
+    getValues,
+  } = useForm<typeof SIGNUP_INPUTS.DEFAULT_VALUES.PROFILE>({
+    mode: "onChange",
+    defaultValues: SIGNUP_INPUTS.DEFAULT_VALUES["PROFILE"],
+  })
 
   const birthDateValue = watch("birthDate")
+  const passwordValue = watch("password")
+  const passwordCheckValue = watch("passwordCheck")
 
   const onSubmit: SubmitHandler<typeof SIGNUP_INPUTS.DEFAULT_VALUES.PROFILE> = (
     formValue,
@@ -46,6 +57,17 @@ const Profile = () => {
       trigger("birthDate")
     }
   }, [birthDateValue, setValue, trigger, formState.dirtyFields.birthDate])
+
+  useEffect(() => {
+    if (passwordValue === passwordCheckValue) {
+      clearErrors("passwordCheck")
+    } else {
+      setError("passwordCheck", {
+        type: "password-mismatch",
+        message: "비밀번호가 일치하지 않습니다",
+      })
+    }
+  }, [clearErrors, setError, passwordValue, passwordCheckValue, watch])
 
   return (
     <S.SignupWrapper>
@@ -72,29 +94,22 @@ const Profile = () => {
                 ...formAdapter({
                   register,
                   name,
-                  validator: {
-                    ...SIGNUP_INPUTS[name],
-                    validate: name.includes("password")
+                  validate:
+                    name === "passwordCheck"
                       ? {
-                          ...SIGNUP_INPUTS[name].validate,
                           validate: (value) => {
-                            if (name === "passwordCheck") {
-                              const newPassword = watch("password")
-                              return (
-                                value === newPassword ||
-                                "비밀번호가 일치하지 않습니다."
-                              )
-                            } else {
-                              trigger("passwordCheck")
-                              return true
-                            }
+                            const { password } = getValues()
+                            return (
+                              password === value ||
+                              "비밀번호가 일치하지 않습니다"
+                            )
                           },
                         }
                       : SIGNUP_INPUTS[name].validate,
-                  },
-                  $isDirty: !!formState.dirtyFields[name],
-                  $isError: !!formState.errors[name],
                 }),
+                $isDirty: !!formState.dirtyFields[name],
+                $isError: !!formState.errors[name],
+                ...SIGNUP_INPUTS[name].attributes,
               }}
             />
             <Input.Error>{formState?.errors[name]?.message}</Input.Error>
@@ -103,7 +118,7 @@ const Profile = () => {
         <Button
           variant="main"
           size="lg"
-          disabled={!!formState.isValid}
+          disabled={!formState.isValid}
           onClick={handleNextPage}>
           다음
         </Button>

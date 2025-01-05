@@ -25,13 +25,16 @@ const DirectFigureOption = () => {
               <Input.Label htmlFor={name}>{label}</Input.Label>
               <S.FigureOptionInputWrapper>
                 <Input.Input
-                  props={formAdapter({
-                    register,
-                    name,
-                    validator: SIGNUP_INPUTS[name],
+                  props={{
+                    ...formAdapter({
+                      register,
+                      name,
+                      validate: SIGNUP_INPUTS[name].validate,
+                    }),
                     $isDirty: !!formState.dirtyFields[name],
                     $isError: !!formState.errors[name],
-                  })}
+                    ...SIGNUP_INPUTS[name].attributes,
+                  }}
                 />
                 <Input.Text>kg</Input.Text>
               </S.FigureOptionInputWrapper>

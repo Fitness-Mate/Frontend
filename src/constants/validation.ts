@@ -305,6 +305,7 @@ export const EDIT_INPUTS = {
       },
     },
     loginEmail: {
+      attributes: {},
       validate: {
         disabled: true,
       },

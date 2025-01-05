@@ -125,9 +125,10 @@ export const Home = () => {
                   props={{
                     ...formAdapter({
                       register,
-                      validator: SEARCH_INPUTS["search"],
+                      validate: SEARCH_INPUTS["search"].validate,
                       name: "search",
                     }),
+                    ...SEARCH_INPUTS["search"].attributes,
                   }}
                 />
               </Input>

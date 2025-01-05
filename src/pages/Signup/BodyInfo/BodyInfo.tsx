@@ -77,11 +77,12 @@ const BodyInfo = () => {
               props={{
                 ...formAdapter({
                   register,
-                  validator: SIGNUP_INPUTS[name],
+                  validate: SIGNUP_INPUTS[name].validate,
                   name,
                   $isDirty: !!formState.dirtyFields[name],
                   $isError: !!formState.errors[name],
                 }),
+                ...SIGNUP_INPUTS[name].attributes,
               }}
             />
             <Input.Error>{formState?.errors[name]?.message}</Input.Error>
