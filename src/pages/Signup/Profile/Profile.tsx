@@ -8,12 +8,14 @@ import { omit } from "lodash"
 
 import Button from "@components/Button/Button"
 import Input from "@components/Input/Input"
+import Title from "@components/Title/Title"
 
 import { getBirthFormat } from "@pages/Signup/utils/getBirthFormat"
 
 import { formAdapter } from "@utils/formAdapter"
 
-import * as S from "../StyledSignup"
+import * as GS from "../StyledSignup"
+import * as S from "./StyledProfile"
 
 const Profile = () => {
   const { setProfile } = useSignupStore()
@@ -70,12 +72,13 @@ const Profile = () => {
   }, [clearErrors, setError, passwordValue, passwordCheckValue, watch])
 
   return (
-    <S.SignupWrapper>
-      <S.SignupTitleWrapper>
-        <S.StatusText>1/3단계</S.StatusText>
-        <S.SignupTitle>회원정보를 입력해주세요</S.SignupTitle>
-      </S.SignupTitleWrapper>
-      <S.FormWrapper onSubmit={handleSubmit(onSubmit)}>
+    <GS.SignupWrapper>
+      <Title variant="big">
+        <Title.SubTopTitle>1/3단계</Title.SubTopTitle>
+        회원정보를 입력해주세요
+        <Title.SubBottomTitle>운동 추천에 필요해요</Title.SubBottomTitle>
+      </Title>
+      <GS.FormWrapper onSubmit={handleSubmit(onSubmit)}>
         {SIGNUP_LIST.map(({ id, name, label, isRequired }) => (
           <Input
             key={id}
@@ -115,15 +118,17 @@ const Profile = () => {
             <Input.Error>{formState?.errors[name]?.message}</Input.Error>
           </Input>
         ))}
-        <Button
-          variant="main"
-          size="lg"
-          disabled={!formState.isValid}
-          onClick={handleNextPage}>
-          다음
-        </Button>
-      </S.FormWrapper>
-    </S.SignupWrapper>
+        <S.ButtonContainer>
+          <Button
+            variant="main"
+            size="lg"
+            disabled={!formState.isValid}
+            onClick={handleNextPage}>
+            다음
+          </Button>
+        </S.ButtonContainer>
+      </GS.FormWrapper>
+    </GS.SignupWrapper>
   )
 }
 

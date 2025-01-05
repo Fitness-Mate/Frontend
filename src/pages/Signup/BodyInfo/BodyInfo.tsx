@@ -6,6 +6,7 @@ import { useSignupStore } from "@store/useSignupStore"
 import { BODYINFO_LIST, SEX_GROUP, SIGNUP_INPUTS } from "constants/validation"
 
 import Input from "@components/Input/Input"
+import Title from "@components/Title/Title"
 
 import SignupButton from "@pages/Signup/SignupButton/SignupButton"
 
@@ -13,7 +14,8 @@ import { BodyInfoPayload } from "@typpes/type"
 
 import { formAdapter } from "@utils/formAdapter"
 
-import * as S from "../StyledSignup"
+import * as GS from "../StyledSignup"
+import * as S from "./StyledBodyInfo"
 
 const BodyInfo = () => {
   const methods = useForm<BodyInfoPayload>({
@@ -43,12 +45,14 @@ const BodyInfo = () => {
   const sexValue = watch("sex")
 
   return (
-    <S.SignupWrapper>
-      <S.SignupTitleWrapper>
-        <S.StatusText>2/3단계</S.StatusText>
-        <S.SignupTitle>신체 정보를 입력해주세요</S.SignupTitle>
-      </S.SignupTitleWrapper>
-      <S.FormWrapper onSubmit={handleSubmit(onSubmit)}>
+    <GS.SignupWrapper>
+      <Title variant="big">
+        <Title.SubTopTitle>2/3단계</Title.SubTopTitle>
+        회원정보를 입력해주세요
+        <Title.SubBottomTitle>신체 정보를 입력해주세요</Title.SubBottomTitle>
+      </Title>
+
+      <GS.FormWrapper onSubmit={handleSubmit(onSubmit)}>
         <Input>
           <Input.Label htmlFor="성별">성별</Input.Label>
           <S.SexList>
@@ -89,8 +93,8 @@ const BodyInfo = () => {
           </Input>
         ))}
         <SignupButton $isValid={formState.isValid}>다음</SignupButton>
-      </S.FormWrapper>
-    </S.SignupWrapper>
+      </GS.FormWrapper>
+    </GS.SignupWrapper>
   )
 }
 

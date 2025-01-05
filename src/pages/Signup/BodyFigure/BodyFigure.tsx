@@ -42,13 +42,11 @@ const BodyFigure = () => {
 
   return (
     <S.SignupForm onSubmit={handleSubmit(onSubmit)}>
-      <S.SignupTitleWrapper>
-        <Title variant="big">
-          <Title.SubTopTitle>마지막 단계에요</Title.SubTopTitle>
-          체형 정보를 입력해주세요
-          <Title.SubBottomTitle>운동 추천에 필요해요</Title.SubBottomTitle>
-        </Title>
-      </S.SignupTitleWrapper>
+      <Title variant="big">
+        <Title.SubTopTitle>마지막 단계에요</Title.SubTopTitle>
+        체형 정보를 입력해주세요
+        <Title.SubBottomTitle>운동 추천에 필요해요</Title.SubBottomTitle>
+      </Title>
       <S.BodyFigureWrapper>
         <Ratio
           ratioValue={ratioValue}
