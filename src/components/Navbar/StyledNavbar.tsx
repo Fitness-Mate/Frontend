@@ -33,6 +33,9 @@ export const NavTextContainer = styled.div`
   display: flex;
   gap: 0.8rem;
   align-items: center;
+  @media (max-width: 100rem) {
+    display: none;
+  }
 `
 
 export const NavButton = styled(Button).attrs({
@@ -40,9 +43,7 @@ export const NavButton = styled(Button).attrs({
 })`
   color: ${theme.Netural990};
   padding: 1rem 1.4rem;
-  @media (max-width: 100rem) {
-    display: none;
-  }
+
   border-radius: 1.2rem;
   &:hover {
     background-color: ${theme.Netural200};
