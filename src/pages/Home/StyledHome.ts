@@ -226,8 +226,16 @@ export const TabBackground = styled(motion.div)`
 `
 
 export const Fourth = styled.li`
-  width: 100%;
   height: 65.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7.95rem;
+  max-width: 62.7rem;
+  width: 100%;
+  padding: 0 2%;
+  margin: 0 auto;
 `
 
 export const HomeContainer = styled.div`
@@ -237,20 +245,6 @@ export const HomeContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`
-
-export const SearchWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 7.95rem;
-  width: 100%;
-  height: 100%;
-  max-width: 62.7rem;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 4%;
 `
 
 export const SearchTop = styled.div`
