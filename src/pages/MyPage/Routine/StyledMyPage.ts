@@ -61,6 +61,7 @@ export const RoutineListWrapper = styled.div`
   display: flex;
   gap: 1.2rem;
   flex-direction: column;
+  margin-left: -1rem;
 `
 
 export const RoutinesContainer = styled.div`

@@ -21,9 +21,16 @@ const NavDropDown = ({ userName }: NavDropDownProps) => {
     toggleDropDown()
   }
 
-  const handleFixBodyInfo = async () => {
-    alert("현재 수정중인 페이지입니다!")
-    toggleDropDown()
+  const handleSearch = () => {
+    navigate("searchworkout")
+  }
+
+  const handleMyPage = () => {
+    navigate("mypage")
+  }
+
+  const handleRecommend = () => {
+    navigate("recommend/bodypart")
   }
 
   return (
@@ -37,13 +44,23 @@ const NavDropDown = ({ userName }: NavDropDownProps) => {
         <DropDown position="nav">
           <DropDown.DropDownButton
             variant="grey"
-            onClick={handleFixProfile}>
-            계정 정보 수정
+            onClick={handleSearch}>
+            검색하기
           </DropDown.DropDownButton>
           <DropDown.DropDownButton
             variant="grey"
-            onClick={handleFixBodyInfo}>
-            신체 정보 수정
+            onClick={handleRecommend}>
+            추천 받기
+          </DropDown.DropDownButton>
+          <DropDown.DropDownButton
+            variant="grey"
+            onClick={handleMyPage}>
+            내 운동
+          </DropDown.DropDownButton>
+          <DropDown.DropDownButton
+            variant="grey"
+            onClick={handleFixProfile}>
+            계정 정보 수정
           </DropDown.DropDownButton>
           <S.Line />
           <DropDown.DropDownButton

@@ -1,4 +1,5 @@
-import { useLocation, useNavigate } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 import { useUserStore } from "@store/useUserStore"
 
@@ -11,6 +12,7 @@ import * as S from "./StyledNavbar"
 const Navbar = () => {
   const navigate = useNavigate()
   const { user, isLogin } = useUserStore()
+  const [isTop, setIsTop] = useState(true)
 
   const handleSearch = () => {
     navigate("searchworkout")
@@ -19,12 +21,16 @@ const Navbar = () => {
   const handleMyPage = () => {
     if (isLogin) {
       navigate("mypage")
+    } else {
+      navigate("/login")
     }
   }
 
   const handleRecommend = () => {
     if (isLogin) {
       navigate("recommend/bodypart")
+    } else {
+      navigate("/login")
     }
   }
 
@@ -36,8 +42,21 @@ const Navbar = () => {
     navigate("/login")
   }
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY === 0) {
+        setIsTop(true)
+      } else if (window.scrollY > 0) {
+        setIsTop(false)
+      }
+    }
+    window.addEventListener("scroll", handleScroll)
+
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [isTop])
+
   return (
-    <S.NavbarContainer $isHome={useLocation().pathname === "/"}>
+    <S.NavbarContainer $isTop={isTop}>
       <S.LogoButton onClick={handleHome}>
         <S.Logo
           src={logo}
@@ -62,7 +81,7 @@ const Navbar = () => {
           </S.LoginButton>
         )}
       </S.NavLink>
-      <S.NavbarUnderLine $isHome={useLocation().pathname === "/"} />
+      <S.NavbarUnderLine $isTop={isTop} />
     </S.NavbarContainer>
   )
 }

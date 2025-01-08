@@ -34,10 +34,6 @@ const Footer = () => {
           <S.FooterInfoContentList>
             <S.FooterInfoContentTitle>문의</S.FooterInfoContentTitle>
             <S.FooterInfoSubContentWrapper>
-              <S.FooterInfoSubContentTitle>전화</S.FooterInfoSubContentTitle>
-              <S.FooterInfoContent>010-8544-1013</S.FooterInfoContent>
-            </S.FooterInfoSubContentWrapper>
-            <S.FooterInfoSubContentWrapper>
               <S.FooterInfoSubContentTitle>이메일</S.FooterInfoSubContentTitle>
               <S.FooterInfoContent>jeuk1013@naver.com</S.FooterInfoContent>
             </S.FooterInfoSubContentWrapper>

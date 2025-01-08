@@ -37,7 +37,17 @@ export const Home = () => {
 
   const handleRecommend = () => {
     if (isLogin) {
-      navigate("recommend/bodypart")
+      navigate("/recommend/bodypart")
+    } else {
+      navigate("/login")
+    }
+  }
+
+  const handleRoutine = () => {
+    if (isLogin) {
+      navigate("/mypage")
+    } else {
+      navigate("/login")
     }
   }
 
@@ -84,11 +94,9 @@ export const Home = () => {
                 <br />
                 예리한 질문들
               </S.Title>
-              <Button
-                size="lg"
-                onClick={handleRecommend}>
-                추천 받기
-              </Button>
+              <S.ButtonContainer>
+                <Button onClick={handleRecommend}>추천 받기</Button>
+              </S.ButtonContainer>
             </S.SlideLeft>
 
             <S.SlideImg
@@ -100,9 +108,17 @@ export const Home = () => {
           <S.Slide>
             <S.SlideLeft>
               <S.Title>
-                루틴도
-                <br />한 번에 관리하세요
+                한 번에
+                <br />
+                관리하는 루틴
               </S.Title>
+              <S.ButtonContainer>
+                <Button
+                  size="lg"
+                  onClick={handleRoutine}>
+                  루틴 관리
+                </Button>
+              </S.ButtonContainer>
             </S.SlideLeft>
 
             <S.SlideImg
@@ -113,55 +129,50 @@ export const Home = () => {
         </S.SlideList>
       </S.Third>
       <S.Fourth>
-        <S.SearchWrapper>
-          <S.SearchTop>
-            <S.SearchTitle>핏메이트가 다 알려줄게요</S.SearchTitle>
-            <S.SearchSubTitle>궁금한 운동을 검색해 보세요!</S.SearchSubTitle>
-          </S.SearchTop>
-          <S.SearchKeywordForm onSubmit={handleSubmit(handleSearch)}>
-            <S.SearchInputWrapper>
-              <Input>
-                <Input.Input
-                  props={{
-                    ...formAdapter({
-                      register,
-                      validate: SEARCH_INPUTS["search"].validate,
-                      name: "search",
-                    }),
-                    ...SEARCH_INPUTS["search"].attributes,
-                  }}
-                />
-              </Input>
-              <IconButton
-                icon="CloseRound"
-                type="button"
-                size={18}
-                onClick={() => {
-                  setValue("search", "")
+        <S.SearchTop>
+          <S.SearchTitle>핏메이트가 다 알려줄게요</S.SearchTitle>
+          <S.SearchSubTitle>궁금한 운동을 검색해 보세요!</S.SearchSubTitle>
+        </S.SearchTop>
+        <S.SearchKeywordForm onSubmit={handleSubmit(handleSearch)}>
+          <S.SearchInputWrapper>
+            <Input>
+              <Input.Input
+                props={{
+                  ...formAdapter({
+                    register,
+                    validate: SEARCH_INPUTS["search"].validate,
+                    name: "search",
+                  }),
+                  ...SEARCH_INPUTS["search"].attributes,
                 }}
               />
-            </S.SearchInputWrapper>
+            </Input>
+            <IconButton
+              icon="CloseRound"
+              type="button"
+              size={18}
+              onClick={() => {
+                setValue("search", "")
+              }}
+            />
+          </S.SearchInputWrapper>
 
-            <S.SearchKeywordWrapper>
-              <S.SearchKeywordTitle>인기 검색 키워드</S.SearchKeywordTitle>
-              <S.SearchKeywordList>
-                {[
-                  "데드리프트",
-                  "풀업",
-                  "스쿼트",
-                  "인클라인 덤벨 벤치프레스",
-                ].map((item) => (
+          <S.SearchKeywordWrapper>
+            <S.SearchKeywordTitle>인기 검색 키워드</S.SearchKeywordTitle>
+            <S.SearchKeywordList>
+              {["데드리프트", "풀업", "스쿼트", "인클라인 덤벨 벤치프레스"].map(
+                (item) => (
                   <Chip
                     key={item}
                     type="button"
                     onClick={() => handleKeyWord(item)}>
                     {item}
                   </Chip>
-                ))}
-              </S.SearchKeywordList>
-            </S.SearchKeywordWrapper>
-          </S.SearchKeywordForm>
-        </S.SearchWrapper>
+                ),
+              )}
+            </S.SearchKeywordList>
+          </S.SearchKeywordWrapper>
+        </S.SearchKeywordForm>
       </S.Fourth>
     </S.HomeContainer>
   )

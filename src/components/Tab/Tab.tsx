@@ -11,7 +11,6 @@ interface TabProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant: Variant
   index: number
   count?: number
-  isFirstChild?: boolean
   width?: string
 }
 
@@ -21,13 +20,12 @@ const Tab = ({
   variant,
   count,
   onClick,
-  isFirstChild = false,
   width = "auto",
   ...props
 }: TabProps) => {
   const { activeTab, switchTab } = useTabs()
   const isSelected = activeTab === index
-  const variantStyle = getVariant(variant, isSelected, isFirstChild)
+  const variantStyle = getVariant(variant, isSelected)
 
   const handleTab = (event: MouseEvent<HTMLButtonElement>) => {
     switchTab(index)

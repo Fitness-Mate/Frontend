@@ -58,7 +58,7 @@ export default MainLayout
 
 const defaultOptions: ToastOptions = {
   position: "top-center",
-  autoClose: 4000,
+  autoClose: 3000,
   hideProgressBar: true,
   closeOnClick: true,
   draggable: true,

@@ -57,7 +57,10 @@ instance.interceptors.response.use(
       localStorage.removeItem("refreshToken")
       localStorage.removeItem("rememberMe")
       window.location.href = "/"
-    } else if (error.response.data.status !== "RECOMMEND_NOT_FOUND_EXCEPTION") {
+    } else if (
+      error.response.data.status !== "RECOMMEND_NOT_FOUND_EXCEPTION" &&
+      error.response.data.status !== "AUTHENTICATION_EXCEPTION"
+    ) {
       if (error.response.data.statusMessage) {
         Toast.error(error.response.data.statusMessage)
       } else {
