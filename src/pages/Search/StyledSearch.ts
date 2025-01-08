@@ -27,7 +27,6 @@ export const NavTab = styled.div`
   z-index: 200;
   position: sticky;
   top: 6.3rem;
-  padding: 0.6rem 3%;
   background: ${theme.Netural0};
 `
 export const NavTabInner = styled.div`
@@ -38,7 +37,6 @@ export const NavTabInner = styled.div`
   gap: 2rem;
   max-width: 111rem;
   margin: 0 auto;
-  padding: 0 2%;
 `
 export const NavTabList = styled.div`
   display: flex;

@@ -12,6 +12,7 @@ interface TabProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   index: number
   count?: number
   isFirstChild?: boolean
+  width?: string
 }
 
 const Tab = ({
@@ -21,6 +22,7 @@ const Tab = ({
   count,
   onClick,
   isFirstChild = false,
+  width = "auto",
   ...props
 }: TabProps) => {
   const { activeTab, switchTab } = useTabs()
@@ -38,6 +40,7 @@ const Tab = ({
     <StyledTab
       onClick={handleTab}
       $variantStyle={variantStyle}
+      $width={width}
       type="button"
       {...props}>
       {children}

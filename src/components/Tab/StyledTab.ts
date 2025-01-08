@@ -4,8 +4,8 @@ import theme, { fonts } from "@styles/theme"
 
 export const StyledTab = styled.button<{
   $variantStyle: Interpolation<object>
+  $width: Interpolation<object>
 }>`
-  width: 100%;
   border: none;
   display: flex;
   justify-content: center;
@@ -14,7 +14,8 @@ export const StyledTab = styled.button<{
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  ${(p) => p.$variantStyle}
+  width: ${({ $width }) => $width};
+  ${(p) => p.$variantStyle};
 `
 
 export const StyledTabCount = styled.span`

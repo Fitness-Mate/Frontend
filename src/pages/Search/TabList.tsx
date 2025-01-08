@@ -46,7 +46,7 @@ const TabList = ({
                 <Tabs.Tab
                   key={bodyPartId}
                   index={bodyPartId}
-                  variant="line">
+                  variant="fill">
                   {koreanName}
                 </Tabs.Tab>
               ))}
