@@ -19,12 +19,16 @@ const Navbar = () => {
   const handleMyPage = () => {
     if (isLogin) {
       navigate("mypage")
+    } else {
+      navigate("/login")
     }
   }
 
   const handleRecommend = () => {
     if (isLogin) {
       navigate("recommend/bodypart")
+    } else {
+      navigate("/login")
     }
   }
 
