@@ -38,7 +38,7 @@ export const FindPass = styled.button`
   ${fonts.h4};
   font-weight: 500;
   width: fit-content;
-  padding-left: 0.2rem;
+  margin-left: auto;
 `
 
 export const ButtonContainer = styled.div`
@@ -50,5 +50,4 @@ export const ButtonContainer = styled.div`
 export const Warning = styled.span`
   color: ${theme.Error};
   ${fonts.b4};
-  padding-top: 2.35rem;
 `
