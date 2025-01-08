@@ -1,11 +1,13 @@
 import { useEffect } from "react"
-import { Outlet, useLocation } from "react-router-dom"
+import { ErrorBoundary } from "react-error-boundary"
+import { Outlet, useLocation, useNavigate } from "react-router-dom"
 import { ToastOptions } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 
 import { useModalStore } from "@store/useModalStore"
 import { useUserStore } from "@store/useUserStore"
 
+import Fallback from "@components/Fallback/Fallback"
 import Footer from "@components/Footer/Footer"
 import AlertLoadingModal from "@components/Modal/components/Alert/AlertLoadingModal"
 import LoadingModal from "@components/Modal/components/Loading/LoadingModal"
@@ -19,6 +21,7 @@ import { StyledToast } from "@components/Toast/Toast"
 
 const MainLayout = () => {
   const location = useLocation()
+  const navigate = useNavigate()
   const path = location.pathname
   const hasNotFooter =
     path.includes("login") ||
@@ -35,21 +38,29 @@ const MainLayout = () => {
 
   return (
     <>
-      <ScrollToTop />
-      <Navbar />
-      <Outlet />
-      <StyledToast
-        limit={1}
-        {...defaultOptions}
-      />
+      <ErrorBoundary
+        FallbackComponent={Fallback}
+        onReset={() => {
+          navigate("/")
+        }}>
+        <ScrollToTop />
+        <Navbar />
 
-      {!hasNotFooter && <Footer />}
-      {modalState["루틴추가"] && <RoutineAddModal />}
-      {modalState["루틴시작"] && <RoutineModal />}
-      {modalState["루틴정보"] && <RoutineInfoModal />}
-      {modalState["루틴생성"] && <RoutineMakeModal />}
-      {modalState["알림"] && <AlertLoadingModal />}
-      {modalState["로딩"] && <LoadingModal />}
+        <Outlet />
+
+        <StyledToast
+          limit={1}
+          {...defaultOptions}
+        />
+
+        {!hasNotFooter && <Footer />}
+        {modalState["루틴추가"] && <RoutineAddModal />}
+        {modalState["루틴시작"] && <RoutineModal />}
+        {modalState["루틴정보"] && <RoutineInfoModal />}
+        {modalState["루틴생성"] && <RoutineMakeModal />}
+        {modalState["알림"] && <AlertLoadingModal />}
+        {modalState["로딩"] && <LoadingModal />}
+      </ErrorBoundary>
     </>
   )
 }

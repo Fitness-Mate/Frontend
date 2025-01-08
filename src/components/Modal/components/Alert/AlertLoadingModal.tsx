@@ -13,7 +13,7 @@ const AlertLoadingModal = () => {
       onClose={onClose}>
       <Modal.Title>
         <Title variant="midA">
-          추천 중에 오류가 발생했어요.
+          추천 중에 오류가 발생했어요
           <Title.SubBottomTitle>
             다른 조합으로 시도해주세요!
           </Title.SubBottomTitle>

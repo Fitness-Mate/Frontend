@@ -20,7 +20,7 @@ const NotFound = () => {
         src="https://img.khan.co.kr/news/2023/09/19/news-p.v1.20230919.33040b35d4b248e790e0cf74d0e6601a_P1.webp"
         alt="404 이미지"
       />
-      <S.NotFoundTitle>오류가 발생했어요.</S.NotFoundTitle>
+      <S.NotFoundTitle>존재하지 않는 페이지입니다</S.NotFoundTitle>
       <S.NotFoundButtonWrapper>
         <Button
           variant="weak"
