@@ -279,7 +279,7 @@ export const SearchInputWrapper = styled.div`
   width: 100%;
   button {
     position: absolute;
-    top: 1.5rem;
+    top: 1.8rem;
     right: 1.5rem;
   }
 `
