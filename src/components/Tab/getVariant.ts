@@ -15,7 +15,7 @@ export const getVariant = (
         color: ${isSelected ? theme.Netural0 : theme.Netural800};
         background: ${isSelected ? theme.Brand600 : theme.Netural0};
         padding: 1rem 1.4rem;
-        border-radius: 0.2rem;
+        border-radius: 3.4rem;
         ${fonts.b4};
         &:hover {
           background-color: ${!isSelected && theme.Netural200};

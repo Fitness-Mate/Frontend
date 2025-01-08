@@ -14,11 +14,13 @@ const Figure = () => {
           <Tabs.TabList>
             <Tabs.Tab
               variant="line"
+              width="100%"
               index={0}>
               유형으로 선택하기
             </Tabs.Tab>
             <Tabs.Tab
               variant="line"
+              width="100%"
               index={1}>
               직접 입력하기
             </Tabs.Tab>
