@@ -16,6 +16,7 @@ export const StyledTab = styled.button<{
   text-overflow: ellipsis;
   width: ${({ $width }) => $width};
   ${(p) => p.$variantStyle};
+  position: relative;
 `
 
 export const StyledTabCount = styled.span`

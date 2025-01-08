@@ -29,8 +29,7 @@ const RoutineTabs = ({ myRoutines, onTabChange }: RoutineTabsProps) => {
                 key={routineId}
                 index={index}
                 variant="line"
-                onClick={() => handleTabClick(index)}
-                isFirstChild={true}>
+                onClick={() => handleTabClick(index)}>
                 {routineName}
               </Tabs.Tab>
             ))}
