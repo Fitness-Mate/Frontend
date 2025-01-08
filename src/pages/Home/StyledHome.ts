@@ -304,3 +304,8 @@ export const SearchKeywordList = styled.ul`
   gap: 0.8rem;
   flex-wrap: wrap;
 `
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  align-items: flex-start;
+`

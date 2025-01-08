@@ -37,7 +37,17 @@ export const Home = () => {
 
   const handleRecommend = () => {
     if (isLogin) {
-      navigate("recommend/bodypart")
+      navigate("/recommend/bodypart")
+    } else {
+      navigate("/login")
+    }
+  }
+
+  const handleRoutine = () => {
+    if (isLogin) {
+      navigate("/mypage")
+    } else {
+      navigate("/login")
     }
   }
 
@@ -84,11 +94,9 @@ export const Home = () => {
                 <br />
                 예리한 질문들
               </S.Title>
-              <Button
-                size="lg"
-                onClick={handleRecommend}>
-                추천 받기
-              </Button>
+              <S.ButtonContainer>
+                <Button onClick={handleRecommend}>추천 받기</Button>
+              </S.ButtonContainer>
             </S.SlideLeft>
 
             <S.SlideImg
@@ -104,6 +112,13 @@ export const Home = () => {
                 <br />
                 관리하는 루틴
               </S.Title>
+              <S.ButtonContainer>
+                <Button
+                  size="lg"
+                  onClick={handleRoutine}>
+                  루틴 관리
+                </Button>
+              </S.ButtonContainer>
             </S.SlideLeft>
 
             <S.SlideImg
