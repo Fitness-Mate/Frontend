@@ -100,8 +100,9 @@ export const Home = () => {
           <S.Slide>
             <S.SlideLeft>
               <S.Title>
-                루틴도
-                <br />한 번에 관리하세요
+                한 번에
+                <br />
+                관리하는 루틴
               </S.Title>
             </S.SlideLeft>
 
