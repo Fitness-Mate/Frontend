@@ -1,19 +1,33 @@
 import styled from "styled-components"
 
-import theme, { fonts } from "@styles/theme"
+import { theme } from "@styles/theme"
+
+import { fonts } from "../../styles/theme"
 
 export const FallbackWrapper = styled.div`
-  width: 100%;
-  height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 5rem;
   align-items: center;
-  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  gap: 3rem;
+  transform: translate(-50%, -50%);
+`
+
+export const FallbackImg = styled.img`
+  width: 50rem;
+  height: 30rem;
+  border-radius: 2rem;
+`
+
+export const FallbackButtonWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 `
 
 export const FallbackTitle = styled.span`
   ${fonts.h1};
-  font-size: 5rem;
-  color: ${theme.Netural900};
+  color: ${theme.Netural990};
 `

@@ -1,9 +1,18 @@
 import axios, { AxiosRequestConfig } from "axios"
 
+import { Toast } from "@components/Toast/Toast"
+
 import authAPI from "@apis/domain/auth"
 
 const axiosConfig: AxiosRequestConfig = {
   withCredentials: true,
+}
+
+export interface CustomError extends Error {
+  response?: {
+    data: any
+    status: number
+  }
 }
 
 export const instance = axios.create(axiosConfig)
@@ -43,6 +52,14 @@ instance.interceptors.response.use(
         originalRequest.headers.Authorization = `Bearer ${newAccessToken}`
         return await axios(originalRequest)
       }
+    } else if (
+      error.response.data.status === "EXPIRED_REFRESH_TOKEN_EXCEPTION" ||
+      error.response.data.status === "MALFORMED_JWT_EXCEPTION"
+    ) {
+      Toast.error("로그인 세션이 만료되었습니다. 재 로그인 해주세요.")
+      localStorage.removeItem("accessToken")
+      localStorage.removeItem("refreshToken")
+      localStorage.removeItem("rememberMe")
     } else {
       throw error
     }

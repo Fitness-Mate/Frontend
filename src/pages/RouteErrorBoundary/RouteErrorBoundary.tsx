@@ -6,44 +6,60 @@ import {
 
 import { isAxiosError } from "axios"
 
-import { Toast } from "@components/Toast/Toast"
-
-import AuthFallback from "@pages/RouteErrorBoundary/AuthFallback"
 import Fallback from "@pages/RouteErrorBoundary/Fallback"
-import NotFound from "@pages/RouteErrorBoundary/NotFound"
 
 const RouteErrorBoundary = () => {
   const error = useRouteError()
   const navigate = useNavigate()
   if (isAxiosError(error)) {
     if (!error.response) {
-      return <Fallback />
+      return (
+        <Fallback
+          title={"존재하지 않는 페이지입니다"}
+          navText={"홈으로"}
+          clickHandler={() => {
+            navigate("/")
+          }}
+        />
+      )
     } else if (error.response.status === 401) {
-      if (
-        error.response.data.status === "EXPIRED_REFRESH_TOKEN_EXCEPTION" ||
-        error.response.data.status === "MALFORMED_JWT_EXCEPTION"
-      ) {
-        navigate("/")
-        Toast.error("로그인 세션이 만료되었습니다. 재 로그인 해주세요.")
-        localStorage.removeItem("accessToken")
-        localStorage.removeItem("refreshToken")
-        localStorage.removeItem("rememberMe")
-      } else {
-        return <AuthFallback />
-      }
-    } else if (error.response.status === 404) {
-      return <NotFound />
+      return (
+        <Fallback
+          title={"로그인이 필요한 페이지입니다"}
+          navText={"로그인하러 가기"}
+          clickHandler={() => {
+            navigate("/login")
+          }}
+        />
+      )
     } else {
-      if (error.response.data.statusMessage) {
-        Toast.error(error.response.data.statusMessage)
-      } else {
-        Toast.error(error.response.data)
-      }
+      return (
+        <Fallback
+          title={"예상치못한 오류가 발생했습니다"}
+          clickHandler={() => {
+            navigate("/")
+          }}
+        />
+      )
     }
   } else if (isRouteErrorResponse(error)) {
-    return <NotFound />
+    return (
+      <Fallback
+        title={"존재하지 않는 페이지입니다"}
+        clickHandler={() => {
+          navigate("/")
+        }}
+      />
+    )
   } else {
-    return <Fallback />
+    return (
+      <Fallback
+        title={"예상치못한 오류가 발생했습니다"}
+        clickHandler={() => {
+          navigate("/")
+        }}
+      />
+    )
   }
 }
 
