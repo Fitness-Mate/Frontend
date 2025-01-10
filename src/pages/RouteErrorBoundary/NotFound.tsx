@@ -6,7 +6,6 @@ import * as S from "./StyledNotFound"
 
 const NotFound = () => {
   const navigate = useNavigate()
-
   const handleHome = () => {
     navigate("/")
   }
@@ -14,6 +13,7 @@ const NotFound = () => {
   const handleBack = () => {
     navigate(-1)
   }
+
   return (
     <S.NotFoundWrapper>
       <S.NotFoundImg

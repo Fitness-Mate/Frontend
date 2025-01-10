@@ -1,18 +1,19 @@
-import { FallbackProps } from "react-error-boundary"
+import { useNavigate } from "react-router-dom"
 
 import Button from "@components/Button/Button"
 
 import * as S from "./StyledFallback"
 
-const Fallback = ({ resetErrorBoundary }: FallbackProps) => {
+const Fallback = () => {
+  const navigate = useNavigate()
+
   const handleHome = () => {
-    resetErrorBoundary()
+    navigate("/")
   }
 
   return (
     <S.FallbackWrapper>
-      <S.FallbackTitle>예상치 못한 오류가 발생했어요</S.FallbackTitle>
-      <S.FallbackText>홈으로 이동해주세요</S.FallbackText>
+      <S.FallbackTitle>예상치 못한 오류가 발생했습니다</S.FallbackTitle>
       <Button
         variant="main"
         size="lg"

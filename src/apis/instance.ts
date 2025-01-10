@@ -1,7 +1,5 @@
 import axios, { AxiosRequestConfig } from "axios"
 
-import { Toast } from "@components/Toast/Toast"
-
 import authAPI from "@apis/domain/auth"
 
 const axiosConfig: AxiosRequestConfig = {
@@ -30,42 +28,23 @@ instance.interceptors.response.use(
     return response
   },
   async (error) => {
+    // accessToken 만료
     if (error.response.data.status === "EXPIRED_ACCESS_TOKEN_EXCEPTION") {
       const refreshToken = localStorage.getItem("refreshToken")
       if (!refreshToken) {
         return
       }
-      try {
-        const originalRequest = error.config
-        const response = await authAPI.getAccessToken()
+      const originalRequest = error.config
+      const response = await authAPI.getAccessToken()
 
-        if (response) {
-          const newAccessToken = response.data.accessToken
-          localStorage.setItem("accessToken", newAccessToken)
-          originalRequest.headers.Authorization = `Bearer ${newAccessToken}`
-          return await axios(originalRequest)
-        }
-      } catch (err) {
-        console.error(err)
+      if (response) {
+        const newAccessToken = response.data.accessToken
+        localStorage.setItem("accessToken", newAccessToken)
+        originalRequest.headers.Authorization = `Bearer ${newAccessToken}`
+        return await axios(originalRequest)
       }
-    } else if (
-      error.response.data.status === "EXPIRED_REFRESH_TOKEN_EXCEPTION" ||
-      error.response.data.status === "MALFORMED_JWT_EXCEPTION"
-    ) {
-      Toast.error("로그인 세션이 만료되었습니다. 재 로그인 해주세요.")
-      localStorage.removeItem("accessToken")
-      localStorage.removeItem("refreshToken")
-      localStorage.removeItem("rememberMe")
-      window.location.href = "/"
-    } else if (
-      error.response.data.status !== "RECOMMEND_NOT_FOUND_EXCEPTION" &&
-      error.response.data.status !== "AUTHENTICATION_EXCEPTION"
-    ) {
-      if (error.response.data.statusMessage) {
-        Toast.error(error.response.data.statusMessage)
-      } else {
-        Toast.error(error.response.data)
-      }
+    } else {
+      throw error
     }
   },
 )

@@ -7,6 +7,6 @@ export const useGetMachineList = (bodyPart: string[]) => {
     queryKey: ["getMachineList", bodyPart],
     queryFn: async () =>
       await machineAPI.fetchList({ bodyPartKoreanName: bodyPart }),
-    select: (data) => data.map((machine, idx) => ({ ...machine, id: idx })),
+    select: ({ data }) => data.map((machine, idx) => ({ ...machine, id: idx })),
   })
 }

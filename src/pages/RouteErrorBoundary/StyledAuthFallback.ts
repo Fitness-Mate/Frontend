@@ -15,9 +15,5 @@ export const FallbackWrapper = styled.div`
 export const FallbackTitle = styled.span`
   ${fonts.h1};
   font-size: 5rem;
-`
-
-export const FallbackText = styled.span`
-  ${fonts.h3};
-  color: ${theme.Netural500};
+  color: ${theme.Netural900};
 `

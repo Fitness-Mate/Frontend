@@ -10,10 +10,10 @@ import EditBodyInfo from "@pages/MyPage/Edit/EditBodyInfo"
 import EditPassword from "@pages/MyPage/Edit/EditPassword"
 import EditProfile from "@pages/MyPage/Edit/EditProfile"
 import MyPage from "@pages/MyPage/Routine/MyPage"
-import NotFound from "@pages/NotFound/NotFound"
 import BodyPart from "@pages/Recommend/BodyPart/BodyPart"
 import Machine from "@pages/Recommend/Machine/Machine"
 import Result from "@pages/Recommend/Result/Result"
+import RouteErrorBoundary from "@pages/RouteErrorBoundary/RouteErrorBoundary"
 import Search from "@pages/Search/Search"
 import BodyFigure from "@pages/Signup/BodyFigure/BodyFigure"
 import BodyInfo from "@pages/Signup/BodyInfo/BodyInfo"
@@ -23,7 +23,7 @@ import Profile from "@pages/Signup/Profile/Profile"
 const router = createBrowserRouter([
   {
     element: <MainLayout />,
-    errorElement: <NotFound />,
+    errorElement: <RouteErrorBoundary />,
     children: [
       {
         index: true,
