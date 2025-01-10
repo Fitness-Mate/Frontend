@@ -46,5 +46,6 @@ module.exports = {
     "@tanstack/query/no-deprecated-options": "error",
     "@tanstack/query/prefer-query-object-syntax": "error",
     "@tanstack/query/stable-query-client": "error",
+    "@typescript-eslint/no-explicit-any": "off",
   },
 }

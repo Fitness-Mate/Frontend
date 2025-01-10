@@ -10,6 +10,8 @@ import authAPI from "@apis/domain/auth"
 
 import { SignupPayload } from "@typpes/type"
 
+import { CustomError } from "../../apis/instance"
+
 export const usePostSignup = () => {
   const navigate = useNavigate()
   const { saveUser } = useUserStore()
@@ -17,7 +19,11 @@ export const usePostSignup = () => {
     mutationKey: ["usePostSignup"],
     mutationFn: async (submission: SignupPayload) =>
       await authAPI.postUser(submission),
-    onSuccess: async ({ data: { refreshToken, accessToken, rememberMe } }) => {
+    onSuccess: async (data) => {
+      if (!data.data) {
+        return
+      }
+      const { accessToken, refreshToken, rememberMe } = data.data
       authAPI.fetchUser().then((res) => {
         saveUser(res)
       })
@@ -26,6 +32,14 @@ export const usePostSignup = () => {
       localStorage.setItem("rememberMe", rememberMe.toString())
       navigate("/signup/complete")
       Toast.success("회원가입에 성공했습니다.")
+    },
+
+    onError: (error: CustomError) => {
+      if (error.response?.data?.statusMessage) {
+        Toast.error(error.response?.data?.statusMessage)
+      } else {
+        Toast.error(error.response?.data)
+      }
     },
   })
 }

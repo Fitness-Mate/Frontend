@@ -19,19 +19,11 @@ const Navbar = () => {
   }
 
   const handleMyPage = () => {
-    if (isLogin) {
-      navigate("mypage")
-    } else {
-      navigate("/login")
-    }
+    navigate("mypage")
   }
 
   const handleRecommend = () => {
-    if (isLogin) {
-      navigate("recommend/bodypart")
-    } else {
-      navigate("/login")
-    }
+    navigate("recommend/bodypart")
   }
 
   const handleHome = () => {

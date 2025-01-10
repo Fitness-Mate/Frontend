@@ -8,6 +8,13 @@ const axiosConfig: AxiosRequestConfig = {
   withCredentials: true,
 }
 
+export interface CustomError extends Error {
+  response?: {
+    data: any
+    status: number
+  }
+}
+
 export const instance = axios.create(axiosConfig)
 
 instance.interceptors.request.use((config) => {
@@ -30,23 +37,20 @@ instance.interceptors.response.use(
     return response
   },
   async (error) => {
+    // accessToken 만료
     if (error.response.data.status === "EXPIRED_ACCESS_TOKEN_EXCEPTION") {
       const refreshToken = localStorage.getItem("refreshToken")
       if (!refreshToken) {
         return
       }
-      try {
-        const originalRequest = error.config
-        const response = await authAPI.getAccessToken()
+      const originalRequest = error.config
+      const response = await authAPI.getAccessToken()
 
-        if (response) {
-          const newAccessToken = response.data.accessToken
-          localStorage.setItem("accessToken", newAccessToken)
-          originalRequest.headers.Authorization = `Bearer ${newAccessToken}`
-          return await axios(originalRequest)
-        }
-      } catch (err) {
-        console.error(err)
+      if (response) {
+        const newAccessToken = response.data.accessToken
+        localStorage.setItem("accessToken", newAccessToken)
+        originalRequest.headers.Authorization = `Bearer ${newAccessToken}`
+        return await axios(originalRequest)
       }
     } else if (
       error.response.data.status === "EXPIRED_REFRESH_TOKEN_EXCEPTION" ||
@@ -56,16 +60,8 @@ instance.interceptors.response.use(
       localStorage.removeItem("accessToken")
       localStorage.removeItem("refreshToken")
       localStorage.removeItem("rememberMe")
-      window.location.href = "/"
-    } else if (
-      error.response.data.status !== "RECOMMEND_NOT_FOUND_EXCEPTION" &&
-      error.response.data.status !== "AUTHENTICATION_EXCEPTION"
-    ) {
-      if (error.response.data.statusMessage) {
-        Toast.error(error.response.data.statusMessage)
-      } else {
-        Toast.error(error.response.data)
-      }
+    } else {
+      throw error
     }
   },
 )

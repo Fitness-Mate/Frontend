@@ -4,7 +4,7 @@ import { theme } from "@styles/theme"
 
 import { fonts } from "../../styles/theme"
 
-export const NotFoundWrapper = styled.div`
+export const FallbackWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,19 +15,19 @@ export const NotFoundWrapper = styled.div`
   transform: translate(-50%, -50%);
 `
 
-export const NotFoundImg = styled.img`
+export const FallbackImg = styled.img`
   width: 50rem;
   height: 30rem;
   border-radius: 2rem;
 `
 
-export const NotFoundButtonWrapper = styled.div`
+export const FallbackButtonWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 2rem;
 `
 
-export const NotFoundTitle = styled.span`
+export const FallbackTitle = styled.span`
   ${fonts.h1};
   color: ${theme.Netural990};
 `
