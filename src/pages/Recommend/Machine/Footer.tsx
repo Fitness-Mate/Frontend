@@ -55,11 +55,11 @@ const Footer = ({
         onClick={handleRecommend}
         variant={selectedMachineLength > 0 ? "blue" : "black"}
         rightIcon="RightArrowWhite"
-        size="big"
+        size="lg"
         isPending={postRecommend.isPending}>
         {postRecommend.isPending ? (
           <BeatLoader
-            size="7px"
+            size="0.7rem"
             color="#DDEAF4"
             margin={6}
           />

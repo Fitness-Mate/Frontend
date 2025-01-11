@@ -31,7 +31,7 @@ const Header = ({ children }: StrictPropsWithChildren) => {
             <RoundButton
               leftIcon="Add"
               variant="blue"
-              size="small"
+              size="sm"
               onClick={() => {
                 onOpen()
                 setWorkoutState(workout as Recommend)

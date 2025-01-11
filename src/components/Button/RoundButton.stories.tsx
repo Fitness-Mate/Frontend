@@ -25,7 +25,7 @@ const meta: Meta<typeof RoundButton> = {
       control: {
         type: "radio",
       },
-      options: ["big", "small"],
+      options: ["lg", "sm"],
     },
   },
 }
@@ -39,6 +39,6 @@ export const Primary: Story = {
     variant: "black",
     children: "다음",
     rightIcon: "RightArrowWhite",
-    size: "big",
+    size: "lg",
   },
 }

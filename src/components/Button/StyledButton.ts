@@ -8,7 +8,6 @@ export const StyledButton = styled.button<{
 }>`
   width: fit-content;
   display: inline-flex;
-  height: fit-content;
   justify-content: center;
   align-items: center;
   border: none;
@@ -27,16 +26,19 @@ export const StyledButton = styled.button<{
 
 export const SIZES = {
   sm: css`
-    padding: 1rem 1.2rem;
+    padding: 0 1.2rem;
     ${fonts.b7};
+    height: 3.9rem;
   `,
   md: css`
-    padding: 1.4rem 2.4rem;
+    padding: 0 3.6rem;
     ${fonts.b5};
+    height: 4.9rem;
   `,
   lg: css`
-    padding: 1.7rem 2.4rem;
+    padding: 0 4.5rem;
     ${fonts.b2};
+    height: 5.7rem;
   `,
   full: css`
     padding: 1.7rem 2.4rem;

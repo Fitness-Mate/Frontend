@@ -37,7 +37,7 @@ const Detail = () => {
           <RoundButton
             leftIcon="Add"
             variant="blue"
-            size="small"
+            size="sm"
             onClick={handleRoutine}>
             루틴에 추가
           </RoundButton>

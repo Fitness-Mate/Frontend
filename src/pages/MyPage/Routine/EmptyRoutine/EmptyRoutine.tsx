@@ -17,7 +17,7 @@ const EmptyRoutine = () => {
       <RoundButton
         leftIcon="Add"
         variant="black"
-        size="middle"
+        size="sm"
         onClick={onClick}>
         추가하기
       </RoundButton>
