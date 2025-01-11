@@ -1,5 +1,5 @@
 import Avatar from "@components/Avatar/Avatar"
-import ImgCheckBox from "@components/CheckBox/ImgCheckBox"
+import ImgCheckBox from "@components/ImgCheckBox/ImgCheckBox"
 import SpeechBubble from "@components/SpeechBubble/SpeechBubble"
 
 import { BodyPartList } from "@typpes/type"

@@ -7,19 +7,6 @@ const meta: Meta<typeof Badge> = {
   title: "components/Badge",
   tags: ["autodocs"],
   parameters: { layout: "centered" },
-  argTypes: {
-    children: {
-      control: {
-        type: "text",
-      },
-    },
-    variant: {
-      control: {
-        type: "radio",
-      },
-      options: ["default", "fill"],
-    },
-  },
 }
 
 export default meta

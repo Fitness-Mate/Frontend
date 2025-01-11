@@ -8,7 +8,7 @@ import { StrictPropsWithChildren } from "@typpes/type"
 
 import theme from "@styles/theme"
 
-import * as S from "./StyledCheckBox"
+import * as S from "./StyledImgCheckBox"
 
 type Variant = "big" | "small"
 

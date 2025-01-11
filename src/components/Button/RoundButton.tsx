@@ -85,24 +85,24 @@ export const StyledRoundButton = styled.button<{
 `
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  disabled?: boolean
   variant?: Variant
-  children: ReactNode
-  onClick?: (e: React.MouseEvent) => void
+  size?: Size
   leftIcon?: IconProps["icon"]
   rightIcon?: IconProps["icon"]
-  size?: Size
+  children: ReactNode
+  disabled?: boolean
   isPending?: boolean
+  onClick?: (e: React.MouseEvent) => void
 }
 const RoundButton = ({
-  disabled = false,
   variant = "black",
-  children,
-  onClick,
+  size = "lg",
   leftIcon,
   rightIcon,
+  children,
+  disabled = false,
   isPending = false,
-  size = "lg",
+  onClick,
   ...props
 }: ButtonProps) => {
   const variantStyle = VARIANTS[variant]

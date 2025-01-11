@@ -2,7 +2,7 @@
 import { useArgs } from "@storybook/preview-api"
 import type { Meta, StoryObj } from "@storybook/react"
 
-import ImgCheckBox from "@components/CheckBox/ImgCheckBox"
+import ImgCheckBox from "@components/ImgCheckBox/ImgCheckBox"
 
 const DUMMY = {
   src: "https://github.com/user-attachments/assets/6711e495-0014-42d3-9afd-490015d3adf5",
@@ -14,14 +14,6 @@ const meta: Meta<typeof ImgCheckBox> = {
   title: "components/ImgCheckBox",
   tags: ["autodocs"],
   parameters: { layout: "centered" },
-  argTypes: {
-    variant: {
-      control: {
-        type: "radio",
-      },
-      options: ["big", "small"],
-    },
-  },
 }
 
 export default meta

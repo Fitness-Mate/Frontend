@@ -18,6 +18,9 @@ const config: StorybookConfig = {
     "@storybook/addon-themes",
     "@storybook/addon-storysource",
   ],
+  typescript: {
+    reactDocgen: "react-docgen-typescript",
+  },
   framework: "@storybook/react-vite",
   viteFinal: async (config) => {
     if (config.resolve) {
