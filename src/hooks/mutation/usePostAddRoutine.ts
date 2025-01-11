@@ -19,8 +19,13 @@ export const usePostAddRoutine = () => {
     mutationFn: async ({ routineId, routineInfo }: usePostAddRoutineProps) =>
       await MyFitAPI.addRoutine(routineInfo, routineId),
     onSuccess: () => {
-      Toast.success("루틴에 운동 추가를 성공했습니다.")
+      Toast.success("운동을 추가했어요")
       queryClient.invalidateQueries({ queryKey: ["myRoutines"] })
+    },
+    onError: () => {
+      Toast.error(
+        "루틴은 7개까지만 추가할 수 있어요 루틴은 7개까지만 추가할 수 있어요",
+      )
     },
   })
 }

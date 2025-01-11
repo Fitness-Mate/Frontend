@@ -1,5 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 
+import { Toast } from "@components/Toast/Toast"
+
 import MyFitAPI from "@apis/domain/myfit"
 
 import { MyWorkoutIndex, MyWorkoutList } from "@typpes/type"
@@ -17,6 +19,7 @@ const useEditWorkoutList = (routineId: number) => {
     }) => await MyFitAPI.editMyWorkout(myWorkoutId, workout),
 
     onSuccess: (_, { myWorkoutId, workout }) => {
+      Toast.success("루틴을 수정했어요")
       queryClient.setQueryData<MyWorkoutList[]>(
         ["workoutList", routineId],
         (oldData) => {
