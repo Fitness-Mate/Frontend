@@ -13,9 +13,9 @@ export const usePostEditPassword = () => {
       authAPI.editPassword(payload),
     onSuccess: ({ data: status }) => {
       if (status === "ok") {
-        Toast.success("비밀번호 변경에 성공했습니다.")
+        Toast.success("비밀번호 변경했어요")
       } else if (status === "fail") {
-        Toast.error("비밀번호 변경에 실패했습니다.")
+        Toast.error("비밀번호 변경이 완료되지 않았어요")
       }
     },
   })

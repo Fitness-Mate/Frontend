@@ -29,7 +29,7 @@ export const useLogin = (
         await authAPI.fetchUser().then((res) => {
           saveUser(res)
         })
-        Toast.success("로그인에 성공했습니다")
+        Toast.success("로그인에 성공했어요")
         navigate("/")
       } else {
         if (setError) {
@@ -43,7 +43,7 @@ export const useLogin = (
       if (setError) {
         setError("root", {
           type: "server",
-          message: "이메일 또는 비밀번호를 잘못 입력했습니다",
+          message: "다시 로그인해 주세요",
         })
       }
     },

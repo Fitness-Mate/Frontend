@@ -20,11 +20,10 @@ export const useLogout = () => {
       localStorage.removeItem("accessToken")
       localStorage.removeItem("refreshToken")
       localStorage.removeItem("rememberMe")
-      Toast.success("로그아웃에 성공했습니다.")
       navigate("/")
     },
     onError: () => {
-      Toast.error("로그아웃에 실패했습니다.")
+      Toast.error("로그아웃이 완료되지 않았어요")
     },
   })
 }
