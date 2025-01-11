@@ -74,7 +74,7 @@ export const SIGNUP_INPUTS = {
   },
   passwordCheck: {
     attributes: {
-      placeholder: "비밀번호 확인",
+      placeholder: "비밀번호 재확인",
       type: "password",
     },
     validate: {},
