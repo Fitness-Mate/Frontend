@@ -18,10 +18,6 @@ export const StyledToast = styled(ToastContainer)`
   .Toastify__toast svg {
     margin-left: auto;
   }
-  .Toastify__toast-icon > svg {
-    width: 2.4rem;
-    height: 2.4rem;
-  }
 `
 
 export const Toast = {
