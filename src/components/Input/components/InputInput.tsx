@@ -54,13 +54,18 @@ const InputInput = ({
   const variantStyle = VARIANTS[variant]
   const borderStyle = getBorderStyle($isError, $isDirty)
   return (
-    <Input
-      $isDirty={$isDirty}
-      $isError={$isError}
-      $variantStyle={variantStyle}
-      $borderStyle={borderStyle}
-      {...rest}
-    />
+    <>
+      <Input
+        $isDirty={$isDirty}
+        $isError={$isError}
+        $variantStyle={variantStyle}
+        $borderStyle={borderStyle}
+        {...rest}
+      />
+      {rest.name === "passwordCheck" && (
+        <InputAddInfo>8자리~25자리 영문, 숫자 조합</InputAddInfo>
+      )}
+    </>
   )
 }
 
@@ -89,4 +94,9 @@ export const Input = styled.input<{
   }
 
   ${({ $borderStyle }) => $borderStyle};
+`
+
+const InputAddInfo = styled.span`
+  color: ${theme.Netural600};
+  ${fonts.b6};
 `

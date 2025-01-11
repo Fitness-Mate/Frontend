@@ -15,7 +15,7 @@ const Footer = ({ handleNextPage, selectedBodyPartLength }: FooterProps) => {
       <RoundButton
         onClick={handleNextPage}
         variant="black"
-        size="big"
+        size="lg"
         rightIcon="RightArrowWhite"
         disabled={selectedBodyPartLength <= 0}>
         다음

@@ -42,3 +42,7 @@ export const TitleContainer = styled.div`
   align-items: flex-start;
   gap: 0.5rem;
 `
+
+export const ButtonContainer = styled.div`
+  margin: 0;
+`

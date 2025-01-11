@@ -143,11 +143,15 @@ export const ContentCaution = styled.div`
   gap: 1.2rem;
 `
 
-export const ContentCautionTitle = styled.span`
+export const ContentCautionLabel = styled.span`
   color: ${theme.Caution};
   ${fonts.b7};
+  border-radius: 0.6rem;
+  background: #fff6e3;
+  padding: 0.4rem 0.6rem;
 `
 
-export const ContentCautionText = styled(ContentCautionTitle)`
-  color: ${theme.Netural900};
+export const ContentCautionText = styled.span`
+  color: ${theme.Netural950};
+  ${fonts.b7};
 `

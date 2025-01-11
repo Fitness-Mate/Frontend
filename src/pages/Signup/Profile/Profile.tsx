@@ -75,19 +75,13 @@ const Profile = () => {
         <Title.SubBottomTitle>운동 추천에 필요해요</Title.SubBottomTitle>
       </Title>
       <GS.FormWrapper onSubmit={handleSubmit(onSubmit)}>
-        {SIGNUP_LIST.map(({ id, name, label, isRequired }) => (
+        {SIGNUP_LIST.map(({ id, name, label }) => (
           <Input
             key={id}
             style={{
               marginTop: id === SIGNUP_LIST.length - 1 ? "-3.2rem" : "0",
             }}>
-            {label && (
-              <Input.Label
-                isRequired={isRequired}
-                htmlFor={name}>
-                {label}
-              </Input.Label>
-            )}
+            {label && <Input.Label htmlFor={name}>{label}</Input.Label>}
             <Input.Input
               props={{
                 ...formAdapter({

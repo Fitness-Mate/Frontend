@@ -1,3 +1,5 @@
+import styled from "styled-components"
+
 import Button from "@components/Button/Button"
 import Modal from "@components/Modal/Modal"
 import Title from "@components/Title/Title"
@@ -20,15 +22,21 @@ const LoadingModal = () => {
         </Title>
       </Modal.Title>
       <Modal.Footer>
-        <Button
-          variant="main"
-          size="lg"
-          onClick={onClose}>
-          확인
-        </Button>
+        <ButtonContainer>
+          <Button
+            variant="main"
+            size="lg"
+            onClick={onClose}>
+            확인
+          </Button>
+        </ButtonContainer>
       </Modal.Footer>
     </Modal>
   )
 }
 
 export default LoadingModal
+
+const ButtonContainer = styled.div`
+  margin-left: auto;
+`

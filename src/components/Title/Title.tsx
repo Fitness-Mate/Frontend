@@ -17,6 +17,12 @@ export const Variant = [
   "small",
 ] as const
 
+/**
+ * <h3>Title 가이드를 제공해주는 컴포넌트입니다.</h3>
+ * 다음과 같은 컴포넌트를 children으로 사용할 수 있습니다.
+ * - <Title.TopSubTtile> 상단의 텍스트를 나타냅니다.
+ * - <Title.BottomSubTitle> 하단의 텍스트를 나타냅니다.
+ */
 const Title = ({ variant, children }: StrictPropsWithChildren<TitleProps>) => {
   const variantStyle = VARIANTS[variant]
 

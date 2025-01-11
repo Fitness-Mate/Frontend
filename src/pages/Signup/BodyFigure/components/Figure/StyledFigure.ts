@@ -94,5 +94,5 @@ export const FigureCheckBoxButton = styled.button<{ $isSelected: boolean }>`
 export const FigureCheckBoxText = styled.span<{ $isSelected: boolean }>`
   color: ${({ $isSelected }) => ($isSelected ? "#272e38" : "#6b7684")};
   text-align: center;
-  font-size: 14px;
+  font-size: 1.4rem;
 `

@@ -8,8 +8,8 @@ import {
   ContentAIright,
   ContentAIrightItem,
   ContentCaution,
+  ContentCautionLabel,
   ContentCautionText,
-  ContentCautionTitle,
   ContentText,
   ContentWrapper,
   Video,
@@ -48,7 +48,7 @@ const Content = ({
             transition={{ type: "spring", duration: 0, bounce: 0 }}>
             <ContentText>{description}</ContentText>
             <ContentCaution>
-              <ContentCautionTitle>주의사항</ContentCautionTitle>
+              <ContentCautionLabel>가이드</ContentCautionLabel>
               <ContentCautionText>{caution}</ContentCautionText>
             </ContentCaution>
             <ContentAI>

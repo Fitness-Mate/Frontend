@@ -9,7 +9,7 @@ import theme, { fonts } from "@styles/theme"
 
 export type Variant = "black" | "blue" | "grey"
 
-export type Size = "big" | "middle" | "small"
+export type Size = "lg" | "sm"
 
 const VARIANTS = {
   black: css`
@@ -40,28 +40,21 @@ const VARIANTS = {
 }
 
 const SIZE = {
-  big: css`
-    padding: 1.4rem 2rem 1.4rem 2.4rem;
+  lg: css`
+    padding: 0 2.4rem;
     ${fonts.b2};
     gap: 0.8rem;
+    height: 5.2rem;
     svg {
       width: 2.4rem;
       height: 2.4rem;
     }
   `,
-  middle: css`
-    padding: 1.4rem 2rem 1.4rem 1.4rem;
-    ${fonts.b4};
-    gap: 0.4rem;
-    svg {
-      width: 2.4rem;
-      height: 2.4rem;
-    }
-  `,
-  small: css`
-    padding: 1rem 1.6rem 1rem 1.2rem;
+  sm: css`
+    padding: 0 1.6rem;
     ${fonts.b7};
     gap: 0.4rem;
+    height: 4rem;
     svg {
       width: 2rem;
       height: 2rem;
@@ -92,24 +85,24 @@ export const StyledRoundButton = styled.button<{
 `
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  disabled?: boolean
   variant?: Variant
-  children: ReactNode
-  onClick?: (e: React.MouseEvent) => void
+  size?: Size
   leftIcon?: IconProps["icon"]
   rightIcon?: IconProps["icon"]
-  size?: Size
+  children: ReactNode
+  disabled?: boolean
   isPending?: boolean
+  onClick?: (e: React.MouseEvent) => void
 }
 const RoundButton = ({
-  disabled = false,
   variant = "black",
-  children,
-  onClick,
+  size = "lg",
   leftIcon,
   rightIcon,
+  children,
+  disabled = false,
   isPending = false,
-  size = "big",
+  onClick,
   ...props
 }: ButtonProps) => {
   const variantStyle = VARIANTS[variant]
