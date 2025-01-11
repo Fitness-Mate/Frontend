@@ -58,12 +58,14 @@ const Result = () => {
               </Title.SubBottomTitle>
             </Title>
           </S.TitleContainer>
-          <Button
-            size="lg"
-            variant="text"
-            onClick={handleHomePage}>
-            홈으로
-          </Button>
+          <S.ButtonContainer>
+            <Button
+              size="lg"
+              variant="text"
+              onClick={handleHomePage}>
+              홈으로
+            </Button>
+          </S.ButtonContainer>
         </S.TitleWrapper>
 
         <S.ResultList>

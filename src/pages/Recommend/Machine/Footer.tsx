@@ -59,7 +59,7 @@ const Footer = ({
         isPending={postRecommend.isPending}>
         {postRecommend.isPending ? (
           <BeatLoader
-            size="7"
+            size="7px"
             color="#DDEAF4"
             margin={6}
           />
