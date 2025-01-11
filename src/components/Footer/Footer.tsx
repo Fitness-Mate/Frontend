@@ -13,16 +13,19 @@ const Footer = () => {
         <S.FooterInfoList>
           <S.FooterInfoContentWrapper>
             <S.FooterInfoContentList>
+              <S.FooterInfoContentTitle>기획</S.FooterInfoContentTitle>
+              <S.FooterInfoContent>최시현</S.FooterInfoContent>
+            </S.FooterInfoContentList>
+            <S.FooterInfoContentList>
+              <S.FooterInfoContentTitle>디자인</S.FooterInfoContentTitle>
+              <S.FooterInfoContent>김정욱</S.FooterInfoContent>
+            </S.FooterInfoContentList>
+            <S.FooterInfoContentList>
               <S.FooterInfoContentTitle>개발</S.FooterInfoContentTitle>
               <S.FooterInfoContent>이찬하</S.FooterInfoContent>
               <S.FooterInfoContent>정지성</S.FooterInfoContent>
               <S.FooterInfoContent>강민정</S.FooterInfoContent>
               <S.FooterInfoContent>최훈오</S.FooterInfoContent>
-            </S.FooterInfoContentList>
-            <S.FooterInfoContentList>
-              <S.FooterInfoContentTitle>디자인</S.FooterInfoContentTitle>
-              <S.FooterInfoContent>김정욱</S.FooterInfoContent>
-              <S.FooterInfoContent>최시현</S.FooterInfoContent>
             </S.FooterInfoContentList>
           </S.FooterInfoContentWrapper>
           <S.FooterInfoContentList>
