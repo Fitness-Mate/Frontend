@@ -1,5 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 
+import { Toast } from "@components/Toast/Toast"
+
 import MyFitAPI from "@apis/domain/myfit"
 
 import { MyWorkoutList } from "@typpes/type"
@@ -39,6 +41,9 @@ const useDeleteMyWorkout = () => {
       )
 
       return { previousData }
+    },
+    onSuccess: () => {
+      Toast.success("루틴을 삭제했어요")
     },
     onError: (_, { routineId }: DeleteWorkoutProps, context) => {
       if (context?.previousData) {

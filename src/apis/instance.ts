@@ -56,7 +56,7 @@ instance.interceptors.response.use(
       error.response.data.status === "EXPIRED_REFRESH_TOKEN_EXCEPTION" ||
       error.response.data.status === "MALFORMED_JWT_EXCEPTION"
     ) {
-      Toast.error("로그인 세션이 만료되었습니다. 재 로그인 해주세요.")
+      Toast.error("로그인 세션이 만료되었어요")
       localStorage.removeItem("accessToken")
       localStorage.removeItem("refreshToken")
       localStorage.removeItem("rememberMe")

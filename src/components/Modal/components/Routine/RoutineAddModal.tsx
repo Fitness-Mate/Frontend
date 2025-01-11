@@ -33,7 +33,7 @@ const RoutineAddModal = () => {
   const { data: routines = [] } = useGetMyRoutines()
   const { data: workouts } = useGetRoutineQueries(routines)
 
-  const isFullRoutine = routines.length >= 6
+  const isFullRoutine = routines.length >= 5
 
   const filteredRoutines = [...routines].map((routine, index) =>
     workouts[index]?.some((workout) =>
@@ -78,13 +78,13 @@ const RoutineAddModal = () => {
       </Modal.Title>
       <Modal.Content isFull>
         <S.ContentBigWrapper>
-          <S.AddRoutine
-            onClick={() => {
-              openAddRoutine()
-              onClose()
-            }}>
+          <S.AddRoutine>
             <S.AddRoutineButton
               $isFullRoutine={isFullRoutine}
+              onClick={() => {
+                openAddRoutine()
+                onClose()
+              }}
               disabled={isFullRoutine}>
               <Icon
                 icon="AddRoundGray"

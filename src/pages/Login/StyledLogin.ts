@@ -51,3 +51,8 @@ export const Warning = styled.span`
   color: ${theme.Error};
   ${fonts.b4};
 `
+export const MoreInfo = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`

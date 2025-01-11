@@ -31,7 +31,7 @@ export const usePostSignup = () => {
       localStorage.setItem("refreshToken", refreshToken)
       localStorage.setItem("rememberMe", rememberMe.toString())
       navigate("/signup/complete")
-      Toast.success("회원가입에 성공했습니다.")
+      Toast.success("회원가입을 완료했어요")
     },
 
     onError: (error: CustomError) => {

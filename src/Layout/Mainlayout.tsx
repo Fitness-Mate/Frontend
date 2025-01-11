@@ -37,9 +37,7 @@ const MainLayout = () => {
     <>
       <ScrollToTop />
       <Navbar />
-
       <Outlet />
-
       <StyledToast
         limit={1}
         {...defaultOptions}
