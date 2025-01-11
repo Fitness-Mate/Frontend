@@ -37,9 +37,7 @@ const MainLayout = () => {
     <>
       <ScrollToTop />
       <Navbar />
-
       <Outlet />
-
       <StyledToast
         limit={1}
         {...defaultOptions}
@@ -60,7 +58,7 @@ export default MainLayout
 
 const defaultOptions: ToastOptions = {
   position: "top-center",
-  autoClose: 3000,
+  autoClose: 1000,
   hideProgressBar: true,
   closeOnClick: true,
   draggable: true,

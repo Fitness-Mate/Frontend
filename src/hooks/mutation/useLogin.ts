@@ -29,7 +29,7 @@ export const useLogin = (
         await authAPI.fetchUser().then((res) => {
           saveUser(res)
         })
-        Toast.success("로그인에 성공했습니다.")
+        Toast.success("로그인에 성공했습니다")
         navigate("/")
       } else {
         if (setError) {
