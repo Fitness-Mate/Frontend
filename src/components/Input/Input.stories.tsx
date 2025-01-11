@@ -20,7 +20,6 @@ const meta: Meta<typeof Input> = {
         component: `
   - <h3>다음과 같은 컴포넌트를 children으로 사용할 수 있습니다.</h3>
         - <h4><Input.Label> 무엇에 대한 입력인지를 나타냅니다.</h4>
-            - isRequired: 반드시 입력해야 할때 나타내는 속성
             - htmlFor: 웹 접근성을 위해 form의 name값을 그대로 주입시킵니다.
         - <h4><Input.Input> Input 내부를 나타냅니다.</h4>
             - react hook form에서 제공하는 기능을 사용해 props로 바로 주입시키기 위해 사용되는 어댑터입니다.
@@ -56,17 +55,12 @@ export const Primary: Story = {
             id,
             name,
             label,
-            isRequired,
             $isDirty = false,
             $isError = false,
             disabled = false,
           }) => (
             <Input key={id}>
-              <Input.Label
-                isRequired={isRequired}
-                htmlFor={name}>
-                {label}
-              </Input.Label>
+              <Input.Label htmlFor={name}>{label}</Input.Label>
               <Input.Input
                 props={{
                   ...formAdapter({
@@ -96,7 +90,6 @@ const DUMMY_LIST = [
     id: 0,
     name: "default",
     label: "Default",
-    isRequired: true,
     $isDirty: false,
     $isError: false,
     disabled: false,
@@ -105,7 +98,6 @@ const DUMMY_LIST = [
     id: 1,
     name: "success",
     label: "Success",
-    isRequired: true,
     $isDirty: true,
     $isError: false,
     disabled: false,
@@ -115,7 +107,6 @@ const DUMMY_LIST = [
     id: 2,
     name: "error",
     label: "Error",
-    isRequired: true,
     $isDirty: true,
     $isError: true,
     disabled: false,
@@ -124,7 +115,6 @@ const DUMMY_LIST = [
     id: 3,
     name: "disabled",
     label: "Disabled",
-    isRequired: false,
     $isDirty: false,
     $isError: false,
     disabled: true,

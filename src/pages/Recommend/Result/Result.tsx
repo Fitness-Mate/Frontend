@@ -91,7 +91,7 @@ const Result = () => {
                 <Accordion.Header>{koreanName}</Accordion.Header>
                 <Accordion.Content
                   videoId={videoLink.split("=")[1]}
-                  recommend={[`${weight}kg`, `${set}세트`, `${repeat}회`]}
+                  recommend={[`${weight}kg`, `${repeat}회`, `${set}세트`]}
                   description={description}
                   caution={caution}
                 />

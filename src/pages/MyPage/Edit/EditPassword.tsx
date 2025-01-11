@@ -84,13 +84,7 @@ const EditPassword = () => {
                 marginTop:
                   id === EDIT_LIST.PASSWORD.length - 1 ? "-2.9rem" : "0",
               }}>
-              {label && (
-                <Input.Label
-                  htmlFor={name}
-                  isRequired>
-                  {label}
-                </Input.Label>
-              )}
+              {label && <Input.Label htmlFor={name}>{label}</Input.Label>}
               <Input.Input
                 variant="edit"
                 props={{

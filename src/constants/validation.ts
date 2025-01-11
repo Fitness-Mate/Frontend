@@ -180,37 +180,31 @@ export const SIGNUP_LIST: Array<{
   id: number
   name: keyof typeof SIGNUP_INPUTS.DEFAULT_VALUES.PROFILE
   label: string
-  isRequired: boolean
 }> = [
   {
     id: 0,
     name: "userName",
     label: "이름",
-    isRequired: false,
   },
   {
     id: 1,
     name: "birthDate",
     label: "생년월일",
-    isRequired: false,
   },
   {
     id: 2,
     name: "loginEmail",
     label: "이메일",
-    isRequired: false,
   },
   {
     id: 3,
     name: "password",
     label: "비밀번호",
-    isRequired: false,
   },
   {
     id: 4,
     name: "passwordCheck",
     label: "",
-    isRequired: false,
   },
 ] as const
 
