@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import IconButton from "@components/IconButton/IconButton"
 import ProgressBar from "@components/Progressbar/ProgressBar"
 
-import Footer from "@pages/Recommend/BodyPart/Footer"
+import Footer from "@pages/Recommend/BodyPart/Bottom"
 import List from "@pages/Recommend/BodyPart/List"
 
 import { useGetBodyPart } from "@hooks/query/useGetBodyPart"

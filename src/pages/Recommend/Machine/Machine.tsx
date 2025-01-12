@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom"
 import IconButton from "@components/IconButton/IconButton"
 import ProgressBar from "@components/Progressbar/ProgressBar"
 
-import Footer from "@pages/Recommend/Machine/Footer"
+import Footer from "@pages/Recommend/Machine/Bottom"
 import List from "@pages/Recommend/Machine/List"
 import { BackOverlay } from "@pages/Search/StyledSearch"
 

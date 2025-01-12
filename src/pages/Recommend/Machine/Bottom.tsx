@@ -2,7 +2,6 @@ import { BeatLoader } from "react-spinners"
 
 import { UseMutationResult } from "@tanstack/react-query"
 
-import Bottom from "@components/Bottom/Bottom"
 import RoundButton from "@components/Button/RoundButton"
 
 import { MachineList } from "@typpes/type"
@@ -10,7 +9,9 @@ import { PostRecommendResponse } from "@typpes/type"
 
 import { usePostRecommendId } from "@hooks/mutation/usePostRecommendId"
 
-interface FooterProps {
+import * as S from "../StyledRecommend"
+
+interface BottomProps {
   machinesById: Set<number>
   postRecommend: UseMutationResult<
     PostRecommendResponse,
@@ -22,12 +23,12 @@ interface FooterProps {
   bodyPart: string[]
 }
 
-const Footer = ({
+const Bottom = ({
   machinesById,
   postRecommend,
   machines,
   bodyPart,
-}: FooterProps) => {
+}: BottomProps) => {
   const selectedMachineLength = machinesById.size
   const { mutate: postRecommendId } = usePostRecommendId()
 
@@ -47,30 +48,34 @@ const Footer = ({
   }
 
   return (
-    <Bottom flex="space-between">
-      <Bottom.Text>
-        {selectedMachineLength}개<Bottom.SubText> 기구 선택됨</Bottom.SubText>
-      </Bottom.Text>
-      <RoundButton
-        onClick={handleRecommend}
-        variant={selectedMachineLength > 0 ? "blue" : "black"}
-        rightIcon="RightArrowWhite"
-        size="lg"
-        isPending={postRecommend.isPending}>
-        {postRecommend.isPending ? (
-          <BeatLoader
-            size="0.7rem"
-            color="#DDEAF4"
-            margin={6}
-          />
-        ) : selectedMachineLength > 0 ? (
-          "추천 시작하기"
-        ) : (
-          "기구 선택 없이 추천 받기"
-        )}
-      </RoundButton>
-    </Bottom>
+    <S.BottomWrapper>
+      <S.BottomInner>
+        <S.BottomText>
+          {selectedMachineLength}개
+          <S.BottomSubText> 기구 선택됨</S.BottomSubText>
+        </S.BottomText>
+        <RoundButton
+          onClick={handleRecommend}
+          variant={selectedMachineLength > 0 ? "blue" : "black"}
+          rightIcon="RightArrowWhite"
+          size="lg"
+          isPending={postRecommend.isPending}>
+          {postRecommend.isPending ? (
+            <BeatLoader
+              size="0.7rem"
+              color="#DDEAF4"
+              margin={6}
+            />
+          ) : selectedMachineLength > 0 ? (
+            "추천 시작하기"
+          ) : (
+            "기구 선택 없이 추천 받기"
+          )}
+        </RoundButton>
+      </S.BottomInner>
+      <S.BottomTopLine>{}</S.BottomTopLine>
+    </S.BottomWrapper>
   )
 }
 
-export default Footer
+export default Bottom
