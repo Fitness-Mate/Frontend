@@ -1,53 +1,64 @@
-import React, { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
+import { UseFormRegister, UseFormSetValue } from "react-hook-form"
+
+import { RoutineInfoType } from "@typpes/type"
 
 import * as S from "./StyledMyWorkout"
 
 interface DynamicInputProps {
-  value: string
+  name: keyof RoutineInfoType
   placeholder: string
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  register: UseFormRegister<RoutineInfoType>
+  setValue: UseFormSetValue<RoutineInfoType>
+  watchValue: string
+  maxLength?: number
 }
-const DynamicInput = ({ value, placeholder, onChange }: DynamicInputProps) => {
-  const [localValue, setLocalValue] = useState(value)
+
+const DynamicInput = ({
+  name,
+  placeholder,
+  register,
+  setValue,
+  watchValue,
+  maxLength = 2,
+}: DynamicInputProps) => {
   const spanRef = useRef<HTMLSpanElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const [width, setWidth] = useState(30)
 
   useEffect(() => {
     if (spanRef.current && inputRef.current) {
-      setWidth(spanRef.current.offsetWidth + 17)
+      setWidth(spanRef.current.offsetWidth + 18)
       inputRef.current.focus()
     }
-  }, [localValue])
+  }, [watchValue])
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = e.target.value.replace(/[^0-9]/g, "")
-    setLocalValue(newValue)
-    onChange({
-      target: { value: newValue },
-    } as unknown as React.ChangeEvent<HTMLInputElement>)
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    if (!e.target.value.trim()) {
+      setValue(name, placeholder)
+    }
   }
 
-  const handleBlur = () => {
-    if (!value.trim()) {
-      onChange({
-        target: { value: placeholder },
-      } as unknown as React.ChangeEvent<HTMLInputElement>)
-    }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const sanitizedValue = e.target.value.replace(/[^0-9]/g, "")
+    setValue(name, sanitizedValue)
   }
 
   return (
     <S.HeaderRightInfoArea width={`${width}px`}>
       <S.HeaderRightInfoInput
-        ref={inputRef}
-        value={localValue}
-        placeholder={placeholder}
-        onChange={handleInputChange}
+        {...register(name)}
+        value={watchValue}
+        onChange={handleChange}
         onBlur={handleBlur}
-        maxLength={2}
+        maxLength={maxLength}
+        placeholder={placeholder}
+        ref={inputRef}
+        style={{ width: `${width}px` }}
+        autoComplete="off"
       />
       <S.InputWidthItem ref={spanRef}>
-        {localValue || placeholder}
+        {watchValue || placeholder}
       </S.InputWidthItem>
       <S.CustomCursor />
     </S.HeaderRightInfoArea>
