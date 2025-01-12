@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom"
 
+import { mutationKey } from "constants/mutationKey"
+
 import { useMutation } from "@tanstack/react-query"
 
 import recommendAPI from "@apis/domain/recommend"
@@ -11,7 +13,7 @@ export const usePostRecommend = () => {
   const { onOpen } = useModal("로딩")
 
   return useMutation({
-    mutationKey: ["usePostRecommendId"],
+    mutationKey: [mutationKey.POST_RECOMMENDID],
     mutationFn: async (workoutRecommendId: number) =>
       recommendAPI.workoutHistory(workoutRecommendId),
     retry: 1,

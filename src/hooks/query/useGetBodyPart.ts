@@ -1,10 +1,12 @@
+import { queryKey } from "constants/queryKey"
+
 import { useQuery } from "@tanstack/react-query"
 
 import bodyPartAPI from "@apis/domain/bodypart"
 
 export const useGetBodyPart = (type = "search") => {
   const getBodyPart = useQuery({
-    queryKey: ["getBodyPart"],
+    queryKey: [queryKey.GET_BODYPART],
     queryFn: async () => await bodyPartAPI.fetchData(),
     select: (data) =>
       type === "search"

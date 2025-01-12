@@ -1,3 +1,7 @@
+import { mutationKey } from "constants/mutationKey"
+import { queryKey } from "constants/queryKey"
+import { toastMessage } from "constants/toastMessage"
+
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 
 import { Toast } from "@components/Toast/Toast"
@@ -20,7 +24,7 @@ const useDeleteMyWorkout = () => {
     DeleteWorkoutProps,
     { previousData: MyWorkoutList[] | undefined }
   >({
-    mutationKey: ["useDeleteMyWorkout"],
+    mutationKey: [mutationKey.DELETE_MY_WORKOUT],
     mutationFn: async ({ myWorkoutId }: DeleteWorkoutProps): Promise<void> => {
       await MyFitAPI.deleteMyWorkout(myWorkoutId)
     },
@@ -43,7 +47,7 @@ const useDeleteMyWorkout = () => {
       return { previousData }
     },
     onSuccess: () => {
-      Toast.success("루틴을 삭제했어요")
+      Toast.success(toastMessage.SUCCESS.DELETE_ROTUINE)
     },
     onError: (_, { routineId }: DeleteWorkoutProps, context) => {
       if (context?.previousData) {
@@ -54,7 +58,9 @@ const useDeleteMyWorkout = () => {
       }
     },
     onSettled: (_, __, { routineId }: DeleteWorkoutProps) => {
-      queryClient.invalidateQueries({ queryKey: ["workoutList", routineId] })
+      queryClient.invalidateQueries({
+        queryKey: [queryKey.GET_MY_WORKOUT, routineId],
+      })
     },
   })
 }

@@ -1,3 +1,5 @@
+import { queryKey } from "constants/queryKey"
+
 import { useQuery } from "@tanstack/react-query"
 
 import { MyWorkoutList } from "@typpes/type"
@@ -9,7 +11,7 @@ export const useGetMyWorkouts = (
   options?: { enabled?: boolean },
 ) => {
   const query = useQuery<MyWorkoutList[]>({
-    queryKey: ["workoutList", routineId],
+    queryKey: [queryKey.GET_MY_WORKOUT, routineId],
     queryFn: async () => {
       if (!routineId) {
         throw new Error("Invalid routine ID")

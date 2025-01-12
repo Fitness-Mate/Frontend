@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom"
 
+import { mutationKey } from "constants/mutationKey"
+import { toastMessage } from "constants/toastMessage"
 import { useUserStore } from "stores/useUserStore"
 
 import { useMutation } from "@tanstack/react-query"
@@ -13,7 +15,7 @@ export const useLogout = () => {
   const navigate = useNavigate()
 
   return useMutation({
-    mutationKey: [],
+    mutationKey: [mutationKey.POST_LOGOUT],
     mutationFn: () => authAPI.logout(),
     onSuccess: () => {
       logout()
@@ -23,7 +25,7 @@ export const useLogout = () => {
       navigate("/")
     },
     onError: () => {
-      Toast.error("로그아웃이 완료되지 않았어요")
+      Toast.error(toastMessage.FAIL.LOGOUT)
     },
   })
 }
