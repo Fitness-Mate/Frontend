@@ -1,3 +1,5 @@
+import { mutationKey } from "constants/mutationKey"
+
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 
 import { Toast } from "@components/Toast/Toast"
@@ -10,6 +12,7 @@ const useEditWorkoutList = (routineId: number) => {
   const queryClient = useQueryClient()
 
   return useMutation({
+    mutationKey: [mutationKey.POST_EDIT_WORKOUT_LIST],
     mutationFn: async ({
       myWorkoutId,
       workout,

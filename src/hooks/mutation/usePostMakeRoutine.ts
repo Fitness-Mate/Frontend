@@ -1,3 +1,5 @@
+import { mutationKey } from "constants/mutationKey"
+
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 
 import { Toast } from "@components/Toast/Toast"
@@ -9,7 +11,7 @@ import { MyRoutines } from "@typpes/type"
 export const usePostMakeRoutine = () => {
   const queryClient = useQueryClient()
   return useMutation({
-    mutationKey: ["usePostMakeRoutine"],
+    mutationKey: [mutationKey.POST_MAKE_ROUTINE],
     mutationFn: async (params: { routines: MyRoutines[] }) =>
       await MyFitAPI.editMyRoutine(params),
     onSuccess: () => {

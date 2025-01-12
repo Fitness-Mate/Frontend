@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
 
+import { mutationKey } from "constants/mutationKey"
 import { useUserStore } from "stores/useUserStore"
 
 import { useMutation } from "@tanstack/react-query"
@@ -16,7 +17,7 @@ export const usePostSignup = () => {
   const navigate = useNavigate()
   const { saveUser } = useUserStore()
   return useMutation({
-    mutationKey: ["usePostSignup"],
+    mutationKey: [mutationKey.POST_SIGNUP],
     mutationFn: async (submission: SignupPayload) =>
       await authAPI.postUser(submission),
     onSuccess: async (data) => {

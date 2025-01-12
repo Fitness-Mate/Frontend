@@ -1,6 +1,7 @@
 import { UseFormSetError } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
 
+import { mutationKey } from "constants/mutationKey"
 import { useUserStore } from "stores/useUserStore"
 
 import { useMutation } from "@tanstack/react-query"
@@ -18,7 +19,7 @@ export const useLogin = (
 
   const navigate = useNavigate()
   return useMutation({
-    mutationKey: ["login"],
+    mutationKey: [mutationKey.POST_LOGIN],
     mutationFn: (submission: PostLoginPayload) => authAPI.login(submission),
     onSuccess: async ({ status, data: { accessToken, refreshToken } }) => {
       if (status === 200) {

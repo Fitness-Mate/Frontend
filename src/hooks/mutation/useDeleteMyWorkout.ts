@@ -1,3 +1,5 @@
+import { mutationKey } from "constants/mutationKey"
+
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 
 import { Toast } from "@components/Toast/Toast"
@@ -20,7 +22,7 @@ const useDeleteMyWorkout = () => {
     DeleteWorkoutProps,
     { previousData: MyWorkoutList[] | undefined }
   >({
-    mutationKey: ["useDeleteMyWorkout"],
+    mutationKey: [mutationKey.DELETE_MY_WORKOUT],
     mutationFn: async ({ myWorkoutId }: DeleteWorkoutProps): Promise<void> => {
       await MyFitAPI.deleteMyWorkout(myWorkoutId)
     },

@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
 
+import { mutationKey } from "constants/mutationKey"
 import { useUserStore } from "stores/useUserStore"
 
 import { useMutation } from "@tanstack/react-query"
@@ -13,7 +14,7 @@ export const useLogout = () => {
   const navigate = useNavigate()
 
   return useMutation({
-    mutationKey: [],
+    mutationKey: [mutationKey.POST_LOGOUT],
     mutationFn: () => authAPI.logout(),
     onSuccess: () => {
       logout()

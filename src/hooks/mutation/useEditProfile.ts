@@ -1,3 +1,4 @@
+import { mutationKey } from "constants/mutationKey"
 import { useUserStore } from "stores/useUserStore"
 
 import { useMutation } from "@tanstack/react-query"
@@ -11,7 +12,7 @@ import { EditUserPayload } from "@typpes/type"
 export const useEditProfile = () => {
   const { saveUser } = useUserStore()
   return useMutation({
-    mutationKey: ["postEditProfile"],
+    mutationKey: [mutationKey.POST_EDIT_PROFILE],
     mutationFn: (req: EditUserPayload) => authAPI.editUser(req),
     onSuccess: () => {
       authAPI.fetchUser().then((res) => saveUser(res))
