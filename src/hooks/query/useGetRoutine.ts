@@ -1,13 +1,15 @@
+import { queryKey } from "constants/queryKey"
+
 import { useQueries } from "@tanstack/react-query"
 
 import MyFitAPI from "@apis/domain/myfit"
 
 import { MyRoutines } from "@typpes/type"
 
-export const useGetRoutineQueries = (routines: MyRoutines[]) => {
+export const useGetRoutine = (routines: MyRoutines[]) => {
   return useQueries({
     queries: routines.map(({ routineId }) => ({
-      queryKey: ["getMyWorkoutsQueries", routineId],
+      queryKey: [queryKey.GET_ROUTINE, routineId],
       queryFn: () => MyFitAPI.myWorkouts(routineId),
     })),
     combine: (results) => {

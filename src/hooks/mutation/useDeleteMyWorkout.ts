@@ -1,4 +1,5 @@
 import { mutationKey } from "constants/mutationKey"
+import { queryKey } from "constants/queryKey"
 
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 
@@ -56,7 +57,9 @@ const useDeleteMyWorkout = () => {
       }
     },
     onSettled: (_, __, { routineId }: DeleteWorkoutProps) => {
-      queryClient.invalidateQueries({ queryKey: ["workoutList", routineId] })
+      queryClient.invalidateQueries({
+        queryKey: [queryKey.GET_MY_WORKOUT, routineId],
+      })
     },
   })
 }

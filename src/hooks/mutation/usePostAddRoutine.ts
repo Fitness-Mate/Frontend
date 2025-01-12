@@ -1,4 +1,5 @@
 import { mutationKey } from "constants/mutationKey"
+import { queryKey } from "constants/queryKey"
 
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 
@@ -22,7 +23,7 @@ export const usePostAddRoutine = () => {
       await MyFitAPI.addRoutine(routineInfo, routineId),
     onSuccess: () => {
       Toast.success("운동을 추가했어요")
-      queryClient.invalidateQueries({ queryKey: ["myRoutines"] })
+      queryClient.invalidateQueries({ queryKey: [queryKey.GET_MY_ROUTINES] })
     },
     onError: () => {
       Toast.error(

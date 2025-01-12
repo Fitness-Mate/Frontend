@@ -9,7 +9,7 @@ import "@components/common/Modal/components/Routine/StyledRoutineModal"
 import Title from "@components/common/Title/Title"
 
 import { useGetMyRoutines } from "@hooks/query/useGetMyRoutines"
-import { useGetRoutineQueries } from "@hooks/query/useGetRoutineQueries"
+import { useGetRoutine } from "@hooks/query/useGetRoutine"
 import { useModal } from "@hooks/useModal"
 
 import { checkKorean } from "@utils/checkKorean"
@@ -31,7 +31,7 @@ const RoutineAddModal = () => {
   const { setRoutineState, workoutState = { koreanName: "" } } = useModalStore()
 
   const { data: routines = [] } = useGetMyRoutines()
-  const { data: workouts } = useGetRoutineQueries(routines)
+  const { data: workouts } = useGetRoutine(routines)
 
   const isFullRoutine = routines.length >= 5
 

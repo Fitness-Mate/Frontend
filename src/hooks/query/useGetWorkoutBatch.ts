@@ -1,3 +1,5 @@
+import { queryKey } from "constants/queryKey"
+
 import { useSuspenseQueries } from "@tanstack/react-query"
 
 import workoutAPI from "@apis/domain/workout"
@@ -12,7 +14,7 @@ export const useGetWorkoutBatch = ({
   const getWorkout = useSuspenseQueries({
     queries: Array.from({ length: 5 }, (_, idx) => idx + 1).map((pageId) => ({
       queryKey: [
-        `getWorkoutBatch${pageId}`,
+        `${queryKey.GET_WORKOUT_BATCH}${pageId}`,
         pageId,
         searchKeyword,
         bodyPartKoreanName,
