@@ -1,9 +1,9 @@
 import { useNavigate, useParams } from "react-router-dom"
 
-import Badge from "@components/Badge/Badge"
-import RoundButton from "@components/Button/RoundButton"
+import Badge from "@components/common/Badge/Badge"
+import RoundButton from "@components/common/Button/RoundButton"
 
-import Icon from "../../components/Icon/Icon"
+import Icon from "../../components/common/Icon/Icon"
 import { useGetWorkout } from "../../hooks/query/useGetWorkout"
 import * as S from "./StyledDetail"
 

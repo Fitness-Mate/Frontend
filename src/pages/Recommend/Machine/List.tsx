@@ -1,8 +1,8 @@
 import { ForwardedRef } from "react"
 
-import Avatar from "@components/Avatar/Avatar"
-import ImgCheckBox from "@components/ImgCheckBox/ImgCheckBox"
-import SpeechBubble from "@components/SpeechBubble/SpeechBubble"
+import Icon from "@components/common/Icon/Icon"
+import ImgCheckBox from "@components/common/ImgCheckBox/ImgCheckBox"
+import SpeechBubble from "@components/common/SpeechBubble/SpeechBubble"
 
 import { MachineList } from "@typpes/type"
 
@@ -36,7 +36,10 @@ const List = ({
     <S.RecommendInner ref={scrollRef}>
       <GS.RecommendGuideWrapper {...guideAnimation}>
         <GS.RecommendGuide>
-          <Avatar />
+          <Icon
+            icon="Avatar"
+            size={130}
+          />
           <SpeechBubble>
             <SpeechBubble.MainText>
               사용 가능한 기구를 선택해주세요!

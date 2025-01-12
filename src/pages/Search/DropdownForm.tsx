@@ -1,8 +1,9 @@
 import { FormProvider, UseFormReturn } from "react-hook-form"
 
-import Chip from "@components/Chip/Chip"
-import IconButton from "@components/IconButton/IconButton"
-import SearchField from "@components/SearchField/SearchField"
+import Chip from "@components/common/Chip/Chip"
+import IconButton from "@components/common/IconButton/IconButton"
+
+import SearchField from "@pages/Search/SearchField/SearchField"
 
 import { SearchTypes } from "@typpes/type"
 

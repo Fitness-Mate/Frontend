@@ -35,15 +35,16 @@
       "@store/*": ["store/*"],
       "@styles/*": ["styles/*"],
       "@utils/*": ["utils/*"],
-      "@stories/*": ["stories/*"]
+      "@stories/*": ["stories/*"],
+      "@common/*": ["common/*"]
     }
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/components/TyphoGraphy/typhography.mdx",
-    "src/pages/Home/Home.ㅓsx",
-    "src/components/Toast/Toast.tsx"
+    "src/pages/Home/Home.tsx",
+    "src/common/components/Toast/Toast.tsx"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

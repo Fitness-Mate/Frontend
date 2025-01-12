@@ -1,4 +1,4 @@
-import Tabs from "@components/Tabs/Tabs"
+import Tabs from "@components/common/Tabs/Tabs"
 
 import DirectFigureOption from "@pages/Signup/BodyFigure/components/Figure/DirectFigureOption"
 import FigureOption from "@pages/Signup/BodyFigure/components/Figure/FigureOption"

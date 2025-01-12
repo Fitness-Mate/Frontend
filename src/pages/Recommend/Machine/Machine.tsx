@@ -1,12 +1,12 @@
 import { useRef, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 
-import IconButton from "@components/IconButton/IconButton"
-import ProgressBar from "@components/Progressbar/ProgressBar"
+import IconButton from "@components/common/IconButton/IconButton"
 
-import Footer from "@pages/Recommend/Machine/Footer"
+import Footer from "@pages/Recommend/Machine/Bottom"
 import List from "@pages/Recommend/Machine/List"
 import { BackOverlay } from "@pages/Search/StyledSearch"
+import ProgressBar from "@pages/Signup/Progressbar/ProgressBar"
 
 import { usePostRecommend } from "@hooks/mutation/usePostRecommend"
 import { useGetMachineList } from "@hooks/query/useGetMachineList"

@@ -2,13 +2,11 @@ import { useEffect } from "react"
 import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
 
-import { useUserStore } from "@store/useUserStore"
 import { EDIT_INPUTS, EDIT_LIST } from "constants/validation"
+import { useUserStore } from "stores/useUserStore"
 
-import Button from "@components/Button/Button"
-import Input from "@components/Input/Input"
-
-import { getBirthFormat } from "@pages/Signup/utils/getBirthFormat"
+import Button from "@components/common/Button/Button"
+import Input from "@components/common/Input/Input"
 
 import { EditUserPayload } from "@typpes/type"
 import { User } from "@typpes/type"
@@ -16,6 +14,7 @@ import { User } from "@typpes/type"
 import { useEditProfile } from "@hooks/mutation/useEditProfile"
 
 import { formAdapter } from "@utils/formAdapter"
+import { getBirthFormat } from "@utils/getBirthFormat"
 
 import * as S from "./StyledEditProfile"
 

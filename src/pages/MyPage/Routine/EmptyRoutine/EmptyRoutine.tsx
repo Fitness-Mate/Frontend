@@ -1,5 +1,5 @@
-import RoundButton from "@components/Button/RoundButton"
-import Title from "@components/Title/Title"
+import RoundButton from "@components/common/Button/RoundButton"
+import Title from "@components/common/Title/Title"
 
 import { EmptyRoutineWrapper } from "@pages/MyPage/Routine/EmptyRoutine/StyledEmptyRoutine"
 

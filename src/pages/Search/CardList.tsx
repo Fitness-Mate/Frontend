@@ -1,10 +1,10 @@
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 
-import Card from "@components/Card/Card"
-import { useTabs } from "@components/Tabs/TabsContext"
+import { usePageNumStore } from "stores/usePageNumStore"
 
-import { usePageNumStore } from "@pages/Search/store/usePageNumStore"
+import Card from "@components/common/Card/Card"
+import { useTabs } from "@components/common/Tabs/TabsContext"
 
 import { useGetWorkoutBatch } from "@hooks/query/useGetWorkoutBatch"
 

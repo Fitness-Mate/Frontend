@@ -1,7 +1,7 @@
 import { UseFormSetError } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
 
-import { useUserStore } from "@store/useUserStore"
+import { useUserStore } from "stores/useUserStore"
 
 import { useMutation } from "@tanstack/react-query"
 

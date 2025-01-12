@@ -1,19 +1,18 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
 
-import MainLayout from "@Layout/Mainlayout"
+import MainLayout from "layouts/Mainlayout"
+
+import RouteErrorBoundary from "@components/RouteErrorBoundary/RouteErrorBoundary"
 
 import Detail from "@pages/Detail/Detail"
 import Home from "@pages/Home/Home"
 import Login from "@pages/Login/Login"
-import EditBodyFigure from "@pages/MyPage/Edit/EditBodyFigure"
-import EditBodyInfo from "@pages/MyPage/Edit/EditBodyInfo"
 import EditPassword from "@pages/MyPage/Edit/EditPassword"
 import EditProfile from "@pages/MyPage/Edit/EditProfile"
 import MyPage from "@pages/MyPage/Routine/MyPage"
 import BodyPart from "@pages/Recommend/BodyPart/BodyPart"
 import Machine from "@pages/Recommend/Machine/Machine"
 import Result from "@pages/Recommend/Result/Result"
-import RouteErrorBoundary from "@pages/RouteErrorBoundary/RouteErrorBoundary"
 import Search from "@pages/Search/Search"
 import BodyFigure from "@pages/Signup/BodyFigure/BodyFigure"
 import BodyInfo from "@pages/Signup/BodyInfo/BodyInfo"
@@ -64,8 +63,6 @@ const router = createBrowserRouter([
         children: [
           { path: "", element: <MyPage /> },
           { path: "profile", element: <EditProfile /> },
-          { path: "bodyfigure", element: <EditBodyFigure /> },
-          { path: "bodyinfo", element: <EditBodyInfo /> },
           { path: "password", element: <EditPassword /> },
         ],
       },
