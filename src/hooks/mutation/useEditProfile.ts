@@ -1,4 +1,4 @@
-import { useUserStore } from "@store/useUserStore"
+import { useUserStore } from "stores/useUserStore"
 
 import { useMutation } from "@tanstack/react-query"
 

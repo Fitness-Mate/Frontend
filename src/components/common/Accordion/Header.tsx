@@ -1,4 +1,4 @@
-import { useModalStore } from "@store/useModalStore"
+import { useModalStore } from "stores/useModalStore"
 
 import { useAccordion } from "@components/common/Accordion/Accordion"
 import {

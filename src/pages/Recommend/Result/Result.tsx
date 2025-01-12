@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom"
 
-import { useUserStore } from "@store/useUserStore"
+import { useUserStore } from "stores/useUserStore"
 
 import Accordion from "@components/common/Accordion/Accordion"
 import Button from "@components/common/Button/Button"

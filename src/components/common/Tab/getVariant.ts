@@ -1,6 +1,6 @@
 import { css } from "styled-components"
 
-import { Variant } from "@components/Tab/Tab"
+import { Variant } from "@components/common/Tab/Tab"
 
 import theme, { fonts } from "@styles/theme"
 

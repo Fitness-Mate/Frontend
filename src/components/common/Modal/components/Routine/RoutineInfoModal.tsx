@@ -1,6 +1,6 @@
 import { SubmitHandler, useForm } from "react-hook-form"
 
-import { useModalStore } from "@store/useModalStore"
+import { useModalStore } from "stores/useModalStore"
 
 import Button from "@components/common/Button/Button"
 import Modal from "@components/common/Modal/Modal"

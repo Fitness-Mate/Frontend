@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 
-import { useUserStore } from "@store/useUserStore"
+import { useUserStore } from "stores/useUserStore"
 
 import { useQuery } from "@tanstack/react-query"
 

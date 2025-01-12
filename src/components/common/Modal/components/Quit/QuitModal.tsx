@@ -1,6 +1,6 @@
-import Title from "@components/Title/Title"
 import Button from "@components/common/Button/Button"
 import Modal from "@components/common/Modal/Modal"
+import Title from "@components/common/Title/Title"
 
 import { useModal } from "@hooks/useModal"
 

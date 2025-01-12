@@ -2,8 +2,8 @@ import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-scroll"
 
-import { useUserStore } from "@store/useUserStore"
 import { SEARCH_INPUTS } from "constants/validation"
+import { useUserStore } from "stores/useUserStore"
 
 import Button from "@components/common/Button/Button"
 import Chip from "@components/common/Chip/Chip"

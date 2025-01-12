@@ -1,6 +1,6 @@
 import { FormProvider, useForm } from "react-hook-form"
 
-import { useSignupStore } from "@store/useSignupStore"
+import { useSignupStore } from "stores/useSignupStore"
 
 import Title from "@components/common/Title/Title"
 

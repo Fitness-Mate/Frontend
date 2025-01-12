@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 
-import { usePageNumStore } from "@store/usePageNumStore"
+import { usePageNumStore } from "stores/usePageNumStore"
 
 import Card from "@components/common/Card/Card"
 import { useTabs } from "@components/common/Tabs/TabsContext"

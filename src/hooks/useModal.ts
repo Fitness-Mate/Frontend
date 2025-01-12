@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 
-import { useModalStore } from "@store/useModalStore"
+import { useModalStore } from "stores/useModalStore"
 
 interface ModalOptions {
   beforeClose?: () => void | Promise<void>

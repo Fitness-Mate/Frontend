@@ -1,6 +1,6 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
 
-import MainLayout from "@Layout/Mainlayout"
+import MainLayout from "layouts/Mainlayout"
 
 import RouteErrorBoundary from "@components/RouteErrorBoundary/RouteErrorBoundary"
 

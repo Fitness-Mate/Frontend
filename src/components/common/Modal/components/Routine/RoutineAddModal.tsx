@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-import { useModalStore } from "@store/useModalStore"
+import { useModalStore } from "stores/useModalStore"
 
 import Button from "@components/common/Button/Button"
 import Icon from "@components/common/Icon/Icon"

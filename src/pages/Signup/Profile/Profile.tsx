@@ -2,17 +2,16 @@ import { useEffect } from "react"
 import { SubmitHandler, useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
 
-import { useSignupStore } from "@store/useSignupStore"
 import { SIGNUP_INPUTS, SIGNUP_LIST } from "constants/validation"
 import { omit } from "lodash"
+import { useSignupStore } from "stores/useSignupStore"
 
 import Button from "@components/common/Button/Button"
 import Input from "@components/common/Input/Input"
 import Title from "@components/common/Title/Title"
 
-import { getBirthFormat } from "@pages/Signup/utils/getBirthFormat"
-
 import { formAdapter } from "@utils/formAdapter"
+import { getBirthFormat } from "@utils/getBirthFormat"
 
 import * as GS from "../StyledSignup"
 import * as S from "./StyledProfile"

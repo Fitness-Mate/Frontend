@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-import { useUserStore } from "@store/useUserStore"
+import { useUserStore } from "stores/useUserStore"
 
 import NavDropDown from "@components/DropDown/components/NavDropDown"
 

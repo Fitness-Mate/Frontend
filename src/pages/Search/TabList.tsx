@@ -3,12 +3,12 @@ import { UseFormReturn } from "react-hook-form"
 
 import { AnimatePresence } from "framer-motion"
 
-import DeferredComponent from "@components/Deferred/DeferredComponent"
 import CardSkeleton from "@components/common/Card/CardSkeleton"
 import Icon from "@components/common/Icon/Icon"
 import Tabs from "@components/common/Tabs/Tabs"
 
 import CardList from "@pages/Search/CardList"
+import Deferred from "@pages/Search/Deferred"
 import DropdownForm from "@pages/Search/DropdownForm"
 
 import { BodyPartList } from "@typpes/type"
@@ -77,9 +77,9 @@ const TabList = ({
             key={bodyPartId}>
             <Suspense
               fallback={
-                <DeferredComponent>
+                <Deferred>
                   <CardSkeleton />
-                </DeferredComponent>
+                </Deferred>
               }>
               <CardList
                 currentPage={currentPage}

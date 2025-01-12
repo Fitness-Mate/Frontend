@@ -1,6 +1,6 @@
 import { PropsWithChildren, useEffect, useState } from "react"
 
-const DeferredComponent = ({ children }: PropsWithChildren) => {
+const Deferred = ({ children }: PropsWithChildren) => {
   const [isDeferred, setIsDeferred] = useState(false)
 
   useEffect(() => {
@@ -14,4 +14,4 @@ const DeferredComponent = ({ children }: PropsWithChildren) => {
   return <>{children}</>
 }
 
-export default DeferredComponent
+export default Deferred

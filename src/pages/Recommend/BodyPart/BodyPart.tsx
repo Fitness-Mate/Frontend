@@ -2,10 +2,10 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 import IconButton from "@components/common/IconButton/IconButton"
-import ProgressBar from "@components/common/Progressbar/ProgressBar"
 
 import Footer from "@pages/Recommend/BodyPart/Bottom"
 import List from "@pages/Recommend/BodyPart/List"
+import ProgressBar from "@pages/Signup/Progressbar/ProgressBar"
 
 import { useGetBodyPart } from "@hooks/query/useGetBodyPart"
 

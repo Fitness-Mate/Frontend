@@ -1,6 +1,6 @@
 import { Link } from "react-scroll"
 
-import { usePageNumStore } from "@store/usePageNumStore"
+import { usePageNumStore } from "stores/usePageNumStore"
 
 import IconButton from "@components/common/IconButton/IconButton"
 

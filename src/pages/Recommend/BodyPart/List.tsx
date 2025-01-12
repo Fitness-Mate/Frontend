@@ -1,4 +1,4 @@
-import Avatar from "@components/common/Avatar/Avatar"
+import Icon from "@components/common/Icon/Icon"
 import ImgCheckBox from "@components/common/ImgCheckBox/ImgCheckBox"
 import SpeechBubble from "@components/common/SpeechBubble/SpeechBubble"
 
@@ -33,7 +33,10 @@ const List = ({ handleBodyPart, bodyParts, selectedBodyParts }: ListProps) => {
     <S.BodyPartWrapper>
       <GS.RecommendGuideWrapper>
         <GS.RecommendGuide>
-          <Avatar />
+          <Icon
+            icon="Avatar"
+            size={130}
+          />
           <SpeechBubble>
             <SpeechBubble.MainText>
               어떤 부위의 운동을 추천해드릴까요?

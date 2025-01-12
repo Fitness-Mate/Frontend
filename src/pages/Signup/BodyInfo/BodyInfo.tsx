@@ -2,8 +2,8 @@ import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
 import { Fragment } from "react/jsx-runtime"
 
-import { useSignupStore } from "@store/useSignupStore"
 import { BODYINFO_LIST, SEX_GROUP, SIGNUP_INPUTS } from "constants/validation"
+import { useSignupStore } from "stores/useSignupStore"
 
 import Input from "@components/common/Input/Input"
 import Title from "@components/common/Title/Title"
