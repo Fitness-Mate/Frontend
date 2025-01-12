@@ -203,26 +203,14 @@ export const FullRoutineWarning = styled.span`
 
 export const RoutineFixForm = styled.form`
   width: 100%;
+  height: 100%;
 `
 
 export const MyRoutineWrapper = styled.div`
-  height: 100%;
+  height: 394px;
   width: 100%;
   display: flex;
   flex-direction: column;
-`
-
-export const DragPreview = styled.div`
-  position: fixed;
-  pointer-events: none;
-  z-index: 1000;
-  background-color: lightblue;
-  padding: 8px 12px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  opacity: 0.9;
-  transform: translate(-50%, -50%);
 `
 
 export const MyRoutineList = styled.div`
@@ -231,22 +219,7 @@ export const MyRoutineList = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
-  height: 370px;
-  padding: 4px 0 32px 0;
-
-  .item {
-    padding: 8px 0;
-    border: 2px solid transparent;
-    display: flex;
-    align-items: center;
-    transition: border-color 0.3s ease;
-    width: 100%;
-  }
-
-  .item.dragstart {
-    background-color: lightyellow;
-    border-color: orange;
-  }
+  padding: 24px 0 32px 0;
 
   .item.dragover {
     border-top: 2px solid rgb(112, 112, 112);
@@ -267,17 +240,47 @@ export const MyRoutineList = styled.div`
 
 export const RoutineItemContainer = styled.div`
   width: 100%;
-  height: 54px;
   display: flex;
   gap: 4px;
   align-items: center;
   margin: 0;
-  position: relative;
-  will-change: transform;
+  padding: 4px 0;
+  border-top: 2px solid rgba(112, 112, 112, 0);
+  border-bottom: 2px solid rgba(112, 112, 112, 0);
 
-  opacity: 1;
-  transform: scale(1);
+  &.dragover-top {
+    border-top: 2px solid rgb(112, 112, 112);
+  }
+
+  &.dragover-bottom {
+    border-bottom: 2px solid rgb(112, 112, 112);
+  }
 `
+
+export const DragPreviewContainer = styled.div`
+  position: fixed;
+  pointer-events: none;
+  opacity: 0.9;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  margin: 0;
+  z-index: 9999;
+  transform: translateX(0); /* x축 이동을 막음 */
+`
+
+export const DragPreview = styled.div`
+  ${fonts.b4};
+  display: flex;
+  height: 54px;
+  width: 336px;
+  padding: 16px 8px 16px 16px;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid ${theme.Netural400};
+  background: ${theme.Netural0};
+`
+
 export const DeleteIconButton = styled.button`
   width: 0;
   height: 32px;
@@ -294,7 +297,9 @@ export const DeleteIconButton = styled.button`
 export const InputWrapper = styled.div`
   flex-grow: 1;
   width: 100%;
+  height: 100%;
   transition: width 0.3s ease;
+  height: 54px;
 `
 
 export const RoutineHoverArea = styled.div`
