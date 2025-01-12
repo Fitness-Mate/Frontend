@@ -1,5 +1,6 @@
 import { mutationKey } from "constants/mutationKey"
 import { queryKey } from "constants/queryKey"
+import { toastMessage } from "constants/toastMessage"
 
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 
@@ -46,7 +47,7 @@ const useDeleteMyWorkout = () => {
       return { previousData }
     },
     onSuccess: () => {
-      Toast.success("루틴을 삭제했어요")
+      Toast.success(toastMessage.SUCCESS.DELETE_ROTUINE)
     },
     onError: (_, { routineId }: DeleteWorkoutProps, context) => {
       if (context?.previousData) {

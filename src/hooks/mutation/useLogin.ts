@@ -2,6 +2,7 @@ import { UseFormSetError } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
 
 import { mutationKey } from "constants/mutationKey"
+import { toastMessage } from "constants/toastMessage"
 import { useUserStore } from "stores/useUserStore"
 
 import { useMutation } from "@tanstack/react-query"
@@ -30,7 +31,7 @@ export const useLogin = (
         await authAPI.fetchUser().then((res) => {
           saveUser(res)
         })
-        Toast.success("로그인에 성공했어요")
+        Toast.success(toastMessage.SUCCESS.LOGIN)
         navigate("/")
       } else {
         if (setError) {

@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom"
 
 import { mutationKey } from "constants/mutationKey"
+import { toastMessage } from "constants/toastMessage"
 import { useUserStore } from "stores/useUserStore"
 
 import { useMutation } from "@tanstack/react-query"
@@ -32,7 +33,7 @@ export const usePostSignup = () => {
       localStorage.setItem("refreshToken", refreshToken)
       localStorage.setItem("rememberMe", rememberMe.toString())
       navigate("/signup/complete")
-      Toast.success("회원가입을 완료했어요")
+      Toast.success(toastMessage.SUCCESS.SIGNUP)
     },
 
     onError: (error: CustomError) => {

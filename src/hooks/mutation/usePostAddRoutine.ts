@@ -1,5 +1,6 @@
 import { mutationKey } from "constants/mutationKey"
 import { queryKey } from "constants/queryKey"
+import { toastMessage } from "constants/toastMessage"
 
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 
@@ -22,13 +23,11 @@ export const usePostAddRoutine = () => {
     mutationFn: async ({ routineId, routineInfo }: usePostAddRoutineProps) =>
       await MyFitAPI.addRoutine(routineInfo, routineId),
     onSuccess: () => {
-      Toast.success("운동을 추가했어요")
+      Toast.success(toastMessage.SUCCESS.ADD_ROUTINE)
       queryClient.invalidateQueries({ queryKey: [queryKey.GET_MY_ROUTINES] })
     },
     onError: () => {
-      Toast.error(
-        "루틴은 7개까지만 추가할 수 있어요 루틴은 7개까지만 추가할 수 있어요",
-      )
+      Toast.error(toastMessage.FAIL.ADD_ROUTINE)
     },
   })
 }

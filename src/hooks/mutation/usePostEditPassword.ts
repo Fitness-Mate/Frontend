@@ -1,4 +1,5 @@
 import { mutationKey } from "constants/mutationKey"
+import { toastMessage } from "constants/toastMessage"
 
 import { useMutation } from "@tanstack/react-query"
 
@@ -15,9 +16,9 @@ export const usePostEditPassword = () => {
       authAPI.editPassword(payload),
     onSuccess: ({ data: status }) => {
       if (status === "ok") {
-        Toast.success("비밀번호 변경했어요")
+        Toast.success(toastMessage.SUCCESS.EDIT_PASSWORD)
       } else if (status === "fail") {
-        Toast.error("비밀번호 변경이 완료되지 않았어요")
+        Toast.error(toastMessage.FAIL.EDIT_PASSWORD)
       }
     },
   })
