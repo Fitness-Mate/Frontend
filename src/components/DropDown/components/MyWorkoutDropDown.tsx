@@ -1,6 +1,6 @@
 import DropDown from "@components/DropDown/DropDown"
-import Icon from "@components/Icon/Icon"
-import IconButton from "@components/IconButton/IconButton"
+import Icon from "@components/common/Icon/Icon"
+import IconButton from "@components/common/IconButton/IconButton"
 
 import useDeleteMyWorkout from "@hooks/mutation/useDeleteMyWorkout"
 import { useDropDown } from "@hooks/useDropDown"

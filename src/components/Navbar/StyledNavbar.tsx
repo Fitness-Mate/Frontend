@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-import Button from "@components/Button/Button"
+import Button from "@components/common/Button/Button"
 
 import theme from "@styles/theme"
 

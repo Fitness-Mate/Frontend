@@ -2,7 +2,7 @@ import { useFormContext } from "react-hook-form"
 
 import { SIGNUP_INPUTS } from "constants/validation"
 
-import Input from "@components/Input/Input"
+import Input from "@components/common/Input/Input"
 
 import { formAdapter } from "@utils/formAdapter"
 

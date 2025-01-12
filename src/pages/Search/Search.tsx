@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 
-import { useTabs } from "@components/Tabs/TabsContext"
+import { useTabs } from "@components/common/Tabs/TabsContext"
 
 import Pagination from "@pages/Search/Pagination"
 

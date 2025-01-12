@@ -5,8 +5,8 @@ import { Fragment } from "react/jsx-runtime"
 import { useSignupStore } from "@store/useSignupStore"
 import { BODYINFO_LIST, SEX_GROUP, SIGNUP_INPUTS } from "constants/validation"
 
-import Input from "@components/Input/Input"
-import Title from "@components/Title/Title"
+import Input from "@components/common/Input/Input"
+import Title from "@components/common/Title/Title"
 
 import SignupButton from "@pages/Signup/SignupButton/SignupButton"
 

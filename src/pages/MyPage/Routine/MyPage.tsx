@@ -1,9 +1,9 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-import Icon from "@components/Icon/Icon"
-import IconButton from "@components/IconButton/IconButton"
-import Title from "@components/Title/Title"
+import Icon from "@components/common/Icon/Icon"
+import IconButton from "@components/common/IconButton/IconButton"
+import Title from "@components/common/Title/Title"
 
 import EmptyRoutine from "@pages/MyPage/Routine/EmptyRoutine/EmptyRoutine"
 

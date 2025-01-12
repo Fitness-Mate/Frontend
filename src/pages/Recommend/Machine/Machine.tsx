@@ -1,8 +1,8 @@
 import { useRef, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 
-import IconButton from "@components/IconButton/IconButton"
-import ProgressBar from "@components/Progressbar/ProgressBar"
+import IconButton from "@components/common/IconButton/IconButton"
+import ProgressBar from "@components/common/Progressbar/ProgressBar"
 
 import Footer from "@pages/Recommend/Machine/Bottom"
 import List from "@pages/Recommend/Machine/List"

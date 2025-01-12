@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
 import DropDown from "@components/DropDown/DropDown"
-import Icon from "@components/Icon/Icon"
+import Icon from "@components/common/Icon/Icon"
 
 import * as S from "./StyledDropDown"
 

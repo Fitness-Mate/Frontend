@@ -1,8 +1,8 @@
 import { ForwardedRef } from "react"
 
-import Avatar from "@components/Avatar/Avatar"
-import ImgCheckBox from "@components/ImgCheckBox/ImgCheckBox"
-import SpeechBubble from "@components/SpeechBubble/SpeechBubble"
+import Avatar from "@components/common/Avatar/Avatar"
+import ImgCheckBox from "@components/common/ImgCheckBox/ImgCheckBox"
+import SpeechBubble from "@components/common/SpeechBubble/SpeechBubble"
 
 import { MachineList } from "@typpes/type"
 

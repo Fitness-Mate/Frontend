@@ -2,7 +2,7 @@ import { FormProvider, useForm } from "react-hook-form"
 
 import { useSignupStore } from "@store/useSignupStore"
 
-import Title from "@components/Title/Title"
+import Title from "@components/common/Title/Title"
 
 import Figure from "@pages/Signup/BodyFigure/components/Figure/Figure"
 import Ratio from "@pages/Signup/BodyFigure/components/Ratio/Ratio"

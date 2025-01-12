@@ -1,8 +1,8 @@
 import { Link } from "react-scroll"
 
-import IconButton from "@components/IconButton/IconButton"
+import { usePageNumStore } from "@store/usePageNumStore"
 
-import { usePageNumStore } from "@pages/Search/store/usePageNumStore"
+import IconButton from "@components/common/IconButton/IconButton"
 
 import theme from "@styles/theme"
 

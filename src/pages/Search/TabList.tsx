@@ -3,10 +3,10 @@ import { UseFormReturn } from "react-hook-form"
 
 import { AnimatePresence } from "framer-motion"
 
-import CardSkeleton from "@components/Card/CardSkeleton"
 import DeferredComponent from "@components/Deferred/DeferredComponent"
-import Icon from "@components/Icon/Icon"
-import Tabs from "@components/Tabs/Tabs"
+import CardSkeleton from "@components/common/Card/CardSkeleton"
+import Icon from "@components/common/Icon/Icon"
+import Tabs from "@components/common/Tabs/Tabs"
 
 import CardList from "@pages/Search/CardList"
 import DropdownForm from "@pages/Search/DropdownForm"

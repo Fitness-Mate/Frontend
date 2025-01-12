@@ -1,4 +1,4 @@
-import RoundButton from "@components/Button/RoundButton"
+import RoundButton from "@components/common/Button/RoundButton"
 
 import * as S from "../StyledRecommend"
 

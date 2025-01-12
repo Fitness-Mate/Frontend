@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom"
 
-import Button from "@components/Button/Button"
-import Icon from "@components/Icon/Icon"
-import Title from "@components/Title/Title"
+import Button from "@components/common/Button/Button"
+import Icon from "@components/common/Icon/Icon"
+import Title from "@components/common/Title/Title"
 
 import * as GS from "../StyledSignup"
 import * as S from "./StyledComplete"

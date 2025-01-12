@@ -5,10 +5,10 @@ import { Link } from "react-scroll"
 import { useUserStore } from "@store/useUserStore"
 import { SEARCH_INPUTS } from "constants/validation"
 
-import Button from "@components/Button/Button"
-import Chip from "@components/Chip/Chip"
-import Icon from "@components/Icon/Icon"
-import IconButton from "@components/IconButton/IconButton"
+import Button from "@components/common/Button/Button"
+import Chip from "@components/common/Chip/Chip"
+import Icon from "@components/common/Icon/Icon"
+import IconButton from "@components/common/IconButton/IconButton"
 
 import homebanner from "@assets/images/homebanner.png"
 import slide2 from "@assets/images/slide2.png"
@@ -16,7 +16,7 @@ import slide from "@assets/images/slide.png"
 
 import { SearchTypes } from "@typpes/type"
 
-import Input from "../../components/Input/Input"
+import Input from "../../components/common/Input/Input"
 import { formAdapter } from "../../utils/formAdapter"
 import * as S from "./StyledHome"
 

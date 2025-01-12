@@ -7,15 +7,15 @@ import { useModalStore } from "@store/useModalStore"
 import { useUserStore } from "@store/useUserStore"
 
 import Footer from "@components/Footer/Footer"
-import AlertLoadingModal from "@components/Modal/components/Alert/AlertLoadingModal"
-import LoadingModal from "@components/Modal/components/Loading/LoadingModal"
-import RoutineAddModal from "@components/Modal/components/Routine/RoutineAddModal"
-import RoutineInfoModal from "@components/Modal/components/Routine/RoutineInfoModal"
-import RoutineMakeModal from "@components/Modal/components/Routine/RoutineMakeModal"
-import RoutineModal from "@components/Modal/components/Routine/RoutineModal"
 import Navbar from "@components/Navbar/Navbar"
 import { ScrollToTop } from "@components/ScrollToTop/ScrollToTop"
 import { StyledToast } from "@components/Toast/Toast"
+import AlertLoadingModal from "@components/common/Modal/components/Alert/AlertLoadingModal"
+import LoadingModal from "@components/common/Modal/components/Loading/LoadingModal"
+import RoutineAddModal from "@components/common/Modal/components/Routine/RoutineAddModal"
+import RoutineInfoModal from "@components/common/Modal/components/Routine/RoutineInfoModal"
+import RoutineMakeModal from "@components/common/Modal/components/Routine/RoutineMakeModal"
+import RoutineModal from "@components/common/Modal/components/Routine/RoutineModal"
 
 const MainLayout = () => {
   const location = useLocation()

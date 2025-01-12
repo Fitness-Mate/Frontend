@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom"
 import { EDIT_INPUTS, EDIT_LIST } from "constants/validation"
 import { omit } from "lodash"
 
-import Button from "@components/Button/Button"
-import Input from "@components/Input/Input"
+import Button from "@components/common/Button/Button"
+import Input from "@components/common/Input/Input"
 
 import { EditUserPasswordPayload } from "@typpes/type"
 

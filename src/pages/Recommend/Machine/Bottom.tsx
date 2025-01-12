@@ -2,7 +2,7 @@ import { BeatLoader } from "react-spinners"
 
 import { UseMutationResult } from "@tanstack/react-query"
 
-import RoundButton from "@components/Button/RoundButton"
+import RoundButton from "@components/common/Button/RoundButton"
 
 import { MachineList } from "@typpes/type"
 import { PostRecommendResponse } from "@typpes/type"

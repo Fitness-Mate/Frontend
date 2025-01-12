@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom"
 import { useUserStore } from "@store/useUserStore"
 import { EDIT_INPUTS, EDIT_LIST } from "constants/validation"
 
-import Button from "@components/Button/Button"
-import Input from "@components/Input/Input"
+import Button from "@components/common/Button/Button"
+import Input from "@components/common/Input/Input"
 
 import { getBirthFormat } from "@pages/Signup/utils/getBirthFormat"
 

@@ -2,7 +2,7 @@ import { useFormContext } from "react-hook-form"
 
 import { CATEGORY_LIST } from "constants/validation"
 
-import Icon from "@components/Icon/Icon"
+import Icon from "@components/common/Icon/Icon"
 
 import * as S from "./StyledFigure"
 

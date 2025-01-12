@@ -1,6 +1,6 @@
 import { useFormContext } from "react-hook-form"
 
-import IconButton from "@components/IconButton/IconButton"
+import IconButton from "@components/common/IconButton/IconButton"
 
 import * as S from "./StyledSearchField"
 

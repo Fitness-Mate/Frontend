@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom"
 import { DraggableProvided } from "@hello-pangea/dnd"
 
 import MyWorkoutDropDown from "@components/DropDown/components/MyWorkoutDropDown"
-import Icon from "@components/Icon/Icon"
-import IconButton from "@components/IconButton/IconButton"
-import Title from "@components/Title/Title"
+import Icon from "@components/common/Icon/Icon"
+import IconButton from "@components/common/IconButton/IconButton"
+import Title from "@components/common/Title/Title"
 
 import { StrictPropsWithChildren } from "@typpes/type"
 
