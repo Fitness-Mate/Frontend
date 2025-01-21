@@ -65,12 +65,17 @@ const RoutineFixModal = () => {
   } | null>(null)
 
   const dragStart = (e: React.DragEvent<HTMLDivElement>, position: number) => {
+    document.body.style.cursor = "grabbing" // 전역 커서 설정
+    e.currentTarget.classList.add("dragging") // dragging 클래스 추가
+
     dragItem.current = position
+
+    const rect = e.currentTarget.getBoundingClientRect() // 요소 위치 정보
 
     setDragPreview({
       content: watchedRoutines[position].routineName,
-      x: e.currentTarget.getBoundingClientRect().left, // 초기 x값 고정
-      y: e.clientY,
+      x: rect.left - 2, // x값을 살짝 왼쪽으로 이동 (-3px)
+      y: e.clientY, // y값은 그대로
     })
 
     e.dataTransfer.setDragImage(new Image(), 0, 0) // 기본 드래그 이미지를 숨김
@@ -78,6 +83,7 @@ const RoutineFixModal = () => {
 
   const dragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault()
+    document.body.style.cursor = "grabbing" // 드래그 중에도 grabbing 커서 유지
 
     if (dragPreview) {
       setDragPreview((prev) =>
@@ -93,6 +99,9 @@ const RoutineFixModal = () => {
   }
 
   const dragEnter = (e: React.DragEvent<HTMLDivElement>, position: number) => {
+    e.preventDefault()
+    document.body.style.cursor = "grabbing" // 드래그 중에도 grabbing 커서 유지
+
     const element = e.currentTarget
     const isFirstItem = dragItem.current === 0 // 드래그된 요소가 첫 번째 요소인지 확인
     const isLastItem = position === watchedRoutines.length - 1 // 마지막 요소 확인
@@ -173,11 +182,19 @@ const RoutineFixModal = () => {
       .querySelectorAll(".item")
       .forEach((el) => el.classList.remove("dragover-top", "dragover-bottom"))
 
-    setDragPreview(null) // 드래그 프리뷰 제거
+    // 드래그 프리뷰 제거
+    setDragPreview(null)
   }
 
-  const dragEnd = () => {
+  const dragEnd = (e: React.DragEvent<HTMLDivElement>) => {
+    document.body.style.cursor = "" // 전역 커서 복구
+    e.currentTarget.classList.remove("dragging") // dragging 클래스 제거
     setDragPreview(null) // 드래그 종료 시 커스텀 프리뷰 제거
+
+    // 모든 클래스 제거
+    document
+      .querySelectorAll(".item")
+      .forEach((el) => el.classList.remove("dragover-top", "dragover-bottom"))
   }
 
   return (
@@ -201,7 +218,7 @@ const RoutineFixModal = () => {
                   data-index={idx}
                   onDragEnter={(e) => dragEnter(e, idx)}
                   onDrop={(e) => drop(e)}
-                  onDragEnd={dragEnd}>
+                  onDragEnd={(e) => dragEnd(e)}>
                   <S.HandleIconButtonWrapper
                     draggable
                     onDragStart={(e) => dragStart(e, idx)}>
