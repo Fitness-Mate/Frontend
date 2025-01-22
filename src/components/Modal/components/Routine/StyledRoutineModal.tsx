@@ -204,10 +204,12 @@ export const FullRoutineWarning = styled.span`
 export const RoutineFixForm = styled.form`
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `
 
 export const MyRoutineWrapper = styled.div`
-  height: 394px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -219,7 +221,8 @@ export const MyRoutineList = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
-  padding: 24px 0 32px 0;
+  padding-top: 24px;
+  height: calc(fit-content - 20px);
 
   .item.dragover {
     border-top: 2px solid rgb(112, 112, 112);
@@ -266,7 +269,6 @@ export const DragPreviewContainer = styled.div`
   align-items: center;
   margin: 0;
   z-index: 9999;
-  transform: translateX(0); /* x축 이동을 막음 */
 `
 
 export const DragPreview = styled.div`

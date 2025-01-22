@@ -4,53 +4,53 @@ import { UseFormRegister, UseFormSetValue } from "react-hook-form"
 import Icon from "@components/Icon/Icon"
 import Input from "@components/Input/Input"
 
+import { MyRoutines } from "@typpes/type"
+
 import { useModal } from "@hooks/useModal"
 
 import * as S from "./StyledRoutineModal"
 
 interface RoutineItemProps {
-  routine: {
-    routineId: number
-    routineName: string
-    routineIndex: number
-  }
+  routine: MyRoutines
+  items: MyRoutines[]
   index: number
-  register: UseFormRegister<{
-    routines: {
-      routineId: number
-      routineName: string
-      routineIndex: number
-    }[]
-  }>
-  setValue: UseFormSetValue<{
-    routines: {
-      routineId: number
-      routineName: string
-      routineIndex: number
-    }[]
-  }>
-  startDrag: (index: number) => void
+  dragStart: (
+    e: React.DragEvent<HTMLDivElement>,
+    position: number,
+    content: string,
+  ) => void
+  dragOver: (e: React.DragEvent<HTMLDivElement>) => void
+  dragEnter: (e: React.DragEvent<HTMLDivElement>, position: number) => void
+  drop: (e: React.DragEvent<HTMLDivElement>) => void
+  dragEnd: (e: React.DragEvent<HTMLDivElement>) => void
+  register: UseFormRegister<{ routines: MyRoutines[] }>
+  setValue: UseFormSetValue<{ routines: MyRoutines[] }>
 }
 
 const RoutineItem: React.FC<RoutineItemProps> = ({
   routine,
+  items,
   index,
+  dragStart,
+  dragOver,
+  dragEnter,
+  drop,
+  dragEnd,
   register,
   setValue,
 }) => {
   const { onOpen } = useModal("삭제")
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(`routines.${index}.routineName`, e.target.value)
-  }
-
-  const handleDeleteClick = () => {
-    onOpen()
-  }
-
   return (
-    <S.RoutineItemContainer>
-      <S.HandleIconButtonWrapper>
+    <S.RoutineItemContainer
+      className="item"
+      onDragEnter={(e) => dragEnter(e, index)}
+      onDragOver={dragOver}
+      onDrop={drop}
+      onDragEnd={dragEnd}>
+      <S.HandleIconButtonWrapper
+        draggable={items.length > 1}
+        onDragStart={(e) => dragStart(e, index, routine.routineName)}>
         <Icon
           icon="Handle"
           size={18}
@@ -58,17 +58,28 @@ const RoutineItem: React.FC<RoutineItemProps> = ({
       </S.HandleIconButtonWrapper>
       <S.RoutineHoverArea>
         <S.InputWrapper>
-          <Input>
+          <Input key={routine.routineId}>
             <Input.Input
               props={{
                 ...register(`routines.${index}.routineName`),
                 value: routine.routineName,
-                onChange: handleInputChange,
+                onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
+                  const updatedRoutine = {
+                    ...routine,
+                    routineName: e.target.value,
+                  }
+
+                  // setValue로 react-hook-form 상태 업데이트
+                  setValue(
+                    `routines.${index}.routineName`,
+                    updatedRoutine.routineName,
+                  )
+                },
               }}
             />
           </Input>
         </S.InputWrapper>
-        <S.DeleteIconButton onClick={handleDeleteClick}>
+        <S.DeleteIconButton onClick={() => onOpen()}>
           <Icon
             icon="RedTrash"
             size={18}
