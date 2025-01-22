@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 
 import Icon from "@components/Icon/Icon"
 import IconButton from "@components/IconButton/IconButton"
+import RoutineFixModal from "@components/Modal/components/Routine/RoutineFixModal"
 import Title from "@components/Title/Title"
 
 import EmptyRoutine from "@pages/MyPage/Routine/EmptyRoutine/EmptyRoutine"
@@ -124,6 +125,7 @@ const MyPage = () => {
           </S.MypageTopContainer>
         </S.MypageHomeArea>
       </S.MypageContainer>
+      <RoutineFixModal />
     </>
   )
 }

@@ -24,6 +24,7 @@ export const useModalStore = create<ModalStoreProps>((set) => ({
     루틴정보: false,
     루틴추가: false,
     루틴중복: false,
+    루틴수정: false,
   },
   setModalState: (newState) =>
     set((state) => ({
