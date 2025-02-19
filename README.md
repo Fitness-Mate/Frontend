@@ -3,4 +3,5 @@
 ## 테스트 계정
 
 id : gnsdh8616@konkuk.ac.kr
-password: 123123gg
+
+password: 123123ggg
