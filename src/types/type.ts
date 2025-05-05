@@ -222,3 +222,9 @@ export interface RoutineInfoTypes {
   repeat: string
   set: string
 }
+
+export interface RoutineInfoType {
+  weight: string
+  rep: string
+  setCount: string
+}
